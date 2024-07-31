@@ -11,9 +11,7 @@
 		9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906642C4F993C00647DEE /* AppDelegate.swift */; };
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
-		9E59066C2C4F993C00647DEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E59066A2C4F993C00647DEE /* Main.storyboard */; };
 		9E59066E2C4F993D00647DEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E59066D2C4F993D00647DEE /* Assets.xcassets */; };
-		9E5906712C4F993D00647DEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E59066F2C4F993D00647DEE /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,9 +20,7 @@
 		9E5906642C4F993C00647DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9E5906682C4F993C00647DEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		9E59066B2C4F993C00647DEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9E59066D2C4F993D00647DEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9E5906702C4F993D00647DEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E5906722C4F993D00647DEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8723918103271AC2055FC17 /* Pods_WooHyepHa_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WooHyepHa_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B1175900842BD9C5980C99 /* Pods-WooHyepHa-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WooHyepHa-iOS.release.xcconfig"; path = "Target Support Files/Pods-WooHyepHa-iOS/Pods-WooHyepHa-iOS.release.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +47,81 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		9E0FF1DE2C5A21BF00544674 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FF1E02C5A21DD00544674 /* Font */,
+				9E59066D2C4F993D00647DEE /* Assets.xcassets */,
+				9E5906722C4F993D00647DEE /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		9E0FF1DF2C5A21CC00544674 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FF1E52C5A22EA00544674 /* Utils */,
+				9E0FF1E42C5A22E500544674 /* Presentation */,
+				9E0FF1E32C5A22E100544674 /* Domain */,
+				9E0FF1E22C5A22DC00544674 /* Data */,
+				9E0FF1E12C5A22CF00544674 /* App */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		9E0FF1E02C5A21DD00544674 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		9E0FF1E12C5A22CF00544674 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9E5906642C4F993C00647DEE /* AppDelegate.swift */,
+				9E5906662C4F993C00647DEE /* SceneDelegate.swift */,
+			);
+			name = App;
+			sourceTree = "<group>";
+		};
+		9E0FF1E22C5A22DC00544674 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		9E0FF1E32C5A22E100544674 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Domain;
+			sourceTree = "<group>";
+		};
+		9E0FF1E42C5A22E500544674 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9E5906682C4F993C00647DEE /* ViewController.swift */,
+			);
+			name = Presentation;
+			sourceTree = "<group>";
+		};
+		9E0FF1E52C5A22EA00544674 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FF1E62C5A231400544674 /* Extensions */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
+		9E0FF1E62C5A231400544674 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		9E5906582C4F993C00647DEE = {
 			isa = PBXGroup;
 			children = (
@@ -72,13 +143,8 @@
 		9E5906632C4F993C00647DEE /* WooHyepHa-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				9E5906642C4F993C00647DEE /* AppDelegate.swift */,
-				9E5906662C4F993C00647DEE /* SceneDelegate.swift */,
-				9E5906682C4F993C00647DEE /* ViewController.swift */,
-				9E59066A2C4F993C00647DEE /* Main.storyboard */,
-				9E59066D2C4F993D00647DEE /* Assets.xcassets */,
-				9E59066F2C4F993D00647DEE /* LaunchScreen.storyboard */,
-				9E5906722C4F993D00647DEE /* Info.plist */,
+				9E0FF1DF2C5A21CC00544674 /* Sources */,
+				9E0FF1DE2C5A21BF00544674 /* Resources */,
 			);
 			path = "WooHyepHa-iOS";
 			sourceTree = "<group>";
@@ -151,9 +217,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9E5906712C4F993D00647DEE /* LaunchScreen.storyboard in Resources */,
 				9E59066E2C4F993D00647DEE /* Assets.xcassets in Resources */,
-				9E59066C2C4F993C00647DEE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,25 +277,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		9E59066A2C4F993C00647DEE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9E59066B2C4F993C00647DEE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		9E59066F2C4F993D00647DEE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				9E5906702C4F993D00647DEE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9E5906732C4F993D00647DEE /* Debug */ = {
@@ -362,11 +407,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X67DB976UU;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WooHyepHa-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -396,11 +441,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X67DB976UU;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "WooHyepHa-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
