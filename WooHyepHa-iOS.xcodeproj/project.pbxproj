@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7EBDB5FD5FA6FBC1F01F4F8A /* Pods_WooHyepHa_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8723918103271AC2055FC17 /* Pods_WooHyepHa_iOS.framework */; };
+		9E0FF1E82C5A23E500544674 /* Extension + UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF1E72C5A23E500544674 /* Extension + UIColor.swift */; };
 		9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906642C4F993C00647DEE /* AppDelegate.swift */; };
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 
 /* Begin PBXFileReference section */
 		8AB397A7E0206332D2CF6DB2 /* Pods-WooHyepHa-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WooHyepHa-iOS.debug.xcconfig"; path = "Target Support Files/Pods-WooHyepHa-iOS/Pods-WooHyepHa-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		9E0FF1E72C5A23E500544674 /* Extension + UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIColor.swift"; sourceTree = "<group>"; };
 		9E5906612C4F993C00647DEE /* WooHyepHa-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WooHyepHa-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5906642C4F993C00647DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		9E0FF1E62C5A231400544674 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				9E0FF1E72C5A23E500544674 /* Extension + UIColor.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E5906692C4F993C00647DEE /* ViewController.swift in Sources */,
+				9E0FF1E82C5A23E500544674 /* Extension + UIColor.swift in Sources */,
 				9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
 			);
