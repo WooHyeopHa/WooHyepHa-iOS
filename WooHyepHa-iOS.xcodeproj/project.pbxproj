@@ -15,6 +15,7 @@
 		9E0FF1F12C5A24AB00544674 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF1EC2C5A24AA00544674 /* Pretendard-Bold.otf */; };
 		9E0FF1F22C5A24AB00544674 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF1ED2C5A24AB00544674 /* Pretendard-Medium.otf */; };
 		9E0FF1F42C5A252E00544674 /* Extension + UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF1F32C5A252E00544674 /* Extension + UIFont.swift */; };
+		9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF1F62C5A28C500544674 /* BaseViewController.swift */; };
 		9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906642C4F993C00647DEE /* AppDelegate.swift */; };
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
@@ -30,6 +31,7 @@
 		9E0FF1EC2C5A24AA00544674 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		9E0FF1ED2C5A24AB00544674 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		9E0FF1F32C5A252E00544674 /* Extension + UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIFont.swift"; sourceTree = "<group>"; };
+		9E0FF1F62C5A28C500544674 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9E5906612C4F993C00647DEE /* WooHyepHa-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WooHyepHa-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5906642C4F993C00647DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		9E0FF1E52C5A22EA00544674 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9E0FF1F52C5A28B200544674 /* Base */,
 				9E0FF1E62C5A231400544674 /* Extensions */,
 			);
 			name = Utils;
@@ -141,6 +144,14 @@
 				9E0FF1F32C5A252E00544674 /* Extension + UIFont.swift */,
 			);
 			name = Extensions;
+			sourceTree = "<group>";
+		};
+		9E0FF1F52C5A28B200544674 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FF1F62C5A28C500544674 /* BaseViewController.swift */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 		9E5906582C4F993C00647DEE = {
@@ -301,6 +312,7 @@
 				9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */,
 				9E0FF1F42C5A252E00544674 /* Extension + UIFont.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
+				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
