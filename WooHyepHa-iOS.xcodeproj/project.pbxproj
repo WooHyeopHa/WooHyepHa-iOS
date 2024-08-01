@@ -100,8 +100,6 @@
 		9E0FF1E12C5A22CF00544674 /* App */ = {
 			isa = PBXGroup;
 			children = (
-				9E5906642C4F993C00647DEE /* AppDelegate.swift */,
-				9E5906662C4F993C00647DEE /* SceneDelegate.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -123,7 +121,6 @@
 		9E0FF1E42C5A22E500544674 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				9E5906682C4F993C00647DEE /* ViewController.swift */,
 			);
 			name = Presentation;
 			sourceTree = "<group>";
@@ -140,8 +137,6 @@
 		9E0FF1E62C5A231400544674 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				9E0FF1E72C5A23E500544674 /* Extension + UIColor.swift */,
-				9E0FF1F32C5A252E00544674 /* Extension + UIFont.swift */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -149,9 +144,77 @@
 		9E0FF1F52C5A28B200544674 /* Base */ = {
 			isa = PBXGroup;
 			children = (
-				9E0FF1F62C5A28C500544674 /* BaseViewController.swift */,
 			);
 			name = Base;
+			sourceTree = "<group>";
+		};
+		9E0FF1F92C5B2D7C00544674 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FF2002C5B2E7C00544674 /* App */,
+				9E0FF1FF2C5B2E7800544674 /* Data */,
+				9E0FF1FE2C5B2E7400544674 /* Domain */,
+				9E0FF1FD2C5B2E6900544674 /* Presentation */,
+				9E0FF1FA2C5B2E4B00544674 /* Utils */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		9E0FF1FA2C5B2E4B00544674 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FF1FC2C5B2E5C00544674 /* Extensions */,
+				9E0FF1FB2C5B2E5200544674 /* Base */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9E0FF1FB2C5B2E5200544674 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FF1F62C5A28C500544674 /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		9E0FF1FC2C5B2E5C00544674 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FF1E72C5A23E500544674 /* Extension + UIColor.swift */,
+				9E0FF1F32C5A252E00544674 /* Extension + UIFont.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9E0FF1FD2C5B2E6900544674 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9E5906682C4F993C00647DEE /* ViewController.swift */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		9E0FF1FE2C5B2E7400544674 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		9E0FF1FF2C5B2E7800544674 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		9E0FF2002C5B2E7C00544674 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9E5906642C4F993C00647DEE /* AppDelegate.swift */,
+				9E5906662C4F993C00647DEE /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		9E5906582C4F993C00647DEE = {
@@ -175,6 +238,7 @@
 		9E5906632C4F993C00647DEE /* WooHyepHa-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				9E0FF1F92C5B2D7C00544674 /* Sources */,
 				9E0FF1DF2C5A21CC00544674 /* Sources */,
 				9E0FF1DE2C5A21BF00544674 /* Resources */,
 			);
