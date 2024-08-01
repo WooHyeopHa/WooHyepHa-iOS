@@ -73,18 +73,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		9E0FF1DF2C5A21CC00544674 /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				9E0FF1E52C5A22EA00544674 /* Utils */,
-				9E0FF1E42C5A22E500544674 /* Presentation */,
-				9E0FF1E32C5A22E100544674 /* Domain */,
-				9E0FF1E22C5A22DC00544674 /* Data */,
-				9E0FF1E12C5A22CF00544674 /* App */,
-			);
-			name = Sources;
-			sourceTree = "<group>";
-		};
 		9E0FF1E02C5A21DD00544674 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,57 +83,6 @@
 				9E0FF1EB2C5A24AA00544674 /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
-			sourceTree = "<group>";
-		};
-		9E0FF1E12C5A22CF00544674 /* App */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = App;
-			sourceTree = "<group>";
-		};
-		9E0FF1E22C5A22DC00544674 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Data;
-			sourceTree = "<group>";
-		};
-		9E0FF1E32C5A22E100544674 /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Domain;
-			sourceTree = "<group>";
-		};
-		9E0FF1E42C5A22E500544674 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Presentation;
-			sourceTree = "<group>";
-		};
-		9E0FF1E52C5A22EA00544674 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				9E0FF1F52C5A28B200544674 /* Base */,
-				9E0FF1E62C5A231400544674 /* Extensions */,
-			);
-			name = Utils;
-			sourceTree = "<group>";
-		};
-		9E0FF1E62C5A231400544674 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Extensions;
-			sourceTree = "<group>";
-		};
-		9E0FF1F52C5A28B200544674 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Base;
 			sourceTree = "<group>";
 		};
 		9E0FF1F92C5B2D7C00544674 /* Sources */ = {
@@ -239,7 +176,6 @@
 			isa = PBXGroup;
 			children = (
 				9E0FF1F92C5B2D7C00544674 /* Sources */,
-				9E0FF1DF2C5A21CC00544674 /* Sources */,
 				9E0FF1DE2C5A21BF00544674 /* Resources */,
 			);
 			path = "WooHyepHa-iOS";
