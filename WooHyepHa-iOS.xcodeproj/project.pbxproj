@@ -27,6 +27,7 @@
 		9E0FF2AC2C6B0B2800544674 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2AB2C6B0B2800544674 /* MapViewController.swift */; };
 		9E0FF2AE2C6B0B4F00544674 /* MapCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2AD2C6B0B4F00544674 /* MapCoordinator.swift */; };
 		9E0FF2B02C6B0B8500544674 /* ChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2AF2C6B0B8500544674 /* ChatViewController.swift */; };
+		9E0FF2B22C6B0B9D00544674 /* ChatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2B12C6B0B9D00544674 /* ChatCoordinator.swift */; };
 		9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906642C4F993C00647DEE /* AppDelegate.swift */; };
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
@@ -54,6 +55,7 @@
 		9E0FF2AB2C6B0B2800544674 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9E0FF2AD2C6B0B4F00544674 /* MapCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCoordinator.swift; sourceTree = "<group>"; };
 		9E0FF2AF2C6B0B8500544674 /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
+		9E0FF2B12C6B0B9D00544674 /* ChatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCoordinator.swift; sourceTree = "<group>"; };
 		9E5906612C4F993C00647DEE /* WooHyepHa-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WooHyepHa-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5906642C4F993C00647DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 		9E0FF29F2C6B09F300544674 /* Chat */ = {
 			isa = PBXGroup;
 			children = (
+				9E0FF2B12C6B0B9D00544674 /* ChatCoordinator.swift */,
 				9E0FF2AF2C6B0B8500544674 /* ChatViewController.swift */,
 			);
 			path = Chat;
@@ -412,6 +415,7 @@
 				9E0FF2982C6B08E300544674 /* TabBarCoordinator.swift in Sources */,
 				9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */,
 				9E0FF1F42C5A252E00544674 /* Extension + UIFont.swift in Sources */,
+				9E0FF2B22C6B0B9D00544674 /* ChatCoordinator.swift in Sources */,
 				9E0FF2A82C6B0AB400544674 /* MatingViewController.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
 				9E0FF2962C6B066200544674 /* TabBarItemType.swift in Sources */,
