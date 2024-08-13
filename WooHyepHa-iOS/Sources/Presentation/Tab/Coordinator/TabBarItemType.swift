@@ -21,7 +21,7 @@ extension TabBarItemType {
         case .map:
             return UITabBarItem(title: "", image: UIImage(named: "tabbar_map_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_map_active")?.withRenderingMode(.alwaysOriginal))
         case .chat:
-            return UITabBarItem(title: "", image: UIImage(named: "test1")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "test2")?.withRenderingMode(.alwaysOriginal))
+            return UITabBarItem(title: "", image: UIImage(named: "tabbar_chat_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_chat_active")?.withRenderingMode(.alwaysOriginal))
         case .mypage:
             return UITabBarItem(title: "", image: UIImage(named: "tabbar_mypage_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_mypage_active")?.withRenderingMode(.alwaysOriginal))
         }
