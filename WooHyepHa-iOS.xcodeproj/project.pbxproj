@@ -19,6 +19,7 @@
 		9E0FF2962C6B066200544674 /* TabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2952C6B066200544674 /* TabBarItemType.swift */; };
 		9E0FF2982C6B08E300544674 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2972C6B08E300544674 /* TabBarCoordinator.swift */; };
 		9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF29A2C6B095600544674 /* Coordinator.swift */; };
+		9E0FF29D2C6B099900544674 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF29C2C6B099900544674 /* AppCoordinator.swift */; };
 		9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906642C4F993C00647DEE /* AppDelegate.swift */; };
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 		9E0FF2952C6B066200544674 /* TabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemType.swift; sourceTree = "<group>"; };
 		9E0FF2972C6B08E300544674 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		9E0FF29A2C6B095600544674 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		9E0FF29C2C6B099900544674 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		9E5906612C4F993C00647DEE /* WooHyepHa-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WooHyepHa-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5906642C4F993C00647DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				9E0FF29A2C6B095600544674 /* Coordinator.swift */,
+				9E0FF29C2C6B099900544674 /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
 			sourceTree = "<group>";
@@ -342,6 +345,7 @@
 			files = (
 				9E5906692C4F993C00647DEE /* ViewController.swift in Sources */,
 				9E0FF1E82C5A23E500544674 /* Extension + UIColor.swift in Sources */,
+				9E0FF29D2C6B099900544674 /* AppCoordinator.swift in Sources */,
 				9E0FF2982C6B08E300544674 /* TabBarCoordinator.swift in Sources */,
 				9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */,
 				9E0FF1F42C5A252E00544674 /* Extension + UIFont.swift in Sources */,
