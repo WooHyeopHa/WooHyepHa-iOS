@@ -23,11 +23,14 @@ extension UIFont {
 
     static let sub1 = UIFont(name: Pretendard.pretendardBold.rawValue, size: 20)!
     static let sub2 = UIFont(name: Pretendard.pretendardBold.rawValue, size: 18)!
-    static let sub3 = UIFont(name: Pretendard.pretendardSemiBold.rawValue, size: 18)!
+    static let sub3 = UIFont(name: Pretendard.pretendardMedium.rawValue, size: 18)!
+    static let sub4 = UIFont(name: Pretendard.pretendardSemiBold.rawValue, size: 18)!
     
-    static let caption1 = UIFont(name: Pretendard.pretendardRegular.rawValue, size: 13)!
-    static let caption2 = UIFont(name: Pretendard.pretendardBold.rawValue, size: 12)!
-    static let caption3 = UIFont(name: Pretendard.pretendardRegular.rawValue, size: 12)!
+    static let caption1 = UIFont(name: Pretendard.pretendardBold.rawValue, size: 12)!
+    static let caption2 = UIFont(name: Pretendard.pretendardRegular.rawValue, size: 12)!
+    static let caption3 = UIFont(name: Pretendard.pretendardSemiBold.rawValue, size: 11)!
+    static let caption4 = UIFont(name: Pretendard.pretendardRegular.rawValue, size: 13)!
+    static let caption5 = UIFont(name: Pretendard.pretendardSemiBold.rawValue, size: 12)!
     
     static let body1 = UIFont(name: Pretendard.pretendardBold.rawValue, size: 16)!
     static let body2 = UIFont(name: Pretendard.pretendardMedium.rawValue, size: 16)!
