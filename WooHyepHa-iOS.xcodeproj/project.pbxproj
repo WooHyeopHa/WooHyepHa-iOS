@@ -20,6 +20,7 @@
 		9E0FF2982C6B08E300544674 /* TabBarCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2972C6B08E300544674 /* TabBarCoordinator.swift */; };
 		9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF29A2C6B095600544674 /* Coordinator.swift */; };
 		9E0FF29D2C6B099900544674 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF29C2C6B099900544674 /* AppCoordinator.swift */; };
+		9E0FF2A42C6B0A2B00544674 /* HomeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2A32C6B0A2B00544674 /* HomeCoordinator.swift */; };
 		9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906642C4F993C00647DEE /* AppDelegate.swift */; };
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
@@ -40,6 +41,7 @@
 		9E0FF2972C6B08E300544674 /* TabBarCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCoordinator.swift; sourceTree = "<group>"; };
 		9E0FF29A2C6B095600544674 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		9E0FF29C2C6B099900544674 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		9E0FF2A32C6B0A2B00544674 /* HomeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCoordinator.swift; sourceTree = "<group>"; };
 		9E5906612C4F993C00647DEE /* WooHyepHa-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WooHyepHa-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5906642C4F993C00647DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,11 @@
 			isa = PBXGroup;
 			children = (
 				9E0FF2942C6B063400544674 /* Coordinator */,
+				9E0FF2A22C6B0A0800544674 /* Home */,
+				9E0FF2A12C6B0A0200544674 /* Mating */,
+				9E0FF2A02C6B09F800544674 /* Map */,
+				9E0FF29F2C6B09F300544674 /* Chat */,
+				9E0FF29E2C6B09EA00544674 /* MyPage */,
 			);
 			path = Tab;
 			sourceTree = "<group>";
@@ -188,6 +195,42 @@
 				9E0FF29C2C6B099900544674 /* AppCoordinator.swift */,
 			);
 			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		9E0FF29E2C6B09EA00544674 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
+		9E0FF29F2C6B09F300544674 /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		9E0FF2A02C6B09F800544674 /* Map */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
+		9E0FF2A12C6B0A0200544674 /* Mating */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Mating;
+			sourceTree = "<group>";
+		};
+		9E0FF2A22C6B0A0800544674 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FF2A32C6B0A2B00544674 /* HomeCoordinator.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 		9E5906582C4F993C00647DEE = {
@@ -353,6 +396,7 @@
 				9E0FF2962C6B066200544674 /* TabBarItemType.swift in Sources */,
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
 				9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */,
+				9E0FF2A42C6B0A2B00544674 /* HomeCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
