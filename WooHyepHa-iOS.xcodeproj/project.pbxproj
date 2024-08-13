@@ -24,6 +24,7 @@
 		9E0FF2A62C6B0A5F00544674 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2A52C6B0A5F00544674 /* HomeViewController.swift */; };
 		9E0FF2A82C6B0AB400544674 /* MatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2A72C6B0AB400544674 /* MatingViewController.swift */; };
 		9E0FF2AA2C6B0AD100544674 /* MatingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2A92C6B0AD100544674 /* MatingCoordinator.swift */; };
+		9E0FF2AC2C6B0B2800544674 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2AB2C6B0B2800544674 /* MapViewController.swift */; };
 		9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906642C4F993C00647DEE /* AppDelegate.swift */; };
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		9E0FF2A52C6B0A5F00544674 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9E0FF2A72C6B0AB400544674 /* MatingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatingViewController.swift; sourceTree = "<group>"; };
 		9E0FF2A92C6B0AD100544674 /* MatingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatingCoordinator.swift; sourceTree = "<group>"; };
+		9E0FF2AB2C6B0B2800544674 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		9E5906612C4F993C00647DEE /* WooHyepHa-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WooHyepHa-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5906642C4F993C00647DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 		9E0FF2A02C6B09F800544674 /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				9E0FF2AB2C6B0B2800544674 /* MapViewController.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -408,6 +411,7 @@
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
 				9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */,
 				9E0FF2A42C6B0A2B00544674 /* HomeCoordinator.swift in Sources */,
+				9E0FF2AC2C6B0B2800544674 /* MapViewController.swift in Sources */,
 				9E0FF2A62C6B0A5F00544674 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
