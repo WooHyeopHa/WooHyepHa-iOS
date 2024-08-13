@@ -30,7 +30,18 @@ extension UIColor {
     static let MainColor = UIColor(hexCode: 0xFF4C01)
     
     // Sub Color
+    static let SubColor = UIColor(hexCode: 0x4590FF)
+    static let bgBlack = UIColor(hexCode: 0x0F0F0F)
     
     // Grayscale
+    static let gray1 = UIColor(hexCode: 0x212121)
+    static let gray2 = UIColor(hexCode: 0x424242)
+    static let gray3 = UIColor(hexCode: 0x616161)
+    static let gray4 = UIColor(hexCode: 0x757575)
+    static let gray5 = UIColor(hexCode: 0x9E9E9E)
+    static let gray6 = UIColor(hexCode: 0xBDBDBD)
+    static let gray7 = UIColor(hexCode: 0xE0E0E0)
+    static let gray8 = UIColor(hexCode: 0xFFFFFF)
+    static let gray9 = UIColor(hexCode: 0xF5F5F5)
 }
 
