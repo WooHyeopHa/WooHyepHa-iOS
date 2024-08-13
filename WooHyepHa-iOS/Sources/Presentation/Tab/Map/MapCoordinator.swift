@@ -25,7 +25,7 @@ final class MapCoordinator: Coordinator {
 
 private extension MapCoordinator {
     func goToMapViewController() {
-        let MapViewController = MapViewController()
-        navigationController.pushViewController(MapViewController, animated: true)
+        let mapViewController = MapViewController()
+        navigationController.pushViewController(mapViewController, animated: true)
     }
 }
