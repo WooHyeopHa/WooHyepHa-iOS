@@ -77,9 +77,9 @@
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9E5906682C4F993C00647DEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E59066D2C4F993D00647DEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		9E5906722C4F993D00647DEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9E9C31002C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E9C31022C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		9E9C310F2C6C77AC00F8B01A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C8723918103271AC2055FC17 /* Pods_WooHyepHa_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WooHyepHa_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B1175900842BD9C5980C99 /* Pods-WooHyepHa-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WooHyepHa-iOS.release.xcconfig"; path = "Target Support Files/Pods-WooHyepHa-iOS/Pods-WooHyepHa-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,9 +108,9 @@
 		9E0FF1DE2C5A21BF00544674 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9E9C310F2C6C77AC00F8B01A /* Info.plist */,
 				9E9C30FE2C6C739800F8B01A /* Base.lproj */,
 				9E0FF1E02C5A21DD00544674 /* Fonts */,
-				9E5906722C4F993D00647DEE /* Info.plist */,
 				9E59066D2C4F993D00647DEE /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -425,11 +425,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E59066E2C4F993D00647DEE /* Assets.xcassets in Resources */,
-				9E0FF2D22C6C6D7A00544674 /* Pretendard-Bold.otf in Resources */,
-				9E0FF2CD2C6C696700544674 /* Pretendard-Regular.otf in Resources */,
 				9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */,
-				9E0FF2CF2C6C696700544674 /* Pretendard-SemiBold.otf in Resources */,
 				9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */,
+				9E0FF2D22C6C6D7A00544674 /* Pretendard-Bold.otf in Resources */,
+				9E0FF2CF2C6C696700544674 /* Pretendard-SemiBold.otf in Resources */,
+				9E0FF2CD2C6C696700544674 /* Pretendard-Regular.otf in Resources */,
 				9E0FF2CC2C6C696700544674 /* Pretendard-Light.otf in Resources */,
 				9E0FF2CE2C6C696700544674 /* Pretendard-Medium.otf in Resources */,
 			);
@@ -586,6 +586,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "/Users/seongil/Desktop/WooHyepHa-iOS/WooHyepHa-iOS/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
@@ -643,6 +645,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "/Users/seongil/Desktop/WooHyepHa-iOS/WooHyepHa-iOS/Resources/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
@@ -664,7 +668,7 @@
 				DEVELOPMENT_TEAM = X67DB976UU;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "WooHyepHa-iOS/Info.plist";
+				INFOPLIST_FILE = "WooHyepHa-iOS/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -698,7 +702,7 @@
 				DEVELOPMENT_TEAM = X67DB976UU;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "WooHyepHa-iOS/Info.plist";
+				INFOPLIST_FILE = "WooHyepHa-iOS/Resources/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
