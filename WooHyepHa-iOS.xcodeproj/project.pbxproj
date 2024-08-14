@@ -31,6 +31,7 @@
 		9E0FF2B42C6B0C3500544674 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2B32C6B0C3500544674 /* MyPageViewController.swift */; };
 		9E0FF2B62C6B0C5100544674 /* MyPageCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2B52C6B0C5100544674 /* MyPageCoordinator.swift */; };
 		9E0FF2B92C6C4F5A00544674 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2B82C6C4F5A00544674 /* SplashViewController.swift */; };
+		9E0FF2BD2C6C58BB00544674 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2BC2C6C58BB00544674 /* LoginViewController.swift */; };
 		9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906642C4F993C00647DEE /* AppDelegate.swift */; };
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
@@ -62,6 +63,7 @@
 		9E0FF2B32C6B0C3500544674 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		9E0FF2B52C6B0C5100544674 /* MyPageCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageCoordinator.swift; sourceTree = "<group>"; };
 		9E0FF2B82C6C4F5A00544674 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		9E0FF2BC2C6C58BB00544674 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E5906612C4F993C00647DEE /* WooHyepHa-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WooHyepHa-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5906642C4F993C00647DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 		9E0FF1FD2C5B2E6900544674 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9E0FF2BA2C6C58A400544674 /* Onboarding */,
 				9E0FF2B72C6C4F4C00544674 /* Splash */,
 				9E0FF2932C6B062000544674 /* Tab */,
 				9E5906682C4F993C00647DEE /* ViewController.swift */,
@@ -269,6 +272,22 @@
 				9E0FF2B82C6C4F5A00544674 /* SplashViewController.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		9E0FF2BA2C6C58A400544674 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FF2BB2C6C58B200544674 /* Login */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		9E0FF2BB2C6C58B200544674 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				9E0FF2BC2C6C58BB00544674 /* LoginViewController.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		9E5906582C4F993C00647DEE = {
@@ -434,6 +453,7 @@
 				9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */,
 				9E0FF1F42C5A252E00544674 /* Extension + UIFont.swift in Sources */,
 				9E0FF2B22C6B0B9D00544674 /* ChatCoordinator.swift in Sources */,
+				9E0FF2BD2C6C58BB00544674 /* LoginViewController.swift in Sources */,
 				9E0FF2A82C6B0AB400544674 /* MatingViewController.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
 				9E0FF2B92C6C4F5A00544674 /* SplashViewController.swift in Sources */,
