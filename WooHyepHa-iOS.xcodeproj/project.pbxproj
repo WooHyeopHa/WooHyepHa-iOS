@@ -34,7 +34,7 @@
 		9E0FF2CD2C6C696700544674 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF2C82C6C696700544674 /* Pretendard-Regular.otf */; };
 		9E0FF2CE2C6C696700544674 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF2C92C6C696700544674 /* Pretendard-Medium.otf */; };
 		9E0FF2CF2C6C696700544674 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF2CA2C6C696700544674 /* Pretendard-SemiBold.otf */; };
-		9E0FF2D02C6C696700544674 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF2CB2C6C696700544674 /* Pretendard-Bold.otf */; };
+		9E0FF2D22C6C6D7A00544674 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF2D12C6C6D7A00544674 /* Pretendard-Bold.otf */; };
 		9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906642C4F993C00647DEE /* AppDelegate.swift */; };
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
@@ -69,7 +69,7 @@
 		9E0FF2C82C6C696700544674 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		9E0FF2C92C6C696700544674 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		9E0FF2CA2C6C696700544674 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		9E0FF2CB2C6C696700544674 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		9E0FF2D12C6C6D7A00544674 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		9E5906612C4F993C00647DEE /* WooHyepHa-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "WooHyepHa-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9E5906642C4F993C00647DEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,23 +104,23 @@
 		9E0FF1DE2C5A21BF00544674 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9E0FF1E02C5A21DD00544674 /* Font */,
+				9E0FF1E02C5A21DD00544674 /* Fonts */,
 				9E5906722C4F993D00647DEE /* Info.plist */,
 				9E59066D2C4F993D00647DEE /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		9E0FF1E02C5A21DD00544674 /* Font */ = {
+		9E0FF1E02C5A21DD00544674 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				9E0FF2CB2C6C696700544674 /* Pretendard-Bold.otf */,
+				9E0FF2D12C6C6D7A00544674 /* Pretendard-Bold.otf */,
 				9E0FF2C72C6C696600544674 /* Pretendard-Light.otf */,
 				9E0FF2C92C6C696700544674 /* Pretendard-Medium.otf */,
 				9E0FF2C82C6C696700544674 /* Pretendard-Regular.otf */,
 				9E0FF2CA2C6C696700544674 /* Pretendard-SemiBold.otf */,
 			);
-			path = Font;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		9E0FF1F92C5B2D7C00544674 /* Sources */ = {
@@ -411,7 +411,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E59066E2C4F993D00647DEE /* Assets.xcassets in Resources */,
-				9E0FF2D02C6C696700544674 /* Pretendard-Bold.otf in Resources */,
+				9E0FF2D22C6C6D7A00544674 /* Pretendard-Bold.otf in Resources */,
 				9E0FF2CD2C6C696700544674 /* Pretendard-Regular.otf in Resources */,
 				9E0FF2CF2C6C696700544674 /* Pretendard-SemiBold.otf in Resources */,
 				9E0FF2CC2C6C696700544674 /* Pretendard-Light.otf in Resources */,
