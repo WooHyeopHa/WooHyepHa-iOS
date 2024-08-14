@@ -33,14 +33,17 @@ final class AppCoordinator: Coordinator {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
             // Auth 상태에 따른 분기처리 구현해야함.
-            self?.connectTabBarFlow()
+            self?.connectOnboardingFlow()
         }
     }
 }
 
 extension AppCoordinator {
     func connectOnboardingFlow() {
-        
+        let onboardingCoordinator = OnboardingCoordinator(navigationController: navigationController)
+        onboardingCoordinator.parentCoordinator = self
+        children.append(onboardingCoordinator)
+        onboardingCoordinator.start()
     }
     
     func connectTabBarFlow() {
