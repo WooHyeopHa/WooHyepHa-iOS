@@ -24,7 +24,7 @@ class LoginHeaderView: BaseHeaderView {
     private let leftButton = UIButton().then {
         $0.setTitle("둘러보기", for: .normal)
         $0.setTitleColor(.white, for: .normal)
-        $0.titleLabel?.font = .systemFont(ofSize: 15)
+        $0.titleLabel?.font = .body4
     }
     
     // MARK: init
