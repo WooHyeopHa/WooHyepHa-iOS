@@ -39,6 +39,8 @@
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
 		9E59066E2C4F993D00647DEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E59066D2C4F993D00647DEE /* Assets.xcassets */; };
+		9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */; };
+		9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C31012C6C739800F8B01A /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +78,8 @@
 		9E5906682C4F993C00647DEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E59066D2C4F993D00647DEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E5906722C4F993D00647DEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9E9C31002C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E9C31022C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		C8723918103271AC2055FC17 /* Pods_WooHyepHa_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WooHyepHa_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8B1175900842BD9C5980C99 /* Pods-WooHyepHa-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WooHyepHa-iOS.release.xcconfig"; path = "Target Support Files/Pods-WooHyepHa-iOS/Pods-WooHyepHa-iOS.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +108,7 @@
 		9E0FF1DE2C5A21BF00544674 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9E9C30FE2C6C739800F8B01A /* Base.lproj */,
 				9E0FF1E02C5A21DD00544674 /* Fonts */,
 				9E5906722C4F993D00647DEE /* Info.plist */,
 				9E59066D2C4F993D00647DEE /* Assets.xcassets */,
@@ -342,6 +347,15 @@
 			path = "WooHyepHa-iOS";
 			sourceTree = "<group>";
 		};
+		9E9C30FE2C6C739800F8B01A /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */,
+				9E9C31012C6C739800F8B01A /* Main.storyboard */,
+			);
+			path = Base.lproj;
+			sourceTree = "<group>";
+		};
 		DBB508E73FB8890C4E13B4C0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -413,7 +427,9 @@
 				9E59066E2C4F993D00647DEE /* Assets.xcassets in Resources */,
 				9E0FF2D22C6C6D7A00544674 /* Pretendard-Bold.otf in Resources */,
 				9E0FF2CD2C6C696700544674 /* Pretendard-Regular.otf in Resources */,
+				9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */,
 				9E0FF2CF2C6C696700544674 /* Pretendard-SemiBold.otf in Resources */,
+				9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */,
 				9E0FF2CC2C6C696700544674 /* Pretendard-Light.otf in Resources */,
 				9E0FF2CE2C6C696700544674 /* Pretendard-Medium.otf in Resources */,
 			);
@@ -497,6 +513,25 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E9C31002C6C739800F8B01A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		9E9C31012C6C739800F8B01A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9E9C31022C6C739800F8B01A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		9E5906732C4F993D00647DEE /* Debug */ = {
