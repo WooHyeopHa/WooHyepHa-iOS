@@ -9,11 +9,6 @@
 /* Begin PBXBuildFile section */
 		7EBDB5FD5FA6FBC1F01F4F8A /* Pods_WooHyepHa_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C8723918103271AC2055FC17 /* Pods_WooHyepHa_iOS.framework */; };
 		9E0FF1E82C5A23E500544674 /* Extension + UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF1E72C5A23E500544674 /* Extension + UIColor.swift */; };
-		9E0FF1EE2C5A24AB00544674 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF1E92C5A24AA00544674 /* Pretendard-Light.otf */; };
-		9E0FF1EF2C5A24AB00544674 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF1EA2C5A24AA00544674 /* Pretendard-Regular.otf */; };
-		9E0FF1F02C5A24AB00544674 /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF1EB2C5A24AA00544674 /* Pretendard-SemiBold.otf */; };
-		9E0FF1F12C5A24AB00544674 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF1EC2C5A24AA00544674 /* Pretendard-Bold.otf */; };
-		9E0FF1F22C5A24AB00544674 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF1ED2C5A24AB00544674 /* Pretendard-Medium.otf */; };
 		9E0FF1F42C5A252E00544674 /* Extension + UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF1F32C5A252E00544674 /* Extension + UIFont.swift */; };
 		9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF1F62C5A28C500544674 /* BaseViewController.swift */; };
 		9E0FF2962C6B066200544674 /* TabBarItemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2952C6B066200544674 /* TabBarItemType.swift */; };
@@ -44,11 +39,6 @@
 /* Begin PBXFileReference section */
 		8AB397A7E0206332D2CF6DB2 /* Pods-WooHyepHa-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WooHyepHa-iOS.debug.xcconfig"; path = "Target Support Files/Pods-WooHyepHa-iOS/Pods-WooHyepHa-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		9E0FF1E72C5A23E500544674 /* Extension + UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIColor.swift"; sourceTree = "<group>"; };
-		9E0FF1E92C5A24AA00544674 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
-		9E0FF1EA2C5A24AA00544674 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
-		9E0FF1EB2C5A24AA00544674 /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
-		9E0FF1EC2C5A24AA00544674 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
-		9E0FF1ED2C5A24AB00544674 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		9E0FF1F32C5A252E00544674 /* Extension + UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIFont.swift"; sourceTree = "<group>"; };
 		9E0FF1F62C5A28C500544674 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		9E0FF2952C6B066200544674 /* TabBarItemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarItemType.swift; sourceTree = "<group>"; };
@@ -105,8 +95,8 @@
 			isa = PBXGroup;
 			children = (
 				9E0FF1E02C5A21DD00544674 /* Font */,
-				9E59066D2C4F993D00647DEE /* Assets.xcassets */,
 				9E5906722C4F993D00647DEE /* Info.plist */,
+				9E59066D2C4F993D00647DEE /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -114,11 +104,6 @@
 		9E0FF1E02C5A21DD00544674 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				9E0FF1EC2C5A24AA00544674 /* Pretendard-Bold.otf */,
-				9E0FF1E92C5A24AA00544674 /* Pretendard-Light.otf */,
-				9E0FF1ED2C5A24AB00544674 /* Pretendard-Medium.otf */,
-				9E0FF1EA2C5A24AA00544674 /* Pretendard-Regular.otf */,
-				9E0FF1EB2C5A24AA00544674 /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -411,11 +396,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E59066E2C4F993D00647DEE /* Assets.xcassets in Resources */,
-				9E0FF1F12C5A24AB00544674 /* Pretendard-Bold.otf in Resources */,
-				9E0FF1EF2C5A24AB00544674 /* Pretendard-Regular.otf in Resources */,
-				9E0FF1EE2C5A24AB00544674 /* Pretendard-Light.otf in Resources */,
-				9E0FF1F02C5A24AB00544674 /* Pretendard-SemiBold.otf in Resources */,
-				9E0FF1F22C5A24AB00544674 /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
