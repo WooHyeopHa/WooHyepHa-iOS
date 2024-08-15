@@ -32,6 +32,7 @@ extension UIColor {
     // Sub Color
     static let SubColor = UIColor(hexCode: 0x4590FF)
     static let bgBlack = UIColor(hexCode: 0x0F0F0F)
+    static let borderRed = UIColor(hexCode: 0xF32F36)
     
     // Grayscale
     static let gray1 = UIColor(hexCode: 0x212121)
