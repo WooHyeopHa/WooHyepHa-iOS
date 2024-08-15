@@ -7,7 +7,12 @@
 
 import UIKit
 
-class RegisterProfileViewController: UIViewController {
+import RxCocoa
+import RxSwift
+import SnapKit
+import Then
+
+class RegisterProfileViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

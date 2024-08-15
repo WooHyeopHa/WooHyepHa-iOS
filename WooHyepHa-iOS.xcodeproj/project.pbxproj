@@ -299,6 +299,7 @@
 				9E0FF2BE2C6C59C700544674 /* Coordinator */,
 				9E0FF2BB2C6C58B200544674 /* Login */,
 				9E88DDF22C6DAFA900815EE0 /* Register */,
+				9E88DDF32C6DB24200815EE0 /* RegisterProfile */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -359,7 +360,6 @@
 			isa = PBXGroup;
 			children = (
 				9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */,
-				9E88DDF32C6DB24200815EE0 /* RegisterProfile */,
 			);
 			path = Register;
 			sourceTree = "<group>";
