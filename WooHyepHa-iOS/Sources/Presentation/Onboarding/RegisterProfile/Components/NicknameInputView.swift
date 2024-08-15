@@ -31,7 +31,7 @@ class NicknameInputView: BaseView {
     private lazy var nickNameTextField = UITextField().then {
         $0.placeholder = "사용하실 닉네임을 입력해 주세요!"
         $0.font = .body4
-        $0.layer.borderColor = UIColor.gray6.cgColor
+        $0.layer.borderColor = UIColor.gray7.cgColor
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 10
         $0.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))
@@ -90,7 +90,7 @@ extension NicknameInputView {
             nickNameCountLabel.text = "중복된 닉네임입니다!"
             nickNameCountLabel.textColor = .borderRed
         } else {
-            nickNameTextField.layer.borderColor = UIColor.gray6.cgColor
+            nickNameTextField.layer.borderColor = UIColor.gray7.cgColor
             nickNameCountLabel.textColor = .gray5
             nickNameCountLabel.text = "\(nickNameTextField.text?.count ?? 0)/10"
         }
