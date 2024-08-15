@@ -50,6 +50,7 @@ class RegisterViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        bind()
     }
     
     // MARK: Set ViewController
@@ -88,5 +89,15 @@ class RegisterViewController: BaseViewController {
             $0.height.equalTo(60)
         }
     }
+}
 
+// MARK: bind
+private extension RegisterViewController {
+    func bind() {
+        registerButton.rx.tap
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.coordinator?.goToRegisterProfileViewController()
+            })
+            .disposed(by: disposeBag)
+    }
 }

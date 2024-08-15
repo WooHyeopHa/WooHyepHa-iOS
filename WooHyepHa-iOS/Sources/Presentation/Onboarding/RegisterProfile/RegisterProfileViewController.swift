@@ -14,21 +14,165 @@ import Then
 
 class RegisterProfileViewController: BaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    weak var coordinator: OnboardingCoordinator?
+    
+    //MARK: UI Components
+    private lazy var headerView = RegisterProfileHeaderView().then {
+        $0.delegate = self
+        $0.showBottomeBorder = false
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private let mainTitleLabel = UILabel().then {
+        $0.text = "프로필 정보를 입력해주세요!"
+        $0.textColor = .gray1
+        $0.font = .h2
     }
-    */
+    
+    private let subTitleLabel = UILabel().then {
+        $0.text = "등록된 정보는 마이페이지에서 수정하실 수 있습니다!"
+        $0.textColor = .gray4
+        $0.font = .body4
+    }
+    
+    private let addProfileImageButton = UIButton().then {
+        $0.setImage(UIImage(named: "tabbar_mypage_active"), for: .normal)
+        $0.backgroundColor = .gray7
+        
+        $0.layer.borderWidth = 3.5
+        $0.layer.borderColor = UIColor.gray9.cgColor
+        $0.layer.cornerRadius = 66
+        $0.layer.masksToBounds = true
+    }
+    
+    private let addProfileImageSubButton = UIButton().then {
+        $0.setImage(UIImage(named: "camera")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
+        $0.backgroundColor = .gray5
+        
+        $0.layer.cornerRadius = 16
+        $0.layer.masksToBounds = true
+    }
+    
+    private let nicknameInputView = NicknameInputView().then {
+        $0.showTopBorder = false
+        $0.showBottomBorder = false
+    }
+    
+    private let birthInputView = BirthInputView().then {
+        $0.showTopBorder = false
+        $0.showBottomBorder = false
+    }
+    
+    private let sexInputView = SexInputView().then {
+        $0.showTopBorder = false
+        $0.showBottomBorder = false
+    }
+    
+    private let footerView = RegisterProfileFooterView().then {
+        $0.showBottomBorder = false
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        bind()
+    }
 
+    // MARK: Set ViewController
+    override func setViewController() {
+        view.backgroundColor = .white
+        
+        [headerView, mainTitleLabel, subTitleLabel, addProfileImageButton, addProfileImageSubButton,
+         nicknameInputView, birthInputView, sexInputView, footerView].forEach {
+            view.addSubview($0)
+        }
+    }
+    
+    override func setConstraints() {
+        headerView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(56)
+        }
+        
+        mainTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(8)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.height.equalTo(32)
+        }
+        
+        subTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(mainTitleLabel.snp.bottom).offset(8)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.height.equalTo(20)
+        }
+        
+        addProfileImageButton.snp.makeConstraints {
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(34)
+            $0.centerX.equalTo(view.safeAreaLayoutGuide)
+            $0.width.height.equalTo(132)
+        }
+        
+        addProfileImageSubButton.snp.makeConstraints {
+            $0.bottom.equalTo(addProfileImageButton.snp.bottom).inset(10)
+            $0.trailing.equalTo(addProfileImageButton.snp.trailing)
+            $0.width.height.equalTo(32)
+        }
+        
+        nicknameInputView.snp.makeConstraints {
+            $0.top.equalTo(addProfileImageButton.snp.bottom).offset(29)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(91)
+        }        
+        
+        birthInputView.snp.makeConstraints {
+            $0.top.equalTo(nicknameInputView.snp.bottom).offset(18)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(91)
+        }        
+        
+        sexInputView.snp.makeConstraints {
+            $0.top.equalTo(birthInputView.snp.bottom).offset(18)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(85)
+        }        
+        
+        footerView.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(85)
+        }
+    }
+}
+
+private extension RegisterProfileViewController {
+    func bind() {
+        // 테스트 로직임 수정 예정
+        nicknameInputView.inputNickname
+            .subscribe(with: self, onNext: { owner, text in
+                if text == "중복" {
+                    owner.nicknameInputView.updateState(isDuplicate: true)
+                } else {
+                    owner.nicknameInputView.updateState(isDuplicate: false)
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        let validNickname = nicknameInputView.inputNickname
+            .filter { !$0.isEmpty && $0 != "중복" }
+            .share(replay: 1)
+
+        let selectedSex = sexInputView.inputSelectedSex
+            .share(replay: 1)
+
+        Observable.combineLatest(validNickname, selectedSex)
+            .subscribe(onNext: { [weak self] (nickname, sex) in
+                print("닉네임: \(nickname), 성별: \(sex)")
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+extension RegisterProfileViewController: RegisterProfileHeaderViewDelegate {
+    func backButtonDidTap() {
+        print("test Log: Button Tapped")
+    }
 }
