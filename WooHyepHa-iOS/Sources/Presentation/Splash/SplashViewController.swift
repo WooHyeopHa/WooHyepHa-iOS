@@ -20,7 +20,7 @@ class SplashViewController: BaseViewController {
         $0.font = .systemFont(ofSize: 100)
         $0.textColor = .white
         $0.alpha = 0
-        $0.fadeIn(duration: 0.5)
+        $0.fadeIn(duration: 0.7)
     } // 로고 나중에 에셋 파일 받으면 이미지로 수정
     
     override func viewDidLoad() {
