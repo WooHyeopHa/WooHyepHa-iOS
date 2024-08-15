@@ -14,15 +14,43 @@ class BaseView: UIView {
     
     final let disposeBag = DisposeBag()
     
+    var showTopBorder: Bool = true {
+        didSet {
+            topBorder.isHidden = !showTopBorder
+        }
+    }    
+    
+    var showBottomBorder: Bool = true {
+        didSet {
+            bottomBorder.isHidden = !showBottomBorder
+        }
+    }
+    
+    private let topBorder = CALayer().then {
+        $0.backgroundColor = UIColor.lightGray.cgColor
+    }
+    
+    private let bottomBorder = CALayer().then {
+        $0.backgroundColor = UIColor.lightGray.cgColor
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setView()
         setConstraints()
         bind()
+        layer.addSublayer(topBorder)
+        layer.addSublayer(bottomBorder)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        topBorder.frame = CGRect(x: 0, y: 0, width: frame.width, height: 1)
+        bottomBorder.frame = CGRect(x: 0, y: frame.height - 1, width: frame.width, height: 1)
     }
     
     // MARK: SetUp View Method
