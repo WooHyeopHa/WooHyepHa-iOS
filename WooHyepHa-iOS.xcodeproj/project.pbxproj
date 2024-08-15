@@ -40,6 +40,8 @@
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
 		9E59066E2C4F993D00647DEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E59066D2C4F993D00647DEE /* Assets.xcassets */; };
 		9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */; };
+		9E88DDF62C6DB27500815EE0 /* RegisterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */; };
+		9E88DDF92C6DB33D00815EE0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */; };
 		9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */; };
 		9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C31012C6C739800F8B01A /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -79,6 +81,8 @@
 		9E5906682C4F993C00647DEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E59066D2C4F993D00647DEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
+		9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileViewController.swift; sourceTree = "<group>"; };
+		9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		9E9C31002C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E9C31022C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		9E9C310F2C6C77AC00F8B01A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -294,6 +298,8 @@
 			children = (
 				9E0FF2BE2C6C59C700544674 /* Coordinator */,
 				9E0FF2BB2C6C58B200544674 /* Login */,
+				9E88DDF22C6DAFA900815EE0 /* Register */,
+				9E88DDF32C6DB24200815EE0 /* RegisterProfile */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -348,6 +354,22 @@
 				9E0FF1DE2C5A21BF00544674 /* Resources */,
 			);
 			path = "WooHyepHa-iOS";
+			sourceTree = "<group>";
+		};
+		9E88DDF22C6DAFA900815EE0 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		9E88DDF32C6DB24200815EE0 /* RegisterProfile */ = {
+			isa = PBXGroup;
+			children = (
+				9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */,
+			);
+			path = RegisterProfile;
 			sourceTree = "<group>";
 		};
 		9E9C30FE2C6C739800F8B01A /* Base.lproj */ = {
@@ -495,6 +517,7 @@
 				9E0FF29D2C6B099900544674 /* AppCoordinator.swift in Sources */,
 				9E0FF2982C6B08E300544674 /* TabBarCoordinator.swift in Sources */,
 				9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */,
+				9E88DDF62C6DB27500815EE0 /* RegisterProfileViewController.swift in Sources */,
 				9E0FF1F42C5A252E00544674 /* Extension + UIFont.swift in Sources */,
 				9E0FF2B22C6B0B9D00544674 /* ChatCoordinator.swift in Sources */,
 				9E0FF2BD2C6C58BB00544674 /* LoginViewController.swift in Sources */,
@@ -509,6 +532,7 @@
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
 				9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */,
 				9E0FF2A42C6B0A2B00544674 /* HomeCoordinator.swift in Sources */,
+				9E88DDF92C6DB33D00815EE0 /* RegisterViewController.swift in Sources */,
 				9E0FF2B62C6B0C5100544674 /* MyPageCoordinator.swift in Sources */,
 				9E0FF2AC2C6B0B2800544674 /* MapViewController.swift in Sources */,
 				9E0FF2A62C6B0A5F00544674 /* HomeViewController.swift in Sources */,
