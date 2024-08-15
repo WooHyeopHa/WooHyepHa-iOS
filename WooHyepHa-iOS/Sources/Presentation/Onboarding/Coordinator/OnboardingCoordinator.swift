@@ -28,6 +28,13 @@ extension OnboardingCoordinator {
     func goToLoginViewController() {
         let loginViewController = LoginViewController()
         loginViewController.coordinator = self
-        navigationController.pushViewController(loginViewController, animated: true)
+        
+        let transition = CATransition()
+        transition.duration = 0.3
+        transition.type = .fade
+        transition.subtype = .fromRight
+        navigationController.view.layer.add(transition, forKey: kCATransition)
+        
+        navigationController.pushViewController(loginViewController, animated: false)
     }
 }
