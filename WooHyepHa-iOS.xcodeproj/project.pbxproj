@@ -45,6 +45,8 @@
 		9E88DDFF2C6DBBF900815EE0 /* RegisterProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDFE2C6DBBF900815EE0 /* RegisterProfileHeaderView.swift */; };
 		9E88DE032C6DC7C200815EE0 /* NicknameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE022C6DC7C200815EE0 /* NicknameInputView.swift */; };
 		9E88DE072C6DC85600815EE0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE062C6DC85600815EE0 /* BaseView.swift */; };
+		9E88DE0A2C6DD58B00815EE0 /* BirthInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE092C6DD58B00815EE0 /* BirthInputView.swift */; };
+		9E88DE0C2C6DD75A00815EE0 /* SexInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE0B2C6DD75A00815EE0 /* SexInputView.swift */; };
 		9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */; };
 		9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C31012C6C739800F8B01A /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -89,6 +91,8 @@
 		9E88DDFE2C6DBBF900815EE0 /* RegisterProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileHeaderView.swift; sourceTree = "<group>"; };
 		9E88DE022C6DC7C200815EE0 /* NicknameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameInputView.swift; sourceTree = "<group>"; };
 		9E88DE062C6DC85600815EE0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		9E88DE092C6DD58B00815EE0 /* BirthInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthInputView.swift; sourceTree = "<group>"; };
+		9E88DE0B2C6DD75A00815EE0 /* SexInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexInputView.swift; sourceTree = "<group>"; };
 		9E9C31002C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E9C31022C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		9E9C310F2C6C77AC00F8B01A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -385,6 +389,8 @@
 			children = (
 				9E88DDFE2C6DBBF900815EE0 /* RegisterProfileHeaderView.swift */,
 				9E88DE022C6DC7C200815EE0 /* NicknameInputView.swift */,
+				9E88DE092C6DD58B00815EE0 /* BirthInputView.swift */,
+				9E88DE0B2C6DD75A00815EE0 /* SexInputView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -545,6 +551,7 @@
 				9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
 				9E0FF2B92C6C4F5A00544674 /* SplashViewController.swift in Sources */,
+				9E88DE0A2C6DD58B00815EE0 /* BirthInputView.swift in Sources */,
 				9E0FF2962C6B066200544674 /* TabBarItemType.swift in Sources */,
 				9E88DE072C6DC85600815EE0 /* BaseView.swift in Sources */,
 				9E0FF2B02C6B0B8500544674 /* ChatViewController.swift in Sources */,
@@ -556,6 +563,7 @@
 				9E0FF2AC2C6B0B2800544674 /* MapViewController.swift in Sources */,
 				9E0FF2A62C6B0A5F00544674 /* HomeViewController.swift in Sources */,
 				9E0FF2C52C6C62FA00544674 /* BaseHeaderView.swift in Sources */,
+				9E88DE0C2C6DD75A00815EE0 /* SexInputView.swift in Sources */,
 				9E88DE032C6DC7C200815EE0 /* NicknameInputView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
