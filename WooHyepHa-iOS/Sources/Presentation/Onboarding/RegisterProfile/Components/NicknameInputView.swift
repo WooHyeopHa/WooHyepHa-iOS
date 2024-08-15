@@ -79,28 +79,22 @@ class NicknameInputView: BaseView {
     
     //MARK: Bind
     override func bind() {
-        nickNameTextField.rx.text.orEmpty
-            .map { "\($0.count)/10" }
-            .bind(to: nickNameCountLabel.rx.text)
-            .disposed(by: disposeBag)
-        
-        nickNameTextField.rx.text.orEmpty
-            .subscribe(with: self, onNext: { owner, text in
-                if text == "중복" {
-                    owner.nickNameTextField.layer.borderColor = UIColor.borderRed.cgColor
-                    owner.nickNameCountLabel.text = "중복된 닉네임입니다!"
-                    owner.nickNameCountLabel.textColor = .borderRed
-                } else {
-                    owner.nickNameTextField.layer.borderColor = UIColor.gray6.cgColor
-                    owner.nickNameCountLabel.textColor = .gray5
-                }
-            })
-            .disposed(by: disposeBag)
     }
 }
 
 // MARK: View Method
-private extension NicknameInputView {
+extension NicknameInputView {
+    func updateState(isDuplicate: Bool) {
+        if isDuplicate {
+            nickNameTextField.layer.borderColor = UIColor.borderRed.cgColor
+            nickNameCountLabel.text = "중복된 닉네임입니다!"
+            nickNameCountLabel.textColor = .borderRed
+        } else {
+            nickNameTextField.layer.borderColor = UIColor.gray6.cgColor
+            nickNameCountLabel.textColor = .gray5
+            nickNameCountLabel.text = "\(nickNameTextField.text?.count ?? 0)/10"
+        }
+    }
 }
 
 //MARK: Observable
