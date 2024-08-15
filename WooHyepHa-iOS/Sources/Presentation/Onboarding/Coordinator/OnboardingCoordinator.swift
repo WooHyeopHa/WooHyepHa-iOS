@@ -30,7 +30,7 @@ extension OnboardingCoordinator {
         loginViewController.coordinator = self
         
         let transition = CATransition()
-        transition.duration = 0.3
+        transition.duration = 0.5
         transition.type = .fade
         transition.subtype = .fromRight
         navigationController.view.layer.add(transition, forKey: kCATransition)
