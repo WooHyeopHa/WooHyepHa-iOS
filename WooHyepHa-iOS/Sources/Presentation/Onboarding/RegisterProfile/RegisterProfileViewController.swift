@@ -52,33 +52,23 @@ class RegisterProfileViewController: BaseViewController {
         $0.layer.masksToBounds = true
     }
     
-    private let nicknameInputView = NicknameInputView()
-    private let birthLabel = UILabel().then {
-        $0.text = "닉네임"
-        $0.font = .body1
-        $0.textColor = .gray1
+    private let nicknameInputView = NicknameInputView().then {
+        $0.showTopBorder = false
+        $0.showBottomBorder = false
     }
     
-    private let birthTextField = UITextField().then {
-        $0.placeholder = "태어난 연도를 설정해 주세요!"
+    private let birthInputView = BirthInputView().then {
+        $0.showTopBorder = false
+        $0.showBottomBorder = false
     }
     
-    private let sexLabel = UILabel().then {
-        $0.text = "성별"
-        $0.font = .body1
-        $0.textColor = .gray1
+    private let sexInputView = SexInputView().then {
+        $0.showTopBorder = false
+        $0.showBottomBorder = false
     }
     
-    private let maleButton = UIButton().then {
-        $0.setTitle("남성", for: .normal)
-        $0.setTitleColor(.gray4, for: .normal)
-        $0.backgroundColor = .white
-    }
-    
-    private let femaleButton = UIButton().then {
-        $0.setTitle("여성", for: .normal)
-        $0.setTitleColor(.gray4, for: .normal)
-        $0.backgroundColor = .white
+    private let footerView = RegisterProfileFooterView().then {
+        $0.showBottomBorder = false
     }
     
     override func viewDidLoad() {
@@ -91,7 +81,7 @@ class RegisterProfileViewController: BaseViewController {
         view.backgroundColor = .white
         
         [headerView, mainTitleLabel, subTitleLabel, addProfileImageButton, addProfileImageSubButton,
-         nicknameInputView].forEach {
+         nicknameInputView, birthInputView, sexInputView, footerView].forEach {
             view.addSubview($0)
         }
     }
@@ -131,6 +121,24 @@ class RegisterProfileViewController: BaseViewController {
             $0.top.equalTo(addProfileImageButton.snp.bottom).offset(29)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(91)
+        }        
+        
+        birthInputView.snp.makeConstraints {
+            $0.top.equalTo(nicknameInputView.snp.bottom).offset(18)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(91)
+        }        
+        
+        sexInputView.snp.makeConstraints {
+            $0.top.equalTo(birthInputView.snp.bottom).offset(18)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(85)
+        }        
+        
+        footerView.snp.makeConstraints {
+            $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(85)
         }
     }
 }
@@ -145,6 +153,19 @@ private extension RegisterProfileViewController {
                 } else {
                     owner.nicknameInputView.updateState(isDuplicate: false)
                 }
+            })
+            .disposed(by: disposeBag)
+        
+        let validNickname = nicknameInputView.inputNickname
+            .filter { !$0.isEmpty && $0 != "중복" }
+            .share(replay: 1)
+
+        let selectedSex = sexInputView.inputSelectedSex
+            .share(replay: 1)
+
+        Observable.combineLatest(validNickname, selectedSex)
+            .subscribe(onNext: { [weak self] (nickname, sex) in
+                print("닉네임: \(nickname), 성별: \(sex)")
             })
             .disposed(by: disposeBag)
     }
