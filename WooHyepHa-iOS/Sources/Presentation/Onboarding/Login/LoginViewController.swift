@@ -7,6 +7,8 @@
 
 import UIKit
 
+import RxCocoa
+import RxSwift
 import SnapKit
 import Then
 
@@ -49,7 +51,7 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        bind()
     }
     
     // MARK: Set ViewController
@@ -91,6 +93,17 @@ class LoginViewController: BaseViewController {
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(60)
         }
+    }
+}
+
+// MARK: bind
+private extension LoginViewController {
+    func bind() {
+        appleLoginButton.rx.tap
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.coordinator?.goToRegisterViewController()
+            })
+            .disposed(by: disposeBag)
     }
 }
 
