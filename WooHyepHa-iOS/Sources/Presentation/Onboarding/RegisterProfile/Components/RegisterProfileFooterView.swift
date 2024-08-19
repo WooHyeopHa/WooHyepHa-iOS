@@ -27,12 +27,12 @@ class RegisterProfileFooterView: BaseView {
         $0.titleLabel?.font = .body2
         $0.backgroundColor = .gray6
         $0.layer.cornerRadius = 10
+        $0.isEnabled = false
     }
     
     // MARK: init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        bind()
     }
     
     required init?(coder: NSCoder) {
