@@ -25,7 +25,7 @@ class RegisterProfileFooterView: BaseView {
         $0.setTitle("다음", for: .normal)
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = .body2
-        $0.backgroundColor = .gray1
+        $0.backgroundColor = .gray6
         $0.layer.cornerRadius = 10
     }
     
@@ -53,5 +53,21 @@ class RegisterProfileFooterView: BaseView {
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(48)
         }
+    }
+    
+    override func bind() {
+        nextButton.rx.tap
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.delegate?.nextButtonDidTap()
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+// MARK: View Method
+extension RegisterProfileFooterView {
+    func updateNextButtonState(isEnabled: Bool) {
+        nextButton.isEnabled = isEnabled
+        nextButton.backgroundColor = isEnabled ? .gray1 : .gray6
     }
 }

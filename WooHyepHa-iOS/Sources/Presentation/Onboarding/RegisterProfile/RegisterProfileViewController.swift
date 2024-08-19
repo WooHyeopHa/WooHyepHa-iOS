@@ -67,8 +67,9 @@ class RegisterProfileViewController: BaseViewController {
         $0.showBottomBorder = false
     }
     
-    private let footerView = RegisterProfileFooterView().then {
+    private lazy var footerView = RegisterProfileFooterView().then {
         $0.showBottomBorder = false
+        $0.delegate = self
     }
     
     override func viewDidLoad() {
@@ -168,11 +169,28 @@ private extension RegisterProfileViewController {
                 print("닉네임: \(nickname), 성별: \(sex)")
             })
             .disposed(by: disposeBag)
+        
+        Observable.combineLatest(
+            nicknameInputView.isValidNickname,
+            sexInputView.isValidSex,
+            birthInputView.isValidBirth
+        )
+        .map { $0 && $1 && $2 }
+        .bind(with: self) { owner, isValid in
+            owner.footerView.updateNextButtonState(isEnabled: isValid)
+        }
+        .disposed(by: disposeBag)
     }
 }
 
 extension RegisterProfileViewController: RegisterProfileHeaderViewDelegate {
     func backButtonDidTap() {
+        print("test Log: Button Tapped")
+    }
+}
+
+extension RegisterProfileViewController: RegisterProfileFooterViewDelegate {
+    func nextButtonDidTap() {
         print("test Log: Button Tapped")
     }
 }
