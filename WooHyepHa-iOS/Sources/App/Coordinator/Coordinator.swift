@@ -24,4 +24,8 @@ extension Coordinator {
             }
         }
     }
+    
+    func pop() {
+        navigationController.popViewController(animated: true)
+    }
 }
