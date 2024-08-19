@@ -128,5 +128,9 @@ extension SexInputView {
     var inputSelectedSex: Observable<String> {
         return selectedSex.asObservable()
     }
+    
+    var isValidSex: Observable<Bool> {
+        return selectedSex.map { !$0.isEmpty }
+    }
 }
 

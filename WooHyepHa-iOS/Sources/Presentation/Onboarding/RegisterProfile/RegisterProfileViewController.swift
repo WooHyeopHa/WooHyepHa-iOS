@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 import RxCocoa
 import RxSwift
@@ -37,7 +38,7 @@ class RegisterProfileViewController: BaseViewController {
     private let addProfileImageButton = UIButton().then {
         $0.setImage(UIImage(named: "tabbar_mypage_active"), for: .normal)
         $0.backgroundColor = .gray7
-        
+        $0.imageView?.contentMode = .scaleAspectFill
         $0.layer.borderWidth = 3.5
         $0.layer.borderColor = UIColor.gray9.cgColor
         $0.layer.cornerRadius = 66
@@ -67,8 +68,9 @@ class RegisterProfileViewController: BaseViewController {
         $0.showBottomBorder = false
     }
     
-    private let footerView = RegisterProfileFooterView().then {
+    private lazy var footerView = RegisterProfileFooterView().then {
         $0.showBottomBorder = false
+        $0.delegate = self
     }
     
     override func viewDidLoad() {
@@ -168,11 +170,77 @@ private extension RegisterProfileViewController {
                 print("닉네임: \(nickname), 성별: \(sex)")
             })
             .disposed(by: disposeBag)
+        
+        Observable.combineLatest(
+            nicknameInputView.isValidNickname,
+            sexInputView.isValidSex,
+            birthInputView.isValidBirth
+        )
+        .map { $0 && $1 && $2 }
+        .bind(with: self) { owner, isValid in
+            owner.footerView.updateNextButtonState(isEnabled: isValid)
+        }
+        .disposed(by: disposeBag)
+        
+        addProfileImageButton.rx.tap
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.presentImagePicker()
+            })
+            .disposed(by: disposeBag)
+        
+        addProfileImageSubButton.rx.tap
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.presentImagePicker()
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func presentImagePicker() {
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 1
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        present(picker, animated: true, completion: nil)
     }
 }
 
+extension RegisterProfileViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true, completion: nil)
+        
+        guard let result = results.first else { return }
+        
+        result.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] (object, error) in
+            if let error = error {
+                print("Error loading image: \(error.localizedDescription)")
+                return
+            }
+            
+            result.itemProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) { [weak self] (url, error) in
+                if let error = error {
+                    print("Error loading image URL: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let image = object as? UIImage else { return }
+                
+                DispatchQueue.main.async {
+                    self?.addProfileImageButton.setImage(image, for: .normal)
+                }
+            }
+        }
+    }
+}
 extension RegisterProfileViewController: RegisterProfileHeaderViewDelegate {
     func backButtonDidTap() {
+        coordinator?.pop()
+    }
+}
+
+extension RegisterProfileViewController: RegisterProfileFooterViewDelegate {
+    func nextButtonDidTap() {
         print("test Log: Button Tapped")
     }
 }
