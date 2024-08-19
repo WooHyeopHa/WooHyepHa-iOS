@@ -140,7 +140,7 @@ class RegisterProfileViewController: BaseViewController {
         footerView.snp.makeConstraints {
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(85)
+            $0.height.equalTo(75)
         }
     }
 }
@@ -233,6 +233,7 @@ extension RegisterProfileViewController: PHPickerViewControllerDelegate {
         }
     }
 }
+
 extension RegisterProfileViewController: RegisterProfileHeaderViewDelegate {
     func backButtonDidTap() {
         coordinator?.pop()
@@ -241,6 +242,6 @@ extension RegisterProfileViewController: RegisterProfileHeaderViewDelegate {
 
 extension RegisterProfileViewController: RegisterProfileFooterViewDelegate {
     func nextButtonDidTap() {
-        print("test Log: Button Tapped")
+        coordinator?.goToRegisterLocationViewController()
     }
 }

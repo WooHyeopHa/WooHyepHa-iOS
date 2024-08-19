@@ -49,4 +49,10 @@ extension OnboardingCoordinator {
         registerProfileViewController.coordinator = self
         navigationController.pushViewController(registerProfileViewController, animated: true)
     }
+    
+    func goToRegisterLocationViewController() {
+        let registerLocationViewController = RegisterLocationViewController()
+        registerLocationViewController.coordinator = self
+        navigationController.pushViewController(registerLocationViewController, animated: true)
+    }
 }

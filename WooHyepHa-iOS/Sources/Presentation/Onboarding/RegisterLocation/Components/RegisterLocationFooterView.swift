@@ -1,8 +1,8 @@
 //
-//  RegisterProfileFooterView.swift
+//  RegisterLocationFooterView.swift
 //  WooHyepHa-iOS
 //
-//  Created by 여성일 on 8/15/24.
+//  Created by 여성일 on 8/19/24.
 //
 
 import UIKit
@@ -12,13 +12,13 @@ import RxSwift
 import SnapKit
 import Then
 
-protocol RegisterProfileFooterViewDelegate: AnyObject {
+protocol RegisterLocationFooterViewDelegate: AnyObject {
     func nextButtonDidTap()
 }
 
-class RegisterProfileFooterView: BaseView {
+class RegisterLocationFooterView: BaseView {
 
-    weak var delegate: RegisterProfileFooterViewDelegate?
+    weak var delegate: RegisterLocationFooterViewDelegate?
     
     // MARK: UI Components
     private let nextButton = UIButton().then {
@@ -65,7 +65,7 @@ class RegisterProfileFooterView: BaseView {
 }
 
 // MARK: View Method
-extension RegisterProfileFooterView {
+extension RegisterLocationFooterView {
     func updateNextButtonState(isEnabled: Bool) {
         nextButton.isEnabled = isEnabled
         nextButton.backgroundColor = isEnabled ? .gray1 : .gray6
