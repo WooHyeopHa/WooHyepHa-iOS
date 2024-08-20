@@ -68,7 +68,7 @@ class RegisterLocationViewController: BaseViewController {
         $0.titleLabel?.font = .body3
     }
 
-    private lazy var footerView = RegisterLocationFooterView().then {
+    private lazy var footerView = OnboardingFooterView().then {
         $0.showBottomBorder = false
         $0.delegate = self
     }
@@ -134,9 +134,9 @@ extension RegisterLocationViewController: OnboardingHeaderViewDelegate {
     }
 }
 
-extension RegisterLocationViewController: RegisterLocationFooterViewDelegate {
+extension RegisterLocationViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
-        
+        print("testLog: nextButton Tapped")
     }
 }
 

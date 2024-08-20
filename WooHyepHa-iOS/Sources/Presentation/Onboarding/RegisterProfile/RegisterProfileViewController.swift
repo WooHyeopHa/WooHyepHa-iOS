@@ -69,7 +69,7 @@ class RegisterProfileViewController: BaseViewController {
         $0.showBottomBorder = false
     }
     
-    private lazy var footerView = RegisterProfileFooterView().then {
+    private lazy var footerView = OnboardingFooterView().then {
         $0.showBottomBorder = false
         $0.delegate = self
     }
@@ -241,8 +241,9 @@ extension RegisterProfileViewController: OnboardingHeaderViewDelegate {
     }
 }
 
-extension RegisterProfileViewController: RegisterProfileFooterViewDelegate {
+extension RegisterProfileViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         coordinator?.goToRegisterLocationViewController()
     }
 }
+
