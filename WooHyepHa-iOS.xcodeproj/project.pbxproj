@@ -52,6 +52,7 @@
 		9E88DE162C73252400815EE0 /* RegisterLocationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE152C73252400815EE0 /* RegisterLocationHeaderView.swift */; };
 		9E88DE1A2C7331BA00815EE0 /* RegisterLocationFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE192C7331BA00815EE0 /* RegisterLocationFooterView.swift */; };
 		9E88DE1E2C74224300815EE0 /* RegisterPreferenceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE1D2C74224300815EE0 /* RegisterPreferenceHeaderView.swift */; };
+		9E88DE202C74226300815EE0 /* RegisterPreferenceFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE1F2C74226300815EE0 /* RegisterPreferenceFooterView.swift */; };
 		9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */; };
 		9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C31012C6C739800F8B01A /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -103,6 +104,7 @@
 		9E88DE152C73252400815EE0 /* RegisterLocationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationHeaderView.swift; sourceTree = "<group>"; };
 		9E88DE192C7331BA00815EE0 /* RegisterLocationFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationFooterView.swift; sourceTree = "<group>"; };
 		9E88DE1D2C74224300815EE0 /* RegisterPreferenceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceHeaderView.swift; sourceTree = "<group>"; };
+		9E88DE1F2C74226300815EE0 /* RegisterPreferenceFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceFooterView.swift; sourceTree = "<group>"; };
 		9E9C31002C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E9C31022C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		9E9C310F2C6C77AC00F8B01A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -438,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				9E88DE1D2C74224300815EE0 /* RegisterPreferenceHeaderView.swift */,
+				9E88DE1F2C74226300815EE0 /* RegisterPreferenceFooterView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				9E0FF2C02C6C59D700544674 /* OnboardingCoordinator.swift in Sources */,
 				9E0FF2A82C6B0AB400544674 /* MatingViewController.swift in Sources */,
 				9E0FF2C32C6C60A900544674 /* LoginHeaderView.swift in Sources */,
+				9E88DE202C74226300815EE0 /* RegisterPreferenceFooterView.swift in Sources */,
 				9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
 				9E0FF2B92C6C4F5A00544674 /* SplashViewController.swift in Sources */,
