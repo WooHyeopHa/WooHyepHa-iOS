@@ -24,37 +24,23 @@ class SexInputView: BaseView {
     }
     
     private let maleButton = UIButton().then {
+        $0.setTitle("남성", for: .normal)
+        $0.setTitleColor(.gray4, for: .normal)
+        $0.titleLabel?.font = .body4
+        $0.backgroundColor = .white
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.gray7.cgColor
         $0.layer.cornerRadius = 5
-        
-        var configuration = UIButton.Configuration.filled()
-        configuration.baseBackgroundColor = UIColor.white
-        
-        var titleContainer = AttributeContainer()
-        titleContainer.font = UIFont.body4
-        titleContainer.foregroundColor = UIColor.gray4
-        configuration.attributedTitle = AttributedString("남성", attributes: titleContainer)
-        
-        $0.configuration = configuration
-        $0.changesSelectionAsPrimaryAction = true
     }
     
     private let femaleButton = UIButton().then {
+        $0.setTitle("여성", for: .normal)
+        $0.setTitleColor(.gray4, for: .normal)
+        $0.titleLabel?.font = .body4
+        $0.backgroundColor = .white
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.gray7.cgColor
         $0.layer.cornerRadius = 5
-        
-        var configuration = UIButton.Configuration.filled()
-        configuration.baseBackgroundColor = UIColor.white
-        
-        var titleContainer = AttributeContainer()
-        titleContainer.font = UIFont.body4
-        titleContainer.foregroundColor = UIColor.gray4
-        configuration.attributedTitle = AttributedString("여성", attributes: titleContainer)
-        
-        $0.configuration = configuration
-        $0.changesSelectionAsPrimaryAction = true
     }
     
     override init(frame: CGRect) {
@@ -70,30 +56,6 @@ class SexInputView: BaseView {
         
         [sexLabel, maleButton, femaleButton].forEach {
             addSubview($0)
-        }
-        
-        [maleButton, femaleButton].forEach {
-            $0.configurationUpdateHandler = { button in
-                let textColor: UIColor = button.state == .selected ? UIColor.MainColor : UIColor.gray4
-                let backgroundColor: UIColor = button.state == .selected ? UIColor.MainColor.withAlphaComponent(0.1) : UIColor.white
-                let borderColor: CGColor = button.state == .selected ? UIColor.MainColor.cgColor : UIColor.gray7.cgColor
-                
-                button.layer.borderColor = borderColor
-                
-                let attributesTransformer = UIConfigurationTextAttributesTransformer { attributes in
-                    var updatedAttributes = attributes
-                    updatedAttributes.foregroundColor = textColor
-                    return updatedAttributes
-                }
-                
-                var updatedConfiguration = button.configuration
-                
-                updatedConfiguration?.baseBackgroundColor = backgroundColor
-                updatedConfiguration?.titleTextAttributesTransformer = attributesTransformer
-                
-                button.configuration?.baseBackgroundColor = backgroundColor
-                button.configuration = updatedConfiguration
-            }
         }
     }
     
@@ -121,39 +83,53 @@ class SexInputView: BaseView {
     
     //MARK: Bind
     override func bind() {
+        inputSelectedSex
+            .subscribe(with: self) { owner, type in
+                owner.updateButtonState(selected: type)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
 // MARK: View Method
 extension SexInputView {
-    func updateButton(field: String) {
-        let allButtons = [maleButton, femaleButton]
-        allButtons.forEach { $0.isSelected = false }
+    private func updateButtonState(selected: String) {
         
-        if let buttonType = SexType(rawValue: field) {
+        if let buttonType = SexButtonType(rawValue: selected) {
             switch buttonType {
             case .male:
-                maleButton.isSelected = true
+                maleButton.layer.borderColor = UIColor.MainColor.cgColor
+                maleButton.setTitleColor(.MainColor, for: .normal)
+                maleButton.backgroundColor = .MainColor.withAlphaComponent(0.1)
+                femaleButton.layer.borderColor = UIColor.gray7.cgColor
+                femaleButton.setTitleColor(.gray4, for: .normal)
+                femaleButton.backgroundColor = .white
                 selectedSex.onNext("male")
             case .female:
-                femaleButton.isSelected = true
+                maleButton.layer.borderColor = UIColor.gray7.cgColor
+                maleButton.setTitleColor(.gray4, for: .normal)
+                maleButton.backgroundColor = .white
+                femaleButton.layer.borderColor = UIColor.MainColor.cgColor
+                femaleButton.setTitleColor(.MainColor, for: .normal)
+                femaleButton.backgroundColor = .MainColor.withAlphaComponent(0.1)
                 selectedSex.onNext("female")
             }
         }
+        
     }
 }
 
 //MARK: Observable
 extension SexInputView {
-    enum SexType: String {
+    enum SexButtonType: String {
         case male = "male"
         case female = "female"
     }
     
     var inputSelectedSex: Observable<String> {
         return Observable.merge(
-            maleButton.rx.tap.map { SexType.male.rawValue },
-            femaleButton.rx.tap.map { SexType.female.rawValue }
+            maleButton.rx.tap.map { SexButtonType.male.rawValue },
+            femaleButton.rx.tap.map { SexButtonType.female.rawValue }
         )
     }
     

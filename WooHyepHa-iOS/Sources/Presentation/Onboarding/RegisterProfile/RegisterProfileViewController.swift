@@ -191,12 +191,6 @@ class RegisterProfileViewController: BaseViewController {
                 owner.presentImagePicker()
             })
             .disposed(by: disposeBag)
-        
-        sexInputView.inputSelectedSex
-            .subscribe(with: self, onNext: { owner, sex in
-                owner.sexInputView.updateButton(field: sex)
-            })
-            .disposed(by: disposeBag)
     }
 }
 
