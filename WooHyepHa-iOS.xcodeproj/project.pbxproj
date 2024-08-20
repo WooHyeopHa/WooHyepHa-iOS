@@ -51,6 +51,7 @@
 		9E88DE2A2C7437CA00815EE0 /* RegisterPreferenceCultrueViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE292C7437CA00815EE0 /* RegisterPreferenceCultrueViewController.swift */; };
 		9E88DE2D2C7439AE00815EE0 /* PreferenceCultureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE2C2C7439AE00815EE0 /* PreferenceCultureView.swift */; };
 		9E88DE312C74475500815EE0 /* PreferenceCultureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE302C74475500815EE0 /* PreferenceCultureButton.swift */; };
+		9E88DE332C7466E100815EE0 /* OnboardingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE322C7466E100815EE0 /* OnboardingProgressView.swift */; };
 		9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */; };
 		9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C31012C6C739800F8B01A /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -101,6 +102,7 @@
 		9E88DE292C7437CA00815EE0 /* RegisterPreferenceCultrueViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceCultrueViewController.swift; sourceTree = "<group>"; };
 		9E88DE2C2C7439AE00815EE0 /* PreferenceCultureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCultureView.swift; sourceTree = "<group>"; };
 		9E88DE302C74475500815EE0 /* PreferenceCultureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCultureButton.swift; sourceTree = "<group>"; };
+		9E88DE322C7466E100815EE0 /* OnboardingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProgressView.swift; sourceTree = "<group>"; };
 		9E9C31002C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E9C31022C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		9E9C310F2C6C77AC00F8B01A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -409,6 +411,7 @@
 			children = (
 				9E88DE222C74263100815EE0 /* OnboardingHeaderView.swift */,
 				9E88DE262C74340500815EE0 /* OnboardingFooterView.swift */,
+				9E88DE322C7466E100815EE0 /* OnboardingProgressView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -568,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9E88DE332C7466E100815EE0 /* OnboardingProgressView.swift in Sources */,
 				9E88DE2D2C7439AE00815EE0 /* PreferenceCultureView.swift in Sources */,
 				9E0FF2B42C6B0C3500544674 /* MyPageViewController.swift in Sources */,
 				9E5906692C4F993C00647DEE /* ViewController.swift in Sources */,
