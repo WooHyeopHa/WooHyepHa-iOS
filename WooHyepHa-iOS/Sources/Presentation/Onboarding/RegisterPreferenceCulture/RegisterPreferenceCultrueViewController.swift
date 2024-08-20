@@ -24,7 +24,16 @@ class RegisterPreferenceCultrueViewController: BaseViewController {
         $0.rightButtonTitleColor = .gray4
     }
 
+    private let progressView = OnboardingProgressView(progressValue: 0.1667)
+    
     private lazy var preferenceCultureView = PreferenceCultureView()
+    
+    private let subTitle = UILabel().then {
+        $0.text = "나중에 다시 수정할 수 있어요!"
+        $0.textAlignment = .center
+        $0.textColor = .gray4
+        $0.font = .body4
+    }
     
     private lazy var footerView = OnboardingFooterView().then {
         $0.showBottomBorder = false
@@ -40,7 +49,7 @@ class RegisterPreferenceCultrueViewController: BaseViewController {
     override func setViewController() {
         view.backgroundColor = .white
         
-        [headerView, preferenceCultureView, footerView].forEach {
+        [headerView, progressView, preferenceCultureView, subTitle, footerView].forEach {
             view.addSubview($0)
         }
     }
@@ -52,10 +61,21 @@ class RegisterPreferenceCultrueViewController: BaseViewController {
             $0.height.equalTo(56)
         }
         
-        preferenceCultureView.snp.makeConstraints {
-            $0.top.equalTo(headerView).offset(80)
+        progressView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom).offset(10)
+            $0.height.equalTo(6)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-            $0.bottom.equalTo(footerView.snp.top).inset(80)
+        }
+        
+        preferenceCultureView.snp.makeConstraints {
+            $0.top.equalTo(progressView.snp.bottom).offset(15)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.bottom.equalTo(subTitle.snp.top).offset(-15)
+        }
+        
+        subTitle.snp.makeConstraints {
+            $0.bottom.equalTo(footerView.snp.top).offset(-18)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         footerView.snp.makeConstraints {
