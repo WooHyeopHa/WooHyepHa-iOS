@@ -18,9 +18,10 @@ class RegisterProfileViewController: BaseViewController {
     weak var coordinator: OnboardingCoordinator?
     
     //MARK: UI Components
-    private lazy var headerView = RegisterProfileHeaderView().then {
+    private lazy var headerView = OnboardingHeaderView().then {
         $0.delegate = self
-        $0.showBottomeBorder = false
+        $0.backgroundColor = .white
+        $0.showRightButton = false
     }
     
     private let mainTitleLabel = UILabel().then {
@@ -234,8 +235,8 @@ extension RegisterProfileViewController: PHPickerViewControllerDelegate {
     }
 }
 
-extension RegisterProfileViewController: RegisterProfileHeaderViewDelegate {
-    func backButtonDidTap() {
+extension RegisterProfileViewController: OnboardingHeaderViewDelegate {
+    func leftButtonDidTap() {
         coordinator?.pop()
     }
 }

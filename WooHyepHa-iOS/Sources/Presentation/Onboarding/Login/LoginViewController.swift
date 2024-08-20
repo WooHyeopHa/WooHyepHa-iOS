@@ -18,9 +18,10 @@ class LoginViewController: BaseViewController {
     weak var coordinator: OnboardingCoordinator?
     
     // MARK: UI Components
-    private lazy var headerView = LoginHeaderView().then {
+    private lazy var headerView = OnboardingHeaderView().then {
         $0.delegate = self
-        $0.showBottomeBorder = false
+        $0.rightButtonTitle = "둘러보기"
+        $0.showLeftButton = false
     }
     
     private let mainTitleLabel = UILabel().then {
@@ -107,8 +108,8 @@ private extension LoginViewController {
     }
 }
 
-extension LoginViewController: LoginHeaderViewDelegate {
-    func leftButtonDidTap() {
+extension LoginViewController: OnboardingHeaderViewDelegate {
+    func rightButtonDidTap() {
         print("testLog : ButtonTapped")
     }
 }
