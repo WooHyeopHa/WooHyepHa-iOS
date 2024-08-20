@@ -70,6 +70,20 @@ class RegisterPreferenceCultrueViewController: BaseViewController {
             .subscribe(with: self, onNext: { owner, type in
             })
             .disposed(by: disposeBag)
+        
+        var selected: [String] = []
+        
+        preferenceCultureView.inputPreferenceCulture
+            .subscribe(with: self, onNext: { owner, type in
+                if let index = selected.firstIndex(of: type) {
+                    selected.remove(at: index)
+                } else {
+                    selected.append(type)
+                }
+                
+                print(selected)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
