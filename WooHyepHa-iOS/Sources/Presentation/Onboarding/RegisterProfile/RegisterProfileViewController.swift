@@ -76,7 +76,6 @@ class RegisterProfileViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
     }
 
     // MARK: Set ViewController
@@ -144,10 +143,8 @@ class RegisterProfileViewController: BaseViewController {
             $0.height.equalTo(75)
         }
     }
-}
-
-private extension RegisterProfileViewController {
-    func bind() {
+    
+    override func bind() {
         // 테스트 로직임 수정 예정
         nicknameInputView.inputNickname
             .subscribe(with: self, onNext: { owner, text in
@@ -195,7 +192,9 @@ private extension RegisterProfileViewController {
             })
             .disposed(by: disposeBag)
     }
-    
+}
+
+private extension RegisterProfileViewController {
     func presentImagePicker() {
         var configuration = PHPickerConfiguration()
         configuration.filter = .images

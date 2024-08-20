@@ -315,7 +315,6 @@
 				9E88DDF22C6DAFA900815EE0 /* Register */,
 				9E88DDF32C6DB24200815EE0 /* RegisterProfile */,
 				9E88DE112C73240D00815EE0 /* RegisterLocation */,
-				9E88DE1B2C7421FB00815EE0 /* RegisterPreference */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -393,32 +392,9 @@
 		9E88DE112C73240D00815EE0 /* RegisterLocation */ = {
 			isa = PBXGroup;
 			children = (
-				9E88DE142C7324ED00815EE0 /* Components */,
 				9E88DE122C73243600815EE0 /* RegisterLocationViewController.swift */,
 			);
 			path = RegisterLocation;
-			sourceTree = "<group>";
-		};
-		9E88DE142C7324ED00815EE0 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		9E88DE1B2C7421FB00815EE0 /* RegisterPreference */ = {
-			isa = PBXGroup;
-			children = (
-				9E88DE1C2C74223100815EE0 /* Components */,
-			);
-			path = RegisterPreference;
-			sourceTree = "<group>";
-		};
-		9E88DE1C2C74223100815EE0 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		9E88DE212C74262400815EE0 /* Components */ = {
