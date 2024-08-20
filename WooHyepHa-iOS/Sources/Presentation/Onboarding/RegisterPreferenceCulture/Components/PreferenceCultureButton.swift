@@ -1,20 +1,63 @@
-//
-//  PreferenceCultureButton.swift
-//  WooHyepHa-iOS
-//
-//  Created by 여성일 on 8/20/24.
-//
-
 import UIKit
 
 class PreferenceCultureButton: UIButton {
-
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    
+    private var title: String
+    private let buttonTitleLabel = UILabel()
+    
+    override var isSelected: Bool {
+        didSet {
+            updateAppearance()
+        }
     }
-    */
+    
+    init(title: String) {
+        self.title = title
+        super.init(frame: .zero)
+        setButton()
+        setupTitleLabel()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        positionTitleLabel()
+    }
+}
 
+private extension PreferenceCultureButton {
+    func setButton() {
+        layer.cornerRadius = 10
+        layer.borderWidth = 0
+        updateAppearance()
+    }
+    
+    func setupTitleLabel() {
+        buttonTitleLabel.text = title
+        buttonTitleLabel.textColor = .gray1
+        buttonTitleLabel.font = .body1
+        buttonTitleLabel.textAlignment = .center
+        addSubview(buttonTitleLabel)
+    }
+    
+    func positionTitleLabel() {
+        buttonTitleLabel.frame = CGRect(x: 0, y: bounds.height - 30, width: bounds.width, height: 20)
+    }
+    
+    func updateAppearance() {
+        if isSelected {
+            backgroundColor = .MainColor.withAlphaComponent(0.1)
+            layer.borderColor = UIColor.MainColor.cgColor
+            layer.borderWidth = 1
+            buttonTitleLabel.textColor = .MainColor
+        } else {
+            backgroundColor = .gray9
+            layer.borderColor = UIColor.gray9.cgColor
+            layer.borderWidth = 0
+            buttonTitleLabel.textColor = .gray1
+        }
+    }
 }
