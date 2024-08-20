@@ -51,7 +51,7 @@ private extension PreferenceCultureButton {
         if isSelected {
             backgroundColor = .MainColor.withAlphaComponent(0.1)
             layer.borderColor = UIColor.MainColor.cgColor
-            layer.borderWidth = 1
+            layer.borderWidth = 2
             buttonTitleLabel.textColor = .MainColor
         } else {
             backgroundColor = .gray9
