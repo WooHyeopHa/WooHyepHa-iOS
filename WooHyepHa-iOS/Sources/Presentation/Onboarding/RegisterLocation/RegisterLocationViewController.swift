@@ -71,6 +71,7 @@ class RegisterLocationViewController: BaseViewController {
     private lazy var footerView = OnboardingFooterView().then {
         $0.showBottomBorder = false
         $0.delegate = self
+        $0.updateNextButtonState(isEnabled: true)
     }
     
     override func viewDidLoad() {
@@ -137,6 +138,7 @@ extension RegisterLocationViewController: OnboardingHeaderViewDelegate {
 extension RegisterLocationViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         print("testLog: nextButton Tapped")
+        coordinator?.goToRegisterPreferencCultureViewController()
     }
 }
 

@@ -12,11 +12,6 @@ import RxSwift
 import SnapKit
 import Then
 
-enum Sex {
-    case male
-    case female
-}
-
 class SexInputView: BaseView {
 
     private let selectedSex = PublishSubject<String>()
@@ -88,45 +83,54 @@ class SexInputView: BaseView {
     
     //MARK: Bind
     override func bind() {
-        Observable.merge (
-            maleButton.rx.tap.map { Sex.male },
-            femaleButton.rx.tap.map { Sex.female }
-        )
-        .subscribe(with: self, onNext: { owner, sex in
-            owner.updateButtonState(selected: sex)
-        })
-        .disposed(by: disposeBag)
+        inputSelectedSex
+            .subscribe(with: self) { owner, type in
+                owner.updateButtonState(selected: type)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
 // MARK: View Method
 extension SexInputView {
-    private func updateButtonState(selected: Sex) {
-        switch selected {
-        case .male:
-            maleButton.layer.borderColor = UIColor.MainColor.cgColor
-            maleButton.setTitleColor(.MainColor, for: .normal)
-            maleButton.backgroundColor = .MainColor.withAlphaComponent(0.1)
-            femaleButton.layer.borderColor = UIColor.gray7.cgColor
-            femaleButton.setTitleColor(.gray4, for: .normal)
-            femaleButton.backgroundColor = .white
-            selectedSex.onNext("male")
-        case .female:
-            maleButton.layer.borderColor = UIColor.gray7.cgColor
-            maleButton.setTitleColor(.gray4, for: .normal)
-            maleButton.backgroundColor = .white
-            femaleButton.layer.borderColor = UIColor.MainColor.cgColor
-            femaleButton.setTitleColor(.MainColor, for: .normal)
-            femaleButton.backgroundColor = .MainColor.withAlphaComponent(0.1)
-            selectedSex.onNext("female")
+    private func updateButtonState(selected: String) {
+        
+        if let buttonType = SexButtonType(rawValue: selected) {
+            switch buttonType {
+            case .male:
+                maleButton.layer.borderColor = UIColor.MainColor.cgColor
+                maleButton.setTitleColor(.MainColor, for: .normal)
+                maleButton.backgroundColor = .MainColor.withAlphaComponent(0.1)
+                femaleButton.layer.borderColor = UIColor.gray7.cgColor
+                femaleButton.setTitleColor(.gray4, for: .normal)
+                femaleButton.backgroundColor = .white
+                selectedSex.onNext("male")
+            case .female:
+                maleButton.layer.borderColor = UIColor.gray7.cgColor
+                maleButton.setTitleColor(.gray4, for: .normal)
+                maleButton.backgroundColor = .white
+                femaleButton.layer.borderColor = UIColor.MainColor.cgColor
+                femaleButton.setTitleColor(.MainColor, for: .normal)
+                femaleButton.backgroundColor = .MainColor.withAlphaComponent(0.1)
+                selectedSex.onNext("female")
+            }
         }
+        
     }
 }
 
 //MARK: Observable
 extension SexInputView {
+    enum SexButtonType: String {
+        case male = "male"
+        case female = "female"
+    }
+    
     var inputSelectedSex: Observable<String> {
-        return selectedSex.asObservable()
+        return Observable.merge(
+            maleButton.rx.tap.map { SexButtonType.male.rawValue },
+            femaleButton.rx.tap.map { SexButtonType.female.rawValue }
+        )
     }
     
     var isValidSex: Observable<Bool> {
