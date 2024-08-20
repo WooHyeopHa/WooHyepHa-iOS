@@ -1,8 +1,8 @@
 //
-//  RegisterLocationFooterView.swift
+//  OnboardingFooterView.swift
 //  WooHyepHa-iOS
 //
-//  Created by 여성일 on 8/19/24.
+//  Created by 여성일 on 8/20/24.
 //
 
 import UIKit
@@ -12,13 +12,13 @@ import RxSwift
 import SnapKit
 import Then
 
-protocol RegisterLocationFooterViewDelegate: AnyObject {
+protocol OnboardingFooterViewDelegate: AnyObject {
     func nextButtonDidTap()
 }
 
-class RegisterLocationFooterView: BaseView {
+class OnboardingFooterView: BaseView {
 
-    weak var delegate: RegisterLocationFooterViewDelegate?
+    weak var delegate: OnboardingFooterViewDelegate?
     
     // MARK: UI Components
     private let nextButton = UIButton().then {
@@ -65,7 +65,7 @@ class RegisterLocationFooterView: BaseView {
 }
 
 // MARK: View Method
-extension RegisterLocationFooterView {
+extension OnboardingFooterView {
     func updateNextButtonState(isEnabled: Bool) {
         nextButton.isEnabled = isEnabled
         nextButton.backgroundColor = isEnabled ? .gray1 : .gray6

@@ -21,9 +21,11 @@ class RegisterLocationViewController: BaseViewController {
     weak var coordinator: OnboardingCoordinator?
 
     //MARK: UI Components
-    private lazy var headerView = RegisterLocationHeaderView().then {
+    private lazy var headerView = OnboardingHeaderView().then {
         $0.delegate = self
-        $0.showBottomeBorder = false
+        $0.backgroundColor = .white
+        $0.rightButtonTitle = "건너뛰기"
+        $0.rightButtonTitleColor = .gray4
     }
 
     private let mainTitleLabel = UILabel().then {
@@ -66,7 +68,7 @@ class RegisterLocationViewController: BaseViewController {
         $0.titleLabel?.font = .body3
     }
 
-    private lazy var footerView = RegisterLocationFooterView().then {
+    private lazy var footerView = OnboardingFooterView().then {
         $0.showBottomBorder = false
         $0.delegate = self
     }
@@ -122,15 +124,19 @@ class RegisterLocationViewController: BaseViewController {
     }
 }
 
-extension RegisterLocationViewController: RegisterLocationHeaderViewDelegate {
-    func backButtonDidTap() {
+extension RegisterLocationViewController: OnboardingHeaderViewDelegate {
+    func leftButtonDidTap() {
         coordinator?.pop()
+    }
+    
+    func rightButtonDidTap() {
+        print("testLog: rightButton Tapped")
     }
 }
 
-extension RegisterLocationViewController: RegisterLocationFooterViewDelegate {
+extension RegisterLocationViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
-        
+        print("testLog: nextButton Tapped")
     }
 }
 

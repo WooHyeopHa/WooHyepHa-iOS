@@ -28,7 +28,6 @@
 		9E0FF2B92C6C4F5A00544674 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2B82C6C4F5A00544674 /* SplashViewController.swift */; };
 		9E0FF2BD2C6C58BB00544674 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2BC2C6C58BB00544674 /* LoginViewController.swift */; };
 		9E0FF2C02C6C59D700544674 /* OnboardingCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2BF2C6C59D700544674 /* OnboardingCoordinator.swift */; };
-		9E0FF2C32C6C60A900544674 /* LoginHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2C22C6C60A900544674 /* LoginHeaderView.swift */; };
 		9E0FF2C52C6C62FA00544674 /* BaseHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E0FF2C42C6C62FA00544674 /* BaseHeaderView.swift */; };
 		9E0FF2CC2C6C696700544674 /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF2C72C6C696600544674 /* Pretendard-Light.otf */; };
 		9E0FF2CD2C6C696700544674 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9E0FF2C82C6C696700544674 /* Pretendard-Regular.otf */; };
@@ -42,15 +41,13 @@
 		9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */; };
 		9E88DDF62C6DB27500815EE0 /* RegisterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */; };
 		9E88DDF92C6DB33D00815EE0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */; };
-		9E88DDFF2C6DBBF900815EE0 /* RegisterProfileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDFE2C6DBBF900815EE0 /* RegisterProfileHeaderView.swift */; };
 		9E88DE032C6DC7C200815EE0 /* NicknameInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE022C6DC7C200815EE0 /* NicknameInputView.swift */; };
 		9E88DE072C6DC85600815EE0 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE062C6DC85600815EE0 /* BaseView.swift */; };
 		9E88DE0A2C6DD58B00815EE0 /* BirthInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE092C6DD58B00815EE0 /* BirthInputView.swift */; };
 		9E88DE0C2C6DD75A00815EE0 /* SexInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE0B2C6DD75A00815EE0 /* SexInputView.swift */; };
-		9E88DE0E2C6DDE8A00815EE0 /* RegisterProfileFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE0D2C6DDE8A00815EE0 /* RegisterProfileFooterView.swift */; };
 		9E88DE132C73243600815EE0 /* RegisterLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE122C73243600815EE0 /* RegisterLocationViewController.swift */; };
-		9E88DE162C73252400815EE0 /* RegisterLocationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE152C73252400815EE0 /* RegisterLocationHeaderView.swift */; };
-		9E88DE1A2C7331BA00815EE0 /* RegisterLocationFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE192C7331BA00815EE0 /* RegisterLocationFooterView.swift */; };
+		9E88DE232C74263100815EE0 /* OnboardingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE222C74263100815EE0 /* OnboardingHeaderView.swift */; };
+		9E88DE272C74340500815EE0 /* OnboardingFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE262C74340500815EE0 /* OnboardingFooterView.swift */; };
 		9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */; };
 		9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C31012C6C739800F8B01A /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -77,7 +74,6 @@
 		9E0FF2B82C6C4F5A00544674 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		9E0FF2BC2C6C58BB00544674 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		9E0FF2BF2C6C59D700544674 /* OnboardingCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCoordinator.swift; sourceTree = "<group>"; };
-		9E0FF2C22C6C60A900544674 /* LoginHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginHeaderView.swift; sourceTree = "<group>"; };
 		9E0FF2C42C6C62FA00544674 /* BaseHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHeaderView.swift; sourceTree = "<group>"; };
 		9E0FF2C72C6C696600544674 /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
 		9E0FF2C82C6C696700544674 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -92,15 +88,13 @@
 		9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileViewController.swift; sourceTree = "<group>"; };
 		9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		9E88DDFE2C6DBBF900815EE0 /* RegisterProfileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileHeaderView.swift; sourceTree = "<group>"; };
 		9E88DE022C6DC7C200815EE0 /* NicknameInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameInputView.swift; sourceTree = "<group>"; };
 		9E88DE062C6DC85600815EE0 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		9E88DE092C6DD58B00815EE0 /* BirthInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthInputView.swift; sourceTree = "<group>"; };
 		9E88DE0B2C6DD75A00815EE0 /* SexInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SexInputView.swift; sourceTree = "<group>"; };
-		9E88DE0D2C6DDE8A00815EE0 /* RegisterProfileFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileFooterView.swift; sourceTree = "<group>"; };
 		9E88DE122C73243600815EE0 /* RegisterLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationViewController.swift; sourceTree = "<group>"; };
-		9E88DE152C73252400815EE0 /* RegisterLocationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationHeaderView.swift; sourceTree = "<group>"; };
-		9E88DE192C7331BA00815EE0 /* RegisterLocationFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationFooterView.swift; sourceTree = "<group>"; };
+		9E88DE222C74263100815EE0 /* OnboardingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingHeaderView.swift; sourceTree = "<group>"; };
+		9E88DE262C74340500815EE0 /* OnboardingFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingFooterView.swift; sourceTree = "<group>"; };
 		9E9C31002C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E9C31022C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		9E9C310F2C6C77AC00F8B01A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -315,6 +309,7 @@
 		9E0FF2BA2C6C58A400544674 /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
+				9E88DE212C74262400815EE0 /* Components */,
 				9E0FF2BE2C6C59C700544674 /* Coordinator */,
 				9E0FF2BB2C6C58B200544674 /* Login */,
 				9E88DDF22C6DAFA900815EE0 /* Register */,
@@ -327,7 +322,6 @@
 		9E0FF2BB2C6C58B200544674 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				9E0FF2C12C6C608B00544674 /* Components */,
 				9E0FF2BC2C6C58BB00544674 /* LoginViewController.swift */,
 			);
 			path = Login;
@@ -339,14 +333,6 @@
 				9E0FF2BF2C6C59D700544674 /* OnboardingCoordinator.swift */,
 			);
 			path = Coordinator;
-			sourceTree = "<group>";
-		};
-		9E0FF2C12C6C608B00544674 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				9E0FF2C22C6C60A900544674 /* LoginHeaderView.swift */,
-			);
-			path = Components;
 			sourceTree = "<group>";
 		};
 		9E5906582C4F993C00647DEE = {
@@ -396,11 +382,9 @@
 		9E88DDFD2C6DBBE900815EE0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9E88DDFE2C6DBBF900815EE0 /* RegisterProfileHeaderView.swift */,
 				9E88DE022C6DC7C200815EE0 /* NicknameInputView.swift */,
 				9E88DE092C6DD58B00815EE0 /* BirthInputView.swift */,
 				9E88DE0B2C6DD75A00815EE0 /* SexInputView.swift */,
-				9E88DE0D2C6DDE8A00815EE0 /* RegisterProfileFooterView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -408,17 +392,16 @@
 		9E88DE112C73240D00815EE0 /* RegisterLocation */ = {
 			isa = PBXGroup;
 			children = (
-				9E88DE142C7324ED00815EE0 /* Components */,
 				9E88DE122C73243600815EE0 /* RegisterLocationViewController.swift */,
 			);
 			path = RegisterLocation;
 			sourceTree = "<group>";
 		};
-		9E88DE142C7324ED00815EE0 /* Components */ = {
+		9E88DE212C74262400815EE0 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				9E88DE152C73252400815EE0 /* RegisterLocationHeaderView.swift */,
-				9E88DE192C7331BA00815EE0 /* RegisterLocationFooterView.swift */,
+				9E88DE222C74263100815EE0 /* OnboardingHeaderView.swift */,
+				9E88DE262C74340500815EE0 /* OnboardingFooterView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -561,22 +544,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				9E0FF2B42C6B0C3500544674 /* MyPageViewController.swift in Sources */,
-				9E88DDFF2C6DBBF900815EE0 /* RegisterProfileHeaderView.swift in Sources */,
 				9E5906692C4F993C00647DEE /* ViewController.swift in Sources */,
 				9E0FF2AE2C6B0B4F00544674 /* MapCoordinator.swift in Sources */,
 				9E0FF1E82C5A23E500544674 /* Extension + UIColor.swift in Sources */,
 				9E0FF2AA2C6B0AD100544674 /* MatingCoordinator.swift in Sources */,
 				9E0FF29D2C6B099900544674 /* AppCoordinator.swift in Sources */,
 				9E0FF2982C6B08E300544674 /* TabBarCoordinator.swift in Sources */,
-				9E88DE1A2C7331BA00815EE0 /* RegisterLocationFooterView.swift in Sources */,
 				9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */,
 				9E88DDF62C6DB27500815EE0 /* RegisterProfileViewController.swift in Sources */,
+				9E88DE232C74263100815EE0 /* OnboardingHeaderView.swift in Sources */,
 				9E0FF1F42C5A252E00544674 /* Extension + UIFont.swift in Sources */,
 				9E0FF2B22C6B0B9D00544674 /* ChatCoordinator.swift in Sources */,
 				9E0FF2BD2C6C58BB00544674 /* LoginViewController.swift in Sources */,
 				9E0FF2C02C6C59D700544674 /* OnboardingCoordinator.swift in Sources */,
 				9E0FF2A82C6B0AB400544674 /* MatingViewController.swift in Sources */,
-				9E0FF2C32C6C60A900544674 /* LoginHeaderView.swift in Sources */,
 				9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
 				9E0FF2B92C6C4F5A00544674 /* SplashViewController.swift in Sources */,
@@ -587,13 +568,12 @@
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
 				9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */,
 				9E0FF2A42C6B0A2B00544674 /* HomeCoordinator.swift in Sources */,
-				9E88DE162C73252400815EE0 /* RegisterLocationHeaderView.swift in Sources */,
 				9E88DDF92C6DB33D00815EE0 /* RegisterViewController.swift in Sources */,
 				9E0FF2B62C6B0C5100544674 /* MyPageCoordinator.swift in Sources */,
-				9E88DE0E2C6DDE8A00815EE0 /* RegisterProfileFooterView.swift in Sources */,
 				9E0FF2AC2C6B0B2800544674 /* MapViewController.swift in Sources */,
 				9E0FF2A62C6B0A5F00544674 /* HomeViewController.swift in Sources */,
 				9E88DE132C73243600815EE0 /* RegisterLocationViewController.swift in Sources */,
+				9E88DE272C74340500815EE0 /* OnboardingFooterView.swift in Sources */,
 				9E0FF2C52C6C62FA00544674 /* BaseHeaderView.swift in Sources */,
 				9E88DE0C2C6DD75A00815EE0 /* SexInputView.swift in Sources */,
 				9E88DE032C6DC7C200815EE0 /* NicknameInputView.swift in Sources */,

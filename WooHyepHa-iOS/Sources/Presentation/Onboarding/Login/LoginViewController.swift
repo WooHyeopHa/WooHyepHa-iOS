@@ -13,14 +13,15 @@ import SnapKit
 import Then
 
 class LoginViewController: BaseViewController {
-
+    
     // 나중에 로그인 기능 구현 시 코디네이터는 뷰모델로 옮겨 주입 받을 예정
     weak var coordinator: OnboardingCoordinator?
     
     // MARK: UI Components
-    private lazy var headerView = LoginHeaderView().then {
+    private lazy var headerView = OnboardingHeaderView().then {
         $0.delegate = self
-        $0.showBottomeBorder = false
+        $0.rightButtonTitle = "둘러보기"
+        $0.showLeftButton = false
     }
     
     private let mainTitleLabel = UILabel().then {
@@ -51,7 +52,6 @@ class LoginViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
     }
     
     // MARK: Set ViewController
@@ -94,11 +94,8 @@ class LoginViewController: BaseViewController {
             $0.height.equalTo(60)
         }
     }
-}
-
-// MARK: bind
-private extension LoginViewController {
-    func bind() {
+    
+    override func bind() {
         appleLoginButton.rx.tap
             .subscribe(with: self, onNext: { owner, _ in
                 owner.coordinator?.goToRegisterViewController()
@@ -107,8 +104,10 @@ private extension LoginViewController {
     }
 }
 
-extension LoginViewController: LoginHeaderViewDelegate {
-    func leftButtonDidTap() {
+// MARK: bind
+
+extension LoginViewController: OnboardingHeaderViewDelegate {
+    func rightButtonDidTap() {
         print("testLog : ButtonTapped")
     }
 }

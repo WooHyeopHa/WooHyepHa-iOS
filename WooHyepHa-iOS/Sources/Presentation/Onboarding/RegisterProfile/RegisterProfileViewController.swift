@@ -18,9 +18,10 @@ class RegisterProfileViewController: BaseViewController {
     weak var coordinator: OnboardingCoordinator?
     
     //MARK: UI Components
-    private lazy var headerView = RegisterProfileHeaderView().then {
+    private lazy var headerView = OnboardingHeaderView().then {
         $0.delegate = self
-        $0.showBottomeBorder = false
+        $0.backgroundColor = .white
+        $0.showRightButton = false
     }
     
     private let mainTitleLabel = UILabel().then {
@@ -68,14 +69,13 @@ class RegisterProfileViewController: BaseViewController {
         $0.showBottomBorder = false
     }
     
-    private lazy var footerView = RegisterProfileFooterView().then {
+    private lazy var footerView = OnboardingFooterView().then {
         $0.showBottomBorder = false
         $0.delegate = self
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        bind()
     }
 
     // MARK: Set ViewController
@@ -143,10 +143,8 @@ class RegisterProfileViewController: BaseViewController {
             $0.height.equalTo(75)
         }
     }
-}
-
-private extension RegisterProfileViewController {
-    func bind() {
+    
+    override func bind() {
         // 테스트 로직임 수정 예정
         nicknameInputView.inputNickname
             .subscribe(with: self, onNext: { owner, text in
@@ -194,7 +192,9 @@ private extension RegisterProfileViewController {
             })
             .disposed(by: disposeBag)
     }
-    
+}
+
+private extension RegisterProfileViewController {
     func presentImagePicker() {
         var configuration = PHPickerConfiguration()
         configuration.filter = .images
@@ -234,14 +234,15 @@ extension RegisterProfileViewController: PHPickerViewControllerDelegate {
     }
 }
 
-extension RegisterProfileViewController: RegisterProfileHeaderViewDelegate {
-    func backButtonDidTap() {
+extension RegisterProfileViewController: OnboardingHeaderViewDelegate {
+    func leftButtonDidTap() {
         coordinator?.pop()
     }
 }
 
-extension RegisterProfileViewController: RegisterProfileFooterViewDelegate {
+extension RegisterProfileViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         coordinator?.goToRegisterLocationViewController()
     }
 }
+
