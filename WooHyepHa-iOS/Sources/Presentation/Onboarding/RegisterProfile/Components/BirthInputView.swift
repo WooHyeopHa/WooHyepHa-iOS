@@ -22,8 +22,9 @@ class BirthInputView: BaseView {
     }
     
     private lazy var birthTextField = UITextField().then {
-        $0.placeholder = "태어난 연도를 설정해 주세요!"
+        $0.attributedPlaceholder = NSAttributedString(string: "태어난 연도를 설정해 주세요!", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray5])
         $0.font = .body4
+        $0.textColor = .gray1
         $0.layer.borderColor = UIColor.gray7.cgColor
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 10
@@ -37,7 +38,6 @@ class BirthInputView: BaseView {
         $0.delegate = self
         $0.dataSource = self
         $0.backgroundColor = .white
-        $0.tintColor = .black
     }
     
     private let years = Array(1930...2009).map { String($0) }
@@ -107,6 +107,7 @@ extension BirthInputView: UIPickerViewDelegate {
         label.text = years[row]
         label.textAlignment = .center
         label.font = .body2
+        label.textColor = .gray1
         return label
     }
     
