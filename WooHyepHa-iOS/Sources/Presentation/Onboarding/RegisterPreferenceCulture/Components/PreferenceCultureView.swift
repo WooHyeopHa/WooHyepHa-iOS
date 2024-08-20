@@ -61,7 +61,7 @@ class PreferenceCultureView: BaseView {
     override func setConstraints() {
         verticalStackView.snp.makeConstraints {
             $0.center.equalToSuperview()
-            $0.width.equalToSuperview().multipliedBy(0.8)
+            $0.width.equalToSuperview()
             $0.height.equalTo(verticalStackView.snp.width)
         }
     }
