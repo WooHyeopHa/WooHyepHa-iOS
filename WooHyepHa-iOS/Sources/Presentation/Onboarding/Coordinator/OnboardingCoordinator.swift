@@ -84,5 +84,11 @@ extension OnboardingCoordinator {
         let registerPreferenceClassicViewController = RegisterPreferenceClassicViewController()
         registerPreferenceClassicViewController.coordinator = self
         navigationController.pushViewController(registerPreferenceClassicViewController, animated: true)
+    }    
+    
+    func goToRegisterSelectPurposeViewController() {
+        let registerSelectPurposeViewController = RegisterSelectPurposeViewController()
+        registerSelectPurposeViewController.coordinator = self
+        navigationController.pushViewController(registerSelectPurposeViewController, animated: true)
     }
 }

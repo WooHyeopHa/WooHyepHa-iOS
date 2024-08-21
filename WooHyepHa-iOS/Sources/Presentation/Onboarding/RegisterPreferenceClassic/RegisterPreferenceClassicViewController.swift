@@ -124,6 +124,6 @@ extension RegisterPreferenceClassicViewController: OnboardingHeaderViewDelegate 
 extension RegisterPreferenceClassicViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         print("testLog: nextButton Tapped")
-        coordinator?.goToRegisterPreferenceConcertViewController()
+        coordinator?.goToRegisterSelectPurposeViewController()
     }
 }
