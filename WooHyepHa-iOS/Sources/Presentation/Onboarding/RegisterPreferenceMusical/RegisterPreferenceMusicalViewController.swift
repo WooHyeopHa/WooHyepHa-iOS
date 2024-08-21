@@ -24,7 +24,7 @@ class RegisterPreferenceMusicalViewController: BaseViewController {
         $0.rightButtonTitleColor = .gray4
     }
 
-    private let progressView = OnboardingProgressView(progressValue: 0.3333)
+    private let progressView = OnboardingProgressView(progressValue: 0.6667)
     
     private let mainTitle = UILabel().then {
         $0.text = "어떤 장르의 뮤지컬/연극을 선호하시나요?"
