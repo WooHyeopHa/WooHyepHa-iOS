@@ -60,5 +60,11 @@ extension OnboardingCoordinator {
         let registerPreferencCultureViewController = RegisterPreferenceCultrueViewController()
         registerPreferencCultureViewController.coordinator = self
         navigationController.pushViewController(registerPreferencCultureViewController, animated: true)
+    }    
+    
+    func goToRegisterPreferencExhibitionViewController() {
+        let registerPreferencExhibitionViewController = RegisterPreferenceExhibitionViewController()
+        registerPreferencExhibitionViewController.coordinator = self
+        navigationController.pushViewController(registerPreferencExhibitionViewController, animated: true)
     }
 }
