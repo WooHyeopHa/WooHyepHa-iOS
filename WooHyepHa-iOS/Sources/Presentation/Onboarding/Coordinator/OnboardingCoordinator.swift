@@ -72,5 +72,11 @@ extension OnboardingCoordinator {
         let registerPreferenceConcertViewController = RegisterPreferenceConcertViewController()
         registerPreferenceConcertViewController.coordinator = self
         navigationController.pushViewController(registerPreferenceConcertViewController, animated: true)
+    }    
+    
+    func goToRegisterPreferenceMusicalViewController() {
+        let registerPreferenceMusicalViewController = RegisterPreferenceMusicalViewController()
+        registerPreferenceMusicalViewController.coordinator = self
+        navigationController.pushViewController(registerPreferenceMusicalViewController, animated: true)
     }
 }

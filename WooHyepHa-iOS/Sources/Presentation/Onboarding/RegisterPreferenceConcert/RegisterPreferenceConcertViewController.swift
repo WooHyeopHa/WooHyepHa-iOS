@@ -124,5 +124,6 @@ extension RegisterPreferenceConcertViewController: OnboardingHeaderViewDelegate 
 extension RegisterPreferenceConcertViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         print("testLog: nextButton Tapped")
+        coordinator?.goToRegisterPreferenceMusicalViewController()
     }
 }
