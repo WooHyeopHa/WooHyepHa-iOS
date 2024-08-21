@@ -52,6 +52,7 @@
 		9E88DE2D2C7439AE00815EE0 /* PreferenceCultureView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE2C2C7439AE00815EE0 /* PreferenceCultureView.swift */; };
 		9E88DE312C74475500815EE0 /* PreferenceCultureButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE302C74475500815EE0 /* PreferenceCultureButton.swift */; };
 		9E88DE332C7466E100815EE0 /* OnboardingProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE322C7466E100815EE0 /* OnboardingProgressView.swift */; };
+		9E88DE362C75774C00815EE0 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE352C75774C00815EE0 /* OnboardingButton.swift */; };
 		9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */; };
 		9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C31012C6C739800F8B01A /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -103,6 +104,7 @@
 		9E88DE2C2C7439AE00815EE0 /* PreferenceCultureView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCultureView.swift; sourceTree = "<group>"; };
 		9E88DE302C74475500815EE0 /* PreferenceCultureButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceCultureButton.swift; sourceTree = "<group>"; };
 		9E88DE322C7466E100815EE0 /* OnboardingProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingProgressView.swift; sourceTree = "<group>"; };
+		9E88DE352C75774C00815EE0 /* OnboardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
 		9E9C31002C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E9C31022C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		9E9C310F2C6C77AC00F8B01A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				9E88DDF32C6DB24200815EE0 /* RegisterProfile */,
 				9E88DE112C73240D00815EE0 /* RegisterLocation */,
 				9E88DE282C74376000815EE0 /* RegisterPreferenceCulture */,
+				9E88DE342C7576DC00815EE0 /* RegisterPreferenceExhibition */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				9E88DE222C74263100815EE0 /* OnboardingHeaderView.swift */,
 				9E88DE262C74340500815EE0 /* OnboardingFooterView.swift */,
 				9E88DE322C7466E100815EE0 /* OnboardingProgressView.swift */,
+				9E88DE352C75774C00815EE0 /* OnboardingButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -432,6 +436,13 @@
 				9E88DE302C74475500815EE0 /* PreferenceCultureButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		9E88DE342C7576DC00815EE0 /* RegisterPreferenceExhibition */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RegisterPreferenceExhibition;
 			sourceTree = "<group>";
 		};
 		9E9C30FE2C6C739800F8B01A /* Base.lproj */ = {
@@ -596,6 +607,7 @@
 				9E88DE312C74475500815EE0 /* PreferenceCultureButton.swift in Sources */,
 				9E88DE072C6DC85600815EE0 /* BaseView.swift in Sources */,
 				9E0FF2B02C6B0B8500544674 /* ChatViewController.swift in Sources */,
+				9E88DE362C75774C00815EE0 /* OnboardingButton.swift in Sources */,
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
 				9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */,
 				9E0FF2A42C6B0A2B00544674 /* HomeCoordinator.swift in Sources */,
