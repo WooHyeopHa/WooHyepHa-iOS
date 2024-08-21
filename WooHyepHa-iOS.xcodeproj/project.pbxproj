@@ -38,6 +38,7 @@
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
 		9E59066E2C4F993D00647DEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E59066D2C4F993D00647DEE /* Assets.xcassets */; };
+		9E66792B2C760FF000832440 /* RegisterPreferenceMusicalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66792A2C760FF000832440 /* RegisterPreferenceMusicalView.swift */; };
 		9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */; };
 		9E88DDF62C6DB27500815EE0 /* RegisterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */; };
 		9E88DDF92C6DB33D00815EE0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */; };
@@ -94,6 +95,7 @@
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9E5906682C4F993C00647DEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E59066D2C4F993D00647DEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E66792A2C760FF000832440 /* RegisterPreferenceMusicalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceMusicalView.swift; sourceTree = "<group>"; };
 		9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileViewController.swift; sourceTree = "<group>"; };
 		9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				9E88DE282C74376000815EE0 /* RegisterPreferenceCulture */,
 				9E88DE342C7576DC00815EE0 /* RegisterPreferenceExhibition */,
 				9E88DE3C2C75DD4B00815EE0 /* RegisterPreferenceConcert */,
+				9E6679282C760FBB00832440 /* RegisterPreferenceMusical */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -381,6 +384,22 @@
 				9E0FF1DE2C5A21BF00544674 /* Resources */,
 			);
 			path = "WooHyepHa-iOS";
+			sourceTree = "<group>";
+		};
+		9E6679282C760FBB00832440 /* RegisterPreferenceMusical */ = {
+			isa = PBXGroup;
+			children = (
+				9E6679292C760FDA00832440 /* Components */,
+			);
+			path = RegisterPreferenceMusical;
+			sourceTree = "<group>";
+		};
+		9E6679292C760FDA00832440 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9E66792A2C760FF000832440 /* RegisterPreferenceMusicalView.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 		9E88DDF22C6DAFA900815EE0 /* Register */ = {
@@ -625,6 +644,7 @@
 				9E5906692C4F993C00647DEE /* ViewController.swift in Sources */,
 				9E0FF2AE2C6B0B4F00544674 /* MapCoordinator.swift in Sources */,
 				9E0FF1E82C5A23E500544674 /* Extension + UIColor.swift in Sources */,
+				9E66792B2C760FF000832440 /* RegisterPreferenceMusicalView.swift in Sources */,
 				9E0FF2AA2C6B0AD100544674 /* MatingCoordinator.swift in Sources */,
 				9E0FF29D2C6B099900544674 /* AppCoordinator.swift in Sources */,
 				9E0FF2982C6B08E300544674 /* TabBarCoordinator.swift in Sources */,
