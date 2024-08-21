@@ -1,8 +1,8 @@
 //
-//  RegisterPreferenceCultrueViewController.swift
+//  RegisterPreferenceExhibitionViewController.swift
 //  WooHyepHa-iOS
 //
-//  Created by 여성일 on 8/20/24.
+//  Created by 여성일 on 8/21/24.
 //
 
 import UIKit
@@ -12,7 +12,7 @@ import RxSwift
 import SnapKit
 import Then
 
-class RegisterPreferenceCultrueViewController: BaseViewController {
+class RegisterPreferenceExhibitionViewController: BaseViewController {
 
     weak var coordinator: OnboardingCoordinator?
 
@@ -24,9 +24,15 @@ class RegisterPreferenceCultrueViewController: BaseViewController {
         $0.rightButtonTitleColor = .gray4
     }
 
-    private let progressView = OnboardingProgressView(progressValue: 0.1667)
+    private let progressView = OnboardingProgressView(progressValue: 0.3333)
     
-    private lazy var preferenceCultureView = PreferenceCultureView()
+    private let mainTitle = UILabel().then {
+        $0.text = "어떤 장르의 전시회를 선호하시나요?"
+        $0.textColor = .gray1
+        $0.font = .sub1
+    }
+    
+    private lazy var preferenceExhibitionView = PreferenceExhibitionView()
     
     private let subTitle = UILabel().then {
         $0.text = "나중에 다시 수정할 수 있어요!"
@@ -49,7 +55,7 @@ class RegisterPreferenceCultrueViewController: BaseViewController {
     override func setViewController() {
         view.backgroundColor = .white
         
-        [headerView, progressView, preferenceCultureView, subTitle, footerView].forEach {
+        [headerView, progressView, mainTitle, preferenceExhibitionView, subTitle, footerView].forEach {
             view.addSubview($0)
         }
     }
@@ -67,10 +73,16 @@ class RegisterPreferenceCultrueViewController: BaseViewController {
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
-        preferenceCultureView.snp.makeConstraints {
-            $0.top.equalTo(progressView.snp.bottom).offset(15)
+        mainTitle.snp.makeConstraints {
+            $0.top.equalTo(progressView.snp.bottom).offset(28)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-            $0.bottom.equalTo(subTitle.snp.top).offset(-15)
+        }
+        
+        preferenceExhibitionView.snp.makeConstraints {
+            $0.top.equalTo(mainTitle.snp.bottom).offset(32)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            $0.width.equalTo(375)
+            $0.height.equalTo(180)
         }
         
         subTitle.snp.makeConstraints {
@@ -86,28 +98,21 @@ class RegisterPreferenceCultrueViewController: BaseViewController {
     }
     
     override func bind() {
-        preferenceCultureView.inputPreferenceCulture
-            .subscribe(with: self, onNext: { owner, type in
-            })
-            .disposed(by: disposeBag)
-        
         var selected: [String] = []
-        
-        preferenceCultureView.inputPreferenceCulture
+        preferenceExhibitionView.inputPreferenceExhibition
             .subscribe(with: self, onNext: { owner, type in
                 if let index = selected.firstIndex(of: type) {
                     selected.remove(at: index)
                 } else {
                     selected.append(type)
                 }
-                
                 print(selected)
             })
             .disposed(by: disposeBag)
     }
 }
 
-extension RegisterPreferenceCultrueViewController: OnboardingHeaderViewDelegate {
+extension RegisterPreferenceExhibitionViewController: OnboardingHeaderViewDelegate {
     func leftButtonDidTap() {
         coordinator?.pop()
     }
@@ -117,9 +122,8 @@ extension RegisterPreferenceCultrueViewController: OnboardingHeaderViewDelegate 
     }
 }
 
-extension RegisterPreferenceCultrueViewController: OnboardingFooterViewDelegate {
+extension RegisterPreferenceExhibitionViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         print("testLog: nextButton Tapped")
-        coordinator?.goToRegisterPreferencExhibitionViewController()
     }
 }
