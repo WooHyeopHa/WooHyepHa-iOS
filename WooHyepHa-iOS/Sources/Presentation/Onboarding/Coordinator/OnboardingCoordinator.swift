@@ -56,15 +56,21 @@ extension OnboardingCoordinator {
         navigationController.pushViewController(registerLocationViewController, animated: true)
     }    
     
-    func goToRegisterPreferencCultureViewController() {
-        let registerPreferencCultureViewController = RegisterPreferenceCultrueViewController()
-        registerPreferencCultureViewController.coordinator = self
-        navigationController.pushViewController(registerPreferencCultureViewController, animated: true)
-    }    
+    func goToRegisterPreferenceCultureViewController() {
+        let registerPreferenceCultureViewController = RegisterPreferenceCultrueViewController()
+        registerPreferenceCultureViewController.coordinator = self
+        navigationController.pushViewController(registerPreferenceCultureViewController, animated: true)
+    }
     
-    func goToRegisterPreferencExhibitionViewController() {
-        let registerPreferencExhibitionViewController = RegisterPreferenceExhibitionViewController()
-        registerPreferencExhibitionViewController.coordinator = self
-        navigationController.pushViewController(registerPreferencExhibitionViewController, animated: true)
+    func goToRegisterPreferenceExhibitionViewController() {
+        let registerPreferenceExhibitionViewController = RegisterPreferenceExhibitionViewController()
+        registerPreferenceExhibitionViewController.coordinator = self
+        navigationController.pushViewController(registerPreferenceExhibitionViewController, animated: true)
+    }
+    
+    func goToRegisterPreferenceConcertViewController() {
+        let registerPreferenceConcertViewController = RegisterPreferenceConcertViewController()
+        registerPreferenceConcertViewController.coordinator = self
+        navigationController.pushViewController(registerPreferenceConcertViewController, animated: true)
     }
 }
