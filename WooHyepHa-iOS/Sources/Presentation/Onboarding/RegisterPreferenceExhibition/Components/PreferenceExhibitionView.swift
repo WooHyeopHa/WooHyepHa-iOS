@@ -27,28 +27,35 @@ class PreferenceExhibitionView: BaseView {
     
     private let horizontalStackView1 = UIStackView().then {
         $0.axis = .horizontal
-        $0.distribution = .equalSpacing
-        $0.spacing = 8
+        $0.distribution = .fillEqually
+        $0.spacing = 11
     }
     
     private let horizontalStackView2 = UIStackView().then {
         $0.axis = .horizontal
-        $0.distribution = .equalSpacing
-        $0.spacing = 8
+        $0.distribution = .fillEqually
+        $0.spacing = 11
     }
     
     private let horizontalStackView3 = UIStackView().then {
         $0.axis = .horizontal
-        $0.distribution = .equalSpacing
-        $0.spacing = 8
+        $0.distribution = .fillEqually
+        $0.spacing = 11
     }
         
     private let horizontalStackView4 = UIStackView().then {
         $0.axis = .horizontal
-        $0.distribution = .equalSpacing
-        $0.spacing = 8
+        $0.distribution = .fill
+        $0.alignment = .leading
+        $0.spacing = 11
     }
 
+    private let verticalStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .fillEqually
+        $0.spacing = 20
+    }
+    
     private var selectedExhibition: Set<String> = []
 
     override init(frame: CGRect) {
@@ -78,59 +85,30 @@ class PreferenceExhibitionView: BaseView {
         horizontalStackView4.addArrangedSubview(historyExpoButton)
         
         [horizontalStackView1, horizontalStackView2, horizontalStackView3, horizontalStackView4].forEach {
-            addSubview($0)
+            verticalStackView.addArrangedSubview($0)
         }
+        
+        addSubview(verticalStackView)
     }
     
     override func setConstraints() {
-        horizontalStackView1.snp.makeConstraints {
-            $0.width.equalTo(256)
-            $0.height.equalTo(36)
-            $0.top.equalToSuperview()
+        verticalStackView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalToSuperview()
         }
         
-        horizontalStackView2.snp.makeConstraints {
-            $0.width.equalTo(265)
-            $0.height.equalTo(36)
-            $0.top.equalTo(horizontalStackView1.snp.bottom).offset(8)
-        }
-        
-        horizontalStackView3.snp.makeConstraints {
-            $0.width.equalTo(256)
-            $0.height.equalTo(36)
-            $0.top.equalTo(horizontalStackView2.snp.bottom).offset(8)
-        }
-        
-        horizontalStackView4.snp.makeConstraints {
-            $0.width.equalTo(78)
-            $0.height.equalTo(36)
-            $0.top.equalTo(horizontalStackView3.snp.bottom).offset(8)
-        }
-        
-        [installationArtButton, decorationArtButton].forEach {
+        [popupExpoButton, photoExpoButton, modernArtButton, installationArtButton,
+         digitalArtButton, buildingExpoButton, decorationArtButton, cultureExpoButton, scienceExpoButton,
+         historyExpoButton].forEach {
             $0.snp.makeConstraints {
-                $0.width.equalTo(75)
-                $0.height.equalTo(36)
+                $0.height.equalTo(48)
             }
         }
         
-        [popupExpoButton, modernArtButton, historyExpoButton].forEach {
-            $0.snp.makeConstraints {
-                $0.width.equalTo(78)
-                $0.height.equalTo(36)
-            }
-        }
-        
-        [photoExpoButton, buildingExpoButton, cultureExpoButton, scienceExpoButton].forEach {
-            $0.snp.makeConstraints {
-                $0.width.equalTo(81)
-                $0.height.equalTo(36)
-            }
-        }
-        
-        digitalArtButton.snp.makeConstraints {
-            $0.width.equalTo(93)
-            $0.height.equalTo(36)
+        historyExpoButton.snp.makeConstraints {
+            $0.width.equalTo(verticalStackView).multipliedBy(1.0/3.0).offset(-22/3)
+            $0.left.equalTo(verticalStackView.snp.left)
         }
     }
     
