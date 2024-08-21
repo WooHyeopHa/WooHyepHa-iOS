@@ -1,5 +1,5 @@
 //
-//  RegisterPreferenceConcertViewController.swift
+//  RegisterPreferenceMusicalViewController.swift
 //  WooHyepHa-iOS
 //
 //  Created by 여성일 on 8/21/24.
@@ -12,7 +12,7 @@ import RxSwift
 import SnapKit
 import Then
 
-class RegisterPreferenceConcertViewController: BaseViewController {
+class RegisterPreferenceMusicalViewController: BaseViewController {
 
     weak var coordinator: OnboardingCoordinator?
 
@@ -24,15 +24,15 @@ class RegisterPreferenceConcertViewController: BaseViewController {
         $0.rightButtonTitleColor = .gray4
     }
 
-    private let progressView = OnboardingProgressView(progressValue: 0.5)
+    private let progressView = OnboardingProgressView(progressValue: 0.6667)
     
     private let mainTitle = UILabel().then {
-        $0.text = "어떤 장르의 콘서트를 선호하시나요?"
+        $0.text = "어떤 장르의 뮤지컬/연극을 선호하시나요?"
         $0.textColor = .gray1
         $0.font = .sub1
     }
     
-    private lazy var preferenceConcertView = PreferenceConcertView()
+    private lazy var preferenceMusicalView = PreferenceMusicalView()
     
     private let subTitle = UILabel().then {
         $0.text = "나중에 다시 수정할 수 있어요!"
@@ -55,7 +55,7 @@ class RegisterPreferenceConcertViewController: BaseViewController {
     override func setViewController() {
         view.backgroundColor = .white
         
-        [headerView, progressView, mainTitle, preferenceConcertView, subTitle, footerView].forEach {
+        [headerView, progressView, mainTitle, preferenceMusicalView, subTitle, footerView].forEach {
             view.addSubview($0)
         }
     }
@@ -78,10 +78,10 @@ class RegisterPreferenceConcertViewController: BaseViewController {
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
-        preferenceConcertView.snp.makeConstraints {
+        preferenceMusicalView.snp.makeConstraints {
             $0.top.equalTo(mainTitle.snp.bottom).offset(32)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-            $0.height.equalTo(184)
+            $0.height.equalTo(252)
         }
         
         subTitle.snp.makeConstraints {
@@ -98,7 +98,7 @@ class RegisterPreferenceConcertViewController: BaseViewController {
     
     override func bind() {
         var selected: [String] = []
-        preferenceConcertView.inputPreferenceConcert
+        preferenceMusicalView.inputPreferenceMusical
             .subscribe(with: self, onNext: { owner, type in
                 if let index = selected.firstIndex(of: type) {
                     selected.remove(at: index)
@@ -111,7 +111,7 @@ class RegisterPreferenceConcertViewController: BaseViewController {
     }
 }
 
-extension RegisterPreferenceConcertViewController: OnboardingHeaderViewDelegate {
+extension RegisterPreferenceMusicalViewController: OnboardingHeaderViewDelegate {
     func leftButtonDidTap() {
         coordinator?.pop()
     }
@@ -121,9 +121,9 @@ extension RegisterPreferenceConcertViewController: OnboardingHeaderViewDelegate 
     }
 }
 
-extension RegisterPreferenceConcertViewController: OnboardingFooterViewDelegate {
+extension RegisterPreferenceMusicalViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         print("testLog: nextButton Tapped")
-        coordinator?.goToRegisterPreferenceMusicalViewController()
+        coordinator?.goToRegisterPreferenceConcertViewController()
     }
 }
