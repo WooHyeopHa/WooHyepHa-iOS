@@ -54,6 +54,7 @@ class PreferenceExhibitionView: BaseView {
         $0.axis = .vertical
         $0.distribution = .fillEqually
         $0.spacing = 20
+        $0.alignment = .leading
     }
     
     private var selectedExhibition: Set<String> = []
@@ -102,13 +103,9 @@ class PreferenceExhibitionView: BaseView {
          digitalArtButton, buildingExpoButton, decorationArtButton, cultureExpoButton, scienceExpoButton,
          historyExpoButton].forEach {
             $0.snp.makeConstraints {
+                $0.width.equalTo(verticalStackView).multipliedBy(1.0/3.0).offset(-22/3)
                 $0.height.equalTo(48)
             }
-        }
-        
-        historyExpoButton.snp.makeConstraints {
-            $0.width.equalTo(verticalStackView).multipliedBy(1.0/3.0).offset(-22/3)
-            $0.left.equalTo(verticalStackView.snp.left)
         }
     }
     
