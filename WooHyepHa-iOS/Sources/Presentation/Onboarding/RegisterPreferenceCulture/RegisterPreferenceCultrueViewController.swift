@@ -120,5 +120,6 @@ extension RegisterPreferenceCultrueViewController: OnboardingHeaderViewDelegate 
 extension RegisterPreferenceCultrueViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         print("testLog: nextButton Tapped")
+        coordinator?.goToRegisterPreferencExhibitionViewController()
     }
 }
