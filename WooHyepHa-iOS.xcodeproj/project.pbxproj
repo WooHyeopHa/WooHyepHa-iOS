@@ -39,6 +39,7 @@
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
 		9E59066E2C4F993D00647DEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E59066D2C4F993D00647DEE /* Assets.xcassets */; };
 		9E66792B2C760FF000832440 /* PreferenceMusicalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66792A2C760FF000832440 /* PreferenceMusicalView.swift */; };
+		9E66792D2C76131700832440 /* RegisterPreferenceMusicalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66792C2C76131700832440 /* RegisterPreferenceMusicalViewController.swift */; };
 		9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */; };
 		9E88DDF62C6DB27500815EE0 /* RegisterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */; };
 		9E88DDF92C6DB33D00815EE0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */; };
@@ -96,6 +97,7 @@
 		9E5906682C4F993C00647DEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E59066D2C4F993D00647DEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9E66792A2C760FF000832440 /* PreferenceMusicalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceMusicalView.swift; sourceTree = "<group>"; };
+		9E66792C2C76131700832440 /* RegisterPreferenceMusicalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceMusicalViewController.swift; sourceTree = "<group>"; };
 		9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileViewController.swift; sourceTree = "<group>"; };
 		9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 			isa = PBXGroup;
 			children = (
 				9E6679292C760FDA00832440 /* Components */,
+				9E66792C2C76131700832440 /* RegisterPreferenceMusicalViewController.swift */,
 			);
 			path = RegisterPreferenceMusical;
 			sourceTree = "<group>";
@@ -647,6 +650,7 @@
 				9E66792B2C760FF000832440 /* PreferenceMusicalView.swift in Sources */,
 				9E0FF2AA2C6B0AD100544674 /* MatingCoordinator.swift in Sources */,
 				9E0FF29D2C6B099900544674 /* AppCoordinator.swift in Sources */,
+				9E66792D2C76131700832440 /* RegisterPreferenceMusicalViewController.swift in Sources */,
 				9E0FF2982C6B08E300544674 /* TabBarCoordinator.swift in Sources */,
 				9E88DE382C75786000815EE0 /* RegisterPreferenceExhibitionViewController.swift in Sources */,
 				9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */,
