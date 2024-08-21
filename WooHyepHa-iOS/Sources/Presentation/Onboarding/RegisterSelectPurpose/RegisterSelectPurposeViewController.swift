@@ -1,5 +1,5 @@
 //
-//  RegisterPreferenceClassicViewController.swift
+//  RegisterSelectPurposeViewController.swift
 //  WooHyepHa-iOS
 //
 //  Created by 여성일 on 8/21/24.
@@ -12,7 +12,7 @@ import RxSwift
 import SnapKit
 import Then
 
-class RegisterPreferenceClassicViewController: BaseViewController {
+class RegisterSelectPurposeViewController: BaseViewController {
 
     weak var coordinator: OnboardingCoordinator?
 
@@ -24,15 +24,17 @@ class RegisterPreferenceClassicViewController: BaseViewController {
         $0.rightButtonTitleColor = .gray4
     }
 
-    private let progressView = OnboardingProgressView(progressValue: 0.8333)
+    private let progressView = OnboardingProgressView(progressValue: 1.0)
     
     private let mainTitle = UILabel().then {
-        $0.text = "어떤 장르의 클래식/무용을 선호하시나요?"
-        $0.textColor = .gray1
-        $0.font = .sub1
+        let attributedString = NSMutableAttributedString(string: "문화예술을 관람하는\n", attributes: [.font: UIFont.sub1, .foregroundColor: UIColor.gray1])
+        attributedString.append(NSAttributedString(string: "주요 목적은 무엇인가요? (택1)", attributes: [.font: UIFont.sub1, .foregroundColor: UIColor.gray1]))
+        $0.attributedText = attributedString
+        $0.numberOfLines = 2
+        $0.textAlignment = .left
     }
     
-    private lazy var preferenceClassicView = PreferenceClassicView()
+    private lazy var selectPurpseView = SelectPurposeView()
     
     private let subTitle = UILabel().then {
         $0.text = "나중에 다시 수정할 수 있어요!"
@@ -45,6 +47,7 @@ class RegisterPreferenceClassicViewController: BaseViewController {
         $0.showBottomBorder = false
         $0.delegate = self
         $0.updateNextButtonState(isEnabled: true)
+        $0.nextButtonTitle = "입장하기"
     }
     
     override func viewDidLoad() {
@@ -55,7 +58,7 @@ class RegisterPreferenceClassicViewController: BaseViewController {
     override func setViewController() {
         view.backgroundColor = .white
         
-        [headerView, progressView, mainTitle, preferenceClassicView, subTitle, footerView].forEach {
+        [headerView, progressView, mainTitle, selectPurpseView, subTitle, footerView].forEach {
             view.addSubview($0)
         }
     }
@@ -78,10 +81,10 @@ class RegisterPreferenceClassicViewController: BaseViewController {
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
-        preferenceClassicView.snp.makeConstraints {
+        selectPurpseView.snp.makeConstraints {
             $0.top.equalTo(mainTitle.snp.bottom).offset(32)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-            $0.height.equalTo(252)
+            $0.height.equalTo(312)
         }
         
         subTitle.snp.makeConstraints {
@@ -97,21 +100,15 @@ class RegisterPreferenceClassicViewController: BaseViewController {
     }
     
     override func bind() {
-        var selected: [String] = []
-        preferenceClassicView.inputPreferenceClassic
+        selectPurpseView.inputSelectPurpose
             .subscribe(with: self, onNext: { owner, type in
-                if let index = selected.firstIndex(of: type) {
-                    selected.remove(at: index)
-                } else {
-                    selected.append(type)
-                }
-                print(selected)
+                print(type)
             })
             .disposed(by: disposeBag)
     }
 }
 
-extension RegisterPreferenceClassicViewController: OnboardingHeaderViewDelegate {
+extension RegisterSelectPurposeViewController: OnboardingHeaderViewDelegate {
     func leftButtonDidTap() {
         coordinator?.pop()
     }
@@ -121,9 +118,8 @@ extension RegisterPreferenceClassicViewController: OnboardingHeaderViewDelegate 
     }
 }
 
-extension RegisterPreferenceClassicViewController: OnboardingFooterViewDelegate {
+extension RegisterSelectPurposeViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         print("testLog: nextButton Tapped")
-        coordinator?.goToRegisterSelectPurposeViewController()
     }
 }

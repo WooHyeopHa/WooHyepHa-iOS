@@ -20,6 +20,12 @@ class OnboardingFooterView: BaseView {
 
     weak var delegate: OnboardingFooterViewDelegate?
     
+    var nextButtonTitle: String = "" {
+        didSet {
+            nextButton.setTitle(nextButtonTitle, for: .normal)
+        }
+    }
+    
     // MARK: UI Components
     private let nextButton = UIButton().then {
         $0.setTitle("다음", for: .normal)
