@@ -125,56 +125,63 @@ class PreferenceMusicalView: BaseView {
 
 extension PreferenceMusicalView {
     enum PreferenceMusicalButtonType: String {
-        case pop = "pop"
-        case hiphop = "hiphop"
-        case rock = "rock"
-        case kpop = "kpop"
-        case fanmeeting = "fanmeeting"
-        case trot = "trot"
-        case indie = "indie"
-        case talk = "talk"
-        case festival = "festival"
+        case drama = "drama"
+        case comedy = "comedy"
+        case romance = "romance"
+        case opera = "opera"
+        case fantasy = "fantasy"
+        case thriller = "thriller"
+        case experimentDrama = "experimentDrama"
+        case historyDrama = "historyDrama"
+        case original = "original"
+        case creation = "creation"
+        case license = "license"
     }
     
     var inputPreferenceMusical: Observable<String> {
         return Observable.merge(
-            dramaButton.rx.tap.map { PreferenceMusicalButtonType.pop.rawValue },
-            comedyButton.rx.tap.map { PreferenceMusicalButtonType.rock.rawValue },
-            romanceButton.rx.tap.map { PreferenceMusicalButtonType.hiphop.rawValue },
-            operaButton.rx.tap.map { PreferenceMusicalButtonType.kpop.rawValue },
-            fantasyButton.rx.tap.map { PreferenceMusicalButtonType.fanmeeting.rawValue },
-            thrillerButton.rx.tap.map { PreferenceMusicalButtonType.trot.rawValue },
-            experimentDramaButton.rx.tap.map { PreferenceMusicalButtonType.indie.rawValue },
-            historyDramaButton.rx.tap.map { PreferenceMusicalButtonType.talk.rawValue },
-            originalButton.rx.tap.map { PreferenceMusicalButtonType.festival.rawValue },
-            originalButton.rx.tap.map { PreferenceMusicalButtonType.festival.rawValue },
+            dramaButton.rx.tap.map { PreferenceMusicalButtonType.drama.rawValue },
+            comedyButton.rx.tap.map { PreferenceMusicalButtonType.comedy.rawValue },
+            romanceButton.rx.tap.map { PreferenceMusicalButtonType.romance.rawValue },
+            operaButton.rx.tap.map { PreferenceMusicalButtonType.opera.rawValue },
+            fantasyButton.rx.tap.map { PreferenceMusicalButtonType.fantasy.rawValue },
+            thrillerButton.rx.tap.map { PreferenceMusicalButtonType.thriller.rawValue },
+            experimentDramaButton.rx.tap.map { PreferenceMusicalButtonType.experimentDrama.rawValue },
+            historyDramaButton.rx.tap.map { PreferenceMusicalButtonType.historyDrama.rawValue },
+            originalButton.rx.tap.map { PreferenceMusicalButtonType.original.rawValue },
+            creationButton.rx.tap.map { PreferenceMusicalButtonType.creation.rawValue },
+            licenseButton.rx.tap.map { PreferenceMusicalButtonType.license.rawValue }
         )
     }
 }
 
 extension PreferenceMusicalView {
     private func toggleButton(_ field: String) {
-        if let buttonType = PreferenceConcertButtonType(rawValue: field) {
+        if let buttonType = PreferenceMusicalButtonType(rawValue: field) {
             let button: OnboardingButton
             switch buttonType {
-            case .pop:
-                button = popButton
-            case .rock:
-                button = rockButton
-            case .hiphop:
-                button = hiphopButton
-            case .kpop:
-                button = kpopButton
-            case .fanmeeting:
-                button = fanmeetingButton
-            case .trot:
-                button = trotButton
-            case .indie:
-                button = indieButton
-            case .talk:
-                button = talkButton
-            case .festival:
-                button = festivalButton
+            case .drama:
+                button = dramaButton
+            case .comedy:
+                button = comedyButton
+            case .romance:
+                button = romanceButton
+            case .opera:
+                button = operaButton
+            case .fantasy:
+                button = fantasyButton
+            case .thriller:
+                button = thrillerButton
+            case .experimentDrama:
+                button = experimentDramaButton
+            case .historyDrama:
+                button = historyDramaButton
+            case .original:
+                button = originalButton           
+            case .creation:
+                button = creationButton
+            case .license:
+                button = licenseButton
             }
             
             button.isSelected.toggle()
