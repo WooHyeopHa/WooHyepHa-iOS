@@ -42,7 +42,7 @@ class PreferenceMusicalView: BaseView {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
         $0.spacing = 11
-    }    
+    }
     
     private let horizontalStackView4 = UIStackView().then {
         $0.axis = .horizontal
@@ -54,6 +54,7 @@ class PreferenceMusicalView: BaseView {
         $0.axis = .vertical
         $0.distribution = .fillEqually
         $0.spacing = 20
+        $0.alignment = .leading
     }
     
     private var selectedExhibition: Set<String> = []
@@ -80,7 +81,7 @@ class PreferenceMusicalView: BaseView {
         
         [experimentDramaButton, historyDramaButton, originalButton].forEach {
             horizontalStackView3.addArrangedSubview($0)
-        }        
+        }
         
         [creationButton, licenseButton].forEach {
             horizontalStackView4.addArrangedSubview($0)
@@ -102,14 +103,8 @@ class PreferenceMusicalView: BaseView {
         
         [dramaButton, comedyButton, romanceButton, operaButton, fantasyButton, thrillerButton, experimentDramaButton, historyDramaButton, originalButton, creationButton, licenseButton].forEach {
             $0.snp.makeConstraints {
-                $0.height.equalTo(48)
-            }
-        }
-        
-        [creationButton, licenseButton].forEach {
-            $0.snp.makeConstraints {
                 $0.width.equalTo(verticalStackView).multipliedBy(1.0/3.0).offset(-22/3)
-                $0.left.equalTo(verticalStackView.snp.left)
+                $0.height.equalTo(48)
             }
         }
     }
@@ -177,7 +172,7 @@ extension PreferenceMusicalView {
             case .historyDrama:
                 button = historyDramaButton
             case .original:
-                button = originalButton           
+                button = originalButton
             case .creation:
                 button = creationButton
             case .license:
