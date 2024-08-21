@@ -1,5 +1,5 @@
 //
-//  PreferenceConcertViewController.swift
+//  RegisterPreferenceConcertViewController.swift
 //  WooHyepHa-iOS
 //
 //  Created by 여성일 on 8/21/24.
@@ -12,7 +12,7 @@ import RxSwift
 import SnapKit
 import Then
 
-class PreferenceConcertViewController: BaseViewController {
+class RegisterPreferenceConcertViewController: BaseViewController {
 
     weak var coordinator: OnboardingCoordinator?
 
@@ -24,7 +24,7 @@ class PreferenceConcertViewController: BaseViewController {
         $0.rightButtonTitleColor = .gray4
     }
 
-    private let progressView = OnboardingProgressView(progressValue: 0.3333)
+    private let progressView = OnboardingProgressView(progressValue: 0.5)
     
     private let mainTitle = UILabel().then {
         $0.text = "어떤 장르의 콘서트를 선호하시나요?"
@@ -81,8 +81,7 @@ class PreferenceConcertViewController: BaseViewController {
         preferenceConcertView.snp.makeConstraints {
             $0.top.equalTo(mainTitle.snp.bottom).offset(32)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-            $0.width.equalTo(375)
-            $0.height.equalTo(180)
+            $0.height.equalTo(184)
         }
         
         subTitle.snp.makeConstraints {
@@ -112,7 +111,7 @@ class PreferenceConcertViewController: BaseViewController {
     }
 }
 
-extension PreferenceConcertViewController: OnboardingHeaderViewDelegate {
+extension RegisterPreferenceConcertViewController: OnboardingHeaderViewDelegate {
     func leftButtonDidTap() {
         coordinator?.pop()
     }
@@ -122,7 +121,7 @@ extension PreferenceConcertViewController: OnboardingHeaderViewDelegate {
     }
 }
 
-extension PreferenceConcertViewController: OnboardingFooterViewDelegate {
+extension RegisterPreferenceConcertViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         print("testLog: nextButton Tapped")
     }

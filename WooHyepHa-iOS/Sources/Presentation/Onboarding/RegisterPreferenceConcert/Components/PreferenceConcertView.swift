@@ -13,12 +13,10 @@ import RxCocoa
 import RxSwift
 
 class PreferenceConcertView: BaseView {
-
-    private let classicButton = OnboardingButton(title: "클래식")
+    
     private let popButton = OnboardingButton(title: "팝")
-    private let rockButton = OnboardingButton(title: "락/메탈")
-    private let jazzButton = OnboardingButton(title: "재즈")
     private let hiphopButton = OnboardingButton(title: "랩/힙합")
+    private let rockButton = OnboardingButton(title: "락/메탈")
     private let kpopButton = OnboardingButton(title: "K-팝")
     private let fanmeetingButton = OnboardingButton(title: "팬미팅")
     private let trotButton = OnboardingButton(title: "트로트")
@@ -28,24 +26,30 @@ class PreferenceConcertView: BaseView {
     
     private let horizontalStackView1 = UIStackView().then {
         $0.axis = .horizontal
-        $0.distribution = .equalSpacing
-        $0.spacing = 8
+        $0.distribution = .fillEqually
+        $0.spacing = 11
     }
     
     private let horizontalStackView2 = UIStackView().then {
         $0.axis = .horizontal
-        $0.distribution = .equalSpacing
-        $0.spacing = 8
+        $0.distribution = .fillEqually
+        $0.spacing = 11
     }
     
     private let horizontalStackView3 = UIStackView().then {
         $0.axis = .horizontal
-        $0.distribution = .equalSpacing
-        $0.spacing = 8
+        $0.distribution = .fillEqually
+        $0.spacing = 11
     }
-
+    
+    private let verticalStackView = UIStackView().then {
+        $0.axis = .vertical
+        $0.distribution = .fillEqually
+        $0.spacing = 20
+    }
+    
     private var selectedExhibition: Set<String> = []
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
@@ -58,76 +62,36 @@ class PreferenceConcertView: BaseView {
         showTopBorder = false
         showBottomBorder = false
         
-        [classicButton, popButton, rockButton, jazzButton, hiphopButton].forEach {
+        [popButton, hiphopButton, rockButton].forEach {
             horizontalStackView1.addArrangedSubview($0)
         }
         
-        [kpopButton, fanmeetingButton, trotButton, indieButton].forEach {
+        [kpopButton, fanmeetingButton, trotButton].forEach {
             horizontalStackView2.addArrangedSubview($0)
         }
-                
-        [talkButton, festivalButton].forEach {
+        
+        [indieButton, talkButton, festivalButton].forEach {
             horizontalStackView3.addArrangedSubview($0)
         }
-    
+        
         [horizontalStackView1, horizontalStackView2, horizontalStackView3].forEach {
-            addSubview($0)
+            verticalStackView.addArrangedSubview($0)
         }
+        
+        addSubview(verticalStackView)
     }
     
     override func setConstraints() {
-        horizontalStackView1.snp.makeConstraints {
-            $0.width.equalTo(329)
-            $0.height.equalTo(36)
-            $0.top.equalToSuperview()
+        verticalStackView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalToSuperview()
         }
         
-        horizontalStackView2.snp.makeConstraints {
-            $0.width.equalTo(260)
-            $0.height.equalTo(36)
-            $0.top.equalTo(horizontalStackView1.snp.bottom).offset(8)
-        }
-        
-        horizontalStackView3.snp.makeConstraints {
-            $0.width.equalTo(163)
-            $0.height.equalTo(36)
-            $0.top.equalTo(horizontalStackView2.snp.bottom).offset(8)
-        }
-        
-        popButton.snp.makeConstraints {
-            $0.width.equalTo(41)
-            $0.height.equalTo(36)
-        }
-        
-        [jazzButton, indieButton, kpopButton].forEach {
+        [popButton, hiphopButton, rockButton, kpopButton, fanmeetingButton, trotButton, indieButton, talkButton, festivalButton].forEach {
             $0.snp.makeConstraints {
-                $0.width.equalTo(52)
-                $0.height.equalTo(36)
+                $0.height.equalTo(48)
             }
-        }
-        
-        [classicButton, fanmeetingButton, trotButton].forEach {
-            $0.snp.makeConstraints {
-                $0.width.equalTo(64)
-                $0.height.equalTo(36)
-            }
-        }
-        
-        [rockButton, hiphopButton].forEach {
-            $0.snp.makeConstraints {
-                $0.width.equalTo(68)
-                $0.height.equalTo(36)
-            }
-        }
-
-        festivalButton.snp.makeConstraints {
-            $0.width.equalTo(75)
-            $0.height.equalTo(36)
-        }
-        
-        talkButton.snp.makeConstraints {
-            $0.width.equalTo(79)
-            $0.height.equalTo(36)
         }
     }
     
@@ -142,11 +106,9 @@ class PreferenceConcertView: BaseView {
 
 extension PreferenceConcertView {
     enum PreferenceConcertButtonType: String {
-        case classic = "classic"
         case pop = "pop"
-        case rock = "rock"
-        case jazz = "jazz"
         case hiphop = "hiphop"
+        case rock = "rock"
         case kpop = "kpop"
         case fanmeeting = "fanmeeting"
         case trot = "trot"
@@ -157,10 +119,8 @@ extension PreferenceConcertView {
     
     var inputPreferenceConcert: Observable<String> {
         return Observable.merge(
-            classicButton.rx.tap.map { PreferenceConcertButtonType.classic.rawValue },
             popButton.rx.tap.map { PreferenceConcertButtonType.pop.rawValue },
             rockButton.rx.tap.map { PreferenceConcertButtonType.rock.rawValue },
-            jazzButton.rx.tap.map { PreferenceConcertButtonType.jazz.rawValue },
             hiphopButton.rx.tap.map { PreferenceConcertButtonType.hiphop.rawValue },
             kpopButton.rx.tap.map { PreferenceConcertButtonType.kpop.rawValue },
             fanmeetingButton.rx.tap.map { PreferenceConcertButtonType.fanmeeting.rawValue },
@@ -177,14 +137,10 @@ extension PreferenceConcertView {
         if let buttonType = PreferenceConcertButtonType(rawValue: field) {
             let button: OnboardingButton
             switch buttonType {
-            case .classic:
-                button = classicButton
             case .pop:
                 button = popButton
             case .rock:
                 button = rockButton
-            case .jazz:
-                button = jazzButton
             case .hiphop:
                 button = hiphopButton
             case .kpop:
@@ -196,7 +152,7 @@ extension PreferenceConcertView {
             case .indie:
                 button = indieButton
             case .talk:
-                button = talkButton           
+                button = talkButton
             case .festival:
                 button = festivalButton
             }
