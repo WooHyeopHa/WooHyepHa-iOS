@@ -43,6 +43,7 @@
 		9E6679312C761A4100832440 /* PreferenceClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6679302C761A4100832440 /* PreferenceClassicView.swift */; };
 		9E6679332C761CF500832440 /* RegisterPreferenceClassicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6679322C761CF500832440 /* RegisterPreferenceClassicViewController.swift */; };
 		9E6679372C761F4500832440 /* SelectPurposeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6679362C761F4500832440 /* SelectPurposeView.swift */; };
+		9E6679392C7620F300832440 /* RegisterSelectPurposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6679382C7620F300832440 /* RegisterSelectPurposeViewController.swift */; };
 		9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */; };
 		9E88DDF62C6DB27500815EE0 /* RegisterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */; };
 		9E88DDF92C6DB33D00815EE0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */; };
@@ -104,6 +105,7 @@
 		9E6679302C761A4100832440 /* PreferenceClassicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceClassicView.swift; sourceTree = "<group>"; };
 		9E6679322C761CF500832440 /* RegisterPreferenceClassicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceClassicViewController.swift; sourceTree = "<group>"; };
 		9E6679362C761F4500832440 /* SelectPurposeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectPurposeView.swift; sourceTree = "<group>"; };
+		9E6679382C7620F300832440 /* RegisterSelectPurposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterSelectPurposeViewController.swift; sourceTree = "<group>"; };
 		9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIView.swift"; sourceTree = "<group>"; };
 		9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileViewController.swift; sourceTree = "<group>"; };
 		9E88DDF82C6DB33D00815EE0 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
@@ -434,6 +436,7 @@
 			isa = PBXGroup;
 			children = (
 				9E6679352C761F2E00832440 /* Components */,
+				9E6679382C7620F300832440 /* RegisterSelectPurposeViewController.swift */,
 			);
 			path = RegisterSelectPurpose;
 			sourceTree = "<group>";
@@ -723,6 +726,7 @@
 				9E88DDF92C6DB33D00815EE0 /* RegisterViewController.swift in Sources */,
 				9E0FF2B62C6B0C5100544674 /* MyPageCoordinator.swift in Sources */,
 				9E0FF2AC2C6B0B2800544674 /* MapViewController.swift in Sources */,
+				9E6679392C7620F300832440 /* RegisterSelectPurposeViewController.swift in Sources */,
 				9E0FF2A62C6B0A5F00544674 /* HomeViewController.swift in Sources */,
 				9E88DE132C73243600815EE0 /* RegisterLocationViewController.swift in Sources */,
 				9E88DE272C74340500815EE0 /* OnboardingFooterView.swift in Sources */,
