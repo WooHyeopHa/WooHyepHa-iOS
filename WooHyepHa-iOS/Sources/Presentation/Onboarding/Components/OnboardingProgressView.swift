@@ -28,7 +28,7 @@ class OnboardingProgressView: UIProgressView {
 
 private extension OnboardingProgressView {
     func setProgressView() {
-        trackTintColor = .gray8
+        trackTintColor = .gray9
         progressTintColor = .MainColor
         clipsToBounds = true
         layer.cornerRadius = 3

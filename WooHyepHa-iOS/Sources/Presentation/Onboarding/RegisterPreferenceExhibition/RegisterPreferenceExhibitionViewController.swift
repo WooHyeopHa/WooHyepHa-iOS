@@ -81,8 +81,7 @@ class RegisterPreferenceExhibitionViewController: BaseViewController {
         preferenceExhibitionView.snp.makeConstraints {
             $0.top.equalTo(mainTitle.snp.bottom).offset(32)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-            $0.width.equalTo(375)
-            $0.height.equalTo(180)
+            $0.height.equalTo(252)
         }
         
         subTitle.snp.makeConstraints {
@@ -125,5 +124,6 @@ extension RegisterPreferenceExhibitionViewController: OnboardingHeaderViewDelega
 extension RegisterPreferenceExhibitionViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         print("testLog: nextButton Tapped")
+        coordinator?.goToRegisterPreferenceConcertViewController()
     }
 }

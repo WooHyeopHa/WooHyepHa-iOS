@@ -55,6 +55,8 @@
 		9E88DE362C75774C00815EE0 /* OnboardingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE352C75774C00815EE0 /* OnboardingButton.swift */; };
 		9E88DE382C75786000815EE0 /* RegisterPreferenceExhibitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE372C75786000815EE0 /* RegisterPreferenceExhibitionViewController.swift */; };
 		9E88DE3B2C75794D00815EE0 /* PreferenceExhibitionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE3A2C75794D00815EE0 /* PreferenceExhibitionView.swift */; };
+		9E88DE3F2C75DD7800815EE0 /* PreferenceConcertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE3E2C75DD7800815EE0 /* PreferenceConcertView.swift */; };
+		9E88DE412C75E10900815EE0 /* RegisterPreferenceConcertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE402C75E10900815EE0 /* RegisterPreferenceConcertViewController.swift */; };
 		9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */; };
 		9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C31012C6C739800F8B01A /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -109,6 +111,8 @@
 		9E88DE352C75774C00815EE0 /* OnboardingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButton.swift; sourceTree = "<group>"; };
 		9E88DE372C75786000815EE0 /* RegisterPreferenceExhibitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceExhibitionViewController.swift; sourceTree = "<group>"; };
 		9E88DE3A2C75794D00815EE0 /* PreferenceExhibitionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceExhibitionView.swift; sourceTree = "<group>"; };
+		9E88DE3E2C75DD7800815EE0 /* PreferenceConcertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceConcertView.swift; sourceTree = "<group>"; };
+		9E88DE402C75E10900815EE0 /* RegisterPreferenceConcertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceConcertViewController.swift; sourceTree = "<group>"; };
 		9E9C31002C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E9C31022C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		9E9C310F2C6C77AC00F8B01A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -331,6 +335,7 @@
 				9E88DE112C73240D00815EE0 /* RegisterLocation */,
 				9E88DE282C74376000815EE0 /* RegisterPreferenceCulture */,
 				9E88DE342C7576DC00815EE0 /* RegisterPreferenceExhibition */,
+				9E88DE3C2C75DD4B00815EE0 /* RegisterPreferenceConcert */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -455,6 +460,23 @@
 			isa = PBXGroup;
 			children = (
 				9E88DE3A2C75794D00815EE0 /* PreferenceExhibitionView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		9E88DE3C2C75DD4B00815EE0 /* RegisterPreferenceConcert */ = {
+			isa = PBXGroup;
+			children = (
+				9E88DE3D2C75DD6600815EE0 /* Components */,
+				9E88DE402C75E10900815EE0 /* RegisterPreferenceConcertViewController.swift */,
+			);
+			path = RegisterPreferenceConcert;
+			sourceTree = "<group>";
+		};
+		9E88DE3D2C75DD6600815EE0 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9E88DE3E2C75DD7800815EE0 /* PreferenceConcertView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -614,6 +636,7 @@
 				9E0FF2B22C6B0B9D00544674 /* ChatCoordinator.swift in Sources */,
 				9E0FF2BD2C6C58BB00544674 /* LoginViewController.swift in Sources */,
 				9E0FF2C02C6C59D700544674 /* OnboardingCoordinator.swift in Sources */,
+				9E88DE3F2C75DD7800815EE0 /* PreferenceConcertView.swift in Sources */,
 				9E0FF2A82C6B0AB400544674 /* MatingViewController.swift in Sources */,
 				9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
@@ -622,6 +645,7 @@
 				9E0FF2962C6B066200544674 /* TabBarItemType.swift in Sources */,
 				9E88DE312C74475500815EE0 /* PreferenceCultureButton.swift in Sources */,
 				9E88DE072C6DC85600815EE0 /* BaseView.swift in Sources */,
+				9E88DE412C75E10900815EE0 /* RegisterPreferenceConcertViewController.swift in Sources */,
 				9E0FF2B02C6B0B8500544674 /* ChatViewController.swift in Sources */,
 				9E88DE362C75774C00815EE0 /* OnboardingButton.swift in Sources */,
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,

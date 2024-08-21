@@ -138,7 +138,7 @@ extension RegisterLocationViewController: OnboardingHeaderViewDelegate {
 extension RegisterLocationViewController: OnboardingFooterViewDelegate {
     func nextButtonDidTap() {
         print("testLog: nextButton Tapped")
-        coordinator?.goToRegisterPreferencCultureViewController()
+        coordinator?.goToRegisterPreferenceCultureViewController()
     }
 }
 

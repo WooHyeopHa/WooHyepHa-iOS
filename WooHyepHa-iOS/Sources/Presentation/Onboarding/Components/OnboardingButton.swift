@@ -30,7 +30,7 @@ class OnboardingButton: UIButton {
 
 private extension OnboardingButton {
     func setButton() {
-        layer.cornerRadius = 18
+        layer.cornerRadius = 5
         layer.borderWidth = 0
         setTitle(title, for: .normal)
         setTitleColor(.gray, for: .normal)
