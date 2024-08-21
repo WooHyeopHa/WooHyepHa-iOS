@@ -38,13 +38,13 @@ private extension PreferenceCultureButton {
     func setupTitleLabel() {
         buttonTitleLabel.text = title
         buttonTitleLabel.textColor = .gray1
-        buttonTitleLabel.font = .body1
+        buttonTitleLabel.font = .body2
         buttonTitleLabel.textAlignment = .center
         addSubview(buttonTitleLabel)
     }
     
     func positionTitleLabel() {
-        buttonTitleLabel.frame = CGRect(x: 0, y: bounds.height - 30, width: bounds.width, height: 20)
+        buttonTitleLabel.frame = CGRect(x: 0, y: bounds.height - 35, width: bounds.width, height: 20)
     }
     
     func updateAppearance() {
