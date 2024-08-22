@@ -20,6 +20,7 @@ extension UIFont {
 extension UIFont {
     static let h1 = UIFont(name: Pretendard.pretendardBold.rawValue, size: 28)!
     static let h2 = UIFont(name: Pretendard.pretendardBold.rawValue, size: 24)!
+    static let h3 = UIFont(name: Pretendard.pretendardBold.rawValue, size: 22)!
 
     static let sub1 = UIFont(name: Pretendard.pretendardBold.rawValue, size: 20)!
     static let sub2 = UIFont(name: Pretendard.pretendardBold.rawValue, size: 18)!
