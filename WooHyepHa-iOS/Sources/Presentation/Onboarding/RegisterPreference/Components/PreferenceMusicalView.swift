@@ -26,6 +26,18 @@ class PreferenceMusicalView: BaseView {
     private let creationButton = OnboardingButton(title: "창작")
     private let licenseButton = OnboardingButton(title: "라이선스")
     
+    private let mainTitleLabel = UILabel().then {
+        $0.text = "어떤 뮤지컬/연극을 선호하시나요?"
+        $0.font = .h3
+        $0.textColor = .gray1
+    }
+    
+    private let subTitleLabel = UILabel().then {
+        $0.text = "🎯딱 맞는 행사를 추천해드릴게요! 다시 수정할 수 있어요!"
+        $0.font = .body4
+        $0.textColor = .gray4
+    }
+    
     private let horizontalStackView1 = UIStackView().then {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
@@ -52,12 +64,17 @@ class PreferenceMusicalView: BaseView {
     
     private let verticalStackView = UIStackView().then {
         $0.axis = .vertical
-        $0.distribution = .fillEqually
         $0.spacing = 20
         $0.alignment = .leading
     }
     
-    private var selectedExhibition: Set<String> = []
+    private let skipButton = UIButton().then {
+        $0.setTitle("뮤지컬/연극 관심없음", for: .normal)
+        $0.setTitleColor(.gray4, for: .normal)
+        $0.titleLabel?.font = .body2
+    }
+    
+    private var selectedMusical: Set<String> = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -91,19 +108,44 @@ class PreferenceMusicalView: BaseView {
             verticalStackView.addArrangedSubview($0)
         }
         
-        addSubview(verticalStackView)
+        [mainTitleLabel, subTitleLabel, verticalStackView, skipButton].forEach {
+            addSubview($0)
+        }
     }
     
     override func setConstraints() {
+        mainTitleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+        }
+        
+        subTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(mainTitleLabel.snp.bottom).offset(12)
+        }
+        
         verticalStackView.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(35)
             $0.width.equalToSuperview()
-            $0.height.equalToSuperview()
+            $0.height.equalTo(252)
+        }
+        
+        skipButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.centerX.equalToSuperview()
+        }
+        
+        [horizontalStackView1, horizontalStackView2, horizontalStackView3].forEach {
+            $0.snp.makeConstraints {
+                $0.horizontalEdges.equalToSuperview()
+            }
+        }
+        
+        horizontalStackView4.snp.makeConstraints {
+            $0.width.equalTo(verticalStackView).multipliedBy(2.0/3.0).offset(-22/3)
         }
         
         [dramaButton, comedyButton, romanceButton, operaButton, fantasyButton, thrillerButton, experimentDramaButton, historyDramaButton, originalButton, creationButton, licenseButton].forEach {
             $0.snp.makeConstraints {
-                $0.width.equalTo(verticalStackView).multipliedBy(1.0/3.0).offset(-22/3)
                 $0.height.equalTo(48)
             }
         }
@@ -182,9 +224,9 @@ extension PreferenceMusicalView {
             button.isSelected.toggle()
             
             if button.isSelected {
-                selectedExhibition.insert(field)
+                selectedMusical.insert(field)
             } else {
-                selectedExhibition.remove(field)
+                selectedMusical.remove(field)
             }
         }
     }
