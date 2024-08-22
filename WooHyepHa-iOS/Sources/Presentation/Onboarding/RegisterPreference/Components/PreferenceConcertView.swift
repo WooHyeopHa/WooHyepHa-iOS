@@ -24,6 +24,18 @@ class PreferenceConcertView: BaseView {
     private let talkButton = OnboardingButton(title: "토크/강연")
     private let festivalButton = OnboardingButton(title: "페스티벌")
     
+    private let mainTitleLabel = UILabel().then {
+        $0.text = "어떤 장르의 콘서트를 선호하시나요?"
+        $0.font = .h3
+        $0.textColor = .gray1
+    }
+    
+    private let subTitleLabel = UILabel().then {
+        $0.text = "🎯딱 맞는 행사를 추천해드릴게요! 다시 수정할 수 있어요!"
+        $0.font = .body4
+        $0.textColor = .gray4
+    }
+    
     private let horizontalStackView1 = UIStackView().then {
         $0.axis = .horizontal
         $0.distribution = .fillEqually
@@ -44,11 +56,16 @@ class PreferenceConcertView: BaseView {
     
     private let verticalStackView = UIStackView().then {
         $0.axis = .vertical
-        $0.distribution = .fillEqually
         $0.spacing = 20
     }
     
-    private var selectedExhibition: Set<String> = []
+    private let skipButton = UIButton().then {
+        $0.setTitle("콘서트 관심없음", for: .normal)
+        $0.setTitleColor(.gray4, for: .normal)
+        $0.titleLabel?.font = .body2
+    }
+    
+    private var selectedConcert: Set<String> = []
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -78,14 +95,30 @@ class PreferenceConcertView: BaseView {
             verticalStackView.addArrangedSubview($0)
         }
         
-        addSubview(verticalStackView)
+        [mainTitleLabel, subTitleLabel, verticalStackView, skipButton].forEach {
+            addSubview($0)
+        }
     }
     
     override func setConstraints() {
+        mainTitleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+        }
+        
+        subTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(mainTitleLabel.snp.bottom).offset(12)
+        }
+        
         verticalStackView.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(35)
             $0.width.equalToSuperview()
-            $0.height.equalToSuperview()
+            $0.height.equalTo(184)
+        }
+        
+        skipButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.centerX.equalToSuperview()
         }
         
         [popButton, hiphopButton, rockButton, kpopButton, fanmeetingButton, trotButton, indieButton, talkButton, festivalButton].forEach {
@@ -160,9 +193,9 @@ extension PreferenceConcertView {
             button.isSelected.toggle()
             
             if button.isSelected {
-                selectedExhibition.insert(field)
+                selectedConcert.insert(field)
             } else {
-                selectedExhibition.remove(field)
+                selectedConcert.remove(field)
             }
         }
     }

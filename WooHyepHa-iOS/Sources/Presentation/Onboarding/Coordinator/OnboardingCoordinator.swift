@@ -56,39 +56,9 @@ extension OnboardingCoordinator {
         navigationController.pushViewController(registerLocationViewController, animated: true)
     }    
     
-    func goToRegisterPreferenceCultureViewController() {
-        let registerPreferenceCultureViewController = RegisterPreferenceCultrueViewController()
-        registerPreferenceCultureViewController.coordinator = self
-        navigationController.pushViewController(registerPreferenceCultureViewController, animated: true)
-    }
-    
-    func goToRegisterPreferenceExhibitionViewController() {
-        let registerPreferenceExhibitionViewController = RegisterPreferenceExhibitionViewController()
-        registerPreferenceExhibitionViewController.coordinator = self
-        navigationController.pushViewController(registerPreferenceExhibitionViewController, animated: true)
-    }
-    
-    func goToRegisterPreferenceConcertViewController() {
-        let registerPreferenceConcertViewController = RegisterPreferenceConcertViewController()
-        registerPreferenceConcertViewController.coordinator = self
-        navigationController.pushViewController(registerPreferenceConcertViewController, animated: true)
-    }    
-    
-    func goToRegisterPreferenceMusicalViewController() {
-        let registerPreferenceMusicalViewController = RegisterPreferenceMusicalViewController()
-        registerPreferenceMusicalViewController.coordinator = self
-        navigationController.pushViewController(registerPreferenceMusicalViewController, animated: true)
-    }    
-    
-    func goToRegisterPreferenceClassicViewController() {
-        let registerPreferenceClassicViewController = RegisterPreferenceClassicViewController()
-        registerPreferenceClassicViewController.coordinator = self
-        navigationController.pushViewController(registerPreferenceClassicViewController, animated: true)
-    }    
-    
-    func goToRegisterSelectPurposeViewController() {
-        let registerSelectPurposeViewController = RegisterSelectPurposeViewController()
-        registerSelectPurposeViewController.coordinator = self
-        navigationController.pushViewController(registerSelectPurposeViewController, animated: true)
+    func goToRegisterPreferenceViewController() {
+        let registerPreferenceViewController = RegisterPreferenceViewController()
+        registerPreferenceViewController.coordinator = self
+        navigationController.pushViewController(registerPreferenceViewController, animated: true)
     }
 }
