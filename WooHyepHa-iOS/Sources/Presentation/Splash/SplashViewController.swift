@@ -15,13 +15,17 @@ import Then
 class SplashViewController: BaseViewController {
 
     //MARK: UI Components
-    private let logoLabel = UILabel().then {
-        $0.text = "LOGO"
-        $0.font = .systemFont(ofSize: 100)
+    private let logoImageView = UIImageView().then {
+        $0.image = .woohyephaBrandingLogo
+    }
+    
+    private let subLogoLabel = UILabel().then {
+        $0.text = "내 주변의 문화예술"
+        $0.font = .body2
         $0.textColor = .white
         $0.alpha = 0
         $0.fadeIn(duration: 0.7)
-    } // 로고 나중에 에셋 파일 받으면 이미지로 수정
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,14 +34,19 @@ class SplashViewController: BaseViewController {
     override func setViewController() {
         view.backgroundColor = .MainColor
         
-        [logoLabel].forEach {
+        [logoImageView, subLogoLabel].forEach {
             view.addSubview($0)
         }
     }
     
     override func setConstraints() {
-        logoLabel.snp.makeConstraints {
+        logoImageView.snp.makeConstraints {
             $0.centerX.centerY.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        subLogoLabel.snp.makeConstraints {
+            $0.centerX.equalTo(view.safeAreaLayoutGuide)
+            $0.top.equalTo(logoImageView.snp.bottom).inset(3)
         }
     }
 }
