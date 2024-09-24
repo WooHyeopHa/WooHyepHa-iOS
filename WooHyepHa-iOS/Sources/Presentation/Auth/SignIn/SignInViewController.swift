@@ -18,25 +18,58 @@ class SignInViewController: BaseViewController {
     private let viewModel: SignInViewModel
     
     // MARK: UI Components
-    private lazy var headerView = OnboardingHeaderView().then {
-        $0.delegate = self
-        $0.rightButtonTitle = "둘러보기"
-        $0.showLeftButton = false
+    
+    private let backgroundImageView = UIImageView().then {
+        $0.image = .onboardingBg
+        $0.contentMode = .scaleAspectFill
+    }
+    
+    private let logo = UIImageView().then {
+        $0.image = .woohyephaRoundLogo
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 8.89
     }
     
     private let mainTitleLabel = UILabel().then {
-        let attributedString = NSMutableAttributedString(string: "주변의 숨겨진 문화예술을\n", attributes: [.font: UIFont.h2, .foregroundColor: UIColor.white])
-        attributedString.append(NSAttributedString(string: "발견해보세요", attributes: [.font: UIFont.h2, .foregroundColor: UIColor.white]))
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 0.75
+        
+        let attributedString = NSMutableAttributedString(string: "Ready to\n", attributes: [
+            .font: UIFont.poppinsMedium,
+            .foregroundColor: UIColor.white,
+            .paragraphStyle: paragraphStyle
+        ])
+        
+        attributedString.append(NSAttributedString(string: "Find muse?", attributes: [
+            .font: UIFont.poppinsMedium,
+            .foregroundColor: UIColor.white,
+            .paragraphStyle: paragraphStyle
+        ]))
+        
         $0.attributedText = attributedString
         $0.numberOfLines = 2
-        $0.textAlignment = .center
+        $0.textAlignment = .left
     }
     
     private let subTitleLabel = UILabel().then {
-        $0.text = "솔플은 이제 그만! 동행을 구해보는 건 어떨까요?"
-        $0.textColor = .white
-        $0.font = .body4
-        $0.textAlignment = .center
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineHeightMultiple = 1.3
+        
+        let attributedString = NSMutableAttributedString(string: "주변의 숨겨진 문화예술을 발견하고\n", attributes: [
+            .font: UIFont.body2,
+            .foregroundColor: UIColor.gray8,
+            .paragraphStyle: paragraphStyle
+        ])
+        
+        attributedString.append(NSAttributedString(string: "함께할 뮤즈를 찾아보세요!", attributes: [
+            .font: UIFont.body2,
+            .foregroundColor: UIColor.gray8,
+            .paragraphStyle: paragraphStyle
+        ]))
+        
+        $0.attributedText = attributedString
+        $0.numberOfLines = 2
+        $0.textAlignment = .left
     }
     
     private let appleLoginButton = UIButton().then {
@@ -44,9 +77,21 @@ class SignInViewController: BaseViewController {
     }
     
     private let privacyPolicyLabel = UILabel().then {
-        $0.text = "소셜 로그인 버튼을 눌러 개인정보처리방침에 동의합니다."
-        $0.textColor = .gray7
-        $0.font = .caption2
+        let attributedString = NSMutableAttributedString(string: "소셜 로그인 버튼을 눌러 개인정보처리방침에 동의합니다.")
+
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font: UIFont.caption2,
+            .foregroundColor: UIColor.gray7
+        ]
+        attributedString.addAttributes(attributes, range: NSRange(location: 0, length: attributedString.length))
+
+        if let range = attributedString.string.range(of: "개인정보처리방침") {
+            let nsRange = NSRange(range, in: attributedString.string)
+            attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: nsRange)
+            attributedString.addAttribute(.underlineColor, value: UIColor.gray7, range: nsRange)
+        }
+
+        $0.attributedText = attributedString
         $0.textAlignment = .center
     }
     
@@ -67,34 +112,37 @@ class SignInViewController: BaseViewController {
     override func setViewController() {
         view.backgroundColor = .black
         
-        [headerView, mainTitleLabel, subTitleLabel, appleLoginButton, privacyPolicyLabel].forEach {
+        [backgroundImageView, logo, mainTitleLabel, subTitleLabel, appleLoginButton, privacyPolicyLabel].forEach {
             view.addSubview($0)
         }
     }
     
     override func setConstraints() {
-        headerView.snp.makeConstraints {
-            $0.top.equalTo(view.safeAreaLayoutGuide)
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(56)
+        backgroundImageView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
+        logo.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(56)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.height.width.equalTo(40)
         }
         
         mainTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(headerView.snp.bottom).offset(32)
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(80)
+            $0.top.equalTo(logo.snp.bottom).offset(13)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
+            $0.height.equalTo(116)
         }
         
         subTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(mainTitleLabel.snp.bottom).offset(6)
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(36)
+            $0.top.equalTo(mainTitleLabel.snp.bottom).offset(8)
+            $0.leading.equalTo(view.safeAreaLayoutGuide).offset(20)
         }
         
         appleLoginButton.snp.makeConstraints {
             $0.bottom.equalTo(privacyPolicyLabel.snp.top)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(48)
+            $0.height.equalTo(52)
         }
         
         privacyPolicyLabel.snp.makeConstraints {

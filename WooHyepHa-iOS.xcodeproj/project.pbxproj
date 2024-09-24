@@ -57,6 +57,7 @@
 		9E88DE3F2C75DD7800815EE0 /* PreferenceConcertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE3E2C75DD7800815EE0 /* PreferenceConcertView.swift */; };
 		9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */; };
 		9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C31012C6C739800F8B01A /* Main.storyboard */; };
+		9ED121562CA2B28100C7696E /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */; };
 		9ED122092C7C60F60066C679 /* SignInWithAppleRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */; };
 		9ED1220C2C7C61E00066C679 /* SignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220B2C7C61E00066C679 /* SignInResult.swift */; };
 		9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220F2C7C62140066C679 /* SignInUseCase.swift */; };
@@ -122,6 +123,7 @@
 		9E9C31002C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E9C31022C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		9E9C310F2C6C77AC00F8B01A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleRequestDTO.swift; sourceTree = "<group>"; };
 		9ED1220B2C7C61E00066C679 /* SignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResult.swift; sourceTree = "<group>"; };
 		9ED1220F2C7C62140066C679 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 		9E0FF1E02C5A21DD00544674 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */,
 				9E0FF2D12C6C6D7A00544674 /* Pretendard-Bold.otf */,
 				9E0FF2C72C6C696600544674 /* Pretendard-Light.otf */,
 				9E0FF2C92C6C696700544674 /* Pretendard-Medium.otf */,
@@ -678,6 +681,7 @@
 				9E0FF2D22C6C6D7A00544674 /* Pretendard-Bold.otf in Resources */,
 				9E0FF2CF2C6C696700544674 /* Pretendard-SemiBold.otf in Resources */,
 				9E0FF2CD2C6C696700544674 /* Pretendard-Regular.otf in Resources */,
+				9ED121562CA2B28100C7696E /* Poppins-Medium.ttf in Resources */,
 				9E0FF2CC2C6C696700544674 /* Pretendard-Light.otf in Resources */,
 				9E0FF2CE2C6C696700544674 /* Pretendard-Medium.otf in Resources */,
 			);

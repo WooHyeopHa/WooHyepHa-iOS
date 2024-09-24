@@ -15,6 +15,10 @@ extension UIFont {
         case pretendardRegular = "Pretendard-Regular"
         case pretendradLight = "Pretendard-Light"
     }
+    
+    enum Poppins: String {
+        case poppinsMedium = "Poppins-Medium"
+    }
 }
 
 extension UIFont {
@@ -49,4 +53,6 @@ extension UIFont {
     static let num1 = UIFont(name: Pretendard.pretendardSemiBold.rawValue, size: 16)!
     static let num2 = UIFont(name: Pretendard.pretendardSemiBold.rawValue, size: 14)!
     static let num3 = UIFont(name: Pretendard.pretendardSemiBold.rawValue, size: 8)!
+    
+    static let poppinsMedium = UIFont(name: Poppins.poppinsMedium.rawValue, size: 50)!
 }
