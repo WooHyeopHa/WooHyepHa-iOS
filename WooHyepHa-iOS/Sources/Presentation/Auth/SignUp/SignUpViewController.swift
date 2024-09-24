@@ -12,9 +12,9 @@ import RxSwift
 import SnapKit
 import Then
 
-class RegisterViewController: BaseViewController {
+class SignUpViewController: BaseViewController {
 
-    weak var coordinator: OnboardingCoordinator?
+    weak var coordinator: AuthCoordinator?
     
     //MARK: UI Components
     private let mainTitleLabel = UILabel().then {

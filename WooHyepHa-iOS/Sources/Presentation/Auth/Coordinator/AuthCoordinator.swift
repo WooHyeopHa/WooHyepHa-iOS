@@ -7,16 +7,22 @@
 
 import UIKit
 
-final class OnboardingCoordinator: Coordinator {
+final class AuthCoordinator: Coordinator {
     weak var parentCoordinator: Coordinator?
     
     var children: [Coordinator] = []
     
     var navigationController: UINavigationController
     
+    private let authRepository: AuthRepository
+    private let signInUseCase: SignInUseCase
+    
     init(navigationController: UINavigationController){
         self.navigationController = navigationController
         navigationController.navigationBar.isHidden = true
+        
+        authRepository = AuthRepository()
+        signInUseCase = SignInUseCase(authRepository: authRepository)
     }
     
     func start() {
@@ -24,10 +30,10 @@ final class OnboardingCoordinator: Coordinator {
     }
 }
 
-extension OnboardingCoordinator {
+extension AuthCoordinator {
     func goToLoginViewController() {
-        let loginViewController = LoginViewController()
-        loginViewController.coordinator = self
+        let signViewModel = SignInViewModel(coordinator: self, signInUseCase: signInUseCase)
+        let signViewController = SignInViewController(viewModel: signViewModel)
         
         let transition = CATransition()
         transition.duration = 0.3
@@ -35,11 +41,11 @@ extension OnboardingCoordinator {
         transition.subtype = .fromRight
         navigationController.view.layer.add(transition, forKey: kCATransition)
         
-        navigationController.pushViewController(loginViewController, animated: false)
+        navigationController.pushViewController(signViewController, animated: false)
     }
     
     func goToRegisterViewController() {
-        let registerViewController = RegisterViewController()
+        let registerViewController = SignUpViewController()
         registerViewController.coordinator = self
         navigationController.pushViewController(registerViewController, animated: true)
     }
