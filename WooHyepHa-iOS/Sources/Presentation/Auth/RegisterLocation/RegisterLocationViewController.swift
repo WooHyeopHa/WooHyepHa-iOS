@@ -18,7 +18,7 @@ struct LocationResult {
 
 class RegisterLocationViewController: BaseViewController {
 
-    weak var coordinator: OnboardingCoordinator?
+    weak var coordinator: AuthCoordinator?
 
     //MARK: UI Components
     private lazy var headerView = OnboardingHeaderView().then {

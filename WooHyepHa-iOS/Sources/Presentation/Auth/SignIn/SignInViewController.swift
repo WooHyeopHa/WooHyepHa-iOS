@@ -12,10 +12,10 @@ import RxSwift
 import SnapKit
 import Then
 
-class LoginViewController: BaseViewController {
+class SignInViewController: BaseViewController {
     
     // 나중에 로그인 기능 구현 시 코디네이터는 뷰모델로 옮겨 주입 받을 예정
-    weak var coordinator: OnboardingCoordinator?
+    private let viewModel: SignInViewModel
     
     // MARK: UI Components
     private lazy var headerView = OnboardingHeaderView().then {
@@ -48,6 +48,15 @@ class LoginViewController: BaseViewController {
         $0.textColor = .gray7
         $0.font = .caption2
         $0.textAlignment = .center
+    }
+    
+    init(viewModel: SignInViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -96,17 +105,14 @@ class LoginViewController: BaseViewController {
     }
     
     override func bind() {
-        appleLoginButton.rx.tap
-            .subscribe(with: self, onNext: { owner, _ in
-                owner.coordinator?.goToRegisterViewController()
-            })
-            .disposed(by: disposeBag)
+        let input = SignInViewModel.Input(signInWithAppleButtonTapped: appleLoginButton.rx.tap.asObservable())
+        _ = viewModel.bind(input: input)
     }
 }
 
 // MARK: bind
 
-extension LoginViewController: OnboardingHeaderViewDelegate {
+extension SignInViewController: OnboardingHeaderViewDelegate {
     func rightButtonDidTap() {
         print("testLog : ButtonTapped")
     }
