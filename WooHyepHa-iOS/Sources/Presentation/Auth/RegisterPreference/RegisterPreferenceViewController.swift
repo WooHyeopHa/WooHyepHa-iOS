@@ -14,7 +14,7 @@ import Then
 
 class RegisterPreferenceViewController: BaseViewController {
     
-    weak var coordinator: OnboardingCoordinator?
+    weak var coordinator: AuthCoordinator?
     
     private var currentStepIndex = 0
     private var stepViews: [UIView] = []
