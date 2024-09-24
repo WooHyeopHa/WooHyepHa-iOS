@@ -27,10 +27,10 @@ extension UIColor {
 
 extension UIColor {
     // Main Color
-    static let MainColor = UIColor(hexCode: 0xFF4C01)
+    static let MainColor = UIColor(hexCode: 0xFF4E69)
     
     // Sub Color
-    static let SubColor = UIColor(hexCode: 0x4590FF)
+    static let SubColor = UIColor(hexCode: 0xFFF5F5)
     static let bgBlack = UIColor(hexCode: 0x0F0F0F)
     static let borderRed = UIColor(hexCode: 0xF32F36)
     
