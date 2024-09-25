@@ -44,6 +44,7 @@ final class SignInViewModel: ViewModelType {
                 switch result {
                 case .signUpNeeded:
                     print("가입 필요")
+                    owner.coordinator?.goToRegisterNicknameViewController()
                 case .success:
                     print("성공")
                 case .failure:

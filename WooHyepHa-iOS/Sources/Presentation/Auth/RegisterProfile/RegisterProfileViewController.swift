@@ -146,15 +146,6 @@ class RegisterProfileViewController: BaseViewController {
     
     override func bind() {
         // 테스트 로직임 수정 예정
-        nicknameInputView.inputNickname
-            .subscribe(with: self, onNext: { owner, text in
-                if text == "중복" {
-                    owner.nicknameInputView.updateState(isDuplicate: true)
-                } else {
-                    owner.nicknameInputView.updateState(isDuplicate: false)
-                }
-            })
-            .disposed(by: disposeBag)
         
         let validNickname = nicknameInputView.inputNickname
             .filter { !$0.isEmpty && $0 != "중복" }

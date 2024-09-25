@@ -44,5 +44,6 @@ extension UIColor {
     static let gray7 = UIColor(hexCode: 0xE0E0E0)
     static let gray8 = UIColor(hexCode: 0xEEEEEE)
     static let gray9 = UIColor(hexCode: 0xF5F5F5)
+    static let gray10 = UIColor(hexCode: 0xDFDFDF)
 }
 

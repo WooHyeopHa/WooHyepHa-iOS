@@ -14,7 +14,6 @@ import Then
 
 class SignInViewController: BaseViewController {
     
-    // 나중에 로그인 기능 구현 시 코디네이터는 뷰모델로 옮겨 주입 받을 예정
     private let viewModel: SignInViewModel
     
     // MARK: UI Components

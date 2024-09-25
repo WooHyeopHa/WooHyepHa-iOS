@@ -90,10 +90,10 @@ class SignUpViewController: BaseViewController {
     }
     
     override func bind() {
-        registerButton.rx.tap
-            .subscribe(with: self, onNext: { owner, _ in
-                owner.coordinator?.goToRegisterProfileViewController()
-            })
-            .disposed(by: disposeBag)
+//        registerButton.rx.tap
+//            .subscribe(with: self, onNext: { owner, _ in
+//                owner.coordinator?.goToRegisterProfileViewController()
+//            })
+//            .disposed(by: disposeBag)
     }
 }

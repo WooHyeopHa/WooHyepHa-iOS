@@ -49,6 +49,7 @@ extension UIFont {
     static let body7 = UIFont(name: Pretendard.pretendardMedium.rawValue, size: 15)!
     static let body8 = UIFont(name: Pretendard.pretendardRegular.rawValue, size: 15)!
     static let body9 = UIFont(name: Pretendard.pretendardRegular.rawValue, size: 16)!
+    static let body10 = UIFont(name: Pretendard.pretendardBold.rawValue, size: 26)!
        
     static let num1 = UIFont(name: Pretendard.pretendardSemiBold.rawValue, size: 16)!
     static let num2 = UIFont(name: Pretendard.pretendardSemiBold.rawValue, size: 14)!

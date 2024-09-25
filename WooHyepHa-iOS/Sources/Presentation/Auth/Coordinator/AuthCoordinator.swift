@@ -50,10 +50,16 @@ extension AuthCoordinator {
         navigationController.pushViewController(registerViewController, animated: true)
     }
     
-    func goToRegisterProfileViewController() {
-        let registerProfileViewController = RegisterProfileViewController()
-        registerProfileViewController.coordinator = self
-        navigationController.pushViewController(registerProfileViewController, animated: true)
+    func goToRegisterNicknameViewController() {
+        let registerNicknameViewController = RegisterNicknameViewController()
+        registerNicknameViewController.coordinator = self
+        navigationController.pushViewController(registerNicknameViewController, animated: true)
+    }    
+    
+    func goToSignUpViewController() {
+        let signUpViewController = SignUpViewController()
+        signUpViewController.coordinator = self
+        navigationController.pushViewController(signUpViewController, animated: true)
     }
     
     func goToRegisterLocationViewController() {
