@@ -14,14 +14,14 @@ class BaseHeaderView: UIView {
 
     final let disposeBag = DisposeBag()
     
-    var showBottomeBorder: Bool = true {
+    var showBottomBorder: Bool = true {
         didSet {
-            bottomBorder.isHidden = !showBottomeBorder
+            bottomBorder.isHidden = !showBottomBorder
         }
     }
     
     private let bottomBorder = CALayer().then {
-        $0.backgroundColor = UIColor.lightGray.cgColor
+        $0.backgroundColor = UIColor.gray9.cgColor
     }
     
     override init(frame: CGRect) {

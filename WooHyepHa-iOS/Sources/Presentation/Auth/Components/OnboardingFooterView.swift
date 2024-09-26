@@ -13,27 +13,53 @@ import SnapKit
 import Then
 
 protocol OnboardingFooterViewDelegate: AnyObject {
-    func nextButtonDidTap()
+    func disabledButtonDidTap()
+    func enabledButtonDidTap()
 }
 
 class OnboardingFooterView: BaseView {
 
     weak var delegate: OnboardingFooterViewDelegate?
     
-    var nextButtonTitle: String = "" {
+    var disabledButtonTitle: String = "" {
         didSet {
-            nextButton.setTitle(nextButtonTitle, for: .normal)
+            disabledButton.setTitle(disabledButtonTitle, for: .normal)
+        }
+    }    
+    
+    var showDisabledButton: Bool = false {
+        didSet {
+            disabledButton.isHidden = !showDisabledButton
+        }
+    }
+    
+    var enabledButtonTitle: String = "" {
+        didSet {
+            enabledButton.setTitle(enabledButtonTitle, for: .normal)
+        }
+    }
+    
+    var showEnabledButton: Bool = false {
+        didSet {
+            enabledButton.isHidden = !showEnabledButton
         }
     }
     
     // MARK: UI Components
-    private let nextButton = UIButton().then {
-        $0.setTitle("다음", for: .normal)
+    private let disabledButton = UIButton().then {
         $0.setTitleColor(.white, for: .normal)
         $0.titleLabel?.font = .body2
         $0.backgroundColor = .gray6
-        $0.layer.cornerRadius = 10
+        $0.layer.cornerRadius = 8
         $0.isEnabled = false
+    }
+    
+    private let enabledButton = UIButton().then {
+        $0.setTitleColor(.white, for: .normal)
+        $0.titleLabel?.font = .body2
+        $0.backgroundColor = .gray1
+        $0.layer.cornerRadius = 8
+        $0.isHidden = true
     }
     
     // MARK: init
@@ -48,13 +74,19 @@ class OnboardingFooterView: BaseView {
     // MARK: SetUp View
     override func setView() {
         backgroundColor = .white
-        [nextButton].forEach {
+        [disabledButton, enabledButton].forEach {
             addSubview($0)
         }
     }
     
     override func setConstraints() {
-        nextButton.snp.makeConstraints {
+        disabledButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview().inset(20)
+            $0.height.equalTo(48)
+        }        
+        
+        enabledButton.snp.makeConstraints {
             $0.bottom.equalToSuperview()
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(48)
@@ -62,18 +94,28 @@ class OnboardingFooterView: BaseView {
     }
     
     override func bind() {
-        nextButton.rx.tap
-            .subscribe(with: self, onNext: { owner, _ in
-                owner.delegate?.nextButtonDidTap()
-            })
-            .disposed(by: disposeBag)
     }
 }
 
 // MARK: View Method
 extension OnboardingFooterView {
     func updateNextButtonState(isEnabled: Bool) {
-        nextButton.isEnabled = isEnabled
-        nextButton.backgroundColor = isEnabled ? .gray1 : .gray6
+        disabledButton.isEnabled = isEnabled
+        disabledButton.backgroundColor = isEnabled ? .gray1 : .gray6
     }
+    
+    var inputDisabledButtonTapped: Observable<Void> {
+        disabledButton.rx.tap
+            .asObservable()
+    }
+    
+    var inputEnabledButtonTapped: Observable<Void> {
+        enabledButton.rx.tap
+            .asObservable()
+    }
+}
+
+extension OnboardingFooterViewDelegate {
+    func disabledButtonDidTap() {}
+    func enabledButtonDidTap() {}
 }

@@ -29,12 +29,13 @@ class OnboardingHeaderView: BaseHeaderView {
         
     var showLeftButton: Bool = true {
         didSet {
-            leftButton.isHidden = !showBottomeBorder
+            leftButton.isHidden = !showLeftButton
         }
     }
     
     private let rightButton = UIButton().then {
         $0.titleLabel?.font = .body4
+        $0.setTitleColor(.gray4, for: .normal)
     }
     
     var rightButtonTitle: String = "" {
@@ -51,7 +52,7 @@ class OnboardingHeaderView: BaseHeaderView {
     
     var showRightButton: Bool = true {
         didSet {
-            rightButton.isHidden = !showBottomeBorder
+            rightButton.isHidden = !showRightButton
         }
     }
 
@@ -71,7 +72,7 @@ class OnboardingHeaderView: BaseHeaderView {
         [leftButton, rightButton].forEach {
             addSubview($0)
         }
-        showBottomeBorder = false
+        showBottomBorder = false
     }
     
     override func setConstraints() {
