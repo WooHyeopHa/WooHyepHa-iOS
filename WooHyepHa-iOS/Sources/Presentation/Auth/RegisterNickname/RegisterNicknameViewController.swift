@@ -14,7 +14,7 @@ import Then
 
 class RegisterNicknameViewController: BaseViewController {
 
-    weak var coordinator: AuthCoordinator?
+    private let viewModel: RegisterNicknameViewModel
     
     //MARK: UI Components
     private let mainTitleLabel = UILabel().then {
@@ -51,7 +51,18 @@ class RegisterNicknameViewController: BaseViewController {
     
     private lazy var footerView = OnboardingFooterView().then {
         $0.showBottomBorder = false
+        $0.showDisabledButton = true
+        $0.disabledButtonTitle = "다음"
         $0.delegate = self
+    }
+    
+    init(viewModel: RegisterNicknameViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -96,9 +107,10 @@ class RegisterNicknameViewController: BaseViewController {
     }
     
     override func bind() {
-//        let input = RegisterNicknameViewModel.Input(
-//            nextButtonTapped:
-//        )
+        let input = RegisterNicknameViewModel.Input(
+            disableButtonTapped:  footerView.inputDisabledButtonTapped,
+            nickName: nicknameInputView.inputNickname)
+        _ = viewModel.bind(input: input)
         
         // 로직 수정 예정, 임시코드
         nicknameInputView.inputNickname
@@ -120,7 +132,7 @@ class RegisterNicknameViewController: BaseViewController {
 }
 
 extension RegisterNicknameViewController: OnboardingFooterViewDelegate {
-    func nextButtonDidTap() {
-        coordinator?.goToSignUpViewController()
+    func disabledButtonDidTap() {
+        //coordinator?.goToSignUpViewController()
     }
 }

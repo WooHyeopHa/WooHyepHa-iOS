@@ -10,7 +10,8 @@ import RxCocoa
 
 final class RegisterNicknameViewModel: ViewModelType {
     struct Input {
-        let nextButtonTapped: Observable<Void>
+        let disableButtonTapped: Observable<Void>
+        let nickName: Observable<String>
     }
     
     struct Output { }
@@ -23,6 +24,17 @@ final class RegisterNicknameViewModel: ViewModelType {
     }
     
     func bind(input: Input) -> Output {
+        input.nickName
+            .subscribe(onNext:  { name in
+                print(name)
+            })
+            .disposed(by: disposeBag)
+        
+        input.disableButtonTapped
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.coordinator?.goToSignUpViewController()
+            })
+            .disposed(by: disposeBag)
         return Output()
     }
 }

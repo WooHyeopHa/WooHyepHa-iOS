@@ -51,8 +51,8 @@ extension AuthCoordinator {
     }
     
     func goToRegisterNicknameViewController() {
-        let registerNicknameViewController = RegisterNicknameViewController()
-        registerNicknameViewController.coordinator = self
+        let registerNicknameViewModel = RegisterNicknameViewModel(coordinator: self)
+        let registerNicknameViewController = RegisterNicknameViewController(viewModel: registerNicknameViewModel)
         navigationController.pushViewController(registerNicknameViewController, animated: true)
     }    
     
