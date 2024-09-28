@@ -57,8 +57,8 @@ extension AuthCoordinator {
     }
     
     func goToRegisterProfileViewController() {
-        let registerProfileViewController = RegisterProfileViewController()
-        registerProfileViewController.coordinator = self
+        let registerProfileViewModel = RegisterProfileViewModel(coordinator: self)
+        let registerProfileViewController = RegisterProfileViewController(viewModel: registerProfileViewModel)
         navigationController.pushViewController(registerProfileViewController, animated: true)
     }
     

@@ -15,19 +15,19 @@ import Then
 
 class RegisterProfileViewController: BaseViewController {
 
-    weak var coordinator: AuthCoordinator?
+    private let viewModel: RegisterProfileViewModel
+    private var profileImageURL = BehaviorSubject<String>(value: "default_image_url")
     
     //MARK: UI Components
     private lazy var headerView = OnboardingHeaderView().then {
-        $0.delegate = self
         $0.backgroundColor = .white
         $0.showRightButton = false
     }
     
     private let mainTitleLabel = UILabel().then {
-        $0.text = "프로필 정보를 입력해주세요!"
+        $0.text = "프로필을 채워보세요!"
         $0.textColor = .gray1
-        $0.font = .h2
+        $0.font = .h3
     }
     
     private let subTitleLabel = UILabel().then {
@@ -37,28 +37,21 @@ class RegisterProfileViewController: BaseViewController {
     }
     
     private let addProfileImageButton = UIButton().then {
-        $0.setImage(UIImage(named: "tabbar_mypage_active"), for: .normal)
-        $0.backgroundColor = .gray7
+        $0.setImage(.onboardingDefaultPhoto, for: .normal)
+        $0.backgroundColor = .gray9
         $0.imageView?.contentMode = .scaleAspectFill
-        $0.layer.borderWidth = 3.5
-        $0.layer.borderColor = UIColor.gray9.cgColor
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor.gray8.cgColor
         $0.layer.cornerRadius = 66
         $0.layer.masksToBounds = true
     }
     
     private let addProfileImageSubButton = UIButton().then {
-        $0.setImage(UIImage(named: "camera")?.withTintColor(.white, renderingMode: .alwaysOriginal), for: .normal)
-        $0.backgroundColor = .gray5
-        
+        $0.setImage(.onboardingCamera, for: .normal)
         $0.layer.cornerRadius = 16
         $0.layer.masksToBounds = true
     }
-    
-    private let nicknameInputView = NicknameInputView().then {
-        $0.showTopBorder = false
-        $0.showBottomBorder = false
-    }
-    
+
     private let birthInputView = BirthInputView().then {
         $0.showTopBorder = false
         $0.showBottomBorder = false
@@ -71,7 +64,17 @@ class RegisterProfileViewController: BaseViewController {
     
     private lazy var footerView = OnboardingFooterView().then {
         $0.showBottomBorder = false
-        $0.delegate = self
+        $0.showDisabledButton = true
+        $0.disabledButtonTitle = "다음"
+    }
+    
+    init(viewModel: RegisterProfileViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -82,8 +85,7 @@ class RegisterProfileViewController: BaseViewController {
     override func setViewController() {
         view.backgroundColor = .white
         
-        [headerView, mainTitleLabel, subTitleLabel, addProfileImageButton, addProfileImageSubButton,
-         nicknameInputView, birthInputView, sexInputView, footerView].forEach {
+        [headerView, mainTitleLabel, subTitleLabel, addProfileImageButton, addProfileImageSubButton, birthInputView, sexInputView, footerView].forEach {
             view.addSubview($0)
         }
     }
@@ -114,25 +116,19 @@ class RegisterProfileViewController: BaseViewController {
         }
         
         addProfileImageSubButton.snp.makeConstraints {
-            $0.bottom.equalTo(addProfileImageButton.snp.bottom).inset(10)
-            $0.trailing.equalTo(addProfileImageButton.snp.trailing)
+            $0.bottom.equalTo(addProfileImageButton.snp.bottom).inset(4.5)
+            $0.trailing.equalTo(addProfileImageButton.snp.trailing).offset(3.5)
             $0.width.height.equalTo(32)
         }
         
-        nicknameInputView.snp.makeConstraints {
-            $0.top.equalTo(addProfileImageButton.snp.bottom).offset(29)
-            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(91)
-        }        
-        
         birthInputView.snp.makeConstraints {
-            $0.top.equalTo(nicknameInputView.snp.bottom).offset(18)
+            $0.top.equalTo(addProfileImageSubButton.snp.bottom).offset(31)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(91)
         }        
         
         sexInputView.snp.makeConstraints {
-            $0.top.equalTo(birthInputView.snp.bottom).offset(18)
+            $0.top.equalTo(birthInputView.snp.bottom).offset(23)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(85)
         }        
@@ -146,28 +142,13 @@ class RegisterProfileViewController: BaseViewController {
     
     override func bind() {
         // 테스트 로직임 수정 예정
-        
-        let validNickname = nicknameInputView.inputNickname
-            .filter { !$0.isEmpty && $0 != "중복" }
-            .share(replay: 1)
-
-        let selectedSex = sexInputView.inputSelectedSex
-            .share(replay: 1)
-
-        Observable.combineLatest(validNickname, selectedSex)
-            .subscribe(onNext: { [weak self] (nickname, sex) in
-                print("닉네임: \(nickname), 성별: \(sex)")
-            })
-            .disposed(by: disposeBag)
-        
         Observable.combineLatest(
-            nicknameInputView.isValidNickname,
-            sexInputView.isValidSex,
-            birthInputView.isValidBirth
+            sexInputView.isEmpty,
+            birthInputView.isEmpty
         )
-        .map { $0 && $1 && $2 }
+        .map { $0 && $1 }
         .bind(with: self) { owner, isValid in
-            owner.footerView.updateNextButtonState(isEnabled: isValid)
+            owner.footerView.updateDisabledButtonState(isEnabled: isValid)
         }
         .disposed(by: disposeBag)
         
@@ -180,6 +161,22 @@ class RegisterProfileViewController: BaseViewController {
         addProfileImageSubButton.rx.tap
             .subscribe(with: self, onNext: { owner, _ in
                 owner.presentImagePicker()
+            })
+            .disposed(by: disposeBag)
+        
+        let input = RegisterProfileViewModel.Input(
+            disableButtonTapped: footerView.inputDisabledButtonTapped.asObservable(), 
+            backButtonTapped: headerView.inputLeftButtonTapped,
+            profileImageURL: profileImageURL.asObservable(),
+            birth: birthInputView.inputBirth.asObservable(),
+            sex: sexInputView.inputSex.asObservable()
+        )
+        
+        let output = viewModel.bind(input: input)
+        
+        output.isDisableButtonEnabled
+            .drive(with: self, onNext: { owner, isEnabled in
+                owner.footerView.updateDisabledButtonState(isEnabled: isEnabled)
             })
             .disposed(by: disposeBag)
     }
@@ -217,23 +214,12 @@ extension RegisterProfileViewController: PHPickerViewControllerDelegate {
                 
                 guard let image = object as? UIImage else { return }
                 
+                let urlString = url?.absoluteString
                 DispatchQueue.main.async {
                     self?.addProfileImageButton.setImage(image, for: .normal)
+                    self?.profileImageURL.onNext(urlString ?? "default_image_url")
                 }
             }
         }
     }
 }
-
-extension RegisterProfileViewController: OnboardingHeaderViewDelegate {
-    func leftButtonDidTap() {
-        coordinator?.pop()
-    }
-}
-
-extension RegisterProfileViewController: OnboardingFooterViewDelegate {
-    func nextButtonDidTap() {
-        coordinator?.goToRegisterLocationViewController()
-    }
-}
-

@@ -17,13 +17,13 @@ class BirthInputView: BaseView {
     // MARK: UI Components
     private let birthLabel = UILabel().then {
         $0.text = "출생연도"
-        $0.font = .body1
-        $0.textColor = .gray1
+        $0.font = .num1
+        $0.textColor = .gray2
     }
     
     private lazy var birthTextField = UITextField().then {
         $0.attributedPlaceholder = NSAttributedString(string: "태어난 연도를 설정해 주세요!", attributes: [NSAttributedString.Key.foregroundColor : UIColor.gray5])
-        $0.font = .body4
+        $0.font = .body9
         $0.textColor = .gray1
         $0.layer.borderColor = UIColor.gray7.cgColor
         $0.layer.borderWidth = 1
@@ -90,14 +90,15 @@ private extension BirthInputView {
     }
 }
 
-// MARK: View Method
-extension BirthInputView {
-}
-
 //MARK: Observable
 extension BirthInputView {
-    var isValidBirth: Observable<Bool> {
+    var isEmpty: Observable<Bool> {
         return birthTextField.rx.text.orEmpty.map { !$0.isEmpty }
+    }
+    
+    var inputBirth: Observable<String> {
+        birthTextField.rx.text.orEmpty
+            .asObservable()
     }
 }
 

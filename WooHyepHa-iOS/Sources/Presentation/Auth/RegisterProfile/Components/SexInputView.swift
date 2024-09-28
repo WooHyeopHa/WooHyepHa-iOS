@@ -14,19 +14,19 @@ import Then
 
 class SexInputView: BaseView {
 
-    private let selectedSex = PublishSubject<String>()
+    private let selectedSex = BehaviorSubject<String>(value: "")
     
     // MARK: UI Components
     private let sexLabel = UILabel().then {
         $0.text = "성별"
-        $0.font = .body1
-        $0.textColor = .gray1
+        $0.font = .num1
+        $0.textColor = .gray2
     }
     
     private let maleButton = UIButton().then {
         $0.setTitle("남성", for: .normal)
         $0.setTitleColor(.gray4, for: .normal)
-        $0.titleLabel?.font = .body4
+        $0.titleLabel?.font = .body9
         $0.backgroundColor = .white
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.gray7.cgColor
@@ -36,7 +36,7 @@ class SexInputView: BaseView {
     private let femaleButton = UIButton().then {
         $0.setTitle("여성", for: .normal)
         $0.setTitleColor(.gray4, for: .normal)
-        $0.titleLabel?.font = .body4
+        $0.titleLabel?.font = .body9
         $0.backgroundColor = .white
         $0.layer.borderWidth = 1
         $0.layer.borderColor = UIColor.gray7.cgColor
@@ -70,20 +70,20 @@ class SexInputView: BaseView {
             $0.bottom.equalToSuperview()
             $0.leading.equalToSuperview().offset(20)
             $0.width.equalTo(160)
-            $0.height.equalTo(42)
+            $0.height.equalTo(48)
         }
         
         femaleButton.snp.makeConstraints {
             $0.bottom.equalToSuperview()
             $0.trailing.equalToSuperview().inset(20)
             $0.width.equalTo(160)
-            $0.height.equalTo(42)
+            $0.height.equalTo(48)
         }
     }
     
     //MARK: Bind
     override func bind() {
-        inputSelectedSex
+        selectedSexType
             .subscribe(with: self) { owner, type in
                 owner.updateButtonState(selected: type)
             }
@@ -115,7 +115,6 @@ extension SexInputView {
                 selectedSex.onNext("female")
             }
         }
-        
     }
 }
 
@@ -126,15 +125,19 @@ extension SexInputView {
         case female = "female"
     }
     
-    var inputSelectedSex: Observable<String> {
+    var selectedSexType: Observable<String> {
         return Observable.merge(
             maleButton.rx.tap.map { SexButtonType.male.rawValue },
             femaleButton.rx.tap.map { SexButtonType.female.rawValue }
         )
     }
     
-    var isValidSex: Observable<Bool> {
+    var isEmpty: Observable<Bool> {
         return selectedSex.map { !$0.isEmpty }
+    }
+    
+    var inputSex: Observable<String> {
+        return selectedSex
     }
 }
 

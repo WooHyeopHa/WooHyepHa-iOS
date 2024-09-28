@@ -25,7 +25,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         //window?.rootViewController = SignUpViewController(viewModel: SignUpViewModel(coordinator: AuthCoordinator(navigationController: navigationController)))
         //window?.rootViewController = RegisterNicknameViewController(viewModel: RegisterNicknameViewModel(coordinator: AuthCoordinator(navigationController: navigationController)))
-        //window?.rootViewController = RegisterProfileViewController()
+        //window?.rootViewController = RegisterProfileViewController(viewModel: RegisterProfileViewModel(coordinator: AuthCoordinator(navigationController: navigationController)))
+        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         

@@ -60,6 +60,8 @@
 		9ED121562CA2B28100C7696E /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */; };
 		9ED121592CA416ED00C7696E /* RegisterNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */; };
 		9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */; };
+		9ED121602CA7BCAD00C7696E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1215F2CA7BCAD00C7696E /* SignUpViewModel.swift */; };
+		9ED121642CA7CB7200C7696E /* RegisterProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121632CA7CB7200C7696E /* RegisterProfileViewModel.swift */; };
 		9ED122092C7C60F60066C679 /* SignInWithAppleRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */; };
 		9ED1220C2C7C61E00066C679 /* SignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220B2C7C61E00066C679 /* SignInResult.swift */; };
 		9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220F2C7C62140066C679 /* SignInUseCase.swift */; };
@@ -128,6 +130,8 @@
 		9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewController.swift; sourceTree = "<group>"; };
 		9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewModel.swift; sourceTree = "<group>"; };
+		9ED1215F2CA7BCAD00C7696E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		9ED121632CA7CB7200C7696E /* RegisterProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileViewModel.swift; sourceTree = "<group>"; };
 		9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleRequestDTO.swift; sourceTree = "<group>"; };
 		9ED1220B2C7C61E00066C679 /* SignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResult.swift; sourceTree = "<group>"; };
 		9ED1220F2C7C62140066C679 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
@@ -439,6 +443,7 @@
 		9E88DDF22C6DAFA900815EE0 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				9ED1215E2CA7BCA400C7696E /* ViewModel */,
 				9E88DDF82C6DB33D00815EE0 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
@@ -448,6 +453,7 @@
 			isa = PBXGroup;
 			children = (
 				9E88DDFD2C6DBBE900815EE0 /* Components */,
+				9ED121622CA7CB6700C7696E /* ViewModel */,
 				9E88DDF52C6DB27500815EE0 /* RegisterProfileViewController.swift */,
 			);
 			path = RegisterProfile;
@@ -512,6 +518,22 @@
 			isa = PBXGroup;
 			children = (
 				9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9ED1215E2CA7BCA400C7696E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9ED1215F2CA7BCAD00C7696E /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9ED121622CA7CB6700C7696E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9ED121632CA7CB7200C7696E /* RegisterProfileViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -806,6 +828,7 @@
 				9E88DE362C75774C00815EE0 /* OnboardingButton.swift in Sources */,
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
 				9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */,
+				9ED121602CA7BCAD00C7696E /* SignUpViewModel.swift in Sources */,
 				9ED1221B2C7C66B80066C679 /* AuthRepository.swift in Sources */,
 				9E0FF2A42C6B0A2B00544674 /* HomeCoordinator.swift in Sources */,
 				9E88DDF92C6DB33D00815EE0 /* SignUpViewController.swift in Sources */,
@@ -819,6 +842,7 @@
 				9E0FF2C52C6C62FA00544674 /* BaseHeaderView.swift in Sources */,
 				9E88DE0C2C6DD75A00815EE0 /* SexInputView.swift in Sources */,
 				9E88DE032C6DC7C200815EE0 /* NicknameInputView.swift in Sources */,
+				9ED121642CA7CB7200C7696E /* RegisterProfileViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
