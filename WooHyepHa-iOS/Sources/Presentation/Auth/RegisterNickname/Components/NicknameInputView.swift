@@ -148,14 +148,6 @@ extension NicknameInputView {
         nickNameTextField.rx.text.orEmpty
             .asObservable()
     }
-    
-    var isValidNickname: Observable<Bool> {
-        return Observable.combineLatest(
-            inputNickname,
-            nickNameTextField.rx.text.orEmpty.map { !$0.isEmpty }
-        )
-        .map { !$0.0.isEmpty }
-    }
 }
 
 extension NicknameInputView: UITextFieldDelegate {
