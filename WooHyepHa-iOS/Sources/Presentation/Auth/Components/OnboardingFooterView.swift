@@ -92,7 +92,7 @@ class OnboardingFooterView: BaseView {
 
 // MARK: View Method
 extension OnboardingFooterView {
-    func updateNextButtonState(isEnabled: Bool) {
+    func updateDisabledButtonState(isEnabled: Bool) {
         disabledButton.isEnabled = isEnabled
         disabledButton.backgroundColor = isEnabled ? .gray1 : .gray6
     }

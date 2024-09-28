@@ -15,7 +15,7 @@ final class RegisterNicknameViewModel: ViewModelType {
     }
     
     struct Output {
-        let isNextButtonEnabled: Driver<Bool>
+        let isDisableButtonEnabled: Driver<Bool>
         let isHandleDuplicateEnabled: Driver<Bool>
     }
     
@@ -69,7 +69,7 @@ final class RegisterNicknameViewModel: ViewModelType {
             .disposed(by: disposeBag)
         
         return Output(
-            isNextButtonEnabled: isNickNameValid.asDriver(onErrorDriveWith: .empty()),
+            isDisableButtonEnabled: isNickNameValid.asDriver(onErrorDriveWith: .empty()),
             isHandleDuplicateEnabled: isNickNameDuplicate.asDriver(onErrorDriveWith: .empty())
         )
     }

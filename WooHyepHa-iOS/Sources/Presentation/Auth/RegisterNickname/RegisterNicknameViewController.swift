@@ -112,9 +112,9 @@ class RegisterNicknameViewController: BaseViewController {
         
         let output = viewModel.bind(input: input)
         
-        output.isNextButtonEnabled
+        output.isDisableButtonEnabled
             .drive(with: self, onNext: { owner, isEnabled in
-                owner.footerView.updateNextButtonState(isEnabled: isEnabled)
+                owner.footerView.updateDisabledButtonState(isEnabled: isEnabled)
             })
             .disposed(by: disposeBag)
         
