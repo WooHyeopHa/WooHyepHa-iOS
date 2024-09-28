@@ -14,11 +14,10 @@ import Then
 
 class SignUpViewController: BaseViewController {
 
-    weak var coordinator: AuthCoordinator?
+    private let viewModel: SignUpViewModel
     
     //MARK: UI Components
     private lazy var headerView = OnboardingHeaderView().then {
-        $0.delegate = self
         $0.backgroundColor = .white
         $0.showRightButton = true
         $0.rightButtonTitle = "건너뛰기"
@@ -59,7 +58,15 @@ class SignUpViewController: BaseViewController {
         $0.showBottomBorder = false
         $0.showEnabledButton = true
         $0.enabledButtonTitle = "프로필 완성하기"
-        $0.delegate = self
+    }
+    
+    init(viewModel: SignUpViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -110,19 +117,11 @@ class SignUpViewController: BaseViewController {
     }
     
     override func bind() {
+        let input = SignUpViewModel.Input(
+            backButtonTapped: headerView.inputLeftButtonTapped.asObservable(),
+            nextButtonTapped: footerView.inputEnabledButtonTapped.asObservable()
+        )
         
-    }
-}
-
-extension SignUpViewController: OnboardingHeaderViewDelegate {
-    func leftButtonDidTap() {
-        coordinator?.pop()
-    }
-}
-
-
-extension SignUpViewController: OnboardingFooterViewDelegate {
-    func enabledButtonDidTap() {
-        print("tap")
+        _ = viewModel.bind(input: input)
     }
 }

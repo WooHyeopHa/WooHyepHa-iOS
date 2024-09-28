@@ -156,11 +156,3 @@ class SignInViewController: BaseViewController {
         _ = viewModel.bind(input: input)
     }
 }
-
-// MARK: bind
-
-extension SignInViewController: OnboardingHeaderViewDelegate {
-    func rightButtonDidTap() {
-        print("testLog : ButtonTapped")
-    }
-}

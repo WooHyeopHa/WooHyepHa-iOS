@@ -44,12 +44,6 @@ extension AuthCoordinator {
         navigationController.pushViewController(signViewController, animated: false)
     }
     
-    func goToRegisterViewController() {
-        let registerViewController = SignUpViewController()
-        registerViewController.coordinator = self
-        navigationController.pushViewController(registerViewController, animated: true)
-    }
-    
     func goToRegisterNicknameViewController() {
         let registerNicknameViewModel = RegisterNicknameViewModel(coordinator: self)
         let registerNicknameViewController = RegisterNicknameViewController(viewModel: registerNicknameViewModel)
@@ -57,9 +51,15 @@ extension AuthCoordinator {
     }    
     
     func goToSignUpViewController() {
-        let signUpViewController = SignUpViewController()
-        signUpViewController.coordinator = self
+        let signUpViewModel = SignUpViewModel(coordinator: self)
+        let signUpViewController = SignUpViewController(viewModel: signUpViewModel)
         navigationController.pushViewController(signUpViewController, animated: true)
+    }
+    
+    func goToRegisterProfileViewController() {
+        let registerProfileViewController = RegisterProfileViewController()
+        registerProfileViewController.coordinator = self
+        navigationController.pushViewController(registerProfileViewController, animated: true)
     }
     
     func goToRegisterLocationViewController() {

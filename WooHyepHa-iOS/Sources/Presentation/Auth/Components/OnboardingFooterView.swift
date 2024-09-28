@@ -12,15 +12,8 @@ import RxSwift
 import SnapKit
 import Then
 
-protocol OnboardingFooterViewDelegate: AnyObject {
-    func disabledButtonDidTap()
-    func enabledButtonDidTap()
-}
-
 class OnboardingFooterView: BaseView {
 
-    weak var delegate: OnboardingFooterViewDelegate?
-    
     var disabledButtonTitle: String = "" {
         didSet {
             disabledButton.setTitle(disabledButtonTitle, for: .normal)
@@ -113,9 +106,4 @@ extension OnboardingFooterView {
         enabledButton.rx.tap
             .asObservable()
     }
-}
-
-extension OnboardingFooterViewDelegate {
-    func disabledButtonDidTap() {}
-    func enabledButtonDidTap() {}
 }

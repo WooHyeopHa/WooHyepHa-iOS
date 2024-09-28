@@ -12,17 +12,9 @@ import RxSwift
 import SnapKit
 import Then
 
-protocol OnboardingHeaderViewDelegate: AnyObject {
-    func leftButtonDidTap()
-    func rightButtonDidTap()
-}
-
 class OnboardingHeaderView: BaseHeaderView {
 
-    weak var delegate: OnboardingHeaderViewDelegate?
-    
     // MARK: UI Components
-
     private let leftButton = UIButton().then {
         $0.setImage(UIImage(named: "chevron_leftarrow")?.withTintColor(.gray1, renderingMode: .alwaysOriginal), for: .normal)
     }
@@ -59,7 +51,6 @@ class OnboardingHeaderView: BaseHeaderView {
     // MARK: init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        bind()
     }
     
     required init?(coder: NSCoder) {
@@ -89,26 +80,14 @@ class OnboardingHeaderView: BaseHeaderView {
     }
 }
 
-private extension OnboardingHeaderView {
-    func bind() {
+extension OnboardingHeaderView {
+    var inputLeftButtonTapped: Observable<Void> {
         leftButton.rx.tap
-            .subscribe(with: self, onNext: { owner, _ in
-                owner.delegate?.leftButtonDidTap()
-            })
-            .disposed(by: disposeBag)
-        
-        rightButton.rx.tap
-            .subscribe(with: self, onNext: { owner, _ in
-                owner.delegate?.rightButtonDidTap()
-            })
-            .disposed(by: disposeBag)
-    }
-}
-
-extension OnboardingHeaderViewDelegate {
-    func leftButtonDidTap() {
+            .asObservable()
     }
     
-    func rightButtonDidTap() {
+    var inputRightButtonTapped: Observable<Void> {
+        rightButton.rx.tap
+            .asObservable()
     }
 }
