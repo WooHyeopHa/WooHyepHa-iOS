@@ -53,7 +53,6 @@ class RegisterNicknameViewController: BaseViewController {
         $0.showBottomBorder = false
         $0.showDisabledButton = true
         $0.disabledButtonTitle = "다음"
-        $0.delegate = self
     }
     
     init(viewModel: RegisterNicknameViewModel) {
@@ -110,29 +109,19 @@ class RegisterNicknameViewController: BaseViewController {
         let input = RegisterNicknameViewModel.Input(
             disableButtonTapped:  footerView.inputDisabledButtonTapped,
             nickName: nicknameInputView.inputNickname)
-        _ = viewModel.bind(input: input)
         
-        // 로직 수정 예정, 임시코드
-        nicknameInputView.inputNickname
-            .subscribe(with: self, onNext: { owner, text in
-                if text == "중복" {
-                    owner.nicknameInputView.handleDuplicateNickname(isDuplicate: true)
-                } else {
-                    owner.nicknameInputView.handleDuplicateNickname(isDuplicate: false)
-                }
+        let output = viewModel.bind(input: input)
+        
+        output.isNextButtonEnabled
+            .drive(with: self, onNext: { owner, isEnabled in
+                owner.footerView.updateNextButtonState(isEnabled: isEnabled)
             })
             .disposed(by: disposeBag)
         
-        nicknameInputView.isValidNickname
-            .subscribe(with: self, onNext: { owner, valid in
-                owner.footerView.updateNextButtonState(isEnabled: valid)
+        output.isHandleDuplicateEnabled
+            .drive(with: self, onNext: { owner, isDuplicate in
+                owner.nicknameInputView.handleDuplicateNickname(isDuplicate: isDuplicate)
             })
             .disposed(by: disposeBag)
-    }
-}
-
-extension RegisterNicknameViewController: OnboardingFooterViewDelegate {
-    func disabledButtonDidTap() {
-        //coordinator?.goToSignUpViewController()
     }
 }

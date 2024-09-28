@@ -37,6 +37,11 @@ class NicknameInputView: BaseView {
         $0.delegate = self
     }
     
+    private let deleteButton = UIButton().then {
+        $0.setImage(.onboardingNicknameDelete, for: .normal)
+        $0.isHidden = true
+    }
+    
     private let bottomLine = CALayer().then {
         $0.backgroundColor = UIColor.gray10.cgColor
     }
@@ -66,7 +71,7 @@ class NicknameInputView: BaseView {
     override func setView() {
         backgroundColor = .white
         
-        [nickNameLabel, nickNameCountLabel, nickNameTextField, warningMessageLabel].forEach {
+        [nickNameLabel, nickNameCountLabel, nickNameTextField, deleteButton, warningMessageLabel ].forEach {
             addSubview($0)
         }
     }
@@ -88,7 +93,13 @@ class NicknameInputView: BaseView {
             $0.top.equalTo(nickNameLabel.snp.bottom)
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.height.equalTo(48)
-        }        
+        }                
+        
+        deleteButton.snp.makeConstraints {
+            $0.centerY.equalTo(nickNameTextField.snp.centerY)
+            $0.trailing.equalTo(nickNameTextField.snp.trailing).inset(4)
+            $0.width.height.equalTo(24)
+        }
         
         warningMessageLabel.snp.makeConstraints {
             $0.top.equalTo(nickNameTextField.snp.bottom)
@@ -104,6 +115,14 @@ class NicknameInputView: BaseView {
                 owner.nickNameTextField.layer.borderColor = UIColor.gray7.cgColor
                 owner.nickNameCountLabel.textColor = .gray5
                 owner.nickNameCountLabel.text = "\(nickname.count)/10"
+                owner.deleteButton.isHidden = nickname.isEmpty
+            })
+            .disposed(by: disposeBag)
+        
+        deleteButton.rx.tap
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.nickNameTextField.text = ""
+                owner.nickNameTextField.sendActions(for: .valueChanged)
             })
             .disposed(by: disposeBag)
     }
