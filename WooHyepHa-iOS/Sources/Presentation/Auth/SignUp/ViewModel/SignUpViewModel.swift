@@ -33,7 +33,7 @@ final class SignUpViewModel: ViewModelType {
         
         input.nextButtonTapped
             .subscribe(with: self, onNext: { owner, _ in
-                owner.coordinator?.goToRegisterLocationViewController()
+                owner.coordinator?.goToRegisterProfileViewController()
             })
             .disposed(by: disposeBag)
         return Output()
