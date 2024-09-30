@@ -11,23 +11,17 @@ import RxCocoa
 import Then
 import SnapKit
 
-class PreferenceClassicView: UIView {
+class PreferenceClassicView: BaseView {
     
-    private let disposeBag = DisposeBag()
-    
-    private let popupExpoButton = OnboardingButton(title: "팝업 전시")
-    private let photoExpoButton = OnboardingButton(title: "사진 전시")
-    private let modernArtButton = OnboardingButton(title: "현대미술")
-    private let installationArtButton = OnboardingButton(title: "설치미술")
-    private let digitalArtButton = OnboardingButton(title: "디지털 아트")
-    private let buildingExpoButton = OnboardingButton(title: "건축 전시")
-    private let decorationArtButton = OnboardingButton(title: "장식미술")
-    private let cultureExpoButton = OnboardingButton(title: "문화 전시")
-    private let scienceExpoButton = OnboardingButton(title: "과학 전시")
-    private let historyExpoButton = OnboardingButton(title: "역사 전시")
+    private let orchestraButton = OnboardingButton(title: "오케스트라")
+    private let operaButton = OnboardingButton(title: "오페라")
+    private let balletButton = OnboardingButton(title: "발레")
+    private let modernDanceButton = OnboardingButton(title: "현대무용")
+    private let traditionalDanceButton = OnboardingButton(title: "전통무용")
+    private let koreanTraditionalMusicButton = OnboardingButton(title: "국악")
     
     private let titleLabel = UILabel().then {
-        $0.text = "어떤 장르의 전시회를 선호하시나요?"
+        $0.text = "어떤 장르의 클래식/무용을 선호하시나요?"
         $0.font = .body1
         $0.textColor = .gray2
     }
@@ -44,12 +38,6 @@ class PreferenceClassicView: UIView {
         $0.distribution = .fillProportionally
     }
     
-    private let buttonStackView3 = UIStackView().then {
-        $0.axis = .horizontal
-        $0.spacing = 4
-        $0.distribution = .fillProportionally
-    }
-    
     private let verticalStackView = UIStackView().then {
         $0.axis = .vertical
         $0.spacing = 12
@@ -59,31 +47,26 @@ class PreferenceClassicView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setView()
-        bind()
+        showTopBorder = false
+        showBottomBorder = false
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setView() {
-        [popupExpoButton, photoExpoButton, modernArtButton, installationArtButton].forEach {
+    override func setView() {
+        [orchestraButton, operaButton, balletButton, modernDanceButton].forEach {
             buttonStackView1.addArrangedSubview($0)
         }
         
-        [digitalArtButton, buildingExpoButton, decorationArtButton, cultureExpoButton].forEach {
+        [traditionalDanceButton, koreanTraditionalMusicButton].forEach {
             buttonStackView2.addArrangedSubview($0)
         }
-                
-        [scienceExpoButton, historyExpoButton].forEach {
-            buttonStackView3.addArrangedSubview($0)
-        }
         
-        [buttonStackView1, buttonStackView2, buttonStackView3].forEach {
+        [buttonStackView1, buttonStackView2].forEach {
             verticalStackView.addArrangedSubview($0)
         }
-    
         
         [titleLabel, verticalStackView].forEach {
             addSubview($0)
@@ -95,30 +78,24 @@ class PreferenceClassicView: UIView {
         
         verticalStackView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(20)
-            //$0.height.equalTo(120)
             $0.horizontalEdges.equalToSuperview()
         }
         
         buttonStackView1.snp.makeConstraints {
             $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(15)
+            $0.trailing.equalToSuperview().inset(40)
             $0.height.equalTo(32)
         }
         
         buttonStackView2.snp.makeConstraints {
-            $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(32)
-        }
-        
-        buttonStackView3.snp.makeConstraints {
             $0.leading.equalToSuperview()
-            $0.width.equalTo(170)
             $0.height.equalTo(32)
+            $0.width.equalTo(135)
         }
     }
     
-    private func bind() {
-        inputPreferenceExhibition
+    override func bind() {
+        inputPreferenceClassic
             .subscribe(with: self, onNext: { owner, type in
                 owner.toggleButton(type)
             })
@@ -127,71 +104,46 @@ class PreferenceClassicView: UIView {
 }
 
 extension PreferenceClassicView {
-    enum PreferenceExhibitionButtonType: String {
-        case popupExpo = "popupExpo"
-        case photoExpo = "photoExpo"
-        case modernArt = "modernArt"
-        case installationArt = "installationArt"
-        case digitalArt = "digitalArt"
-        case buildingExpo = "buildingExpo"
-        case decorationArt = "decorationArt"
-        case cultureExpo = "cultureExpo"
-        case scienceExpo = "scienceExpo"
-        case historyExpo = "historyExpo"
+    enum PreferenceClassicButtonType: String {
+        case orchestra = "orchestra"
+        case opera = "opera"
+        case ballet = "ballet"
+        case modernDance = "modernDance"
+        case traditionalDance = "traditionalDance"
+        case koreanTraditionalMusic = "koreanTraditionalMusic"
     }
     
-    var inputPreferenceExhibition: Observable<String> {
+    var inputPreferenceClassic: Observable<String> {
         return Observable.merge(
-            popupExpoButton.rx.tap.map { PreferenceExhibitionButtonType.popupExpo.rawValue },
-            photoExpoButton.rx.tap.map { PreferenceExhibitionButtonType.photoExpo.rawValue },
-            modernArtButton.rx.tap.map { PreferenceExhibitionButtonType.modernArt.rawValue },
-            installationArtButton.rx.tap.map { PreferenceExhibitionButtonType.installationArt.rawValue },
-            digitalArtButton.rx.tap.map { PreferenceExhibitionButtonType.digitalArt.rawValue },
-            buildingExpoButton.rx.tap.map { PreferenceExhibitionButtonType.buildingExpo.rawValue },
-            decorationArtButton.rx.tap.map { PreferenceExhibitionButtonType.decorationArt.rawValue },
-            cultureExpoButton.rx.tap.map { PreferenceExhibitionButtonType.cultureExpo.rawValue },
-            scienceExpoButton.rx.tap.map { PreferenceExhibitionButtonType.scienceExpo.rawValue },
-            historyExpoButton.rx.tap.map { PreferenceExhibitionButtonType.historyExpo.rawValue }
+            orchestraButton.rx.tap.map { PreferenceClassicButtonType.orchestra.rawValue },
+            operaButton.rx.tap.map { PreferenceClassicButtonType.opera.rawValue },
+            balletButton.rx.tap.map { PreferenceClassicButtonType.ballet.rawValue },
+            modernDanceButton.rx.tap.map { PreferenceClassicButtonType.modernDance.rawValue },
+            traditionalDanceButton.rx.tap.map { PreferenceClassicButtonType.traditionalDance.rawValue },
+            koreanTraditionalMusicButton.rx.tap.map { PreferenceClassicButtonType.koreanTraditionalMusic.rawValue }
         )
     }
 }
 
-extension PreferenceClassicView {
-    private func toggleButton(_ field: String) {
-        if let buttonType = PreferenceExhibitionButtonType(rawValue: field) {
+private extension PreferenceClassicView {
+    func toggleButton(_ field: String) {
+        if let buttonType = PreferenceClassicButtonType(rawValue: field) {
             let button: OnboardingButton
             switch buttonType {
-            case .popupExpo:
-                button = popupExpoButton
-            case .photoExpo:
-                button = photoExpoButton
-            case .modernArt:
-                button = modernArtButton
-            case .installationArt:
-                button = installationArtButton
-            case .digitalArt:
-                button = digitalArtButton
-            case .buildingExpo:
-                button = buildingExpoButton
-            case .decorationArt:
-                button = decorationArtButton
-            case .cultureExpo:
-                button = cultureExpoButton
-            case .scienceExpo:
-                button = scienceExpoButton
-            case .historyExpo:
-                button = historyExpoButton
+            case .orchestra:
+                button = orchestraButton
+            case .opera:
+                button = operaButton
+            case .ballet:
+                button = balletButton
+            case .modernDance:
+                button = modernDanceButton
+            case .traditionalDance:
+                button = traditionalDanceButton
+            case .koreanTraditionalMusic:
+                button = koreanTraditionalMusicButton
             }
-            
             button.isSelected.toggle()
-            
-//            if button.isSelected {
-//                selectedExhibition.insert(field)
-//            } else {
-//                selectedExhibition.remove(field)
-//            }
         }
     }
 }
-
-

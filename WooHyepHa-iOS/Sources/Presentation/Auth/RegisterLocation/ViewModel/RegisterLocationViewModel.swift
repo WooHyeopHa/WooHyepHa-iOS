@@ -27,7 +27,6 @@ final class RegisterLocationViewModel: ViewModelType {
     }
     
     func bind(input: Input) -> Output {
-        // 중복이 아니거나, 텍스트 필드가 공백이면 안됨.
         let isLocationValid = BehaviorSubject<Bool>(value: false)
         
         input.location

@@ -11,9 +11,7 @@ import RxCocoa
 import Then
 import SnapKit
 
-class PreferenceExhibitionView: UIView {
-    
-    private let disposeBag = DisposeBag()
+class PreferenceExhibitionView: BaseView {
     
     private let popupExpoButton = OnboardingButton(title: "팝업 전시")
     private let photoExpoButton = OnboardingButton(title: "사진 전시")
@@ -59,15 +57,15 @@ class PreferenceExhibitionView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setView()
-        bind()
+        showTopBorder = false
+        showBottomBorder = false
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setView() {
+    override func setView() {
         [popupExpoButton, photoExpoButton, modernArtButton, installationArtButton].forEach {
             buttonStackView1.addArrangedSubview($0)
         }
@@ -84,7 +82,6 @@ class PreferenceExhibitionView: UIView {
             verticalStackView.addArrangedSubview($0)
         }
     
-        
         [titleLabel, verticalStackView].forEach {
             addSubview($0)
         }
@@ -95,7 +92,6 @@ class PreferenceExhibitionView: UIView {
         
         verticalStackView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(20)
-            //$0.height.equalTo(120)
             $0.horizontalEdges.equalToSuperview()
         }
         
@@ -117,7 +113,7 @@ class PreferenceExhibitionView: UIView {
         }
     }
     
-    private func bind() {
+    override func bind() {
         inputPreferenceExhibition
             .subscribe(with: self, onNext: { owner, type in
                 owner.toggleButton(type)
@@ -156,8 +152,8 @@ extension PreferenceExhibitionView {
     }
 }
 
-extension PreferenceExhibitionView {
-    private func toggleButton(_ field: String) {
+private extension PreferenceExhibitionView {
+    func toggleButton(_ field: String) {
         if let buttonType = PreferenceExhibitionButtonType(rawValue: field) {
             let button: OnboardingButton
             switch buttonType {
@@ -184,12 +180,6 @@ extension PreferenceExhibitionView {
             }
             
             button.isSelected.toggle()
-            
-//            if button.isSelected {
-//                selectedExhibition.insert(field)
-//            } else {
-//                selectedExhibition.remove(field)
-//            }
         }
     }
 }

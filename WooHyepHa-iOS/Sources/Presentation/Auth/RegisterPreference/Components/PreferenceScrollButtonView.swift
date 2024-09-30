@@ -11,10 +11,9 @@ import RxCocoa
 import Then
 import SnapKit
 
-class OnboardingScrollButtonView: UIView {
+class OnboardingScrollButtonView: BaseView {
     
     private var selectedButton: OnboardingScrollButton?
-    private let disposeBag = DisposeBag()
     
     private let exbitScrollButton = OnboardingScrollButton(title: "전시회")
     private let concertScrollButton = OnboardingScrollButton(title: "콘서트")
@@ -22,8 +21,8 @@ class OnboardingScrollButtonView: UIView {
     private let classicScrollButton = OnboardingScrollButton(title: "클래식/무용")
     
     private let bottomBorder = UIView().then {
-         $0.backgroundColor = .gray8
-     }
+        $0.backgroundColor = .gray8
+    }
     
     private let buttonStackView = UIStackView().then {
         $0.axis = .horizontal
@@ -33,16 +32,16 @@ class OnboardingScrollButtonView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setView()
-        bind()
         setInitialState()
+        showTopBorder = false
+        showBottomBorder = false
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setView() {
+    override func setView() {
         [exbitScrollButton, concertScrollButton, musicalScrollButton, classicScrollButton].forEach {
             buttonStackView.addArrangedSubview($0)
         }
@@ -62,7 +61,7 @@ class OnboardingScrollButtonView: UIView {
         
     }
     
-    private func bind() {
+    override func bind() {
         inputScrollButton
             .subscribe(with: self, onNext: { owner, type in
                 owner.selectButton(type)
@@ -94,8 +93,8 @@ extension OnboardingScrollButtonView {
     }
 }
 
-extension OnboardingScrollButtonView {
-    private func selectButton(_ field: String) {
+private extension OnboardingScrollButtonView {
+    func selectButton(_ field: String) {
         if let buttonType = scrollButtonType(rawValue: field) {
             let button: OnboardingScrollButton
             switch buttonType {

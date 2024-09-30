@@ -11,23 +11,21 @@ import RxCocoa
 import Then
 import SnapKit
 
-class PreferenceConcertView: UIView {
+class PreferenceConcertView: BaseView {
     
-    private let disposeBag = DisposeBag()
-    
-    private let popupExpoButton = OnboardingButton(title: "팝업 전시")
-    private let photoExpoButton = OnboardingButton(title: "사진 전시")
-    private let modernArtButton = OnboardingButton(title: "현대미술")
-    private let installationArtButton = OnboardingButton(title: "설치미술")
-    private let digitalArtButton = OnboardingButton(title: "디지털 아트")
-    private let buildingExpoButton = OnboardingButton(title: "건축 전시")
-    private let decorationArtButton = OnboardingButton(title: "장식미술")
-    private let cultureExpoButton = OnboardingButton(title: "문화 전시")
-    private let scienceExpoButton = OnboardingButton(title: "과학 전시")
-    private let historyExpoButton = OnboardingButton(title: "역사 전시")
+    private let popButton = OnboardingButton(title: "팝")
+    private let hiphopButton = OnboardingButton(title: "랩/힙합")
+    private let rockButton = OnboardingButton(title: "락/메탈")
+    private let kpopButton = OnboardingButton(title: "케이팝")
+    private let fanmeetingButton = OnboardingButton(title: "팬미팅")
+    private let trotButton = OnboardingButton(title: "트로트")
+    private let balladeButton = OnboardingButton(title: "발라드")
+    private let indieButton = OnboardingButton(title: "인디")
+    private let talkButton = OnboardingButton(title: "토크/강연")
+    private let festivalButton = OnboardingButton(title: "페스티벌")
     
     private let titleLabel = UILabel().then {
-        $0.text = "어떤 장르의 전시회를 선호하시나요?"
+        $0.text = "어떤 장르의 콘서트를 선호하시나요?"
         $0.font = .body1
         $0.textColor = .gray2
     }
@@ -59,31 +57,31 @@ class PreferenceConcertView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setView()
-        bind()
+        showTopBorder = false
+        showBottomBorder = false
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func setView() {
-        [popupExpoButton, photoExpoButton, modernArtButton, installationArtButton].forEach {
+    override func setView() {
+        [popButton, hiphopButton, rockButton, kpopButton, fanmeetingButton].forEach {
             buttonStackView1.addArrangedSubview($0)
         }
         
-        [digitalArtButton, buildingExpoButton, decorationArtButton, cultureExpoButton].forEach {
+        [trotButton, balladeButton, indieButton, talkButton].forEach {
             buttonStackView2.addArrangedSubview($0)
         }
-                
-        [scienceExpoButton, historyExpoButton].forEach {
+        
+        [festivalButton].forEach {
             buttonStackView3.addArrangedSubview($0)
         }
         
         [buttonStackView1, buttonStackView2, buttonStackView3].forEach {
             verticalStackView.addArrangedSubview($0)
         }
-    
+        
         
         [titleLabel, verticalStackView].forEach {
             addSubview($0)
@@ -95,30 +93,30 @@ class PreferenceConcertView: UIView {
         
         verticalStackView.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(20)
-            //$0.height.equalTo(120)
             $0.horizontalEdges.equalToSuperview()
         }
         
         buttonStackView1.snp.makeConstraints {
             $0.leading.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(15)
+            $0.trailing.equalToSuperview().inset(10)
             $0.height.equalTo(32)
         }
         
         buttonStackView2.snp.makeConstraints {
-            $0.horizontalEdges.equalToSuperview()
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(70)
             $0.height.equalTo(32)
         }
         
         buttonStackView3.snp.makeConstraints {
             $0.leading.equalToSuperview()
-            $0.width.equalTo(170)
+            $0.width.equalTo(75)
             $0.height.equalTo(32)
         }
     }
     
-    private func bind() {
-        inputPreferenceExhibition
+    override func bind() {
+        inputPreferenceConcert
             .subscribe(with: self, onNext: { owner, type in
                 owner.toggleButton(type)
             })
@@ -127,69 +125,63 @@ class PreferenceConcertView: UIView {
 }
 
 extension PreferenceConcertView {
-    enum PreferenceExhibitionButtonType: String {
-        case popupExpo = "popupExpo"
-        case photoExpo = "photoExpo"
-        case modernArt = "modernArt"
-        case installationArt = "installationArt"
-        case digitalArt = "digitalArt"
-        case buildingExpo = "buildingExpo"
-        case decorationArt = "decorationArt"
-        case cultureExpo = "cultureExpo"
-        case scienceExpo = "scienceExpo"
-        case historyExpo = "historyExpo"
+    enum PreferenceConcertButtonType: String {
+        case pop = "pop"
+        case hiphop = "hiphop"
+        case rock = "rock"
+        case kpop = "kpop"
+        case fanmeeting = "fanmeeting"
+        case trot = "trot"
+        case ballade = "ballade"
+        case indie = "indie"
+        case talk = "talk"
+        case festival = "festival"
     }
     
-    var inputPreferenceExhibition: Observable<String> {
+    var inputPreferenceConcert: Observable<String> {
         return Observable.merge(
-            popupExpoButton.rx.tap.map { PreferenceExhibitionButtonType.popupExpo.rawValue },
-            photoExpoButton.rx.tap.map { PreferenceExhibitionButtonType.photoExpo.rawValue },
-            modernArtButton.rx.tap.map { PreferenceExhibitionButtonType.modernArt.rawValue },
-            installationArtButton.rx.tap.map { PreferenceExhibitionButtonType.installationArt.rawValue },
-            digitalArtButton.rx.tap.map { PreferenceExhibitionButtonType.digitalArt.rawValue },
-            buildingExpoButton.rx.tap.map { PreferenceExhibitionButtonType.buildingExpo.rawValue },
-            decorationArtButton.rx.tap.map { PreferenceExhibitionButtonType.decorationArt.rawValue },
-            cultureExpoButton.rx.tap.map { PreferenceExhibitionButtonType.cultureExpo.rawValue },
-            scienceExpoButton.rx.tap.map { PreferenceExhibitionButtonType.scienceExpo.rawValue },
-            historyExpoButton.rx.tap.map { PreferenceExhibitionButtonType.historyExpo.rawValue }
+            popButton.rx.tap.map { PreferenceConcertButtonType.pop.rawValue },
+            rockButton.rx.tap.map { PreferenceConcertButtonType.rock.rawValue },
+            hiphopButton.rx.tap.map { PreferenceConcertButtonType.hiphop.rawValue },
+            kpopButton.rx.tap.map { PreferenceConcertButtonType.kpop.rawValue },
+            fanmeetingButton.rx.tap.map { PreferenceConcertButtonType.fanmeeting.rawValue },
+            trotButton.rx.tap.map { PreferenceConcertButtonType.trot.rawValue },
+            balladeButton.rx.tap.map { PreferenceConcertButtonType.ballade.rawValue },
+            indieButton.rx.tap.map { PreferenceConcertButtonType.indie.rawValue },
+            talkButton.rx.tap.map { PreferenceConcertButtonType.talk.rawValue },
+            festivalButton.rx.tap.map { PreferenceConcertButtonType.festival.rawValue }
         )
     }
 }
 
-extension PreferenceConcertView {
-    private func toggleButton(_ field: String) {
-        if let buttonType = PreferenceExhibitionButtonType(rawValue: field) {
+private extension PreferenceConcertView {
+    func toggleButton(_ field: String) {
+        if let buttonType = PreferenceConcertButtonType(rawValue: field) {
             let button: OnboardingButton
             switch buttonType {
-            case .popupExpo:
-                button = popupExpoButton
-            case .photoExpo:
-                button = photoExpoButton
-            case .modernArt:
-                button = modernArtButton
-            case .installationArt:
-                button = installationArtButton
-            case .digitalArt:
-                button = digitalArtButton
-            case .buildingExpo:
-                button = buildingExpoButton
-            case .decorationArt:
-                button = decorationArtButton
-            case .cultureExpo:
-                button = cultureExpoButton
-            case .scienceExpo:
-                button = scienceExpoButton
-            case .historyExpo:
-                button = historyExpoButton
+            case .pop:
+                button = popButton
+            case .rock:
+                button = rockButton
+            case .hiphop:
+                button = hiphopButton
+            case .kpop:
+                button = kpopButton
+            case .fanmeeting:
+                button = fanmeetingButton
+            case .trot:
+                button = trotButton
+            case .ballade:
+                button = balladeButton
+            case .indie:
+                button = indieButton
+            case .talk:
+                button = talkButton
+            case .festival:
+                button = festivalButton
             }
             
             button.isSelected.toggle()
-            
-//            if button.isSelected {
-//                selectedExhibition.insert(field)
-//            } else {
-//                selectedExhibition.remove(field)
-//            }
         }
     }
 }

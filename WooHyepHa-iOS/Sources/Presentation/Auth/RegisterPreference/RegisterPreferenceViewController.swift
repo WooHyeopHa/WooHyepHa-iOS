@@ -11,9 +11,9 @@ import Then
 import RxSwift
 import RxCocoa
 
-class RegisterPreferenceViewController: UIViewController {
+class RegisterPreferenceViewController: BaseViewController {
 
-    private let disposeBag = DisposeBag()
+    private let viewModel: RegisterPreferenceViewModel
     
     //MARK: UI Components
     private lazy var headerView = OnboardingHeaderView().then {
@@ -46,6 +46,15 @@ class RegisterPreferenceViewController: UIViewController {
         $0.showBottomBorder = false
         $0.showDisabledButton = true
         $0.disabledButtonTitle = "다음"
+    }
+    
+    init(viewModel: RegisterPreferenceViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -130,8 +139,29 @@ class RegisterPreferenceViewController: UIViewController {
             $0.height.equalTo(75)
         }
     }
-    
-    private func bindScrollButton() {
+
+    override func bind() {
+        let input = RegisterPreferenceViewModel.Input(
+            disableButtonTapped: footerView.inputDisabledButtonTapped.asObservable(),
+            backButtonTapped: headerView.inputLeftButtonTapped.asObservable(),
+            preferenceExhibitionButtonTapped: preferenceExhibitionView.inputPreferenceExhibition.asObservable(),
+            preferenceConcertButtonTapped: preferenceConcertView.inputPreferenceConcert.asObservable(),
+            preferenceMusicalButtonTapped: preferenceMusicalView.inputPreferenceMusical.asObservable(),
+            preferenceClassicButtonTapped: preferenceClassicView.inputPreferenceClassic.asObservable()
+        )
+        
+        let output = viewModel.bind(input: input)
+        
+        output.isDisableButtonEnabled
+            .drive(with: self, onNext: { owner, isEnabled in
+                owner.footerView.updateDisabledButtonState(isEnabled: isEnabled)
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+private extension RegisterPreferenceViewController {
+    func bindScrollButton() {
         onboardingScrollButtonView.inputScrollButton
             .subscribe(onNext: { [weak self] buttonType in
                 guard let self = self else { return }
@@ -149,4 +179,3 @@ class RegisterPreferenceViewController: UIViewController {
             .disposed(by: disposeBag)
     }
 }
-

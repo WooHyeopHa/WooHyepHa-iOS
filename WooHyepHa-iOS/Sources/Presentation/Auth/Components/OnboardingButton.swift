@@ -14,7 +14,6 @@ class OnboardingButton: UIButton {
     override var isSelected: Bool {
         didSet {
             updateAppearance()
-            print("touch")
         }
     }
     

@@ -65,6 +65,7 @@
 		9ED121672CAA48FE00C7696E /* RegisterLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121662CAA48FE00C7696E /* RegisterLocationViewModel.swift */; };
 		9ED121692CAA538F00C7696E /* OnboardingScrollButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121682CAA538F00C7696E /* OnboardingScrollButton.swift */; };
 		9ED1216B2CAA53AD00C7696E /* PreferenceScrollButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1216A2CAA53AD00C7696E /* PreferenceScrollButtonView.swift */; };
+		9ED1216E2CAA583500C7696E /* RegisterPreferenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1216D2CAA583500C7696E /* RegisterPreferenceViewModel.swift */; };
 		9ED122092C7C60F60066C679 /* SignInWithAppleRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */; };
 		9ED1220C2C7C61E00066C679 /* SignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220B2C7C61E00066C679 /* SignInResult.swift */; };
 		9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220F2C7C62140066C679 /* SignInUseCase.swift */; };
@@ -138,6 +139,7 @@
 		9ED121662CAA48FE00C7696E /* RegisterLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationViewModel.swift; sourceTree = "<group>"; };
 		9ED121682CAA538F00C7696E /* OnboardingScrollButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScrollButton.swift; sourceTree = "<group>"; };
 		9ED1216A2CAA53AD00C7696E /* PreferenceScrollButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceScrollButtonView.swift; sourceTree = "<group>"; };
+		9ED1216D2CAA583500C7696E /* RegisterPreferenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceViewModel.swift; sourceTree = "<group>"; };
 		9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleRequestDTO.swift; sourceTree = "<group>"; };
 		9ED1220B2C7C61E00066C679 /* SignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResult.swift; sourceTree = "<group>"; };
 		9ED1220F2C7C62140066C679 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
@@ -429,6 +431,7 @@
 		9E66793D2C76D29200832440 /* RegisterPreference */ = {
 			isa = PBXGroup;
 			children = (
+				9ED1216C2CAA582900C7696E /* ViewModel */,
 				9E66793E2C76D29D00832440 /* Components */,
 				9E66793F2C76D2AA00832440 /* RegisterPreferenceViewController.swift */,
 			);
@@ -551,6 +554,14 @@
 			isa = PBXGroup;
 			children = (
 				9ED121662CAA48FE00C7696E /* RegisterLocationViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9ED1216C2CAA582900C7696E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9ED1216D2CAA583500C7696E /* RegisterPreferenceViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -833,6 +844,7 @@
 				9E88DE3F2C75DD7800815EE0 /* PreferenceConcertView.swift in Sources */,
 				9ED121592CA416ED00C7696E /* RegisterNicknameViewController.swift in Sources */,
 				9E0FF2A82C6B0AB400544674 /* MatingViewController.swift in Sources */,
+				9ED1216E2CAA583500C7696E /* RegisterPreferenceViewModel.swift in Sources */,
 				9ED1216B2CAA53AD00C7696E /* PreferenceScrollButtonView.swift in Sources */,
 				9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
