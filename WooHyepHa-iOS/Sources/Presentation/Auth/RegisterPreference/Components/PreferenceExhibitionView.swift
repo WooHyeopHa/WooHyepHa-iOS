@@ -6,14 +6,15 @@
 //
 
 import UIKit
-
+import RxSwift
+import RxCocoa
 import Then
 import SnapKit
-import RxCocoa
-import RxSwift
 
-class PreferenceExhibitionView: BaseView {
-
+class PreferenceExhibitionView: UIView {
+    
+    private let disposeBag = DisposeBag()
+    
     private let popupExpoButton = OnboardingButton(title: "팝업 전시")
     private let photoExpoButton = OnboardingButton(title: "사진 전시")
     private let modernArtButton = OnboardingButton(title: "현대미술")
@@ -25,131 +26,98 @@ class PreferenceExhibitionView: BaseView {
     private let scienceExpoButton = OnboardingButton(title: "과학 전시")
     private let historyExpoButton = OnboardingButton(title: "역사 전시")
     
-    private let mainTitleLabel = UILabel().then {
+    private let titleLabel = UILabel().then {
         $0.text = "어떤 장르의 전시회를 선호하시나요?"
-        $0.font = .h3
-        $0.textColor = .gray1
+        $0.font = .body1
+        $0.textColor = .gray2
     }
     
-    private let subTitleLabel = UILabel().then {
-        $0.text = "🎯딱 맞는 행사를 추천해드릴게요! 다시 수정할 수 있어요!"
-        $0.font = .body4
-        $0.textColor = .gray4
+    private let buttonStackView1 = UIStackView().then {
+        $0.axis = .horizontal
+        $0.spacing = 4
+        $0.distribution = .fillProportionally
     }
     
-    private let horizontalStackView1 = UIStackView().then {
+    private let buttonStackView2 = UIStackView().then {
         $0.axis = .horizontal
-        $0.distribution = .fillEqually
-        $0.spacing = 11
+        $0.spacing = 4
+        $0.distribution = .fillProportionally
     }
     
-    private let horizontalStackView2 = UIStackView().then {
+    private let buttonStackView3 = UIStackView().then {
         $0.axis = .horizontal
-        $0.distribution = .fillEqually
-        $0.spacing = 11
+        $0.spacing = 4
+        $0.distribution = .fillProportionally
     }
     
-    private let horizontalStackView3 = UIStackView().then {
-        $0.axis = .horizontal
-        $0.distribution = .fillEqually
-        $0.spacing = 11
-    }
-        
-    private let horizontalStackView4 = UIStackView().then {
-        $0.axis = .horizontal
-        $0.spacing = 11
-    }
-
     private let verticalStackView = UIStackView().then {
         $0.axis = .vertical
-        $0.spacing = 20
+        $0.spacing = 12
+        $0.distribution = .equalSpacing
         $0.alignment = .leading
     }
     
-    private let skipButton = UIButton().then {
-        $0.setTitle("전시회 관심없음", for: .normal)
-        $0.setTitleColor(.gray4, for: .normal)
-        $0.titleLabel?.font = .body2
-    }
-    
-    private var selectedExhibition: Set<String> = []
-
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setView()
+        bind()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func setView() {
-        showTopBorder = false
-        showBottomBorder = false
-        
-        [popupExpoButton, photoExpoButton, modernArtButton].forEach {
-            horizontalStackView1.addArrangedSubview($0)
+    private func setView() {
+        [popupExpoButton, photoExpoButton, modernArtButton, installationArtButton].forEach {
+            buttonStackView1.addArrangedSubview($0)
         }
         
-        [installationArtButton, digitalArtButton, buildingExpoButton].forEach {
-            horizontalStackView2.addArrangedSubview($0)
+        [digitalArtButton, buildingExpoButton, decorationArtButton, cultureExpoButton].forEach {
+            buttonStackView2.addArrangedSubview($0)
         }
                 
-        [decorationArtButton, cultureExpoButton, scienceExpoButton].forEach {
-            horizontalStackView3.addArrangedSubview($0)
-        }                
+        [scienceExpoButton, historyExpoButton].forEach {
+            buttonStackView3.addArrangedSubview($0)
+        }
         
-        horizontalStackView4.addArrangedSubview(historyExpoButton)
-        
-        [horizontalStackView1, horizontalStackView2, horizontalStackView3, horizontalStackView4].forEach {
+        [buttonStackView1, buttonStackView2, buttonStackView3].forEach {
             verticalStackView.addArrangedSubview($0)
         }
+    
         
-        [mainTitleLabel, subTitleLabel, verticalStackView, skipButton].forEach {
+        [titleLabel, verticalStackView].forEach {
             addSubview($0)
         }
-    }
-    
-    override func setConstraints() {
-        mainTitleLabel.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.horizontalEdges.equalToSuperview()
-        }
         
-        subTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(mainTitleLabel.snp.bottom).offset(12)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalToSuperview()
         }
         
         verticalStackView.snp.makeConstraints {
-            $0.top.equalTo(subTitleLabel.snp.bottom).offset(35)
-            $0.width.equalToSuperview()
-            $0.height.equalTo(252)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(20)
+            //$0.height.equalTo(120)
+            $0.horizontalEdges.equalToSuperview()
         }
         
-        skipButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
-            $0.centerX.equalToSuperview()
+        buttonStackView1.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(15)
+            $0.height.equalTo(32)
         }
         
-        [horizontalStackView1, horizontalStackView2, horizontalStackView3].forEach {
-            $0.snp.makeConstraints {
-                $0.horizontalEdges.equalToSuperview()
-            }
+        buttonStackView2.snp.makeConstraints {
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(32)
         }
         
-        horizontalStackView4.snp.makeConstraints {
-            $0.width.equalTo(verticalStackView).multipliedBy(1.0/3.0).offset(-22/3)
-        }
-        
-        [popupExpoButton, photoExpoButton, modernArtButton, installationArtButton,
-         digitalArtButton, buildingExpoButton, decorationArtButton, cultureExpoButton, scienceExpoButton,
-         historyExpoButton].forEach {
-            $0.snp.makeConstraints {
-                $0.height.equalTo(48)
-            }
+        buttonStackView3.snp.makeConstraints {
+            $0.leading.equalToSuperview()
+            $0.width.equalTo(170)
+            $0.height.equalTo(32)
         }
     }
     
-    override func bind() {
+    private func bind() {
         inputPreferenceExhibition
             .subscribe(with: self, onNext: { owner, type in
                 owner.toggleButton(type)
@@ -217,11 +185,12 @@ extension PreferenceExhibitionView {
             
             button.isSelected.toggle()
             
-            if button.isSelected {
-                selectedExhibition.insert(field)
-            } else {
-                selectedExhibition.remove(field)
-            }
+//            if button.isSelected {
+//                selectedExhibition.insert(field)
+//            } else {
+//                selectedExhibition.remove(field)
+//            }
         }
     }
 }
+

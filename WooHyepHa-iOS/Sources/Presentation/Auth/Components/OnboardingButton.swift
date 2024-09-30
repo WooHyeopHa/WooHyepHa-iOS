@@ -14,6 +14,7 @@ class OnboardingButton: UIButton {
     override var isSelected: Bool {
         didSet {
             updateAppearance()
+            print("touch")
         }
     }
     
@@ -30,25 +31,22 @@ class OnboardingButton: UIButton {
 
 private extension OnboardingButton {
     func setButton() {
-        layer.cornerRadius = 5
-        layer.borderWidth = 0
+        layer.cornerRadius = 16
+        layer.borderWidth = 1
+        layer.borderColor = UIColor.gray7.cgColor
         setTitle(title, for: .normal)
-        setTitleColor(.gray, for: .normal)
+        setTitleColor(.gray3, for: .normal)
         titleLabel?.font = .body4
         updateAppearance()
     }
 
     func updateAppearance() {
         if isSelected {
-            backgroundColor = .MainColor.withAlphaComponent(0.1)
             layer.borderColor = UIColor.MainColor.cgColor
-            layer.borderWidth = 1
             setTitleColor(.MainColor, for: .normal)
         } else {
-            backgroundColor = .gray9
-            layer.borderColor = UIColor.gray9.cgColor
-            layer.borderWidth = 0
-            setTitleColor(.gray1, for: .normal)
+            layer.borderColor = UIColor.gray7.cgColor
+            setTitleColor(.gray3, for: .normal)
         }
     }
 }

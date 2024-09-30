@@ -6,80 +6,124 @@
 //
 
 import UIKit
-
-import RxCocoa
-import RxSwift
 import SnapKit
 import Then
+import RxSwift
+import RxCocoa
 
-class RegisterPreferenceViewController: BaseViewController {
-    
-    weak var coordinator: AuthCoordinator?
-    
-    private var currentStepIndex = 0
-    private var stepViews: [UIView] = []
-    
-    private var selectedExhibition: [String] = []
-    private var selectedConcert: [String] = []
-    private var selectedMusical: [String] = []
-    private var selectedClassic: [String] = []
+class RegisterPreferenceViewController: UIViewController {
+
+    private let disposeBag = DisposeBag()
     
     //MARK: UI Components
     private lazy var headerView = OnboardingHeaderView().then {
-        $0.delegate = self
         $0.backgroundColor = .white
         $0.rightButtonTitle = "건너뛰기"
         $0.rightButtonTitleColor = .gray4
     }
     
-    private let progressView = OnboardingProgressView(progressValue: 0.1667)
+    private let titleLabel = UILabel().then {
+        $0.text = "문화예술 취향 분석🎯"
+        $0.font = .h3
+        $0.textColor = .gray1
+    }
     
-    private lazy var contentView = UIView()
+    private let subTitleLabel = UILabel().then {
+        $0.text = "관심사를 선택해주세요! 관심 없는 항목은 넘어가셔도 괜찮아요!"
+        $0.font = .body4
+        $0.textColor = .gray4
+    }
     
-    private lazy var preferenceExhibitionView = PreferenceExhibitionView()
-    private lazy var preferenceConcertView = PreferenceConcertView()
-    private lazy var preferenceMusicalView = PreferenceMusicalView()
-    private lazy var preferenceClassicView = PreferenceClassicView()
-    
+    private let onboardingScrollButtonView = OnboardingScrollButtonView()
+    private let scrollView = UIScrollView()
+    private let contentView = UIView()
+    private let preferenceExhibitionView = PreferenceExhibitionView()
+    private let preferenceConcertView = PreferenceConcertView()
+    private let preferenceMusicalView = PreferenceMusicalView()
+    private let preferenceClassicView = PreferenceClassicView()
+
     private lazy var footerView = OnboardingFooterView().then {
         $0.showBottomBorder = false
-        $0.delegate = self
-        //$0.updateNextButtonState(isEnabled: true)
+        $0.showDisabledButton = true
+        $0.disabledButtonTitle = "다음"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSteps()
-    }
-    
-    // MARK: Set ViewController
-    override func setViewController() {
+
         view.backgroundColor = .white
-        
-        [headerView, progressView, contentView, footerView].forEach {
+
+        [headerView, titleLabel, subTitleLabel, onboardingScrollButtonView, scrollView, footerView].forEach {
             view.addSubview($0)
         }
+        
+        scrollView.addSubview(contentView)
+        
+        [preferenceExhibitionView, preferenceConcertView, preferenceMusicalView, preferenceClassicView].forEach {
+            contentView.addSubview($0)
+        }
+        
+        setConstraint()
+        bindScrollButton()
     }
     
-    override func setConstraints() {
+    private func setConstraint() {
         headerView.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(56)
         }
         
-        progressView.snp.makeConstraints {
-            $0.top.equalTo(headerView.snp.bottom).offset(10)
-            $0.height.equalTo(6)
+        titleLabel.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
-        contentView.snp.makeConstraints {
-            $0.top.equalTo(progressView.snp.bottom).offset(30)
+        subTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).offset(10)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-            $0.bottom.equalTo(footerView.snp.top).offset(-15)
         }
 
+        onboardingScrollButtonView.snp.makeConstraints {
+            $0.top.equalTo(subTitleLabel.snp.bottom).offset(25)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(48)
+        }
+        
+        scrollView.snp.makeConstraints {
+            $0.top.equalTo(onboardingScrollButtonView.snp.bottom)
+            $0.left.right.equalTo(view.safeAreaLayoutGuide)
+            $0.bottom.equalTo(footerView.snp.top)
+        }
+        
+        contentView.snp.makeConstraints {
+            $0.edges.equalTo(scrollView.contentLayoutGuide)
+            $0.width.equalTo(scrollView.frameLayoutGuide)
+        }
+        
+        preferenceExhibitionView.snp.makeConstraints {
+            $0.top.left.right.equalTo(contentView).inset(20)
+            $0.height.equalTo(160)
+        }
+        
+        preferenceConcertView.snp.makeConstraints {
+            $0.top.equalTo(preferenceExhibitionView.snp.bottom).offset(40)
+            $0.left.right.equalTo(contentView).inset(20)
+            $0.height.equalTo(160)
+        }
+        
+        preferenceMusicalView.snp.makeConstraints {
+            $0.top.equalTo(preferenceConcertView.snp.bottom).offset(40)
+            $0.left.right.equalTo(contentView).inset(20)
+            $0.height.equalTo(160)
+        }
+        
+        preferenceClassicView.snp.makeConstraints {
+            $0.top.equalTo(preferenceMusicalView.snp.bottom).offset(40)
+            $0.left.right.bottom.equalTo(contentView).inset(20)
+            $0.height.equalTo(160)
+        }
+        
         footerView.snp.makeConstraints {
             $0.bottom.equalTo(view.safeAreaLayoutGuide).inset(20)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
@@ -87,132 +131,22 @@ class RegisterPreferenceViewController: BaseViewController {
         }
     }
     
-    override func bind() {
-        preferenceExhibitionView.inputPreferenceExhibition
-            .subscribe(with: self, onNext: { owner, type in
-                if let index = owner.selectedExhibition.firstIndex(of: type) {
-                    owner.selectedExhibition.remove(at: index)
-                } else {
-                    owner.selectedExhibition.append(type)
+    private func bindScrollButton() {
+        onboardingScrollButtonView.inputScrollButton
+            .subscribe(onNext: { [weak self] buttonType in
+                guard let self = self else { return }
+                let targetView: UIView
+                switch buttonType {
+                case "exhit": targetView = self.preferenceExhibitionView
+                case "concert": targetView = self.preferenceConcertView
+                case "musical": targetView = self.preferenceMusicalView
+                case "classic": targetView = self.preferenceClassicView
+                default: return
                 }
                 
-                self.footerView.updateNextButtonState(isEnabled: !self.selectedExhibition.isEmpty)
-            })
-            .disposed(by: disposeBag)
-        
-        preferenceConcertView.inputPreferenceConcert
-            .subscribe(with: self, onNext: { owner, type in
-                if let index = owner.selectedConcert.firstIndex(of: type) {
-                    owner.selectedConcert.remove(at: index)
-                } else {
-                    owner.selectedConcert.append(type)
-                }
-                
-                self.footerView.updateNextButtonState(isEnabled: !self.selectedConcert.isEmpty)
-            })
-            .disposed(by: disposeBag)
-        
-        preferenceMusicalView.inputPreferenceMusical
-            .subscribe(with: self, onNext: { owner, type in
-                if let index = owner.selectedMusical.firstIndex(of: type) {
-                    owner.selectedMusical.remove(at: index)
-                } else {
-                    owner.selectedMusical.append(type)
-                }
-                
-                self.footerView.updateNextButtonState(isEnabled: !self.selectedMusical.isEmpty)
-            })
-            .disposed(by: disposeBag)        
-        
-        preferenceClassicView.inputPreferenceClassic
-            .subscribe(with: self, onNext: { owner, type in
-                if let index = owner.selectedClassic.firstIndex(of: type) {
-                    owner.selectedClassic.remove(at: index)
-                } else {
-                    owner.selectedClassic.append(type)
-                }
-                
-                self.footerView.updateNextButtonState(isEnabled: !self.selectedClassic.isEmpty)
+                self.scrollView.setContentOffset(CGPoint(x: 0, y: targetView.frame.origin.y - 20), animated: true)
             })
             .disposed(by: disposeBag)
     }
-    
 }
 
-private extension RegisterPreferenceViewController {
-    func setupSteps() {
-        stepViews = [
-            preferenceExhibitionView,
-            preferenceConcertView,
-            preferenceMusicalView,
-            preferenceClassicView
-        ]
-        
-        showCurrentStep()
-    }
-    
-    func showCurrentStep() {
-        contentView.subviews.forEach { $0.removeFromSuperview() }
-        let currentStepView = stepViews[currentStepIndex]
-        contentView.addSubview(currentStepView)
-        
-        currentStepView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
-        let progress = Float(currentStepIndex + 1) / Float(stepViews.count)
-        progressView.setProgress(progress, animated: true)
-    }
-    
-    func moveToNextStep() {
-        switch currentStepIndex {
-        case 0:
-            print("Selected : \(selectedExhibition)")
-        case 1:
-            print("Selected : \(selectedConcert)")
-        case 2:
-            print("Selected : \(selectedMusical)")
-        case 3:
-            print("Selected : \(selectedClassic)")
-        default:
-            break
-        }
-        
-        currentStepIndex += 1
-        if currentStepIndex < stepViews.count {
-            showCurrentStep()
-        } else {
-            //handleSignUpCompletion()
-        }
-    }
-    
-    func moveToPreviousStep() {
-        if currentStepIndex == 0 {
-            coordinator?.pop()
-        } else {
-            currentStepIndex -= 1
-            showCurrentStep()
-        }
-    }
-    
-    func handleSignUpCompletion() {
-        print("Sign up completed!")
-    }
-}
-
-extension RegisterPreferenceViewController: OnboardingHeaderViewDelegate {
-    func leftButtonDidTap() {
-        //coordinator?.pop()
-        self.moveToPreviousStep()
-    }
-    
-    func rightButtonDidTap() {
-        print("testLog: rightButton Tapped")
-    }
-}
-
-extension RegisterPreferenceViewController: OnboardingFooterViewDelegate {
-    func nextButtonDidTap() {
-        self.moveToNextStep()
-    }
-}

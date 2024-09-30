@@ -70,7 +70,7 @@ extension AuthCoordinator {
     
     func goToRegisterPreferenceViewController() {
         let registerPreferenceViewController = RegisterPreferenceViewController()
-        registerPreferenceViewController.coordinator = self
+        //registerPreferenceViewController.coordinator = self
         navigationController.pushViewController(registerPreferenceViewController, animated: true)
     }
 }
