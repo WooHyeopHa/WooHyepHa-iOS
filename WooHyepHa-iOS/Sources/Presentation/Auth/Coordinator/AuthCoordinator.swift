@@ -63,8 +63,8 @@ extension AuthCoordinator {
     }
     
     func goToRegisterLocationViewController() {
-        let registerLocationViewController = RegisterLocationViewController()
-        registerLocationViewController.coordinator = self
+        let registerLocationViewModel = RegisterLocationViewModel(coordinator: self)
+        let registerLocationViewController = RegisterLocationViewController(viewModel: registerLocationViewModel)
         navigationController.pushViewController(registerLocationViewController, animated: true)
     }    
     

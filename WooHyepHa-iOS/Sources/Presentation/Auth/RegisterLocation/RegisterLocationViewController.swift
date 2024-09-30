@@ -18,11 +18,10 @@ struct LocationResult {
 
 class RegisterLocationViewController: BaseViewController {
 
-    weak var coordinator: AuthCoordinator?
+    private let viewModel: RegisterLocationViewModel
 
     //MARK: UI Components
     private lazy var headerView = OnboardingHeaderView().then {
-        $0.delegate = self
         $0.backgroundColor = .white
         $0.rightButtonTitle = "건너뛰기"
         $0.rightButtonTitleColor = .gray4
@@ -70,8 +69,17 @@ class RegisterLocationViewController: BaseViewController {
 
     private lazy var footerView = OnboardingFooterView().then {
         $0.showBottomBorder = false
-        $0.delegate = self
-        $0.updateNextButtonState(isEnabled: true)
+        $0.showDisabledButton = true
+        $0.disabledButtonTitle = "다음"
+    }
+    
+    init(viewModel: RegisterLocationViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -123,31 +131,20 @@ class RegisterLocationViewController: BaseViewController {
             $0.height.equalTo(75)
         }
     }
-}
-
-extension RegisterLocationViewController: OnboardingHeaderViewDelegate {
-    func leftButtonDidTap() {
-        coordinator?.pop()
-    }
     
-    func rightButtonDidTap() {
-        print("testLog: rightButton Tapped")
+    override func bind() {
+        let input = RegisterLocationViewModel.Input(
+            disableButtonTapped: footerView.inputDisabledButtonTapped.asObservable(),
+            backButtonTapped: headerView.inputLeftButtonTapped.asObservable(),
+            location: searchBar.rx.text.orEmpty.asObservable() // 수정 필요
+        )
+        
+        let output = viewModel.bind(input: input)
+        
+        output.isDisableButtonEnabled
+            .drive(with: self, onNext: { owner, isEnabled in
+                owner.footerView.updateDisabledButtonState(isEnabled: isEnabled)
+            })
+            .disposed(by: disposeBag)
     }
 }
-
-extension RegisterLocationViewController: OnboardingFooterViewDelegate {
-    func nextButtonDidTap() {
-        print("testLog: nextButton Tapped")
-        coordinator?.goToRegisterPreferenceViewController()
-    }
-}
-
-
-// 1. 저런 주소를 전부다 스크롤링해서 서버를 하나 만들던지
-// 2. MapKit << iOS 기본 제공인데, 뭐 제가 다른 맵을 사용해보던지
-// 3. 마지막 방법 : 사용자에게 가이드라인 제시
-// 4. 네
-
-// 어떻게든 검색 가능하게 해서 완성하면 구~동까지 하고
-// 이게 안되면 그 저 선택으로 가서 시만 선택하게 하기 (서울, 광역시, 세종시, 제주)
-
