@@ -37,4 +37,18 @@ final class AuthRepository: NSObject, AuthRepositoryProtocol {
             }
             .asObservable()
     }
+    
+    func fetchIsValidNickname(nickname: String) -> Observable<Auth> {
+        return service.rx.request(.fetchIsValidNickname(nickname: nickname))
+            .filterSuccessfulStatusCodes()
+            .map { response -> Auth in
+                print("상태 코드 : \(response.statusCode)")
+                let res = try JSONDecoder().decode(RegisterNicknameResponsesDTO.self, from: response.data)
+                return res.toEntity()
+            }.asObservable()
+            .catch { error in
+                print("fetchError")
+                return Observable.error(error)
+            }
+    }
 }

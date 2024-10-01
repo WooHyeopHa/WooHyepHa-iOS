@@ -20,7 +20,7 @@ final class SignInViewModel: ViewModelType {
     weak var coordinator: AuthCoordinator?
     private let signInUseCase: SignInUseCase
     
-    init(coordinator: AuthCoordinator , signInUseCase: SignInUseCase) {
+    init(coordinator: AuthCoordinator, signInUseCase: SignInUseCase) {
         self.coordinator = coordinator
         self.signInUseCase = signInUseCase
     }
@@ -65,8 +65,8 @@ private extension SignInViewModel {
         let identityToken = String(data: appleIDCredential.identityToken ?? Data(), encoding: .utf8)
         let authorizationCode = String(data: appleIDCredential.authorizationCode ?? Data(), encoding: .utf8)
         
-        print(authorizationCode!)
-        print(identityToken!)
+        //print(authorizationCode!)
+        //print(identityToken!)
         return SignInWithAppleRequestDTO(
             code: authorizationCode!, id_token: identityToken!
         )

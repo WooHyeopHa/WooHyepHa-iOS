@@ -9,6 +9,9 @@ import Moya
 
 public enum AuthService {
     case signInWithApple(SignInWithAppleRequestDTO)
+    
+    case fetchIsValidNickname(nickname: String)
+    case registerNickname(RegisterNicknameRequestDTO)
 }
 
 extension AuthService: TargetType {
@@ -20,19 +23,31 @@ extension AuthService: TargetType {
         switch self {
         case .signInWithApple:
             return "/auth/apple/token"
+            
+        case .fetchIsValidNickname, .registerNickname:
+            return "/user/profile/nickname"
         }
     }
     
     public var method: Method {
         switch self {
-        case .signInWithApple:
+        case .fetchIsValidNickname:
+            return .get
+            
+        case .signInWithApple, .registerNickname:
             return .post
         }
     }
     
     public var task: Task {
         switch self {
+        case .fetchIsValidNickname(let nickname):
+            return .requestParameters(parameters: [nickname: nickname], encoding: URLEncoding.queryString)
+
         case .signInWithApple(let request):
+            return .requestJSONEncodable(request)
+            
+        case .registerNickname(let request):
             return .requestJSONEncodable(request)
         }
     }
@@ -40,6 +55,9 @@ extension AuthService: TargetType {
     public var headers: [String : String]? {
         switch self {
         case .signInWithApple:
+            return ["Content-Type" : "application/json"]
+        
+        case .fetchIsValidNickname, .registerNickname:
             return ["Content-Type" : "application/json"]
         }
     }

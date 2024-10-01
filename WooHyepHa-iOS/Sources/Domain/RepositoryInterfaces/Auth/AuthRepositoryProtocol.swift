@@ -9,4 +9,5 @@ import RxSwift
 
 protocol AuthRepositoryProtocol {
     func signInWithApple(credentials: SignInWithAppleRequestDTO) -> Observable<Bool>
+    func fetchIsValidNickname(nickname: String) -> Observable<Auth>
 }

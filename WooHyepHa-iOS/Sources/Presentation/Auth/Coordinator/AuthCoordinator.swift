@@ -16,6 +16,7 @@ final class AuthCoordinator: Coordinator {
     
     private let authRepository: AuthRepository
     private let signInUseCase: SignInUseCase
+    private let registerUseCase: RegisterUseCase
     
     init(navigationController: UINavigationController){
         self.navigationController = navigationController
@@ -23,6 +24,7 @@ final class AuthCoordinator: Coordinator {
         
         authRepository = AuthRepository()
         signInUseCase = SignInUseCase(authRepository: authRepository)
+        registerUseCase = RegisterUseCase(authRepository: authRepository)
     }
     
     func start() {
@@ -45,7 +47,7 @@ extension AuthCoordinator {
     }
     
     func goToRegisterNicknameViewController() {
-        let registerNicknameViewModel = RegisterNicknameViewModel(coordinator: self)
+        let registerNicknameViewModel = RegisterNicknameViewModel(coordinator: self, registerUseCase: registerUseCase)
         let registerNicknameViewController = RegisterNicknameViewController(viewModel: registerNicknameViewModel)
         navigationController.pushViewController(registerNicknameViewController, animated: true)
     }    
