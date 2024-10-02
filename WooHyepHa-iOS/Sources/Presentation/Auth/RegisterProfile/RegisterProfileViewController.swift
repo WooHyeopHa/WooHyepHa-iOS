@@ -141,6 +141,13 @@ class RegisterProfileViewController: BaseViewController {
     }
     
     override func bind() {
+        headerView.inputRightButtonTapped
+            .subscribe(with: self, onNext: { owner, _ in
+                let modal = OnboardingSkipModalViewController()
+                modal.showModal(vc: self)
+            })
+            .disposed(by: disposeBag)
+        
         // 테스트 로직임 수정 예정
         Observable.combineLatest(
             sexInputView.isEmpty,

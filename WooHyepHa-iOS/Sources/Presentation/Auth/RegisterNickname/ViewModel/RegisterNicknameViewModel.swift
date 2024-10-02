@@ -21,9 +21,11 @@ final class RegisterNicknameViewModel: ViewModelType {
     
     let disposeBag = DisposeBag()
     weak var coordinator: AuthCoordinator?
+    private let registerUseCase: RegisterUseCase
     
-    init(coordinator: AuthCoordinator) {
+    init(coordinator: AuthCoordinator, registerUseCase: RegisterUseCase) {
         self.coordinator = coordinator
+        self.registerUseCase = registerUseCase
     }
     
     func bind(input: Input) -> Output {
@@ -46,10 +48,17 @@ final class RegisterNicknameViewModel: ViewModelType {
         
         // 나중에 백에서 중복 여부 받아옴.
         input.nickName
-            .subscribe(with: self, onNext: { owner, name in
-                if name == "중복" {
+            .flatMapLatest { nickname in
+                self.registerUseCase.fetchIsValidNickname(nickname: nickname)
+                    .asObservable()
+            }
+            .subscribe(onNext: { response in
+                if response.isDuplicated == true {
+                    // 중복
+                    print("중복")
                     isNickNameDuplicate.onNext(true)
                 } else {
+                    print("중복 아님")
                     isNickNameDuplicate.onNext(false)
                 }
             })

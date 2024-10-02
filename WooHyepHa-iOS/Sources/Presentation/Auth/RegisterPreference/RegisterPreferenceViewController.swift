@@ -141,6 +141,13 @@ class RegisterPreferenceViewController: BaseViewController {
     }
 
     override func bind() {
+        headerView.inputRightButtonTapped
+            .subscribe(with: self, onNext: { owner, _ in
+                let modal = OnboardingSkipModalViewController()
+                modal.showModal(vc: self)
+            })
+            .disposed(by: disposeBag)
+        
         let input = RegisterPreferenceViewModel.Input(
             disableButtonTapped: footerView.inputDisabledButtonTapped.asObservable(),
             backButtonTapped: headerView.inputLeftButtonTapped.asObservable(),

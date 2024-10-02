@@ -133,6 +133,13 @@ class RegisterLocationViewController: BaseViewController {
     }
     
     override func bind() {
+        headerView.inputRightButtonTapped
+            .subscribe(with: self, onNext: { owner, _ in
+                let modal = OnboardingSkipModalViewController()
+                modal.showModal(vc: self)
+            })
+            .disposed(by: disposeBag)
+        
         let input = RegisterLocationViewModel.Input(
             disableButtonTapped: footerView.inputDisabledButtonTapped.asObservable(),
             backButtonTapped: headerView.inputLeftButtonTapped.asObservable(),

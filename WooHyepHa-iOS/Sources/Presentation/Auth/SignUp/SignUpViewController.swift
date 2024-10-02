@@ -117,6 +117,13 @@ class SignUpViewController: BaseViewController {
     }
     
     override func bind() {
+        headerView.inputRightButtonTapped
+            .subscribe(with: self, onNext: { owner, _ in
+                let modal = OnboardingSkipModalViewController()
+                modal.showModal(vc: self)
+            })
+            .disposed(by: disposeBag)
+        
         let input = SignUpViewModel.Input(
             backButtonTapped: headerView.inputLeftButtonTapped.asObservable(),
             nextButtonTapped: footerView.inputEnabledButtonTapped.asObservable()

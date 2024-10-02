@@ -65,8 +65,8 @@ private extension SignInViewModel {
         let identityToken = String(data: appleIDCredential.identityToken ?? Data(), encoding: .utf8)
         let authorizationCode = String(data: appleIDCredential.authorizationCode ?? Data(), encoding: .utf8)
         
-        //print(authorizationCode!)
-        //print(identityToken!)
+        print("어쓰 토큰 \(authorizationCode!)")
+        print("아이덴티티 토큰\(identityToken!)")
         return SignInWithAppleRequestDTO(
             code: authorizationCode!, id_token: identityToken!
         )

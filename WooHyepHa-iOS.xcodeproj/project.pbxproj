@@ -66,6 +66,11 @@
 		9ED121692CAA538F00C7696E /* OnboardingScrollButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121682CAA538F00C7696E /* OnboardingScrollButton.swift */; };
 		9ED1216B2CAA53AD00C7696E /* PreferenceScrollButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1216A2CAA53AD00C7696E /* PreferenceScrollButtonView.swift */; };
 		9ED1216E2CAA583500C7696E /* RegisterPreferenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1216D2CAA583500C7696E /* RegisterPreferenceViewModel.swift */; };
+		9ED121732CAB9C3900C7696E /* RegisterNicknameRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121722CAB9C3900C7696E /* RegisterNicknameRequestDTO.swift */; };
+		9ED121752CAB9C6600C7696E /* RegisterNicknameResponsesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121742CAB9C6600C7696E /* RegisterNicknameResponsesDTO.swift */; };
+		9ED121772CABA22000C7696E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121762CABA22000C7696E /* Auth.swift */; };
+		9ED121792CABB1C200C7696E /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121782CABB1C200C7696E /* RegisterUseCase.swift */; };
+		9ED1217B2CAD055D00C7696E /* OnboardingSkipModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1217A2CAD055D00C7696E /* OnboardingSkipModalViewController.swift */; };
 		9ED122092C7C60F60066C679 /* SignInWithAppleRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */; };
 		9ED1220C2C7C61E00066C679 /* SignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220B2C7C61E00066C679 /* SignInResult.swift */; };
 		9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220F2C7C62140066C679 /* SignInUseCase.swift */; };
@@ -140,6 +145,11 @@
 		9ED121682CAA538F00C7696E /* OnboardingScrollButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScrollButton.swift; sourceTree = "<group>"; };
 		9ED1216A2CAA53AD00C7696E /* PreferenceScrollButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceScrollButtonView.swift; sourceTree = "<group>"; };
 		9ED1216D2CAA583500C7696E /* RegisterPreferenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceViewModel.swift; sourceTree = "<group>"; };
+		9ED121722CAB9C3900C7696E /* RegisterNicknameRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameRequestDTO.swift; sourceTree = "<group>"; };
+		9ED121742CAB9C6600C7696E /* RegisterNicknameResponsesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameResponsesDTO.swift; sourceTree = "<group>"; };
+		9ED121762CABA22000C7696E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
+		9ED121782CABB1C200C7696E /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
+		9ED1217A2CAD055D00C7696E /* OnboardingSkipModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSkipModalViewController.swift; sourceTree = "<group>"; };
 		9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleRequestDTO.swift; sourceTree = "<group>"; };
 		9ED1220B2C7C61E00066C679 /* SignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResult.swift; sourceTree = "<group>"; };
 		9ED1220F2C7C62140066C679 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
@@ -495,6 +505,7 @@
 				9E88DE322C7466E100815EE0 /* OnboardingProgressView.swift */,
 				9E88DE352C75774C00815EE0 /* OnboardingButton.swift */,
 				9ED121682CAA538F00C7696E /* OnboardingScrollButton.swift */,
+				9ED1217A2CAD055D00C7696E /* OnboardingSkipModalViewController.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -566,6 +577,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		9ED121712CAB9C2800C7696E /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				9ED121722CAB9C3900C7696E /* RegisterNicknameRequestDTO.swift */,
+				9ED121742CAB9C6600C7696E /* RegisterNicknameResponsesDTO.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
 		9ED122002C7C5CBA0066C679 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -594,6 +614,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED1220B2C7C61E00066C679 /* SignInResult.swift */,
+				9ED121762CABA22000C7696E /* Auth.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -618,6 +639,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED122072C7C60E70066C679 /* SignIn */,
+				9ED121712CAB9C2800C7696E /* Register */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -635,6 +657,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED1220F2C7C62140066C679 /* SignInUseCase.swift */,
+				9ED121782CABB1C200C7696E /* RegisterUseCase.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -824,9 +847,12 @@
 				9E5906692C4F993C00647DEE /* ViewController.swift in Sources */,
 				9E6679402C76D2AA00832440 /* RegisterPreferenceViewController.swift in Sources */,
 				9ED122132C7C64600066C679 /* AuthRepositoryProtocol.swift in Sources */,
+				9ED1217B2CAD055D00C7696E /* OnboardingSkipModalViewController.swift in Sources */,
 				9E0FF2AE2C6B0B4F00544674 /* MapCoordinator.swift in Sources */,
+				9ED121792CABB1C200C7696E /* RegisterUseCase.swift in Sources */,
 				9E0FF1E82C5A23E500544674 /* Extension + UIColor.swift in Sources */,
 				9E66792B2C760FF000832440 /* PreferenceMusicalView.swift in Sources */,
+				9ED121752CAB9C6600C7696E /* RegisterNicknameResponsesDTO.swift in Sources */,
 				9E0FF2AA2C6B0AD100544674 /* MatingCoordinator.swift in Sources */,
 				9ED122282C7C74710066C679 /* RxASAuthorizationControllerDelegateProxy.swift in Sources */,
 				9E0FF29D2C6B099900544674 /* AppCoordinator.swift in Sources */,
@@ -861,12 +887,14 @@
 				9ED121692CAA538F00C7696E /* OnboardingScrollButton.swift in Sources */,
 				9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */,
 				9ED121602CA7BCAD00C7696E /* SignUpViewModel.swift in Sources */,
+				9ED121732CAB9C3900C7696E /* RegisterNicknameRequestDTO.swift in Sources */,
 				9ED1221B2C7C66B80066C679 /* AuthRepository.swift in Sources */,
 				9E0FF2A42C6B0A2B00544674 /* HomeCoordinator.swift in Sources */,
 				9E88DDF92C6DB33D00815EE0 /* SignUpViewController.swift in Sources */,
 				9E0FF2B62C6B0C5100544674 /* MyPageCoordinator.swift in Sources */,
 				9ED122202C7C6C670066C679 /* SignInWithAppleResponsesDTO.swift in Sources */,
 				9E0FF2AC2C6B0B2800544674 /* MapViewController.swift in Sources */,
+				9ED121772CABA22000C7696E /* Auth.swift in Sources */,
 				9ED122262C7C70DB0066C679 /* ViewModelType.swift in Sources */,
 				9E0FF2A62C6B0A5F00544674 /* HomeViewController.swift in Sources */,
 				9E88DE132C73243600815EE0 /* RegisterLocationViewController.swift in Sources */,

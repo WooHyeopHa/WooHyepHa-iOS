@@ -16,6 +16,7 @@ final class AuthRepository: NSObject, AuthRepositoryProtocol {
     
     func signInWithApple(credentials: SignInWithAppleRequestDTO) -> Observable<Bool> {
         return service.rx.request(.signInWithApple(credentials))
+            .filterSuccessfulStatusCodes()
             .map { response in
                 print("상태 코드: \(response.statusCode)")
                 let res = try JSONDecoder().decode(SignInWithAppleResponsesDTO.self, from: response.data)
