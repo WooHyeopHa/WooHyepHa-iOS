@@ -33,7 +33,8 @@ final class AppCoordinator: Coordinator {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
             // Auth 상태에 따른 분기처리 구현해야함.
-            self?.connectAuthFlow()
+            //self?.connectAuthFlow()
+            self?.connectTabBarFlow()
         }
     }
 }

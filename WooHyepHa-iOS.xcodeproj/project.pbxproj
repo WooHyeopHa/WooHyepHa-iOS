@@ -71,6 +71,13 @@
 		9ED121772CABA22000C7696E /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121762CABA22000C7696E /* Auth.swift */; };
 		9ED121792CABB1C200C7696E /* RegisterUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121782CABB1C200C7696E /* RegisterUseCase.swift */; };
 		9ED1217B2CAD055D00C7696E /* OnboardingSkipModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1217A2CAD055D00C7696E /* OnboardingSkipModalViewController.swift */; };
+		9ED1217E2CAE7F0F00C7696E /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1217D2CAE7F0F00C7696E /* HomeHeaderView.swift */; };
+		9ED121802CAE829C00C7696E /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ED1217F2CAE829C00C7696E /* Poppins-SemiBold.ttf */; };
+		9ED121822CAE876600C7696E /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121812CAE876600C7696E /* HomeButtonView.swift */; };
+		9ED121842CAE88D500C7696E /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121832CAE88D500C7696E /* HomeButton.swift */; };
+		9ED121862CAE911600C7696E /* HomeRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121852CAE911600C7696E /* HomeRecommendCollectionViewCell.swift */; };
+		9ED121882CAE91AD00C7696E /* MockHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121872CAE91AD00C7696E /* MockHome.swift */; };
+		9ED1218C2CAEACDF00C7696E /* Extension + UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1218B2CAEACDF00C7696E /* Extension + UIImageView.swift */; };
 		9ED122092C7C60F60066C679 /* SignInWithAppleRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */; };
 		9ED1220C2C7C61E00066C679 /* SignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220B2C7C61E00066C679 /* SignInResult.swift */; };
 		9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220F2C7C62140066C679 /* SignInUseCase.swift */; };
@@ -150,6 +157,13 @@
 		9ED121762CABA22000C7696E /* Auth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Auth.swift; sourceTree = "<group>"; };
 		9ED121782CABB1C200C7696E /* RegisterUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUseCase.swift; sourceTree = "<group>"; };
 		9ED1217A2CAD055D00C7696E /* OnboardingSkipModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingSkipModalViewController.swift; sourceTree = "<group>"; };
+		9ED1217D2CAE7F0F00C7696E /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
+		9ED1217F2CAE829C00C7696E /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
+		9ED121812CAE876600C7696E /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
+		9ED121832CAE88D500C7696E /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
+		9ED121852CAE911600C7696E /* HomeRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
+		9ED121872CAE91AD00C7696E /* MockHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHome.swift; sourceTree = "<group>"; };
+		9ED1218B2CAEACDF00C7696E /* Extension + UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImageView.swift"; sourceTree = "<group>"; };
 		9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleRequestDTO.swift; sourceTree = "<group>"; };
 		9ED1220B2C7C61E00066C679 /* SignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResult.swift; sourceTree = "<group>"; };
 		9ED1220F2C7C62140066C679 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
@@ -200,6 +214,7 @@
 		9E0FF1E02C5A21DD00544674 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				9ED1217F2CAE829C00C7696E /* Poppins-SemiBold.ttf */,
 				9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */,
 				9E0FF2D12C6C6D7A00544674 /* Pretendard-Bold.otf */,
 				9E0FF2C72C6C696600544674 /* Pretendard-Light.otf */,
@@ -249,6 +264,7 @@
 				9E0FF1F32C5A252E00544674 /* Extension + UIFont.swift */,
 				9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */,
 				9ED122272C7C74710066C679 /* RxASAuthorizationControllerDelegateProxy.swift */,
+				9ED1218B2CAEACDF00C7696E /* Extension + UIImageView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -364,6 +380,7 @@
 		9E0FF2A22C6B0A0800544674 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9ED1217C2CAE7EF900C7696E /* Components */,
 				9E0FF2A32C6B0A2B00544674 /* HomeCoordinator.swift */,
 				9E0FF2A52C6B0A5F00544674 /* HomeViewController.swift */,
 			);
@@ -586,6 +603,18 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		9ED1217C2CAE7EF900C7696E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9ED121832CAE88D500C7696E /* HomeButton.swift */,
+				9ED1217D2CAE7F0F00C7696E /* HomeHeaderView.swift */,
+				9ED121812CAE876600C7696E /* HomeButtonView.swift */,
+				9ED121852CAE911600C7696E /* HomeRecommendCollectionViewCell.swift */,
+				9ED121872CAE91AD00C7696E /* MockHome.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		9ED122002C7C5CBA0066C679 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -783,6 +812,7 @@
 				9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */,
 				9E0FF2D22C6C6D7A00544674 /* Pretendard-Bold.otf in Resources */,
 				9E0FF2CF2C6C696700544674 /* Pretendard-SemiBold.otf in Resources */,
+				9ED121802CAE829C00C7696E /* Poppins-SemiBold.ttf in Resources */,
 				9E0FF2CD2C6C696700544674 /* Pretendard-Regular.otf in Resources */,
 				9ED121562CA2B28100C7696E /* Poppins-Medium.ttf in Resources */,
 				9E0FF2CC2C6C696700544674 /* Pretendard-Light.otf in Resources */,
@@ -848,6 +878,7 @@
 				9E6679402C76D2AA00832440 /* RegisterPreferenceViewController.swift in Sources */,
 				9ED122132C7C64600066C679 /* AuthRepositoryProtocol.swift in Sources */,
 				9ED1217B2CAD055D00C7696E /* OnboardingSkipModalViewController.swift in Sources */,
+				9ED121842CAE88D500C7696E /* HomeButton.swift in Sources */,
 				9E0FF2AE2C6B0B4F00544674 /* MapCoordinator.swift in Sources */,
 				9ED121792CABB1C200C7696E /* RegisterUseCase.swift in Sources */,
 				9E0FF1E82C5A23E500544674 /* Extension + UIColor.swift in Sources */,
@@ -858,12 +889,14 @@
 				9E0FF29D2C6B099900544674 /* AppCoordinator.swift in Sources */,
 				9ED122232C7C70540066C679 /* SignInViewModel.swift in Sources */,
 				9E0FF2982C6B08E300544674 /* TabBarCoordinator.swift in Sources */,
+				9ED121822CAE876600C7696E /* HomeButtonView.swift in Sources */,
 				9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */,
 				9ED1221E2C7C67F00066C679 /* AuthService.swift in Sources */,
 				9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */,
 				9E88DDF62C6DB27500815EE0 /* RegisterProfileViewController.swift in Sources */,
 				9E88DE232C74263100815EE0 /* OnboardingHeaderView.swift in Sources */,
 				9E0FF1F42C5A252E00544674 /* Extension + UIFont.swift in Sources */,
+				9ED1218C2CAEACDF00C7696E /* Extension + UIImageView.swift in Sources */,
 				9E0FF2B22C6B0B9D00544674 /* ChatCoordinator.swift in Sources */,
 				9E0FF2BD2C6C58BB00544674 /* SignInViewController.swift in Sources */,
 				9E0FF2C02C6C59D700544674 /* AuthCoordinator.swift in Sources */,
@@ -872,6 +905,7 @@
 				9E0FF2A82C6B0AB400544674 /* MatingViewController.swift in Sources */,
 				9ED1216E2CAA583500C7696E /* RegisterPreferenceViewModel.swift in Sources */,
 				9ED1216B2CAA53AD00C7696E /* PreferenceScrollButtonView.swift in Sources */,
+				9ED121882CAE91AD00C7696E /* MockHome.swift in Sources */,
 				9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
 				9E0FF2B92C6C4F5A00544674 /* SplashViewController.swift in Sources */,
@@ -880,6 +914,7 @@
 				9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */,
 				9E0FF2962C6B066200544674 /* TabBarItemType.swift in Sources */,
 				9E88DE072C6DC85600815EE0 /* BaseView.swift in Sources */,
+				9ED1217E2CAE7F0F00C7696E /* HomeHeaderView.swift in Sources */,
 				9ED121672CAA48FE00C7696E /* RegisterLocationViewModel.swift in Sources */,
 				9E0FF2B02C6B0B8500544674 /* ChatViewController.swift in Sources */,
 				9E88DE362C75774C00815EE0 /* OnboardingButton.swift in Sources */,
@@ -894,6 +929,7 @@
 				9E0FF2B62C6B0C5100544674 /* MyPageCoordinator.swift in Sources */,
 				9ED122202C7C6C670066C679 /* SignInWithAppleResponsesDTO.swift in Sources */,
 				9E0FF2AC2C6B0B2800544674 /* MapViewController.swift in Sources */,
+				9ED121862CAE911600C7696E /* HomeRecommendCollectionViewCell.swift in Sources */,
 				9ED121772CABA22000C7696E /* Auth.swift in Sources */,
 				9ED122262C7C70DB0066C679 /* ViewModelType.swift in Sources */,
 				9E0FF2A62C6B0A5F00544674 /* HomeViewController.swift in Sources */,

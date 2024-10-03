@@ -23,16 +23,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let navigationController = UINavigationController()
         appCoordinator = AppCoordinator(navigationController: navigationController)
         
-        window?.rootViewController = SignUpViewController(viewModel: SignUpViewModel(coordinator: AuthCoordinator(navigationController: navigationController)))
+        //window?.rootViewController = SignUpViewController(viewModel: SignUpViewModel(coordinator: AuthCoordinator(navigationController: navigationController)))
         //window?.rootViewController = RegisterNicknameViewController(viewModel: RegisterNicknameViewModel(coordinator: AuthCoordinator(navigationController: navigationController)))
         //window?.rootViewController = RegisterProfileViewController(viewModel: RegisterProfileViewModel(coordinator: AuthCoordinator(navigationController: navigationController)))
         
-        //window?.rootViewController = navigationController
+        window?.rootViewController = navigationController
         
         //window?.rootViewController = RegisterPreferenceViewController(viewModel: RegisterPreferenceViewModel(coordinator: AuthCoordinator(navigationController: navigationController)))
         window?.makeKeyAndVisible()
         
-        //appCoordinator?.start()
+        appCoordinator?.start()
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
