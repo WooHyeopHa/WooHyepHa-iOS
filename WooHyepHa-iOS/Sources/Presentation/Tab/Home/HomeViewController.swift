@@ -17,6 +17,7 @@ class HomeViewController: BaseViewController {
     private var centerCellIndex: Int = 0
     private var isOneStepPaging = true
     private let mokItem: [MokHome] = MokHome.recommendList
+    private var currentPage: Int = 1
 
     private lazy var blurredBackgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -51,6 +52,10 @@ class HomeViewController: BaseViewController {
         return collectionView
     }()
     
+    private let homeTodayView = HomeTodayView().then {
+        $0.backgroundColor = .white
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         homeRecommendCollectionView.delegate = self
@@ -65,7 +70,7 @@ class HomeViewController: BaseViewController {
     
     override func setViewController() {
         view.backgroundColor = .white
-        [blurredBackgroundImageView, gradientView, headerView, homeButtonView, homeRecommendCollectionView].forEach {
+        [blurredBackgroundImageView, gradientView, headerView, homeButtonView, homeRecommendCollectionView, homeTodayView].forEach {
             view.addSubview($0)
         }
     }
@@ -98,11 +103,17 @@ class HomeViewController: BaseViewController {
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(view.snp.height).multipliedBy(0.6)
         }
+        
+        homeTodayView.snp.makeConstraints {
+            $0.top.equalTo(homeRecommendCollectionView.snp.bottom).offset(10)
+            $0.height.equalTo(56)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+        }
     }
 }
 
-private extension HomeViewController {
-    func updateBackgroundImage() {
+extension HomeViewController {
+    private func updateBackgroundImage() {
         let visibleRect = CGRect(origin: homeRecommendCollectionView.contentOffset, size: homeRecommendCollectionView.bounds.size)
         let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
         if let indexPath = homeRecommendCollectionView.indexPathForItem(at: visiblePoint),
@@ -113,7 +124,7 @@ private extension HomeViewController {
         }
     }
     
-    func updateCenterCell() {
+    private func updateCenterCell() {
         let centerPoint = CGPoint(
             x: homeRecommendCollectionView.contentOffset.x + homeRecommendCollectionView.bounds.width / 2,
             y: homeRecommendCollectionView.bounds.height / 2
@@ -122,6 +133,17 @@ private extension HomeViewController {
             if centerCellIndex != indexPath.item {
                 centerCellIndex = indexPath.item
                 homeRecommendCollectionView.collectionViewLayout.invalidateLayout()
+            }
+        }
+    }
+    
+    private func updateCurrentPage() {
+        let visibleRect = CGRect(origin: homeRecommendCollectionView.contentOffset, size: homeRecommendCollectionView.bounds.size)
+        let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+        if let indexPath = homeRecommendCollectionView.indexPathForItem(at: visiblePoint) {
+            currentPage = indexPath.item + 1
+            if let cell = homeRecommendCollectionView.cellForItem(at: indexPath) as? HomeRecommendCollectionViewCell {
+                cell.updatePage(currentPage: currentPage, totalPages: mokItem.count)
             }
         }
     }
@@ -143,7 +165,7 @@ extension HomeViewController: UICollectionViewDataSource {
         }
         
         let item = mokItem[indexPath.row]
-        cell.configuration(item)
+        cell.configuration(item, currentPage: indexPath.item + 1, totalPages: mokItem.count)
         return cell
     }
 }
@@ -167,6 +189,7 @@ extension HomeViewController: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         updateBackgroundImage()
         updateCenterCell()
+        updateCurrentPage()
     }
 }
 

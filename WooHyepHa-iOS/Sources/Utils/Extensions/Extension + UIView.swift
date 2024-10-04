@@ -19,4 +19,31 @@ extension UIView {
             self.alpha = 0.0
         }
     }
+    
+    /// 해당 View에 그림자를 생성합니다.
+    /// ```
+    /// view.addViewShadow()
+    /// ```
+
+    func addViewShadow() {
+        layer.masksToBounds = false
+        layer.shadowRadius = 3.0 // 블러
+        layer.shadowOpacity = 0.6 // 불투명도
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 3, height: 3) // 세로방향
+    }
+    
+    /// 해당 View에 색상이 있는 그림자를 생성합니다.
+    /// ```
+    /// view.addViewColorShadow(color: .blue)
+    /// ```
+    ///  - Parameters:
+    ///   - color: 그림자의 색상 (UIColor)
+    func addViewColorShadow (color: UIColor){
+        layer.shadowColor = color.cgColor
+        layer.masksToBounds = false
+        layer.shadowRadius = 15.0
+        layer.shadowOpacity = 0.25
+        layer.shadowOffset = CGSize(width: 0, height: 4)
+    }
 }

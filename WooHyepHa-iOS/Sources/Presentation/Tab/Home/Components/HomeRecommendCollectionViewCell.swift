@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 import Then
 import SnapKit
 
@@ -21,7 +20,7 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
         $0.clipsToBounds = true
     }
     
-    private let testLabel = UILabel().then {
+    private let recommendLabel = UILabel().then {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 0.75
         
@@ -45,6 +44,28 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
         return thumbnailImageView.image
     }
     
+    private let progressBar = UIProgressView().then {
+        $0.progress = 0.1
+        $0.trackTintColor = .gray5
+        $0.progressViewStyle = .bar
+        $0.progressTintColor = .gray7
+    }
+    
+    private let progressLabel = UILabel().then {
+        let attributedString = NSMutableAttributedString(string: "0", attributes: [
+            .font: UIFont.num2,
+            .foregroundColor: UIColor.white
+        ])
+        
+        attributedString.append(NSAttributedString(string: "0", attributes: [
+            .font: UIFont.num2,
+            .foregroundColor: UIColor.gray5
+        ]))
+        
+        $0.attributedText = attributedString
+        $0.textAlignment = .left
+    }
+    
     // MARK: init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -56,26 +77,58 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
-    func configuration(_ item: MokHome) {
+    func configuration(_ item: MokHome, currentPage: Int, totalPages: Int) {
         thumbnailImageView.image = UIImage(named: item.image)
+        updatePage(currentPage: currentPage, totalPages: totalPages)
+    }
+    
+    func updatePage(currentPage: Int, totalPages: Int) {
+        progressBar.progress = Float(currentPage) / Float(totalPages)
+        
+        let attributedString = NSMutableAttributedString(string: "\(currentPage)", attributes: [
+            .font: UIFont.num2,
+            .foregroundColor: UIColor.white
+        ])
+        
+        attributedString.append(NSAttributedString(string: " / \(totalPages)", attributes: [
+            .font: UIFont.num2,
+            .foregroundColor: UIColor.gray5
+        ]))
+        
+        progressLabel.attributedText = attributedString
     }
 }
 
 extension HomeRecommendCollectionViewCell {
     private func setCell() {
         backgroundColor = .clear
-        addSubview(thumbnailImageView)
-        addSubview(testLabel)
+        [thumbnailImageView, recommendLabel, progressBar, progressLabel].forEach {
+            addSubview($0)
+        }
     }
     
     private func setConstraint() {
         thumbnailImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
-        }       
+        }
         
-        testLabel.snp.makeConstraints {
+        recommendLabel.snp.makeConstraints {
             $0.leading.equalToSuperview().inset(22)
             $0.bottom.equalToSuperview().inset(48)
+        }
+        
+        progressBar.snp.makeConstraints {
+            $0.leading.equalToSuperview().inset(22)
+            $0.bottom.equalToSuperview().inset(29.5)
+            $0.width.equalTo(65)
+            $0.height.equalTo(1)
+        }
+        
+        progressLabel.snp.makeConstraints {
+            $0.leading.equalTo(progressBar.snp.trailing).offset(8)
+            $0.bottom.equalToSuperview().inset(20)
+            $0.width.equalTo(30)
+            $0.height.equalTo(20)
         }
     }
 }

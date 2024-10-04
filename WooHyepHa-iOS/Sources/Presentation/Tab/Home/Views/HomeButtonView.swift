@@ -58,7 +58,6 @@ class HomeButtonView: BaseView {
             $0.leading.equalToSuperview()
             $0.trailing.equalTo(editButton.snp.leading).offset(-8)
             $0.height.equalTo(32)
-            //$0.width.equalTo(318)
             $0.centerY.equalToSuperview()
         }
         

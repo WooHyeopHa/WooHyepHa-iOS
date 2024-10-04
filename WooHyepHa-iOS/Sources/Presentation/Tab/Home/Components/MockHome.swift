@@ -18,6 +18,5 @@ extension MokHome {
         MokHome(image: "sun"),
         MokHome(image: "munch"),
         MokHome(image: "hip")
-//        MokHome(image: "maniac"),
     ]
 }
