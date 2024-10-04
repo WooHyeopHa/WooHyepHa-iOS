@@ -11,21 +11,6 @@ import Then
 import RxSwift
 import RxCocoa
 
-class GradientView: UIView {
-    override class var layerClass: AnyClass {
-        return CAGradientLayer.self
-    }
-    
-    var gradientLayer: CAGradientLayer {
-        return layer as! CAGradientLayer
-    }
-    
-    func setupGradient(colors: [UIColor], locations: [NSNumber]? = nil) {
-        gradientLayer.colors = colors.map { $0.cgColor }
-        gradientLayer.locations = locations
-    }
-}
-
 class HomeViewController: BaseViewController {
     
     private var currentIndex: CGFloat = 0

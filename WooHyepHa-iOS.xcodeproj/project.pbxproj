@@ -78,6 +78,7 @@
 		9ED121862CAE911600C7696E /* HomeRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121852CAE911600C7696E /* HomeRecommendCollectionViewCell.swift */; };
 		9ED121882CAE91AD00C7696E /* MockHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121872CAE91AD00C7696E /* MockHome.swift */; };
 		9ED1218C2CAEACDF00C7696E /* Extension + UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1218B2CAEACDF00C7696E /* Extension + UIImageView.swift */; };
+		9ED1218F2CAFA62300C7696E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1218E2CAFA62300C7696E /* GradientView.swift */; };
 		9ED122092C7C60F60066C679 /* SignInWithAppleRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */; };
 		9ED1220C2C7C61E00066C679 /* SignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220B2C7C61E00066C679 /* SignInResult.swift */; };
 		9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220F2C7C62140066C679 /* SignInUseCase.swift */; };
@@ -164,6 +165,7 @@
 		9ED121852CAE911600C7696E /* HomeRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
 		9ED121872CAE91AD00C7696E /* MockHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHome.swift; sourceTree = "<group>"; };
 		9ED1218B2CAEACDF00C7696E /* Extension + UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImageView.swift"; sourceTree = "<group>"; };
+		9ED1218E2CAFA62300C7696E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleRequestDTO.swift; sourceTree = "<group>"; };
 		9ED1220B2C7C61E00066C679 /* SignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResult.swift; sourceTree = "<group>"; };
 		9ED1220F2C7C62140066C679 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 		9E0FF1FA2C5B2E4B00544674 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				9ED1218D2CAFA60C00C7696E /* Components */,
 				9ED122242C7C70CE0066C679 /* Protocols */,
 				9E0FF1FC2C5B2E5C00544674 /* Extensions */,
 				9E0FF1FB2C5B2E5200544674 /* Base */,
@@ -615,6 +618,14 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		9ED1218D2CAFA60C00C7696E /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				9ED1218E2CAFA62300C7696E /* GradientView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		9ED122002C7C5CBA0066C679 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
@@ -920,6 +931,7 @@
 				9E88DE362C75774C00815EE0 /* OnboardingButton.swift in Sources */,
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
 				9ED121692CAA538F00C7696E /* OnboardingScrollButton.swift in Sources */,
+				9ED1218F2CAFA62300C7696E /* GradientView.swift in Sources */,
 				9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */,
 				9ED121602CA7BCAD00C7696E /* SignUpViewModel.swift in Sources */,
 				9ED121732CAB9C3900C7696E /* RegisterNicknameRequestDTO.swift in Sources */,
