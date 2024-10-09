@@ -28,13 +28,13 @@ class RegisterLocationViewController: BaseViewController {
     }
 
     private let mainTitleLabel = UILabel().then {
-        $0.text = "위치 정보를 입력해주세요!"
+        $0.text = "위치를 입력해주세요"
         $0.font = .h2
         $0.textColor = .gray1
     }    
     
     private let subTitleLabel = UILabel().then {
-        $0.text = "위치 정보는 구 단위로 표시되며, 다른 사용자에게 공개됩니다"
+        $0.text = "위치 정보는 구 단위로 표시되며, 다른 사용자에게 공개돼요"
         $0.font = .body4
         $0.textColor = .gray4
     }
