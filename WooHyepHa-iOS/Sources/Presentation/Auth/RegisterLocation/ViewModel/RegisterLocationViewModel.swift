@@ -37,7 +37,7 @@ final class RegisterLocationViewModel: ViewModelType {
         
         input.backButtonTapped
             .subscribe(with: self, onNext: { owner, _ in
-                owner.coordinator?.pop()
+                owner.coordinator?.pop(animated: true)
             })
             .disposed(by: disposeBag)
         
