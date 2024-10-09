@@ -17,6 +17,7 @@ final class TabBarCoordinator: Coordinator {
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        self.navigationController.interactivePopGestureRecognizer?.isEnabled = false
         
         self.tabBarController = UITabBarController()
     }
