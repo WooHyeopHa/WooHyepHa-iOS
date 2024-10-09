@@ -13,17 +13,24 @@ enum TabBarItemType: Int, CaseIterable {
 
 extension TabBarItemType {
     var tabBarItem: UITabBarItem {
+        let item: UITabBarItem
         switch self {
         case .home:
-            return UITabBarItem(title: "", image: UIImage(named: "tabbar_home_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_home_active")?.withRenderingMode(.alwaysOriginal))
+            item = UITabBarItem(title: "홈", image: UIImage(named: "tabbar_home_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_home_active")?.withRenderingMode(.alwaysOriginal))
         case .mating:
-            return UITabBarItem(title: "", image: UIImage(named: "tabbar_mating_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_mating_active")?.withRenderingMode(.alwaysOriginal))
+            item = UITabBarItem(title: "뮤즈찾기", image: UIImage(named: "tabbar_muse_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_muse_active")?.withRenderingMode(.alwaysOriginal))
         case .map:
-            return UITabBarItem(title: "", image: UIImage(named: "tabbar_map_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_map_active")?.withRenderingMode(.alwaysOriginal))
+            item = UITabBarItem(title: "지도", image: UIImage(named: "tabbar_map_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_map_active")?.withRenderingMode(.alwaysOriginal))
         case .chat:
-            return UITabBarItem(title: "", image: UIImage(named: "tabbar_chat_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_chat_active")?.withRenderingMode(.alwaysOriginal))
+            item = UITabBarItem(title: "채팅", image: UIImage(named: "tabbar_chat_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_chat_active")?.withRenderingMode(.alwaysOriginal))
         case .mypage:
-            return UITabBarItem(title: "", image: UIImage(named: "tabbar_mypage_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_mypage_active")?.withRenderingMode(.alwaysOriginal))
+            item = UITabBarItem(title: "마이페이지", image: UIImage(named: "tabbar_mypage_inactive")?.withRenderingMode(.alwaysOriginal), selectedImage: UIImage(named: "tabbar_mypage_active")?.withRenderingMode(.alwaysOriginal))
         }
+        
+        item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray5], for: .normal)
+        
+        item.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray1], for: .selected)
+        
+        return item
     }
 }

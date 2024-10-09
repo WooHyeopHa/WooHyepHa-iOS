@@ -34,7 +34,7 @@ private extension TabBarCoordinator {
         
         let topBorder = CALayer()
         topBorder.frame = CGRect(x:0, y:0, width: tabBarController.tabBar.frame.width, height: 1)
-        topBorder.backgroundColor = UIColor.gray.cgColor
+        topBorder.backgroundColor = UIColor.gray9.cgColor
         tabBarController.tabBar.layer.addSublayer(topBorder)
         
         tabBarController.viewControllers = viewControllers
