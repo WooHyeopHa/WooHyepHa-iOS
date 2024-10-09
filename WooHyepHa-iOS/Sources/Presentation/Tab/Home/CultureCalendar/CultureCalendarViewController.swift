@@ -24,6 +24,7 @@ class CultureCalendarViewController: BaseViewController {
     
     override func setViewController() {
         view.backgroundColor = .white
+        navigationController?.interactivePopGestureRecognizer?.isEnabled = false
         [headerView].forEach {
             view.addSubview($0)
         }
@@ -40,7 +41,7 @@ class CultureCalendarViewController: BaseViewController {
     override func bind() {
         headerView.inputNowButton
             .subscribe(with: self, onNext: { owner, _ in
-                owner.coordinator?.pop()
+                owner.coordinator?.pop(animated: false)
             })
             .disposed(by: disposeBag)
     }

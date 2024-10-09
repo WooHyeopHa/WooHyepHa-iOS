@@ -35,7 +35,7 @@ extension HomeCoordinator {
         cultureCalendarViewController.coordinator = self
         
         cultureCalendarViewController.hidesBottomBarWhenPushed = true
-        navigationController.pushViewController(cultureCalendarViewController, animated: true)
+        navigationController.pushViewController(cultureCalendarViewController, animated: false)
     }
 }
 
