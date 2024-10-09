@@ -106,7 +106,8 @@ class SignUpViewController: BaseViewController {
         middleImageView.snp.makeConstraints {
             $0.top.equalTo(subTitleLabel.snp.bottom).offset(77)
             $0.centerX.equalTo(view.safeAreaLayoutGuide)
-            $0.width.height.equalTo(190)
+            $0.height.equalTo(202)
+            $0.width.equalTo(287)
         }
         
         footerView.snp.makeConstraints {
