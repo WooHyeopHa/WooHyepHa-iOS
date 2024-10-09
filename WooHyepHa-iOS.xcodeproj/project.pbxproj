@@ -80,6 +80,8 @@
 		9ED1218C2CAEACDF00C7696E /* Extension + UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1218B2CAEACDF00C7696E /* Extension + UIImageView.swift */; };
 		9ED1218F2CAFA62300C7696E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1218E2CAFA62300C7696E /* GradientView.swift */; };
 		9ED121922CAFB54600C7696E /* HomeTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121912CAFB54600C7696E /* HomeTodayView.swift */; };
+		9ED121962CB6795100C7696E /* CultureCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121952CB6795100C7696E /* CultureCalendarViewController.swift */; };
+		9ED1219C2CB67F9600C7696E /* CultureCalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1219B2CB67F9600C7696E /* CultureCalendarHeaderView.swift */; };
 		9ED122092C7C60F60066C679 /* SignInWithAppleRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */; };
 		9ED1220C2C7C61E00066C679 /* SignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220B2C7C61E00066C679 /* SignInResult.swift */; };
 		9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220F2C7C62140066C679 /* SignInUseCase.swift */; };
@@ -168,6 +170,8 @@
 		9ED1218B2CAEACDF00C7696E /* Extension + UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImageView.swift"; sourceTree = "<group>"; };
 		9ED1218E2CAFA62300C7696E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		9ED121912CAFB54600C7696E /* HomeTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTodayView.swift; sourceTree = "<group>"; };
+		9ED121952CB6795100C7696E /* CultureCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarViewController.swift; sourceTree = "<group>"; };
+		9ED1219B2CB67F9600C7696E /* CultureCalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarHeaderView.swift; sourceTree = "<group>"; };
 		9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleRequestDTO.swift; sourceTree = "<group>"; };
 		9ED1220B2C7C61E00066C679 /* SignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResult.swift; sourceTree = "<group>"; };
 		9ED1220F2C7C62140066C679 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
@@ -385,6 +389,7 @@
 		9E0FF2A22C6B0A0800544674 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9ED121942CB6793B00C7696E /* CultureCalendar */,
 				9ED1217C2CAE7EF900C7696E /* Components */,
 				9ED121932CAFBB0400C7696E /* Views */,
 				9ED121902CAFAB0500C7696E /* ViewModel */,
@@ -641,6 +646,23 @@
 				9ED1217D2CAE7F0F00C7696E /* HomeHeaderView.swift */,
 				9ED121812CAE876600C7696E /* HomeButtonView.swift */,
 				9ED121912CAFB54600C7696E /* HomeTodayView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9ED121942CB6793B00C7696E /* CultureCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				9ED1219A2CB67F8600C7696E /* Views */,
+				9ED121952CB6795100C7696E /* CultureCalendarViewController.swift */,
+			);
+			path = CultureCalendar;
+			sourceTree = "<group>";
+		};
+		9ED1219A2CB67F8600C7696E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9ED1219B2CB67F9600C7696E /* CultureCalendarHeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -919,6 +941,7 @@
 				9E0FF29D2C6B099900544674 /* AppCoordinator.swift in Sources */,
 				9ED122232C7C70540066C679 /* SignInViewModel.swift in Sources */,
 				9E0FF2982C6B08E300544674 /* TabBarCoordinator.swift in Sources */,
+				9ED121962CB6795100C7696E /* CultureCalendarViewController.swift in Sources */,
 				9ED121822CAE876600C7696E /* HomeButtonView.swift in Sources */,
 				9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */,
 				9ED1221E2C7C67F00066C679 /* AuthService.swift in Sources */,
@@ -936,6 +959,7 @@
 				9ED1216E2CAA583500C7696E /* RegisterPreferenceViewModel.swift in Sources */,
 				9ED1216B2CAA53AD00C7696E /* PreferenceScrollButtonView.swift in Sources */,
 				9ED121882CAE91AD00C7696E /* MockHome.swift in Sources */,
+				9ED1219C2CB67F9600C7696E /* CultureCalendarHeaderView.swift in Sources */,
 				9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
 				9E0FF2B92C6C4F5A00544674 /* SplashViewController.swift in Sources */,
