@@ -31,7 +31,7 @@ class RegisterProfileViewController: BaseViewController {
     }
     
     private let subTitleLabel = UILabel().then {
-        $0.text = "등록된 정보는 마이페이지에서 수정하실 수 있습니다!"
+        $0.text = "등록된 정보는 마이페이지에서 수정할 수 있어요!"
         $0.textColor = .gray4
         $0.font = .body4
     }
