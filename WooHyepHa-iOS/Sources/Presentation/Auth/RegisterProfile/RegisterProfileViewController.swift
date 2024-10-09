@@ -25,7 +25,7 @@ class RegisterProfileViewController: BaseViewController {
     }
     
     private let mainTitleLabel = UILabel().then {
-        $0.text = "프로필을 채워보세요!"
+        $0.text = "프로필을 채워보세요"
         $0.textColor = .gray1
         $0.font = .h3
     }
