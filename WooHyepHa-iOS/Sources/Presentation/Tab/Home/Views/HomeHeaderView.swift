@@ -14,11 +14,24 @@ import Then
 
 class HomeHeaderView: BaseHeaderView {
     
-    private let logoLabel = UILabel().then {
-        $0.text = "findmuse"
-        $0.textColor = .white
-        $0.font = .poppinsSemiBold
-        $0.textAlignment = .left
+    private let nowButton = UIButton().then {
+        let attributedString = NSMutableAttributedString(string: "Now")
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(-0.89), range: NSRange(location: 0, length: attributedString.length - 1))
+        
+        $0.setAttributedTitle(attributedString, for: .normal)
+        $0.titleLabel?.font = .poppinsSemiBold
+        $0.titleLabel?.textAlignment = .left
+        $0.setTitleColor(.white, for: .normal)
+    }
+    
+    private let calendarButton = UIButton().then {
+        let attributedString = NSMutableAttributedString(string: "Calendar")
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: CGFloat(-0.89), range: NSRange(location: 0, length: attributedString.length - 1))
+        
+        $0.setAttributedTitle(attributedString, for: .normal)
+        $0.titleLabel?.font = .poppinsSemiBold
+        $0.titleLabel?.textAlignment = .left
+        $0.setTitleColor(.white.withAlphaComponent(0.5), for: .normal)
     }
     
     private let searchButton = UIButton().then {
@@ -29,7 +42,13 @@ class HomeHeaderView: BaseHeaderView {
         $0.setImage(.navBell, for: .normal)
     }
     
-    private let buttonStackView =  UIStackView().then {
+    private let leftButtonStackView =  UIStackView().then {
+        $0.axis = .horizontal
+        $0.distribution = .fillProportionally
+        $0.spacing = 20
+    }
+    
+    private let rightButtonStackView =  UIStackView().then {
         $0.axis = .horizontal
         $0.distribution = .fillProportionally
         $0.spacing = 16
@@ -49,32 +68,66 @@ class HomeHeaderView: BaseHeaderView {
     override func setHeaderView() {
         backgroundColor = .clear
         
-        [searchButton, alarmButton].forEach {
-            buttonStackView.addArrangedSubview($0)
+        [nowButton, calendarButton].forEach {
+            leftButtonStackView.addArrangedSubview($0)
         }
         
-        [logoLabel, buttonStackView].forEach {
+        [searchButton, alarmButton].forEach {
+            rightButtonStackView.addArrangedSubview($0)
+        }
+        
+        [leftButtonStackView, rightButtonStackView].forEach {
             addSubview($0)
         }
+        
         showBottomBorder = false
     }
     
     override func setConstraints() {
-        logoLabel.snp.makeConstraints {
+        leftButtonStackView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().offset(20)
+            $0.width.equalTo(140)
         }
         
-        buttonStackView.snp.makeConstraints {
+        rightButtonStackView.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(20)
             $0.width.equalTo(64)
         }
+        
+        [nowButton, calendarButton].forEach {
+            $0.snp.makeConstraints {
+                $0.height.equalTo(36)
+            }
+        }        
         
         [searchButton, alarmButton].forEach {
             $0.snp.makeConstraints {
                 $0.width.height.equalTo(24)
             }
         }
+    }
+}
+
+extension HomeHeaderView {
+    var inputNowButton: Observable<Void> {
+        nowButton.rx.tap
+            .asObservable()
+    }
+    
+    var inputCalendarButton: Observable<Void> {
+        calendarButton.rx.tap
+            .asObservable()
+    }
+    
+    var inputSearchButton: Observable<Void> {
+        searchButton.rx.tap
+            .asObservable()
+    }    
+    
+    var inputAlarmButton: Observable<Void> {
+        alarmButton.rx.tap
+            .asObservable()
     }
 }

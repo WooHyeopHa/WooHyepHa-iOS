@@ -13,6 +13,8 @@ import RxCocoa
 
 class HomeViewController: BaseViewController {
     
+    weak var coordinator: HomeCoordinator?
+    
     private var currentIndex: CGFloat = 0
     private var centerCellIndex: Int = 0
     private var isOneStepPaging = true
@@ -70,6 +72,7 @@ class HomeViewController: BaseViewController {
     
     override func setViewController() {
         view.backgroundColor = .white
+        
         [blurredBackgroundImageView, gradientView, headerView, homeButtonView, homeRecommendCollectionView, homeTodayView].forEach {
             view.addSubview($0)
         }
@@ -93,7 +96,7 @@ class HomeViewController: BaseViewController {
         }
         
         homeButtonView.snp.makeConstraints {
-            $0.top.equalTo(headerView.snp.bottom)
+            $0.top.equalTo(headerView.snp.bottom).offset(10)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             $0.height.equalTo(44)
         }
@@ -110,8 +113,16 @@ class HomeViewController: BaseViewController {
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
+    
+    override func bind() {
+        headerView.inputCalendarButton
+            .subscribe(with: self, onNext: { owner, _ in
+                print("123")
+                owner.coordinator?.goToCultureCalendarViewController()
+            })
+            .disposed(by: disposeBag)
+    }
 }
-
 extension HomeViewController {
     private func updateBackgroundImage() {
         let visibleRect = CGRect(origin: homeRecommendCollectionView.contentOffset, size: homeRecommendCollectionView.bounds.size)

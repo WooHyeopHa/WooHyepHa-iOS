@@ -23,10 +23,19 @@ final class HomeCoordinator: Coordinator {
     }
 }
 
-private extension HomeCoordinator {
+extension HomeCoordinator {
     func goToHomeViewController() {
         let homeViewController = HomeViewController()
+        homeViewController.coordinator = self
         navigationController.pushViewController(homeViewController, animated: true)
+    }
+    
+    func goToCultureCalendarViewController() {
+        let cultureCalendarViewController = CultureCalendarViewController()
+        cultureCalendarViewController.coordinator = self
+        
+        cultureCalendarViewController.hidesBottomBarWhenPushed = true
+        navigationController.pushViewController(cultureCalendarViewController, animated: true)
     }
 }
 
