@@ -29,7 +29,7 @@ class OnboardingSkipModalViewController: BaseViewController {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineHeightMultiple = 1.35
         
-        let attributedString = NSMutableAttributedString(string: "입력한 정보가 저장되었습니다.\n", attributes: [
+        let attributedString = NSMutableAttributedString(string: "지금까지 입력한 정보가 사라져요.\n", attributes: [
             .font: UIFont.body2,
             .foregroundColor: UIColor.gray4,
             .paragraphStyle: paragraphStyle
