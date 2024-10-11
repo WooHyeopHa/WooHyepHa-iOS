@@ -77,8 +77,8 @@ class HomeRecommendCollectionViewCell: UICollectionViewCell {
         super.init(coder: coder)
     }
     
-    func configuration(_ item: MokHome, currentPage: Int, totalPages: Int) {
-        thumbnailImageView.image = UIImage(named: item.image)
+    func configuration(_ item: ArtRandomList, currentPage: Int, totalPages: Int) {
+        thumbnailImageView.image = UIImage(named: item.poster)
         updatePage(currentPage: currentPage, totalPages: totalPages)
     }
     

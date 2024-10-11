@@ -14,8 +14,14 @@ final class HomeCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     
+    private let homeRepository: HomeRepository
+    private let nowHomeUseCase: NowHomeUseCase
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        
+        homeRepository = HomeRepository()
+        nowHomeUseCase = NowHomeUseCase(homeRepository: homeRepository)
     }
     
     func start() {
@@ -25,8 +31,8 @@ final class HomeCoordinator: Coordinator {
 
 extension HomeCoordinator {
     func goToHomeViewController() {
-        let homeViewController = HomeViewController()
-        homeViewController.coordinator = self
+        let homeViewModel = HomeViewModel(coordinator: self, homeUseCase: nowHomeUseCase)
+        let homeViewController = HomeViewController(viewModel: homeViewModel)
         navigationController.pushViewController(homeViewController, animated: true)
     }
     

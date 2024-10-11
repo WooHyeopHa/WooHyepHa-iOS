@@ -13,13 +13,15 @@ import RxCocoa
 
 class HomeViewController: BaseViewController {
     
-    weak var coordinator: HomeCoordinator?
+    private let viewModel: HomeViewModel
     
     private var currentIndex: CGFloat = 0
+    private var currentPage: Int = 1
     private var centerCellIndex: Int = 0
     private var isOneStepPaging = true
+    
     private let mokItem: [MokHome] = MokHome.recommendList
-    private var currentPage: Int = 1
+    private var testData: [ArtRandomList] = []
 
     private lazy var blurredBackgroundImageView: UIImageView = {
         let imageView = UIImageView()
@@ -56,6 +58,15 @@ class HomeViewController: BaseViewController {
     
     private let homeTodayView = HomeTodayView().then {
         $0.backgroundColor = .white
+    }
+    
+    init(viewModel: HomeViewModel) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override func viewDidLoad() {
@@ -115,10 +126,20 @@ class HomeViewController: BaseViewController {
     }
     
     override func bind() {
-        headerView.inputCalendarButton
-            .subscribe(with: self, onNext: { owner, _ in
-                print("123")
-                owner.coordinator?.goToCultureCalendarViewController()
+        let input = HomeViewModel.Input(
+            calendarButtonTapped: headerView.inputCalendarButton.asObservable(),
+            exhibitionButtonTapped: homeButtonView.inputExhibitionButton,
+            concertButtonTapped: homeButtonView.inputConcertButton,
+            classicButtonTapped: homeButtonView.inputClassicButton,
+            musicalButtonTapped: homeButtonView.inputMusicalButton
+        )
+        
+        let output = viewModel.bind(input: input)
+        
+        output.mockNowHomeData
+            .drive(with: self, onNext: { owner, data in
+                owner.testData = data.data.artRandomList
+                owner.homeTodayView.configuration(data: data.data.artTodayRandom)
             })
             .disposed(by: disposeBag)
     }
@@ -154,7 +175,7 @@ extension HomeViewController {
         if let indexPath = homeRecommendCollectionView.indexPathForItem(at: visiblePoint) {
             currentPage = indexPath.item + 1
             if let cell = homeRecommendCollectionView.cellForItem(at: indexPath) as? HomeRecommendCollectionViewCell {
-                cell.updatePage(currentPage: currentPage, totalPages: mokItem.count)
+                cell.updatePage(currentPage: currentPage, totalPages: testData.count)
             }
         }
     }
@@ -166,7 +187,7 @@ extension HomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return mokItem.count
+        return testData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -175,8 +196,8 @@ extension HomeViewController: UICollectionViewDataSource {
             return UICollectionViewCell()
         }
         
-        let item = mokItem[indexPath.row]
-        cell.configuration(item, currentPage: indexPath.item + 1, totalPages: mokItem.count)
+        let item = testData[indexPath.row]
+        cell.configuration(item, currentPage: indexPath.item + 1, totalPages: testData.count)
         return cell
     }
 }

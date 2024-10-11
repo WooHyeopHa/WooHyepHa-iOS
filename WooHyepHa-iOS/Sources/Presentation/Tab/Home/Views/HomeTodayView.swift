@@ -108,3 +108,10 @@ class HomeTodayView: BaseView {
     override func bind() {
     }
 }
+
+extension HomeTodayView {
+    func configuration(data: ArtTodayRandom) {
+        titleLabel.text = data.title
+        subDateLabel.text = "\(data.startDate) ~\(data.endDate)"
+    }
+}

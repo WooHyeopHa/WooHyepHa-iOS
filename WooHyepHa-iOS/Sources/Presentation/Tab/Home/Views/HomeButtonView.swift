@@ -116,3 +116,25 @@ extension HomeButtonView {
         return selectedHomeTag
     }
 }
+
+extension HomeButtonView {
+    var inputExhibitionButton: Observable<Void> {
+        exhibitionButton.rx.tap
+            .asObservable()
+    }
+    
+    var inputConcertButton: Observable<Void> {
+        concertButton.rx.tap
+            .asObservable()
+    }
+    
+    var inputClassicButton: Observable<Void> {
+        classicButton.rx.tap
+            .asObservable()
+    }
+    
+    var inputMusicalButton: Observable<Void> {
+        musicalButton.rx.tap
+            .asObservable()
+    }
+}

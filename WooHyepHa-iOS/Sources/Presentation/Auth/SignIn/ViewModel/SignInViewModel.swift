@@ -48,7 +48,7 @@ final class SignInViewModel: ViewModelType {
                 case .success:
                     print("성공")
                 case .failure:
-                    print("실패1")
+                    print("실패")
                 }
             })
             .disposed(by: disposeBag)
