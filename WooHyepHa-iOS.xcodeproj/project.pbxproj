@@ -63,7 +63,7 @@
 		9ED121602CA7BCAD00C7696E /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1215F2CA7BCAD00C7696E /* SignUpViewModel.swift */; };
 		9ED121642CA7CB7200C7696E /* RegisterProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121632CA7CB7200C7696E /* RegisterProfileViewModel.swift */; };
 		9ED121672CAA48FE00C7696E /* RegisterLocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121662CAA48FE00C7696E /* RegisterLocationViewModel.swift */; };
-		9ED121692CAA538F00C7696E /* OnboardingScrollButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121682CAA538F00C7696E /* OnboardingScrollButton.swift */; };
+		9ED121692CAA538F00C7696E /* BottomBorderButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121682CAA538F00C7696E /* BottomBorderButton.swift */; };
 		9ED1216B2CAA53AD00C7696E /* PreferenceScrollButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1216A2CAA53AD00C7696E /* PreferenceScrollButtonView.swift */; };
 		9ED1216E2CAA583500C7696E /* RegisterPreferenceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1216D2CAA583500C7696E /* RegisterPreferenceViewModel.swift */; };
 		9ED121732CAB9C3900C7696E /* RegisterNicknameRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121722CAB9C3900C7696E /* RegisterNicknameRequestDTO.swift */; };
@@ -76,7 +76,6 @@
 		9ED121822CAE876600C7696E /* HomeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121812CAE876600C7696E /* HomeButtonView.swift */; };
 		9ED121842CAE88D500C7696E /* HomeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121832CAE88D500C7696E /* HomeButton.swift */; };
 		9ED121862CAE911600C7696E /* HomeRecommendCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121852CAE911600C7696E /* HomeRecommendCollectionViewCell.swift */; };
-		9ED121882CAE91AD00C7696E /* MockHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121872CAE91AD00C7696E /* MockHome.swift */; };
 		9ED1218C2CAEACDF00C7696E /* Extension + UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1218B2CAEACDF00C7696E /* Extension + UIImageView.swift */; };
 		9ED1218F2CAFA62300C7696E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1218E2CAFA62300C7696E /* GradientView.swift */; };
 		9ED121922CAFB54600C7696E /* HomeTodayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121912CAFB54600C7696E /* HomeTodayView.swift */; };
@@ -94,6 +93,7 @@
 		9ED121B62CB8F78C00C7696E /* HomeRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121B52CB8F78C00C7696E /* HomeRepository.swift */; };
 		9ED121BA2CB8FBB600C7696E /* NowHomeUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121B92CB8FBB600C7696E /* NowHomeUseCase.swift */; };
 		9ED121BE2CB8FD9500C7696E /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121BD2CB8FD9500C7696E /* HomeViewModel.swift */; };
+		9ED121C02CBD09AB00C7696E /* CultureCalendarDateButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121BF2CBD09AB00C7696E /* CultureCalendarDateButtonView.swift */; };
 		9ED122092C7C60F60066C679 /* SignInWithAppleRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */; };
 		9ED1220C2C7C61E00066C679 /* SignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220B2C7C61E00066C679 /* SignInResult.swift */; };
 		9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220F2C7C62140066C679 /* SignInUseCase.swift */; };
@@ -165,7 +165,7 @@
 		9ED1215F2CA7BCAD00C7696E /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		9ED121632CA7CB7200C7696E /* RegisterProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterProfileViewModel.swift; sourceTree = "<group>"; };
 		9ED121662CAA48FE00C7696E /* RegisterLocationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterLocationViewModel.swift; sourceTree = "<group>"; };
-		9ED121682CAA538F00C7696E /* OnboardingScrollButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScrollButton.swift; sourceTree = "<group>"; };
+		9ED121682CAA538F00C7696E /* BottomBorderButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBorderButton.swift; sourceTree = "<group>"; };
 		9ED1216A2CAA53AD00C7696E /* PreferenceScrollButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceScrollButtonView.swift; sourceTree = "<group>"; };
 		9ED1216D2CAA583500C7696E /* RegisterPreferenceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceViewModel.swift; sourceTree = "<group>"; };
 		9ED121722CAB9C3900C7696E /* RegisterNicknameRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameRequestDTO.swift; sourceTree = "<group>"; };
@@ -178,7 +178,6 @@
 		9ED121812CAE876600C7696E /* HomeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButtonView.swift; sourceTree = "<group>"; };
 		9ED121832CAE88D500C7696E /* HomeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeButton.swift; sourceTree = "<group>"; };
 		9ED121852CAE911600C7696E /* HomeRecommendCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRecommendCollectionViewCell.swift; sourceTree = "<group>"; };
-		9ED121872CAE91AD00C7696E /* MockHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHome.swift; sourceTree = "<group>"; };
 		9ED1218B2CAEACDF00C7696E /* Extension + UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImageView.swift"; sourceTree = "<group>"; };
 		9ED1218E2CAFA62300C7696E /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		9ED121912CAFB54600C7696E /* HomeTodayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTodayView.swift; sourceTree = "<group>"; };
@@ -196,6 +195,7 @@
 		9ED121B52CB8F78C00C7696E /* HomeRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeRepository.swift; sourceTree = "<group>"; };
 		9ED121B92CB8FBB600C7696E /* NowHomeUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowHomeUseCase.swift; sourceTree = "<group>"; };
 		9ED121BD2CB8FD9500C7696E /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		9ED121BF2CBD09AB00C7696E /* CultureCalendarDateButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarDateButtonView.swift; sourceTree = "<group>"; };
 		9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleRequestDTO.swift; sourceTree = "<group>"; };
 		9ED1220B2C7C61E00066C679 /* SignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResult.swift; sourceTree = "<group>"; };
 		9ED1220F2C7C62140066C679 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
@@ -557,7 +557,6 @@
 				9E88DE262C74340500815EE0 /* OnboardingFooterView.swift */,
 				9E88DE322C7466E100815EE0 /* OnboardingProgressView.swift */,
 				9E88DE352C75774C00815EE0 /* OnboardingButton.swift */,
-				9ED121682CAA538F00C7696E /* OnboardingScrollButton.swift */,
 				9ED1217A2CAD055D00C7696E /* OnboardingSkipModalViewController.swift */,
 			);
 			path = Components;
@@ -644,7 +643,6 @@
 			children = (
 				9ED121832CAE88D500C7696E /* HomeButton.swift */,
 				9ED121852CAE911600C7696E /* HomeRecommendCollectionViewCell.swift */,
-				9ED121872CAE91AD00C7696E /* MockHome.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -652,6 +650,7 @@
 		9ED1218D2CAFA60C00C7696E /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9ED121682CAA538F00C7696E /* BottomBorderButton.swift */,
 				9ED1218E2CAFA62300C7696E /* GradientView.swift */,
 			);
 			path = Components;
@@ -688,6 +687,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED1219B2CB67F9600C7696E /* CultureCalendarHeaderView.swift */,
+				9ED121BF2CBD09AB00C7696E /* CultureCalendarDateButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1072,7 +1072,7 @@
 				9E0FF2A82C6B0AB400544674 /* MatingViewController.swift in Sources */,
 				9ED1216E2CAA583500C7696E /* RegisterPreferenceViewModel.swift in Sources */,
 				9ED1216B2CAA53AD00C7696E /* PreferenceScrollButtonView.swift in Sources */,
-				9ED121882CAE91AD00C7696E /* MockHome.swift in Sources */,
+				9ED121C02CBD09AB00C7696E /* CultureCalendarDateButtonView.swift in Sources */,
 				9ED1219C2CB67F9600C7696E /* CultureCalendarHeaderView.swift in Sources */,
 				9ED1219F2CB8E6BF00C7696E /* HomeService.swift in Sources */,
 				9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */,
@@ -1091,7 +1091,7 @@
 				9E0FF2B02C6B0B8500544674 /* ChatViewController.swift in Sources */,
 				9E88DE362C75774C00815EE0 /* OnboardingButton.swift in Sources */,
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
-				9ED121692CAA538F00C7696E /* OnboardingScrollButton.swift in Sources */,
+				9ED121692CAA538F00C7696E /* BottomBorderButton.swift in Sources */,
 				9ED1218F2CAFA62300C7696E /* GradientView.swift in Sources */,
 				9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */,
 				9ED121B62CB8F78C00C7696E /* HomeRepository.swift in Sources */,

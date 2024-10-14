@@ -17,6 +17,7 @@ class CultureCalendarViewController: BaseViewController {
     weak var coordinator: HomeCoordinator?
     
     private let headerView = CultureCalendarHeaderView()
+    private let cultureCalendarDateButtonView = CultureCalendarDateButtonView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,7 +26,7 @@ class CultureCalendarViewController: BaseViewController {
     override func setViewController() {
         view.backgroundColor = .white
         navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        [headerView].forEach {
+        [headerView, cultureCalendarDateButtonView].forEach {
             view.addSubview($0)
         }
     }
@@ -35,6 +36,12 @@ class CultureCalendarViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(56)
+        }
+        
+        cultureCalendarDateButtonView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(52)
         }
     }
     
