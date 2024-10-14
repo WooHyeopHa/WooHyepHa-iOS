@@ -20,7 +20,6 @@ class HomeViewController: BaseViewController {
     private var centerCellIndex: Int = 0
     private var isOneStepPaging = true
     
-    private let mokItem: [MokHome] = MokHome.recommendList
     private var testData: [ArtRandomList] = []
 
     private lazy var blurredBackgroundImageView: UIImageView = {

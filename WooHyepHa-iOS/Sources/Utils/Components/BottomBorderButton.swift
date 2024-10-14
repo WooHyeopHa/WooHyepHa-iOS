@@ -7,7 +7,7 @@
 
 import UIKit
 
-class OnboardingScrollButton: UIButton {
+class BottomBorderButton: UIButton {
     
     private var title: String
     private let bottomBorder = CALayer()
@@ -35,7 +35,7 @@ class OnboardingScrollButton: UIButton {
     }
 }
 
-private extension OnboardingScrollButton {
+private extension BottomBorderButton {
     func setButton() {
         setTitle(title, for: .normal)
         setTitleColor(.gray4, for: .normal)
