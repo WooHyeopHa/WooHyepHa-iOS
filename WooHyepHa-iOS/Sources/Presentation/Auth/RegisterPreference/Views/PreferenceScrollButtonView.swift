@@ -11,14 +11,14 @@ import RxCocoa
 import Then
 import SnapKit
 
-class OnboardingScrollButtonView: BaseView {
+class PreferenceScrollButtonView: BaseView {
     
-    private var selectedButton: OnboardingScrollButton?
+    private var selectedButton: BottomBorderButton?
     
-    private let exbitScrollButton = OnboardingScrollButton(title: "전시회")
-    private let concertScrollButton = OnboardingScrollButton(title: "콘서트")
-    private let musicalScrollButton = OnboardingScrollButton(title: "뮤지컬/연극")
-    private let classicScrollButton = OnboardingScrollButton(title: "클래식/무용")
+    private let exbitScrollButton = BottomBorderButton(title: "전시회")
+    private let concertScrollButton = BottomBorderButton(title: "콘서트")
+    private let musicalScrollButton = BottomBorderButton(title: "뮤지컬/연극")
+    private let classicScrollButton = BottomBorderButton(title: "클래식/무용")
     
     private let bottomBorder = UIView().then {
         $0.backgroundColor = .gray8
@@ -75,7 +75,7 @@ class OnboardingScrollButtonView: BaseView {
     }
 }
 
-extension OnboardingScrollButtonView {
+extension PreferenceScrollButtonView {
     enum scrollButtonType: String {
         case exhit = "exhit"
         case concert = "concert"
@@ -93,10 +93,10 @@ extension OnboardingScrollButtonView {
     }
 }
 
-private extension OnboardingScrollButtonView {
+private extension PreferenceScrollButtonView {
     func selectButton(_ field: String) {
         if let buttonType = scrollButtonType(rawValue: field) {
-            let button: OnboardingScrollButton
+            let button: BottomBorderButton
             switch buttonType {
             case .exhit:
                 button = exbitScrollButton

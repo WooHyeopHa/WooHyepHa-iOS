@@ -34,7 +34,7 @@ class RegisterPreferenceViewController: BaseViewController {
         $0.textColor = .gray4
     }
     
-    private let onboardingScrollButtonView = OnboardingScrollButtonView()
+    private let onboardingScrollButtonView = PreferenceScrollButtonView()
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     private let preferenceExhibitionView = PreferenceExhibitionView()
