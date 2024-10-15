@@ -96,6 +96,15 @@
 		9ED121C02CBD09AB00C7696E /* CultureCalendarDateButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121BF2CBD09AB00C7696E /* CultureCalendarDateButtonView.swift */; };
 		9ED121C32CBD0F8F00C7696E /* CultureCalendarButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121C22CBD0F8F00C7696E /* CultureCalendarButton.swift */; };
 		9ED121C52CBD12D000C7696E /* CultureCalendarButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121C42CBD12D000C7696E /* CultureCalendarButtonView.swift */; };
+		9ED121C92CBE329400C7696E /* CultureCalendarResponsesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121C82CBE329400C7696E /* CultureCalendarResponsesDTO.swift */; };
+		9ED121CB2CBE32B000C7696E /* ArtListDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121CA2CBE32B000C7696E /* ArtListDTO.swift */; };
+		9ED121CD2CBE32D200C7696E /* ArtList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121CC2CBE32D100C7696E /* ArtList.swift */; };
+		9ED121CF2CBE33DB00C7696E /* CultureCalendar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121CE2CBE33DB00C7696E /* CultureCalendar.swift */; };
+		9ED121D12CBE343900C7696E /* CultureCalendarRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121D02CBE343900C7696E /* CultureCalendarRequestDTO.swift */; };
+		9ED121D42CBE356600C7696E /* CultureCalendarUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121D32CBE356600C7696E /* CultureCalendarUseCase.swift */; };
+		9ED121D62CBE37B900C7696E /* CultureCalendarDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121D52CBE37B900C7696E /* CultureCalendarDataDTO.swift */; };
+		9ED121D82CBE3FD500C7696E /* CultureCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121D72CBE3FD500C7696E /* CultureCalendarCollectionViewCell.swift */; };
+		9ED121DB2CBE440700C7696E /* CultureCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121DA2CBE440700C7696E /* CultureCalendarViewModel.swift */; };
 		9ED122092C7C60F60066C679 /* SignInWithAppleRequestDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */; };
 		9ED1220C2C7C61E00066C679 /* SignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220B2C7C61E00066C679 /* SignInResult.swift */; };
 		9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1220F2C7C62140066C679 /* SignInUseCase.swift */; };
@@ -200,6 +209,15 @@
 		9ED121BF2CBD09AB00C7696E /* CultureCalendarDateButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarDateButtonView.swift; sourceTree = "<group>"; };
 		9ED121C22CBD0F8F00C7696E /* CultureCalendarButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarButton.swift; sourceTree = "<group>"; };
 		9ED121C42CBD12D000C7696E /* CultureCalendarButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarButtonView.swift; sourceTree = "<group>"; };
+		9ED121C82CBE329400C7696E /* CultureCalendarResponsesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarResponsesDTO.swift; sourceTree = "<group>"; };
+		9ED121CA2CBE32B000C7696E /* ArtListDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtListDTO.swift; sourceTree = "<group>"; };
+		9ED121CC2CBE32D100C7696E /* ArtList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtList.swift; sourceTree = "<group>"; };
+		9ED121CE2CBE33DB00C7696E /* CultureCalendar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendar.swift; sourceTree = "<group>"; };
+		9ED121D02CBE343900C7696E /* CultureCalendarRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarRequestDTO.swift; sourceTree = "<group>"; };
+		9ED121D32CBE356600C7696E /* CultureCalendarUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarUseCase.swift; sourceTree = "<group>"; };
+		9ED121D52CBE37B900C7696E /* CultureCalendarDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarDataDTO.swift; sourceTree = "<group>"; };
+		9ED121D72CBE3FD500C7696E /* CultureCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		9ED121DA2CBE440700C7696E /* CultureCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureCalendarViewModel.swift; sourceTree = "<group>"; };
 		9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInWithAppleRequestDTO.swift; sourceTree = "<group>"; };
 		9ED1220B2C7C61E00066C679 /* SignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResult.swift; sourceTree = "<group>"; };
 		9ED1220F2C7C62140066C679 /* SignInUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInUseCase.swift; sourceTree = "<group>"; };
@@ -681,6 +699,7 @@
 		9ED121942CB6793B00C7696E /* CultureCalendar */ = {
 			isa = PBXGroup;
 			children = (
+				9ED121D92CBE43F700C7696E /* ViewModel */,
 				9ED121C12CBD0F2600C7696E /* Components */,
 				9ED1219A2CB67F8600C7696E /* Views */,
 				9ED121952CB6795100C7696E /* CultureCalendarViewController.swift */,
@@ -718,6 +737,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED121BC2CB8FC5700C7696E /* Now */,
+				9ED121C62CBE326400C7696E /* CultureCalendar */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -726,6 +746,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED121A72CB8EE5900C7696E /* Now */,
+				9ED121C72CBE327700C7696E /* CultureCalendar */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -753,6 +774,7 @@
 			isa = PBXGroup;
 			children = (
 				9ED121BB2CB8FC4E00C7696E /* Now */,
+				9ED121D22CBE355700C7696E /* CultureCalendar */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -779,8 +801,45 @@
 			isa = PBXGroup;
 			children = (
 				9ED121C22CBD0F8F00C7696E /* CultureCalendarButton.swift */,
+				9ED121D72CBE3FD500C7696E /* CultureCalendarCollectionViewCell.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		9ED121C62CBE326400C7696E /* CultureCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				9ED121CE2CBE33DB00C7696E /* CultureCalendar.swift */,
+				9ED121CC2CBE32D100C7696E /* ArtList.swift */,
+			);
+			path = CultureCalendar;
+			sourceTree = "<group>";
+		};
+		9ED121C72CBE327700C7696E /* CultureCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				9ED121D02CBE343900C7696E /* CultureCalendarRequestDTO.swift */,
+				9ED121C82CBE329400C7696E /* CultureCalendarResponsesDTO.swift */,
+				9ED121CA2CBE32B000C7696E /* ArtListDTO.swift */,
+				9ED121D52CBE37B900C7696E /* CultureCalendarDataDTO.swift */,
+			);
+			path = CultureCalendar;
+			sourceTree = "<group>";
+		};
+		9ED121D22CBE355700C7696E /* CultureCalendar */ = {
+			isa = PBXGroup;
+			children = (
+				9ED121D32CBE356600C7696E /* CultureCalendarUseCase.swift */,
+			);
+			path = CultureCalendar;
+			sourceTree = "<group>";
+		};
+		9ED121D92CBE43F700C7696E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9ED121DA2CBE440700C7696E /* CultureCalendarViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9ED122002C7C5CBA0066C679 /* Entities */ = {
@@ -1054,6 +1113,7 @@
 				9ED121A22CB8EA0400C7696E /* HomeRepositoryProtocol.swift in Sources */,
 				9E6679402C76D2AA00832440 /* RegisterPreferenceViewController.swift in Sources */,
 				9ED122132C7C64600066C679 /* AuthRepositoryProtocol.swift in Sources */,
+				9ED121CB2CBE32B000C7696E /* ArtListDTO.swift in Sources */,
 				9ED121A52CB8EBA100C7696E /* NowHome.swift in Sources */,
 				9ED1217B2CAD055D00C7696E /* OnboardingSkipModalViewController.swift in Sources */,
 				9ED121842CAE88D500C7696E /* HomeButton.swift in Sources */,
@@ -1081,9 +1141,11 @@
 				9E0FF2B22C6B0B9D00544674 /* ChatCoordinator.swift in Sources */,
 				9E0FF2BD2C6C58BB00544674 /* SignInViewController.swift in Sources */,
 				9E0FF2C02C6C59D700544674 /* AuthCoordinator.swift in Sources */,
+				9ED121D82CBE3FD500C7696E /* CultureCalendarCollectionViewCell.swift in Sources */,
 				9E88DE3F2C75DD7800815EE0 /* PreferenceConcertView.swift in Sources */,
 				9ED121592CA416ED00C7696E /* RegisterNicknameViewController.swift in Sources */,
 				9E0FF2A82C6B0AB400544674 /* MatingViewController.swift in Sources */,
+				9ED121D42CBE356600C7696E /* CultureCalendarUseCase.swift in Sources */,
 				9ED1216E2CAA583500C7696E /* RegisterPreferenceViewModel.swift in Sources */,
 				9ED1216B2CAA53AD00C7696E /* PreferenceScrollButtonView.swift in Sources */,
 				9ED121C02CBD09AB00C7696E /* CultureCalendarDateButtonView.swift in Sources */,
@@ -1093,19 +1155,23 @@
 				9ED121C52CBD12D000C7696E /* CultureCalendarButtonView.swift in Sources */,
 				9ED121B32CB8F5CE00C7696E /* NowHomeDataDTO.swift in Sources */,
 				9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */,
+				9ED121D12CBE343900C7696E /* CultureCalendarRequestDTO.swift in Sources */,
 				9ED121A92CB8EE6A00C7696E /* NowHomeResponsesDTO.swift in Sources */,
 				9E0FF2B92C6C4F5A00544674 /* SplashViewController.swift in Sources */,
 				9ED122092C7C60F60066C679 /* SignInWithAppleRequestDTO.swift in Sources */,
+				9ED121CF2CBE33DB00C7696E /* CultureCalendar.swift in Sources */,
 				9ED121B12CB8F34300C7696E /* ArtTodayRandomDTO.swift in Sources */,
 				9E88DE0A2C6DD58B00815EE0 /* BirthInputView.swift in Sources */,
 				9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */,
 				9E0FF2962C6B066200544674 /* TabBarItemType.swift in Sources */,
 				9E88DE072C6DC85600815EE0 /* BaseView.swift in Sources */,
 				9ED1217E2CAE7F0F00C7696E /* HomeHeaderView.swift in Sources */,
+				9ED121C92CBE329400C7696E /* CultureCalendarResponsesDTO.swift in Sources */,
 				9ED121672CAA48FE00C7696E /* RegisterLocationViewModel.swift in Sources */,
 				9E0FF2B02C6B0B8500544674 /* ChatViewController.swift in Sources */,
 				9E88DE362C75774C00815EE0 /* OnboardingButton.swift in Sources */,
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
+				9ED121D62CBE37B900C7696E /* CultureCalendarDataDTO.swift in Sources */,
 				9ED121692CAA538F00C7696E /* BottomBorderButton.swift in Sources */,
 				9ED1218F2CAFA62300C7696E /* GradientView.swift in Sources */,
 				9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */,
@@ -1125,9 +1191,11 @@
 				9ED122262C7C70DB0066C679 /* ViewModelType.swift in Sources */,
 				9E0FF2A62C6B0A5F00544674 /* HomeViewController.swift in Sources */,
 				9E88DE132C73243600815EE0 /* RegisterLocationViewController.swift in Sources */,
+				9ED121CD2CBE32D200C7696E /* ArtList.swift in Sources */,
 				9E88DE272C74340500815EE0 /* OnboardingFooterView.swift in Sources */,
 				9E0FF2C52C6C62FA00544674 /* BaseHeaderView.swift in Sources */,
 				9E88DE0C2C6DD75A00815EE0 /* SexInputView.swift in Sources */,
+				9ED121DB2CBE440700C7696E /* CultureCalendarViewModel.swift in Sources */,
 				9E88DE032C6DC7C200815EE0 /* NicknameInputView.swift in Sources */,
 				9ED121642CA7CB7200C7696E /* RegisterProfileViewModel.swift in Sources */,
 				9ED121BA2CB8FBB600C7696E /* NowHomeUseCase.swift in Sources */,

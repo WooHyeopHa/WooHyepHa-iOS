@@ -16,12 +16,14 @@ final class HomeCoordinator: Coordinator {
     
     private let homeRepository: HomeRepository
     private let nowHomeUseCase: NowHomeUseCase
+    private let cultureCalendarUseCase: CultureCalendarUseCase
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         
         homeRepository = HomeRepository()
         nowHomeUseCase = NowHomeUseCase(homeRepository: homeRepository)
+        cultureCalendarUseCase = CultureCalendarUseCase(homeRepository: homeRepository)
     }
     
     func start() {
@@ -37,10 +39,8 @@ extension HomeCoordinator {
     }
     
     func goToCultureCalendarViewController() {
-        let cultureCalendarViewController = CultureCalendarViewController()
-        cultureCalendarViewController.coordinator = self
-        
-        cultureCalendarViewController.hidesBottomBarWhenPushed = true
+        let cultureCalendarViewModel = CultureCalendarViewModel(coordinator: self, cultureCalendarUseCase: cultureCalendarUseCase)
+        let cultureCalendarViewController = CultureCalendarViewController(viewModel: cultureCalendarViewModel)
         navigationController.pushViewController(cultureCalendarViewController, animated: false)
     }
 }

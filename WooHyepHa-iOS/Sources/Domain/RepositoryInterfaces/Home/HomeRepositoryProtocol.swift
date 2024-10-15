@@ -9,7 +9,9 @@ import RxSwift
 
 protocol HomeRepositoryProtocol {
     func fetchNowHome(userId: Int) -> Observable<NowHome>
+    func fetchCultureCalendar(userId: Int, request: CultureCalendarRequestDTO) -> Observable<CultureCalendar>
     
     // Mock
     func fetchMockNowHome() -> Observable<NowHome>
+    func fetchMockCultureCalendar() -> Observable<CultureCalendar>
 }
