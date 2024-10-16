@@ -120,6 +120,13 @@ class CultureCalendarViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        cultureCalendarDateButtonView.inputSpecifyDateButton
+            .subscribe(with: self, onNext: { owner, _ in
+                let modal = CultureCalendarSpecifyDateModalViewController()
+                modal.showModal(vc: self)
+            })
+            .disposed(by: disposeBag)
+        
         let input = CultureCalendarViewModel.Input(
             nowButtonTapped: headerView.inputNowButton.asObservable()
         )

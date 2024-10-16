@@ -123,3 +123,10 @@ private extension CultureCalendarDateButtonView {
         }
     }
 }
+
+extension CultureCalendarDateButtonView {
+    var inputSpecifyDateButton: Observable<Void> {
+        specifyDateButton.rx.tap
+            .asObservable()
+    }
+}
