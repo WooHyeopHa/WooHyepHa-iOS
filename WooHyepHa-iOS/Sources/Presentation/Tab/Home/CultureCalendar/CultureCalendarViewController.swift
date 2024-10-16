@@ -13,13 +13,13 @@ import RxSwift
 import RxCocoa
 
 class CultureCalendarViewController: BaseViewController {
-
+    
     private let viewModel: CultureCalendarViewModel
     
     private let headerView = CultureCalendarHeaderView()
     private let cultureCalendarDateButtonView = CultureCalendarDateButtonView()
     private let cultureCalendarButtonView = CultureCalendarButtonView()
-    
+
     private var testData: [ArtList] = []
     
     private let cultureCountLabel = UILabel().then {
@@ -87,13 +87,13 @@ class CultureCalendarViewController: BaseViewController {
             $0.top.equalTo(headerView.snp.bottom)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(52)
-        }        
+        }
         
         cultureCalendarButtonView.snp.makeConstraints {
             $0.top.equalTo(cultureCalendarDateButtonView.snp.bottom)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(64)
-        }        
+        }
         
         cultureCountLabel.snp.makeConstraints {
             $0.top.equalTo(cultureCalendarButtonView.snp.bottom).offset(16)
@@ -103,7 +103,7 @@ class CultureCalendarViewController: BaseViewController {
         sortButton.snp.makeConstraints {
             $0.top.equalTo(cultureCalendarButtonView.snp.bottom).offset(16)
             $0.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
-        }        
+        }
         
         cultureCalendarCollectionView.snp.makeConstraints {
             $0.top.equalTo(cultureCountLabel.snp.bottom).offset(24)
@@ -113,18 +113,25 @@ class CultureCalendarViewController: BaseViewController {
     }
     
     override func bind() {
-            let input = CultureCalendarViewModel.Input(
-                nowButtonTapped: headerView.inputNowButton.asObservable()
-            )
-            
-            let output = viewModel.bind(input: input)
-            
-            output.mockCultureCalendarData
-                .drive(with: self, onNext: { owner, data in
-                    owner.testData = data.data.artList
-                    owner.cultureCountLabel.text = "\(data.data.artList.count)개 문화예술"
-                })
-                .disposed(by: disposeBag)
+        sortButton.rx.tap
+            .subscribe(with: self, onNext: { owner, _ in
+                let modal = CultureCalendarSortModalViewController()
+                modal.showModal(vc: self)
+            })
+            .disposed(by: disposeBag)
+        
+        let input = CultureCalendarViewModel.Input(
+            nowButtonTapped: headerView.inputNowButton.asObservable()
+        )
+        
+        let output = viewModel.bind(input: input)
+        
+        output.mockCultureCalendarData
+            .drive(with: self, onNext: { owner, data in
+                owner.testData = data.data.artList
+                owner.cultureCountLabel.text = "\(data.data.artList.count)개 문화예술"
+            })
+            .disposed(by: disposeBag)
     }
 }
 
