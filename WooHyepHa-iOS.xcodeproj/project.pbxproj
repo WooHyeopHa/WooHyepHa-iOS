@@ -445,12 +445,9 @@
 		9E0FF2A22C6B0A0800544674 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9E6326AC2CC20A5200F661A9 /* Now */,
 				9ED121942CB6793B00C7696E /* CultureCalendar */,
-				9ED1217C2CAE7EF900C7696E /* Components */,
-				9ED121932CAFBB0400C7696E /* Views */,
-				9ED121902CAFAB0500C7696E /* ViewModel */,
-				9E0FF2A32C6B0A2B00544674 /* HomeCoordinator.swift */,
-				9E0FF2A52C6B0A5F00544674 /* HomeViewController.swift */,
+				9E6326AB2CC20A3800F661A9 /* Alarm */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -521,6 +518,25 @@
 				9E0FF1DE2C5A21BF00544674 /* Resources */,
 			);
 			path = "WooHyepHa-iOS";
+			sourceTree = "<group>";
+		};
+		9E6326AB2CC20A3800F661A9 /* Alarm */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Alarm;
+			sourceTree = "<group>";
+		};
+		9E6326AC2CC20A5200F661A9 /* Now */ = {
+			isa = PBXGroup;
+			children = (
+				9ED1217C2CAE7EF900C7696E /* Components */,
+				9ED121932CAFBB0400C7696E /* Views */,
+				9ED121902CAFAB0500C7696E /* ViewModel */,
+				9E0FF2A32C6B0A2B00544674 /* HomeCoordinator.swift */,
+				9E0FF2A52C6B0A5F00544674 /* HomeViewController.swift */,
+			);
+			path = Now;
 			sourceTree = "<group>";
 		};
 		9E66793D2C76D29200832440 /* RegisterPreference */ = {
