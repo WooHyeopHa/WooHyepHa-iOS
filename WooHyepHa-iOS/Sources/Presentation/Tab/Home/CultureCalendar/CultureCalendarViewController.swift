@@ -128,7 +128,8 @@ class CultureCalendarViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         let input = CultureCalendarViewModel.Input(
-            nowButtonTapped: headerView.inputNowButton.asObservable()
+            nowButtonTapped: headerView.inputNowButton.asObservable(),
+            alarmButtonTapped: headerView.inputAlarmButton.asObservable()
         )
         
         let output = viewModel.bind(input: input)

@@ -127,10 +127,12 @@ class HomeViewController: BaseViewController {
     override func bind() {
         let input = HomeViewModel.Input(
             calendarButtonTapped: headerView.inputCalendarButton.asObservable(),
-            exhibitionButtonTapped: homeButtonView.inputExhibitionButton,
-            concertButtonTapped: homeButtonView.inputConcertButton,
-            classicButtonTapped: homeButtonView.inputClassicButton,
-            musicalButtonTapped: homeButtonView.inputMusicalButton
+            exhibitionButtonTapped: homeButtonView.inputExhibitionButton.asObservable(),
+            concertButtonTapped: homeButtonView.inputConcertButton.asObservable(),
+            classicButtonTapped: homeButtonView.inputClassicButton.asObservable(),
+            musicalButtonTapped: homeButtonView.inputMusicalButton.asObservable(),
+            
+            alarmButtonTapped: headerView.inputAlarmButton.asObservable()
         )
         
         let output = viewModel.bind(input: input)
