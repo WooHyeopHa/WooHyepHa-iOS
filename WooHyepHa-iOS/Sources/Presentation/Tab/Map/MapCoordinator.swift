@@ -14,8 +14,13 @@ final class MapCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     
+    private let mapRepository: MapRepository
+    private let mapUseCase: MapUseCase
+    
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
+        mapRepository = MapRepository()
+        mapUseCase = MapUseCase(repository: mapRepository)
     }
     
     func start() {
@@ -25,7 +30,8 @@ final class MapCoordinator: Coordinator {
 
 private extension MapCoordinator {
     func goToMapViewController() {
-        let mapViewController = MapViewController()
+        let mapViewModel = MapViewModel(mapUseCase: mapUseCase)
+        let mapViewController = MapViewController(viewModel: mapViewModel)
         navigationController.pushViewController(mapViewController, animated: true)
     }
 }
