@@ -38,6 +38,10 @@
 		9E5906672C4F993C00647DEE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906662C4F993C00647DEE /* SceneDelegate.swift */; };
 		9E5906692C4F993C00647DEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E5906682C4F993C00647DEE /* ViewController.swift */; };
 		9E59066E2C4F993D00647DEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9E59066D2C4F993D00647DEE /* Assets.xcassets */; };
+		9E6326AF2CC20AEE00F661A9 /* AlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6326AE2CC20AEE00F661A9 /* AlarmViewController.swift */; };
+		9E6326B22CC20B3900F661A9 /* AlarmHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6326B12CC20B3900F661A9 /* AlarmHeaderView.swift */; };
+		9E6326B42CC20D2800F661A9 /* AlarmViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6326B32CC20D2800F661A9 /* AlarmViewModel.swift */; };
+		9E6326B62CC210F000F661A9 /* AlarmButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6326B52CC210F000F661A9 /* AlarmButtonView.swift */; };
 		9E66792B2C760FF000832440 /* PreferenceMusicalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66792A2C760FF000832440 /* PreferenceMusicalView.swift */; };
 		9E6679312C761A4100832440 /* PreferenceClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6679302C761A4100832440 /* PreferenceClassicView.swift */; };
 		9E6679402C76D2AA00832440 /* RegisterPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66793F2C76D2AA00832440 /* RegisterPreferenceViewController.swift */; };
@@ -155,6 +159,10 @@
 		9E5906662C4F993C00647DEE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		9E5906682C4F993C00647DEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9E59066D2C4F993D00647DEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9E6326AE2CC20AEE00F661A9 /* AlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewController.swift; sourceTree = "<group>"; };
+		9E6326B12CC20B3900F661A9 /* AlarmHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmHeaderView.swift; sourceTree = "<group>"; };
+		9E6326B32CC20D2800F661A9 /* AlarmViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmViewModel.swift; sourceTree = "<group>"; };
+		9E6326B52CC210F000F661A9 /* AlarmButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlarmButtonView.swift; sourceTree = "<group>"; };
 		9E66792A2C760FF000832440 /* PreferenceMusicalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceMusicalView.swift; sourceTree = "<group>"; };
 		9E6679302C761A4100832440 /* PreferenceClassicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceClassicView.swift; sourceTree = "<group>"; };
 		9E66793F2C76D2AA00832440 /* RegisterPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceViewController.swift; sourceTree = "<group>"; };
@@ -445,6 +453,7 @@
 		9E0FF2A22C6B0A0800544674 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				9E0FF2A32C6B0A2B00544674 /* HomeCoordinator.swift */,
 				9E6326AC2CC20A5200F661A9 /* Now */,
 				9ED121942CB6793B00C7696E /* CultureCalendar */,
 				9E6326AB2CC20A3800F661A9 /* Alarm */,
@@ -523,6 +532,9 @@
 		9E6326AB2CC20A3800F661A9 /* Alarm */ = {
 			isa = PBXGroup;
 			children = (
+				9E6326B02CC20B2900F661A9 /* Views */,
+				9E6326AD2CC20ADC00F661A9 /* ViewModel */,
+				9E6326AE2CC20AEE00F661A9 /* AlarmViewController.swift */,
 			);
 			path = Alarm;
 			sourceTree = "<group>";
@@ -533,10 +545,26 @@
 				9ED1217C2CAE7EF900C7696E /* Components */,
 				9ED121932CAFBB0400C7696E /* Views */,
 				9ED121902CAFAB0500C7696E /* ViewModel */,
-				9E0FF2A32C6B0A2B00544674 /* HomeCoordinator.swift */,
 				9E0FF2A52C6B0A5F00544674 /* HomeViewController.swift */,
 			);
 			path = Now;
+			sourceTree = "<group>";
+		};
+		9E6326AD2CC20ADC00F661A9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9E6326B32CC20D2800F661A9 /* AlarmViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9E6326B02CC20B2900F661A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9E6326B12CC20B3900F661A9 /* AlarmHeaderView.swift */,
+				9E6326B52CC210F000F661A9 /* AlarmButtonView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		9E66793D2C76D29200832440 /* RegisterPreference */ = {
@@ -1173,6 +1201,7 @@
 				9ED121822CAE876600C7696E /* HomeButtonView.swift in Sources */,
 				9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */,
 				9ED1221E2C7C67F00066C679 /* AuthService.swift in Sources */,
+				9E6326B62CC210F000F661A9 /* AlarmButtonView.swift in Sources */,
 				9E5906652C4F993C00647DEE /* AppDelegate.swift in Sources */,
 				9E88DDF62C6DB27500815EE0 /* RegisterProfileViewController.swift in Sources */,
 				9E88DE232C74263100815EE0 /* OnboardingHeaderView.swift in Sources */,
@@ -1205,7 +1234,9 @@
 				9ED121B12CB8F34300C7696E /* ArtTodayRandomDTO.swift in Sources */,
 				9E88DE0A2C6DD58B00815EE0 /* BirthInputView.swift in Sources */,
 				9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */,
+				9E6326B42CC20D2800F661A9 /* AlarmViewModel.swift in Sources */,
 				9E0FF2962C6B066200544674 /* TabBarItemType.swift in Sources */,
+				9E6326B22CC20B3900F661A9 /* AlarmHeaderView.swift in Sources */,
 				9E88DE072C6DC85600815EE0 /* BaseView.swift in Sources */,
 				9ED1217E2CAE7F0F00C7696E /* HomeHeaderView.swift in Sources */,
 				9ED121C92CBE329400C7696E /* CultureCalendarResponsesDTO.swift in Sources */,
@@ -1214,6 +1245,7 @@
 				9E88DE362C75774C00815EE0 /* OnboardingButton.swift in Sources */,
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
 				9ED121D62CBE37B900C7696E /* CultureCalendarDataDTO.swift in Sources */,
+				9E6326AF2CC20AEE00F661A9 /* AlarmViewController.swift in Sources */,
 				9ED121E12CBF7A3000C7696E /* CultureCalendarModalButtonView.swift in Sources */,
 				9ED121692CAA538F00C7696E /* BottomBorderButton.swift in Sources */,
 				9ED1218F2CAFA62300C7696E /* GradientView.swift in Sources */,

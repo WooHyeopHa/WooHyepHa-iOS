@@ -11,6 +11,7 @@ import RxCocoa
 final class CultureCalendarViewModel: ViewModelType {
     struct Input {
         let nowButtonTapped: Observable<Void>
+        let alarmButtonTapped: Observable<Void>
 //        let allButtonTapped: Observable<Void>
 //        let exhibitionButtonTapped: Observable<Void>
 //        let concertButtonTapped: Observable<Void>
@@ -37,6 +38,12 @@ final class CultureCalendarViewModel: ViewModelType {
         input.nowButtonTapped
             .subscribe(with: self, onNext: { owner, _ in
                 owner.coordinator?.pop(animated: false)
+            })
+            .disposed(by: disposeBag)
+        
+        input.alarmButtonTapped
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.coordinator?.goToAlarmViewController()
             })
             .disposed(by: disposeBag)
         

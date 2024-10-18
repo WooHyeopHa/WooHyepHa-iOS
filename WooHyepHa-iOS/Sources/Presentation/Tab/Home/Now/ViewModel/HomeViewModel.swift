@@ -15,6 +15,8 @@ final class HomeViewModel: ViewModelType {
         let concertButtonTapped: Observable<Void>
         let classicButtonTapped: Observable<Void>
         let musicalButtonTapped: Observable<Void>
+        
+        let alarmButtonTapped: Observable<Void>
     }
     
     struct Output {
@@ -42,6 +44,12 @@ final class HomeViewModel: ViewModelType {
         input.exhibitionButtonTapped
             .subscribe(with: self, onNext: { owner, _ in
                 
+            })
+            .disposed(by: disposeBag)
+        
+        input.alarmButtonTapped
+            .subscribe(with: self, onNext: { owner, _ in
+                owner.coordinator?.goToAlarmViewController()
             })
             .disposed(by: disposeBag)
         

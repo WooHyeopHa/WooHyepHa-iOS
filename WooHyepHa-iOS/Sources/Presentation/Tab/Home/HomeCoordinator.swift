@@ -43,5 +43,11 @@ extension HomeCoordinator {
         let cultureCalendarViewController = CultureCalendarViewController(viewModel: cultureCalendarViewModel)
         navigationController.pushViewController(cultureCalendarViewController, animated: false)
     }
+    
+    func goToAlarmViewController() {
+        let alarmViewModel = AlarmViewModel(coordinator: self, homeUseCase: nowHomeUseCase)
+        let alarmViewController = AlarmViewController(viewModel: alarmViewModel)
+        navigationController.pushViewController(alarmViewController, animated: false)
+    }
 }
 
