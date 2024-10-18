@@ -15,10 +15,10 @@ class PreferenceScrollButtonView: BaseView {
     
     private var selectedButton: BottomBorderButton?
     
-    private let exbitScrollButton = BottomBorderButton(title: "전시회")
-    private let concertScrollButton = BottomBorderButton(title: "콘서트")
-    private let musicalScrollButton = BottomBorderButton(title: "뮤지컬/연극")
-    private let classicScrollButton = BottomBorderButton(title: "클래식/무용")
+    private let exbitScrollButton = BottomBorderButton(title: "전시회",  updateAppearanceTextColor: .gray2)
+    private let concertScrollButton = BottomBorderButton(title: "콘서트",  updateAppearanceTextColor: .gray2)
+    private let musicalScrollButton = BottomBorderButton(title: "뮤지컬/연극",  updateAppearanceTextColor: .gray2)
+    private let classicScrollButton = BottomBorderButton(title: "클래식/무용",  updateAppearanceTextColor: .gray2)
     
     private let bottomBorder = UIView().then {
         $0.backgroundColor = .gray8

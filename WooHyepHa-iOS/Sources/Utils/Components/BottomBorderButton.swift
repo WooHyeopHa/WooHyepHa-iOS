@@ -10,7 +10,27 @@ import UIKit
 class BottomBorderButton: UIButton {
     
     private var title: String
+    private var updateAppearanceTextColor: UIColor
+    
     private let bottomBorder = CALayer()
+    
+    var fullBottomMode: Bool = false {
+        didSet {
+            
+        }
+    }
+    
+    var updateAppearanceBottomBorderColor: CGColor = UIColor.gray2.cgColor {
+        didSet {
+            bottomBorder.backgroundColor = updateAppearanceBottomBorderColor
+        }
+    }
+    
+    var titleColor: UIColor = .gray4 {
+        didSet {
+            setTitleColor(titleColor, for: .normal)
+        }
+    }
     
     override var isSelected: Bool {
         didSet {
@@ -18,8 +38,9 @@ class BottomBorderButton: UIButton {
         }
     }
     
-    init(title: String) {
+    init(title: String, updateAppearanceTextColor: UIColor) {
         self.title = title
+        self.updateAppearanceTextColor = updateAppearanceTextColor
         super.init(frame: .zero)
         setButton()
         setupBottomBorder()
@@ -58,7 +79,7 @@ private extension BottomBorderButton {
 
     func updateAppearance() {
         if isSelected {
-            setTitleColor(.gray2, for: .normal)
+            setTitleColor(updateAppearanceTextColor, for: .normal)
             bottomBorder.isHidden = false
         } else {
             setTitleColor(.gray4, for: .normal)

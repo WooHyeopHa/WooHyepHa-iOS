@@ -15,11 +15,11 @@ class CultureCalendarDateButtonView: BaseView {
     
     private var selectedButton: BottomBorderButton?
     
-    private let todayButton = BottomBorderButton(title: "오늘")
-    private let tomorrowButton = BottomBorderButton(title: "내일")
-    private let weekButton = BottomBorderButton(title: "+1주")
-    private let twoweeksButton = BottomBorderButton(title: "+2주")
-    private let specifyDateButton = BottomBorderButton(title: "날짜지정")
+    private let todayButton = BottomBorderButton(title: "오늘", updateAppearanceTextColor: .gray2)
+    private let tomorrowButton = BottomBorderButton(title: "내일", updateAppearanceTextColor: .gray2)
+    private let weekButton = BottomBorderButton(title: "+1주", updateAppearanceTextColor: .gray2)
+    private let twoweeksButton = BottomBorderButton(title: "+2주",  updateAppearanceTextColor: .gray2)
+    private let specifyDateButton = BottomBorderButton(title: "날짜지정",  updateAppearanceTextColor: .gray2)
     
     private let bottomBorder = UIView().then {
         $0.backgroundColor = .gray8
@@ -65,7 +65,7 @@ class CultureCalendarDateButtonView: BaseView {
     }
     
     override func bind() {
-        inputScrollButton
+        inputDateButton
             .subscribe(with: self, onNext: { owner, type in
                 owner.selectButton(type)
             })
@@ -87,7 +87,7 @@ extension CultureCalendarDateButtonView {
         case specifyDate = "specifyDate"
     }
     
-    var inputScrollButton: Observable<String> {
+    var inputDateButton: Observable<String> {
         return Observable.merge(
             todayButton.rx.tap.map { dateButtonType.today.rawValue },
             tomorrowButton.rx.tap.map { dateButtonType.tomorrow.rawValue },
