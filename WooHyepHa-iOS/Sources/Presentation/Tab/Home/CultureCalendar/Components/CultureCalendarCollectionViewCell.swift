@@ -64,7 +64,12 @@ class CultureCalendarCollectionViewCell: UICollectionViewCell {
     }
     
     func configuration(_ item: ArtList) {
-        thumbnailImageView.image = UIImage(named: item.poster)
+        if let posterImage = UIImage(named: item.poster) {
+            thumbnailImageView.image = posterImage
+        } else {
+            thumbnailImageView.image = .posterdefault
+        }
+        
         genreLabel.text = item.genre
         titleLabel.text = item.title
         placeLabel.text = item.place
