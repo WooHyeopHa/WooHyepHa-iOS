@@ -23,6 +23,9 @@ class MapViewController: BaseViewController {
     private let locationManager = NMFLocationManager.sharedInstance()
     private let coreLocationManager = CLLocationManager()
     
+    private let headerView = MapHeaderView()
+    private let mapButtonView = MapButtonView()
+    
     private lazy var naverMapView = NMFMapView(frame: self.view.frame).then {
         $0.isNightModeEnabled = false
         $0.extent = NMGLatLngBounds(
@@ -50,12 +53,36 @@ class MapViewController: BaseViewController {
     override func setViewController() {
         view.backgroundColor = .white
         
-        [naverMapView].forEach {
+        [naverMapView, headerView, mapButtonView].forEach {
             view.addSubview($0)
         }
     }
     
+    override func setConstraints() {
+        headerView.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(60)
+        }        
+        
+        mapButtonView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(36)
+        }
+    }
+    
     override  func bind() {
+        mapButtonView.selectedGenres
+            .subscribe(onNext: { genres in
+                if genres.isEmpty {
+                    print("전체")
+                } else {
+                    print("선택 장르 : \(genres)")
+                }
+            })
+            .disposed(by: disposeBag)
+        
         let input = MapViewModel.Input()
         
         let output = viewModel.bind(input: input)
@@ -105,7 +132,7 @@ private extension MapViewController {
         let coord = NMGLatLng(lat: location.latitude, lng: location.longitude)
         circle.center = coord
         circle.radius = 80
-        circle.fillColor = UIColor.orange.withAlphaComponent(0.3)
+        circle.fillColor = UIColor.MainColor.withAlphaComponent(0.2)
         circle.outlineWidth = 0
         circle.mapView = naverMapView
     }

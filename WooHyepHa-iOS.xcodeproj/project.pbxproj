@@ -53,6 +53,10 @@
 		9E6326D12CC21D7100F661A9 /* UserMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6326D02CC21D7100F661A9 /* UserMarker.swift */; };
 		9E6326D32CC21E1500F661A9 /* CultureMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6326D22CC21E1500F661A9 /* CultureMarker.swift */; };
 		9E6326D52CC21E7400F661A9 /* DetailMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6326D42CC21E7400F661A9 /* DetailMarker.swift */; };
+		9E6326D72CC75B4A00F661A9 /* MapHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6326D62CC75B4A00F661A9 /* MapHeaderView.swift */; };
+		9E6326D92CC7604500F661A9 /* MapButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6326D82CC7604500F661A9 /* MapButtonView.swift */; };
+		9E6326DD2CC7607700F661A9 /* MapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6326DC2CC7607700F661A9 /* MapButton.swift */; };
+		9E6326DF2CC765ED00F661A9 /* Extension + UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6326DE2CC765ED00F661A9 /* Extension + UIImage.swift */; };
 		9E66792B2C760FF000832440 /* PreferenceMusicalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66792A2C760FF000832440 /* PreferenceMusicalView.swift */; };
 		9E6679312C761A4100832440 /* PreferenceClassicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E6679302C761A4100832440 /* PreferenceClassicView.swift */; };
 		9E6679402C76D2AA00832440 /* RegisterPreferenceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E66793F2C76D2AA00832440 /* RegisterPreferenceViewController.swift */; };
@@ -185,6 +189,10 @@
 		9E6326D02CC21D7100F661A9 /* UserMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMarker.swift; sourceTree = "<group>"; };
 		9E6326D22CC21E1500F661A9 /* CultureMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CultureMarker.swift; sourceTree = "<group>"; };
 		9E6326D42CC21E7400F661A9 /* DetailMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMarker.swift; sourceTree = "<group>"; };
+		9E6326D62CC75B4A00F661A9 /* MapHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapHeaderView.swift; sourceTree = "<group>"; };
+		9E6326D82CC7604500F661A9 /* MapButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButtonView.swift; sourceTree = "<group>"; };
+		9E6326DC2CC7607700F661A9 /* MapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapButton.swift; sourceTree = "<group>"; };
+		9E6326DE2CC765ED00F661A9 /* Extension + UIImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + UIImage.swift"; sourceTree = "<group>"; };
 		9E66792A2C760FF000832440 /* PreferenceMusicalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceMusicalView.swift; sourceTree = "<group>"; };
 		9E6679302C761A4100832440 /* PreferenceClassicView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferenceClassicView.swift; sourceTree = "<group>"; };
 		9E66793F2C76D2AA00832440 /* RegisterPreferenceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterPreferenceViewController.swift; sourceTree = "<group>"; };
@@ -361,6 +369,7 @@
 				9E88DDF02C6DA57100815EE0 /* Extension + UIView.swift */,
 				9ED122272C7C74710066C679 /* RxASAuthorizationControllerDelegateProxy.swift */,
 				9ED1218B2CAEACDF00C7696E /* Extension + UIImageView.swift */,
+				9E6326DE2CC765ED00F661A9 /* Extension + UIImage.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -644,6 +653,8 @@
 			isa = PBXGroup;
 			children = (
 				9E6326CB2CC21CD500F661A9 /* MapCustomView.swift */,
+				9E6326D62CC75B4A00F661A9 /* MapHeaderView.swift */,
+				9E6326D82CC7604500F661A9 /* MapButtonView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -662,6 +673,7 @@
 				9E6326D02CC21D7100F661A9 /* UserMarker.swift */,
 				9E6326D22CC21E1500F661A9 /* CultureMarker.swift */,
 				9E6326D42CC21E7400F661A9 /* DetailMarker.swift */,
+				9E6326DC2CC7607700F661A9 /* MapButton.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -1278,6 +1290,7 @@
 				9E88DE332C7466E100815EE0 /* OnboardingProgressView.swift in Sources */,
 				9ED121E82CBF82DC00C7696E /* CalendarCell.swift in Sources */,
 				9E88DE3B2C75794D00815EE0 /* PreferenceExhibitionView.swift in Sources */,
+				9E6326DD2CC7607700F661A9 /* MapButton.swift in Sources */,
 				9ED121AD2CB8F01C00C7696E /* ArtRandomList.swift in Sources */,
 				9ED121BE2CB8FD9500C7696E /* HomeViewModel.swift in Sources */,
 				9E0FF2B42C6B0C3500544674 /* MyPageViewController.swift in Sources */,
@@ -1298,6 +1311,7 @@
 				9E6326B92CC21B2800F661A9 /* LocationService.swift in Sources */,
 				9ED121752CAB9C6600C7696E /* RegisterNicknameResponsesDTO.swift in Sources */,
 				9E0FF2AA2C6B0AD100544674 /* MatingCoordinator.swift in Sources */,
+				9E6326D92CC7604500F661A9 /* MapButtonView.swift in Sources */,
 				9E6326CC2CC21CD500F661A9 /* MapCustomView.swift in Sources */,
 				9ED121AF2CB8F03300C7696E /* ArtTodayRandom.swift in Sources */,
 				9ED122282C7C74710066C679 /* RxASAuthorizationControllerDelegateProxy.swift in Sources */,
@@ -1306,6 +1320,7 @@
 				9ED121DD2CBF725D00C7696E /* CultureCalendarSortModalViewController.swift in Sources */,
 				9E0FF2982C6B08E300544674 /* TabBarCoordinator.swift in Sources */,
 				9ED121962CB6795100C7696E /* CultureCalendarViewController.swift in Sources */,
+				9E6326DF2CC765ED00F661A9 /* Extension + UIImage.swift in Sources */,
 				9ED121822CAE876600C7696E /* HomeButtonView.swift in Sources */,
 				9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */,
 				9ED1221E2C7C67F00066C679 /* AuthService.swift in Sources */,
@@ -1356,6 +1371,7 @@
 				9E0FF2B02C6B0B8500544674 /* ChatViewController.swift in Sources */,
 				9E6326C32CC21C3600F661A9 /* MapUseCase.swift in Sources */,
 				9E88DE362C75774C00815EE0 /* OnboardingButton.swift in Sources */,
+				9E6326D72CC75B4A00F661A9 /* MapHeaderView.swift in Sources */,
 				9E0FF1F72C5A28C500544674 /* BaseViewController.swift in Sources */,
 				9ED121D62CBE37B900C7696E /* CultureCalendarDataDTO.swift in Sources */,
 				9E6326AF2CC20AEE00F661A9 /* AlarmViewController.swift in Sources */,

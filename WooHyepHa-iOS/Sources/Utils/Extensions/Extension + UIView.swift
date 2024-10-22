@@ -25,12 +25,12 @@ extension UIView {
     /// view.addViewShadow()
     /// ```
 
-    func addViewShadow() {
+    func addViewShadow(shadowRadius: CGFloat = 3.0, shadowOpacity: Float = 0.6) {
         layer.masksToBounds = false
-        layer.shadowRadius = 3.0 // 블러
-        layer.shadowOpacity = 0.6 // 불투명도
+        layer.shadowRadius = shadowRadius
+        layer.shadowOpacity = shadowOpacity
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 3, height: 3) // 세로방향
+        layer.shadowOffset = CGSize(width: 3, height: 3)
     }
     
     /// 해당 View에 색상이 있는 그림자를 생성합니다.
