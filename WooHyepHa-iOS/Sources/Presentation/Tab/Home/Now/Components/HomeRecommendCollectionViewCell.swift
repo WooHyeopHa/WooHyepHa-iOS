@@ -127,7 +127,7 @@ extension HomeRecommendCollectionViewCell {
         progressLabel.snp.makeConstraints {
             $0.leading.equalTo(progressBar.snp.trailing).offset(8)
             $0.bottom.equalToSuperview().inset(20)
-            $0.width.equalTo(30)
+            $0.width.equalTo(80)
             $0.height.equalTo(20)
         }
     }
