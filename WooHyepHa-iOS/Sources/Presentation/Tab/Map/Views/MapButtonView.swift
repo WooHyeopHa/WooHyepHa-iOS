@@ -93,8 +93,6 @@ class MapButtonView: BaseView {
        let buttonStates = BehaviorSubject<[Bool]>(value: [false, false, false, false])
        
        allButton.isSelected = true
-       allButton.backgroundColor = .black
-       allButton.setTitleColor(.white, for: .normal)
        
        selectedGenres.onNext([])
        

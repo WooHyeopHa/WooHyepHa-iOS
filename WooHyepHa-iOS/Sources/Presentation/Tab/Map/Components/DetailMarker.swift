@@ -18,7 +18,7 @@ final class DetailMarker: NMFMarker {
 
 private extension DetailMarker {
     func setMarker() {
-        let image = NMFOverlayImage(image: UIImage(named: "DetailMarker")!)
+        let image = NMFOverlayImage(image: .mapMarkerActive)
         self.iconImage = image
         self.width = CGFloat(NMF_MARKER_SIZE_AUTO)
         self.height = CGFloat(NMF_MARKER_SIZE_AUTO)

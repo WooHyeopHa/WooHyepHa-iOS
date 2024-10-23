@@ -100,10 +100,10 @@ class MapCustomView: BaseView {
         }
     }
 
-//    func configure(item: Map) {
-//        title.text = item.title
-//        category.text = item.category
-//        date.text = item.date
-//        //review.text = "\(item.rate) (리뷰 \(item.review.count))"
-//    }
+    func configure(item: ArtMapList) {
+        title.text = item.title
+        category.text = item.genre
+        date.text = "\(item.startDate) ~ \(item.endDate)"
+        //review.text = "\(item.rate) (리뷰 \(item.review.count))"
+    }
 }

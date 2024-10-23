@@ -17,7 +17,7 @@ final class MapViewModel: ViewModelType {
     struct Output {
         let currentLocation: Driver<CLLocationCoordinate2D>
         let currentStatus: Driver<LocationAuthorizationStatus>
-        //let cultureItem: Driver<[Map]>
+        let mockArtMapListData: Driver<ArtMap>
     }
     
     let disposeBag = DisposeBag()
@@ -31,11 +31,10 @@ final class MapViewModel: ViewModelType {
     func bind(input: Input) -> Output {
         let currentLocation = PublishRelay<CLLocationCoordinate2D>()
         let currentStatus = PublishRelay<LocationAuthorizationStatus>()
-        //let cultureItem = BehaviorRelay<[Map]>(value: [])
+        let mockArtMapListData = BehaviorRelay<ArtMap>(value: ArtMap(status: "100", data: ArtMapData(artMapList: [ArtMapList(latitude: "", longitude: "", poster: "", title: "", artId: 0, genre: "", place: "", startDate: "", endDate: "")]),message: "요청이 성공적으로 이루어졌습니다."))
         
         mapUseCase.checkUserCurrentLocationAuthorization()
             .subscribe(with: self, onNext: { owner, status in
-                print("v")
                 print(status)
             })
             .disposed(by: disposeBag)
@@ -46,16 +45,16 @@ final class MapViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
         
-//        mapUseCase.fetchCultureItem()
-//            .subscribe(with: self, onNext: { owner, item in
-//                cultureItem.accept(item)
-//            })
-//            .disposed(by: disposeBag)
+        mapUseCase.fetchMockArtMapList()
+            .subscribe(onNext: { data in
+                mockArtMapListData.accept(data)
+            })
+            .disposed(by: disposeBag)
         
         return Output (currentLocation: currentLocation.asDriver(
             onErrorDriveWith: .empty()),
-            currentStatus: currentStatus.asDriver(onErrorDriveWith: .empty())
-           //cultureItem: cultureItem.asDriver()
+            currentStatus: currentStatus.asDriver(onErrorDriveWith: .empty()),
+            mockArtMapListData: mockArtMapListData.asDriver()
         )
     }
 }

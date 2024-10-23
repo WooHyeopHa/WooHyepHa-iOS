@@ -11,7 +11,10 @@ import CoreLocation
 protocol MapUseCaseProtocol {
     func checkUserCurrentLocationAuthorization() -> Observable<LocationAuthorizationStatus>
     func getUserLocation() -> Observable<CLLocationCoordinate2D>
-    //func fetchCultureItem() -> Observable<[Map]>
+    func fetchArtMapList() -> Observable<ArtMap>
+    
+    // Mock
+    func fetchMockArtMapList() -> Observable<ArtMap>
 }
 
 final class MapUseCase: MapUseCaseProtocol {
@@ -31,7 +34,11 @@ final class MapUseCase: MapUseCaseProtocol {
         return repository.currentUserLocation.asObservable()
     }
     
-//    func fetchCultureItem() -> Observable<[Map]> {
-//        return repository.fetchCultureItem().asObservable()
-//    }
+    func fetchArtMapList() -> Observable<ArtMap> {
+        return repository.fetchArtMapList().asObservable()
+    }
+    
+    func fetchMockArtMapList() -> Observable<ArtMap> {
+        return repository.fetchMockArtMapList().asObservable()
+    }
 }

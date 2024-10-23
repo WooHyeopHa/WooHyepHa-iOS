@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import Moya
 import CoreLocation
 
 final class MapRepository: MapRepositoryProtocol {
@@ -13,6 +14,7 @@ final class MapRepository: MapRepositoryProtocol {
     private let disposeBag = DisposeBag()
     
     private let locationService = LocationService()
+    private let service = MoyaProvider<MapService>()
     
     var currentUserLocation = PublishSubject<CLLocationCoordinate2D>()
     var authorizationStatus = PublishSubject<LocationAuthorizationStatus>()
@@ -37,9 +39,23 @@ final class MapRepository: MapRepositoryProtocol {
             .disposed(by: disposeBag)
     }
     
-//    func fetchCultureItem() -> Observable<[Map]> {
-//        return Observable.just(mockCultureItems.map { $0.toEntity()} )
-//    }
+    func fetchArtMapList() -> Observable<ArtMap> {
+        return service.rx.request(.fetchArtMapList)
+            .filterSuccessfulStatusCodes()
+            .map { response -> ArtMap in
+                print("상태 코드 : \(response.statusCode)")
+                let res = try JSONDecoder().decode(ArtMapResponsesDTO.self, from: response.data)
+                return res.toEntity()
+            }.asObservable()
+            .catch { error in
+                print("fetchError")
+                return Observable.error(error)
+            }.asObservable()
+    }
+    
+    func fetchMockArtMapList() -> Observable<ArtMap> {
+        .just(ArtMapResponsesDTO.testData.toEntity())
+    }
     
     private func requestUserLocation() {
         self.locationService.requestLocation()

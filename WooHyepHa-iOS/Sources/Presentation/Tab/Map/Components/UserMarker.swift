@@ -27,7 +27,7 @@ private extension UserMarker {
     }
     
     func setMarker() {
-        let image = NMFOverlayImage(image: UIImage(named: "userMarker")!)
+        let image = NMFOverlayImage(image: .mapUserMarker)
         self.iconImage = image
         self.width = CGFloat(NMF_MARKER_SIZE_AUTO)
         self.height = CGFloat(NMF_MARKER_SIZE_AUTO)

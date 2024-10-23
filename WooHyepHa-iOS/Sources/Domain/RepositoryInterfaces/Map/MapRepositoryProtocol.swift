@@ -13,5 +13,10 @@ protocol MapRepositoryProtocol {
     var currentUserLocation: PublishSubject<CLLocationCoordinate2D> { get }
     
     func checkUserCurrentLocationAuthorization()
+    
+    func fetchArtMapList() -> Observable<ArtMap>
+    
+    // Mock
+    func fetchMockArtMapList() -> Observable<ArtMap>
 }
 

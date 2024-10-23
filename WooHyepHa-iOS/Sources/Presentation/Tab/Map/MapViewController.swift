@@ -105,6 +105,12 @@ class MapViewController: BaseViewController {
 //                owner.addCultureMarkersToMap(items: item)
 //            })
 //            .disposed(by: disposeBag)
+        
+        output.mockArtMapListData
+            .drive(with: self, onNext: { owner, item in
+                owner.addCultureMarkersToMap(items: item.data.artMapList)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -121,7 +127,7 @@ private extension MapViewController {
         let locationOverlay = naverMapView.locationOverlay
         locationOverlay.hidden = false
         locationOverlay.location = coord
-        locationOverlay.icon = NMFOverlayImage(image: UIImage(named: "userMarker")!)
+        locationOverlay.icon = NMFOverlayImage(image: .mapUserMarker)
         locationOverlay.iconWidth = CGFloat(20)
         locationOverlay.iconHeight = CGFloat(20)
         moveCamera(location: location)
@@ -137,49 +143,59 @@ private extension MapViewController {
         circle.mapView = naverMapView
     }
     
-//    func addCultureMarkersToMap(items: [Map]) {
-//        for item in items {
-//            guard let latitude = Double(item.latitude),
-//                  let longitude = Double(item.longitude) else {
-//                continue
-//            }
-//            
-//            let marker = CultureMarker()
-//            marker.position = NMGLatLng(lat: latitude, lng: longitude)
-//            marker.mapView = naverMapView
-//            marker.touchHandler = { [weak self] overlay -> Bool in
-//                self?.handleMarkerTap(marker: overlay as! CultureMarker, item: item)
-//                return true
-//            }
-//        }
-//    }
+    func addCultureMarkersToMap(items: [ArtMapList]) {
+        for item in items {
+            guard let latitude = Double(item.latitude),
+                  let longitude = Double(item.longitude) else {
+                continue
+            }
+            
+            let marker = CultureMarker()
+            marker.position = NMGLatLng(lat: latitude, lng: longitude)
+            marker.mapView = naverMapView
+            marker.touchHandler = { [weak self] overlay -> Bool in
+                self?.handleMarkerTap(marker: overlay as! CultureMarker, item: item)
+                return true
+            }
+        }
+    }
     
-//    func handleMarkerTap(marker: CultureMarker, item: Map) {
-//        // 이전에 선택된 마커가 있다면 원래 이미지로 복구
-//        selectedMarker?.iconImage = NMFOverlayImage(name: "itemMarker")
-//        
-//        // 새로 선택된 마커의 이미지 변경
-//        marker.iconImage = NMFOverlayImage(name: "DetailMarker")
-//        selectedMarker = marker
-//        
-//       showCustomView(for: item)
-//    }
-//    
-//    func showCustomView(for item: Map) {
-//        // 기존 커스텀 뷰가 있다면 제거
-//        customView?.removeFromSuperview()
-//
-//        // 새 커스텀 뷰 생성 및 설정
-//        let newCustomView = CustomView()
-//        newCustomView.configure(item: item)
-//        view.addSubview(newCustomView)
-//
-//        newCustomView.snp.makeConstraints { make in
-//            make.left.right.equalToSuperview().inset(16)
-//            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
-//            make.height.equalTo(168) // 적절한 높이로 조정
-//        }
-//
-//        customView = newCustomView
-//    }
+    func handleMarkerTap(marker: CultureMarker, item: ArtMapList) {
+        // 이미 선택된 마커를 다시 탭했을 경우
+        if marker === selectedMarker {
+            // 마커 이미지를 원래대로 복구
+            marker.iconImage = NMFOverlayImage(image: .mapMarker)
+            selectedMarker = nil
+            
+            // 커스텀 뷰 제거
+            customView?.removeFromSuperview()
+            customView = nil
+            return
+        }
+        
+        // 새로운 마커를 탭했을 경우
+        selectedMarker?.iconImage = NMFOverlayImage(image: .mapMarker)
+        marker.iconImage = NMFOverlayImage(image: .mapMarkerActive)
+        selectedMarker = marker
+        
+        showCustomView(for: item)
+    }
+    
+    func showCustomView(for item: ArtMapList) {
+        // 기존 커스텀 뷰가 있다면 제거
+        customView?.removeFromSuperview()
+
+        // 새 커스텀 뷰 생성 및 설정
+        let newCustomView = MapCustomView()
+        newCustomView.configure(item: item)
+        view.addSubview(newCustomView)
+
+        newCustomView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(16)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
+            make.height.equalTo(168) // 적절한 높이로 조정
+        }
+
+        customView = newCustomView
+    }
 }
