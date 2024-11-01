@@ -26,6 +26,9 @@ class MapViewController: BaseViewController {
     private let headerView = MapHeaderView()
     private let mapButtonView = MapButtonView()
     
+    private var currentUserLocation: CLLocationCoordinate2D?
+    private let infoButtonTapped = PublishRelay<Int>()
+    
     private lazy var naverMapView = NMFMapView(frame: self.view.frame).then {
         $0.isNightModeEnabled = false
         $0.extent = NMGLatLngBounds(
@@ -83,7 +86,9 @@ class MapViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        let input = MapViewModel.Input()
+                let input = MapViewModel.Input(
+                    infoButtonTapped: infoButtonTapped.asObservable()
+                )
         
         let output = viewModel.bind(input: input)
         
@@ -95,16 +100,11 @@ class MapViewController: BaseViewController {
         
         output.currentLocation
             .drive(with: self, onNext: { owner, location in
+                owner.currentUserLocation = location
                 owner.addOrUpdateRangeCircle(location: location)
                 owner.setLocationOverlay(location: location)
             })
             .disposed(by: disposeBag)
-        
-//        output.cultureItem
-//            .drive(with: self, onNext: { owner, item in
-//                owner.addCultureMarkersToMap(items: item)
-//            })
-//            .disposed(by: disposeBag)
         
         output.mockArtMapListData
             .drive(with: self, onNext: { owner, item in
@@ -182,20 +182,32 @@ private extension MapViewController {
     }
     
     func showCustomView(for item: ArtMapList) {
-        // 기존 커스텀 뷰가 있다면 제거
         customView?.removeFromSuperview()
 
-        // 새 커스텀 뷰 생성 및 설정
         let newCustomView = MapCustomView()
-        newCustomView.configure(item: item)
+        
+        // 저장된 현재 위치 사용
+        if let currentLocation = currentUserLocation {
+            newCustomView.configure(item: item, currentLocation: currentLocation)
+        } else {
+            // 위치를 가져올 수 없는 경우 기본 설정 또는 에러 처리
+            print("현재 위치를 가져올 수 없습니다.")
+            newCustomView.configure(item: item, currentLocation: CLLocationCoordinate2D(latitude: 37.5666791, longitude: 126.9782914))  // 서울시청 좌표로 기본값 설정
+        }
+        
         view.addSubview(newCustomView)
 
         newCustomView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(16)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
-            make.height.equalTo(168) // 적절한 높이로 조정
+            make.height.equalTo(158)
         }
 
+        newCustomView.inputInfoButton
+            .map { newCustomView.inputCurrentItem ?? 0 }
+            .bind(to: infoButtonTapped)
+            .disposed(by: disposeBag)
+        
         customView = newCustomView
     }
 }

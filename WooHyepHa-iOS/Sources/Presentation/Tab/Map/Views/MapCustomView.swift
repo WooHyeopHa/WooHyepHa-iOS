@@ -8,11 +8,22 @@
 import UIKit
 import SnapKit
 import Then
+import RxSwift
+import RxCocoa
+
+import CoreLocation
 
 class MapCustomView: BaseView {
     
-    private let thumbnail = UIImageView().then {
-        $0.image = UIImage(named: "maniac")
+//    private let thumbnail = UIImageView().then {
+//        $0.image = UIImage(named: "maniac")
+//        $0.clipsToBounds = true
+//        $0.layer.cornerRadius = 5
+//    }    
+    
+    private var currentItem: ArtMapList?
+    
+    private let thumbnail = UIButton().then {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 5
     }
@@ -39,9 +50,15 @@ class MapCustomView: BaseView {
         $0.textColor = .gray5
     }
     
+    private let cultureDistance = UILabel().then {
+        $0.font = .body4
+        $0.textColor = .MainColor
+        $0.setContentHuggingPriority(.defaultHigh, for: .horizontal)
+        $0.setContentCompressionResistancePriority(.defaultHigh, for: .horizontal)
+    }
+    
     private let state = UILabel().then {
         $0.font = .body6
-        $0.text = "430m 몰라몰라 주소 어쩌구 저쩌구"
         $0.textColor = .gray1
     }
     
@@ -63,7 +80,7 @@ class MapCustomView: BaseView {
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 4
         
-        [thumbnail, category, title, state, date].forEach {
+        [thumbnail, category, title, cultureDistance, state, date].forEach {
             addSubview($0)
         }
     }
@@ -87,8 +104,13 @@ class MapCustomView: BaseView {
             $0.top.equalTo(category.snp.bottom).offset(4)
         }
         
-        state.snp.makeConstraints {
+        cultureDistance.snp.makeConstraints {
             $0.leading.equalTo(thumbnail.snp.trailing).offset(10)
+            $0.top.equalTo(title.snp.bottom).offset(4)
+        }
+        
+        state.snp.makeConstraints {
+            $0.leading.equalTo(cultureDistance.snp.trailing).offset(5)
             $0.trailing.equalToSuperview().inset(12)
             $0.top.equalTo(title.snp.bottom).offset(4)
         }
@@ -100,10 +122,58 @@ class MapCustomView: BaseView {
         }
     }
 
-    func configure(item: ArtMapList) {
+    func configure(item: ArtMapList, currentLocation: CLLocationCoordinate2D) {
+        currentItem = item
+        
+        thumbnail.setImage(UIImage(named: item.poster), for: .normal)
         title.text = item.title
         category.text = item.genre
         date.text = "\(item.startDate) ~ \(item.endDate)"
-        //review.text = "\(item.rate) (리뷰 \(item.review.count))"
+        state.text = item.place
+
+        let distance = calculateDistance(
+            itemLat: item.latitude,
+            itemLong: item.longitude,
+            currentLat: currentLocation.latitude,
+            currentLong: currentLocation.longitude
+        )
+        
+        let formattedDistance = formatDistance(distance)
+        cultureDistance.text = formattedDistance
+    }
+}
+
+extension MapCustomView {
+    var inputInfoButton: Observable<Void> {
+        thumbnail.rx.tap
+            .asObservable()
+    }
+    
+    var inputCurrentItem: Int? {
+        currentItem?.artId
+    }
+}
+
+private extension MapCustomView {
+    func calculateDistance(itemLat: String, itemLong: String, currentLat: Double, currentLong: Double) -> Int {
+        guard let itemLatitude = Double(itemLat),
+              let itemLongitude = Double(itemLong) else {
+            return 0
+        }
+        
+        let itemLocation = CLLocation(latitude: itemLatitude, longitude: itemLongitude)
+        let currentLocation = CLLocation(latitude: currentLat, longitude: currentLong)
+        
+        let distanceInMeters = itemLocation.distance(from: currentLocation)
+        return Int(distanceInMeters)
+    }
+    
+    private func formatDistance(_ meters: Int) -> String {
+        if meters >= 1000 {
+            let kilometers = Double(meters) / 1000.0
+            return String(format: "%.1fkm", kilometers)
+        } else {
+            return "\(meters)m"
+        }
     }
 }

@@ -28,9 +28,18 @@ final class MapCoordinator: Coordinator {
     }
 }
 
+extension MapCoordinator {
+    func goToDetailInfoViewController(artId: Int) {
+//        let homeViewModel = HomeViewModel(coordinator: self, homeUseCase: nowHomeUseCase)
+//        let homeViewController = HomeViewController(viewModel: homeViewModel)
+        let vc = DetailInfoViewController(artId: artId)
+        navigationController.pushViewController(vc, animated: true)
+    }
+}
+
 private extension MapCoordinator {
     func goToMapViewController() {
-        let mapViewModel = MapViewModel(mapUseCase: mapUseCase)
+        let mapViewModel = MapViewModel(coordinator: self, mapUseCase: mapUseCase)
         let mapViewController = MapViewController(viewModel: mapViewModel)
         navigationController.pushViewController(mapViewController, animated: true)
     }

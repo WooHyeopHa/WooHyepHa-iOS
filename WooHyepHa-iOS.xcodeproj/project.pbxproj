@@ -82,6 +82,8 @@
 		9E88DE3F2C75DD7800815EE0 /* PreferenceConcertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E88DE3E2C75DD7800815EE0 /* PreferenceConcertView.swift */; };
 		9E9C31032C6C739800F8B01A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C30FF2C6C739800F8B01A /* LaunchScreen.storyboard */; };
 		9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C31012C6C739800F8B01A /* Main.storyboard */; };
+		9EA993C72CD4C71C0047DC5E /* DetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993C62CD4C71C0047DC5E /* DetailInfoViewController.swift */; };
+		9EA993CB2CD4C76A0047DC5E /* DetailInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993CA2CD4C76A0047DC5E /* DetailInfoHeaderView.swift */; };
 		9ED121562CA2B28100C7696E /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */; };
 		9ED121592CA416ED00C7696E /* RegisterNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */; };
 		9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */; };
@@ -225,6 +227,8 @@
 		9E9C31002C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9E9C31022C6C739800F8B01A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		9E9C310F2C6C77AC00F8B01A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9EA993C62CD4C71C0047DC5E /* DetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewController.swift; sourceTree = "<group>"; };
+		9EA993CA2CD4C76A0047DC5E /* DetailInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoHeaderView.swift; sourceTree = "<group>"; };
 		9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewController.swift; sourceTree = "<group>"; };
 		9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewModel.swift; sourceTree = "<group>"; };
@@ -484,6 +488,7 @@
 				9E6326C82CC21C8E00F661A9 /* ViewModel */,
 				9E6326C72CC21C8900F661A9 /* Views */,
 				9E0FF2AB2C6B0B2800544674 /* MapViewController.swift */,
+				9EA993C52CD4C6B40047DC5E /* DetailInfo */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -781,6 +786,31 @@
 				9E9C31012C6C739800F8B01A /* Main.storyboard */,
 			);
 			path = Base.lproj;
+			sourceTree = "<group>";
+		};
+		9EA993C52CD4C6B40047DC5E /* DetailInfo */ = {
+			isa = PBXGroup;
+			children = (
+				9EA993CC2CD4D9680047DC5E /* ViewModel */,
+				9EA993C82CD4C7570047DC5E /* Views */,
+				9EA993C62CD4C71C0047DC5E /* DetailInfoViewController.swift */,
+			);
+			path = DetailInfo;
+			sourceTree = "<group>";
+		};
+		9EA993C82CD4C7570047DC5E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9EA993CA2CD4C76A0047DC5E /* DetailInfoHeaderView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9EA993CC2CD4D9680047DC5E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		9ED121572CA416D000C7696E /* RegisterNickname */ = {
@@ -1335,6 +1365,7 @@
 				9ED121792CABB1C200C7696E /* RegisterUseCase.swift in Sources */,
 				9E0FF1E82C5A23E500544674 /* Extension + UIColor.swift in Sources */,
 				9E66792B2C760FF000832440 /* PreferenceMusicalView.swift in Sources */,
+				9EA993C72CD4C71C0047DC5E /* DetailInfoViewController.swift in Sources */,
 				9E6326B92CC21B2800F661A9 /* LocationService.swift in Sources */,
 				9ED121752CAB9C6600C7696E /* RegisterNicknameResponsesDTO.swift in Sources */,
 				9E0FF2AA2C6B0AD100544674 /* MatingCoordinator.swift in Sources */,
@@ -1357,6 +1388,7 @@
 				9E88DDF62C6DB27500815EE0 /* RegisterProfileViewController.swift in Sources */,
 				9E88DE232C74263100815EE0 /* OnboardingHeaderView.swift in Sources */,
 				9ED121AB2CB8EF9500C7696E /* ArtRandomListDTO.swift in Sources */,
+				9EA993CB2CD4C76A0047DC5E /* DetailInfoHeaderView.swift in Sources */,
 				9E6326CA2CC21CA200F661A9 /* MapViewModel.swift in Sources */,
 				9E6326D12CC21D7100F661A9 /* UserMarker.swift in Sources */,
 				9E0FF1F42C5A252E00544674 /* Extension + UIFont.swift in Sources */,

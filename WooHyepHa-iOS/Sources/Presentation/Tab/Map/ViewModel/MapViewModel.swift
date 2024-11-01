@@ -12,6 +12,7 @@ import CoreLocation
 // 뷰모델 타입
 final class MapViewModel: ViewModelType {
     struct Input {
+        let infoButtonTapped: Observable<Int>
     }
     
     struct Output {
@@ -21,17 +22,24 @@ final class MapViewModel: ViewModelType {
     }
     
     let disposeBag = DisposeBag()
-    
+    weak var coordinator: MapCoordinator?
     private let mapUseCase: MapUseCase
     
-    init(mapUseCase: MapUseCase) {
+    init(coordinator: MapCoordinator, mapUseCase: MapUseCase) {
         self.mapUseCase = mapUseCase
+        self.coordinator = coordinator
     }
     
     func bind(input: Input) -> Output {
         let currentLocation = PublishRelay<CLLocationCoordinate2D>()
         let currentStatus = PublishRelay<LocationAuthorizationStatus>()
         let mockArtMapListData = BehaviorRelay<ArtMap>(value: ArtMap(status: "100", data: ArtMapData(artMapList: [ArtMapList(latitude: "", longitude: "", poster: "", title: "", artId: 0, genre: "", place: "", startDate: "", endDate: "")]),message: "요청이 성공적으로 이루어졌습니다."))
+        
+        input.infoButtonTapped
+            .subscribe(with: self, onNext: { owner, artId in
+                owner.coordinator?.goToDetailInfoViewController(artId: artId)
+            })
+            .disposed(by: disposeBag)
         
         mapUseCase.checkUserCurrentLocationAuthorization()
             .subscribe(with: self, onNext: { owner, status in
