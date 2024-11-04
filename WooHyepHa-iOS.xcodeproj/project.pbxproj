@@ -84,6 +84,8 @@
 		9E9C31042C6C739800F8B01A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9E9C31012C6C739800F8B01A /* Main.storyboard */; };
 		9EA993C72CD4C71C0047DC5E /* DetailInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993C62CD4C71C0047DC5E /* DetailInfoViewController.swift */; };
 		9EA993CB2CD4C76A0047DC5E /* DetailInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993CA2CD4C76A0047DC5E /* DetailInfoHeaderView.swift */; };
+		9EA993CE2CD8BFAF0047DC5E /* AppleLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993CD2CD8BFAF0047DC5E /* AppleLogin.swift */; };
+		9EA993D02CD8C0F80047DC5E /* AppleLoginDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993CF2CD8C0F80047DC5E /* AppleLoginDataDTO.swift */; };
 		9ED121562CA2B28100C7696E /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */; };
 		9ED121592CA416ED00C7696E /* RegisterNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */; };
 		9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */; };
@@ -229,6 +231,8 @@
 		9E9C310F2C6C77AC00F8B01A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9EA993C62CD4C71C0047DC5E /* DetailInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewController.swift; sourceTree = "<group>"; };
 		9EA993CA2CD4C76A0047DC5E /* DetailInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoHeaderView.swift; sourceTree = "<group>"; };
+		9EA993CD2CD8BFAF0047DC5E /* AppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogin.swift; sourceTree = "<group>"; };
+		9EA993CF2CD8C0F80047DC5E /* AppleLoginDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDataDTO.swift; sourceTree = "<group>"; };
 		9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewController.swift; sourceTree = "<group>"; };
 		9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewModel.swift; sourceTree = "<group>"; };
@@ -1111,6 +1115,7 @@
 			children = (
 				9ED1220B2C7C61E00066C679 /* SignInResult.swift */,
 				9ED121762CABA22000C7696E /* Auth.swift */,
+				9EA993CD2CD8BFAF0047DC5E /* AppleLogin.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -1149,6 +1154,7 @@
 			children = (
 				9ED122082C7C60F60066C679 /* SignInWithAppleRequestDTO.swift */,
 				9ED1221F2C7C6C670066C679 /* SignInWithAppleResponsesDTO.swift */,
+				9EA993CF2CD8C0F80047DC5E /* AppleLoginDataDTO.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -1365,6 +1371,7 @@
 				9ED121792CABB1C200C7696E /* RegisterUseCase.swift in Sources */,
 				9E0FF1E82C5A23E500544674 /* Extension + UIColor.swift in Sources */,
 				9E66792B2C760FF000832440 /* PreferenceMusicalView.swift in Sources */,
+				9EA993D02CD8C0F80047DC5E /* AppleLoginDataDTO.swift in Sources */,
 				9EA993C72CD4C71C0047DC5E /* DetailInfoViewController.swift in Sources */,
 				9E6326B92CC21B2800F661A9 /* LocationService.swift in Sources */,
 				9ED121752CAB9C6600C7696E /* RegisterNicknameResponsesDTO.swift in Sources */,
@@ -1416,6 +1423,7 @@
 				9ED121D12CBE343900C7696E /* CultureCalendarRequestDTO.swift in Sources */,
 				9ED121A92CB8EE6A00C7696E /* NowHomeResponsesDTO.swift in Sources */,
 				9E0FF2B92C6C4F5A00544674 /* SplashViewController.swift in Sources */,
+				9EA993CE2CD8BFAF0047DC5E /* AppleLogin.swift in Sources */,
 				9E6326C02CC21C1500F661A9 /* MapRepositoryProtocol.swift in Sources */,
 				9ED122092C7C60F60066C679 /* SignInWithAppleRequestDTO.swift in Sources */,
 				9ED121CF2CBE33DB00C7696E /* CultureCalendar.swift in Sources */,

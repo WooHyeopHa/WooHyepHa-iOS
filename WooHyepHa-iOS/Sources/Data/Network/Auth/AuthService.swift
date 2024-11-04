@@ -16,7 +16,7 @@ public enum AuthService {
 
 extension AuthService: TargetType {
     public var baseURL: URL {
-        return .init(string: "https://findmuse.store")!
+        return .init(string: "https://findmuse.store/api")!
     }
     
     public var path: String {

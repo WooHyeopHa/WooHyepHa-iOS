@@ -8,7 +8,7 @@
 public struct SignInWithAppleResponsesDTO: Codable {
     let status: String
     let message: String
-    let data: [String: String]?
+    let data: AppleLoginDataDTO
     
     enum CodingKeys: CodingKey {
         case status
@@ -16,10 +16,19 @@ public struct SignInWithAppleResponsesDTO: Codable {
         case data
     }
     
-    public init(status: String, message: String, data: [String: String]) {
+    public init(status: String, message: String, data: AppleLoginDataDTO) {
         self.status = status
         self.message = message
         self.data = data
     }
 }
 
+extension SignInWithAppleResponsesDTO {
+    func toEntity() -> AppleLogin {
+        AppleLogin(
+            status: status,
+            data: data.toEntity(),
+            message: message
+        )
+    }
+}

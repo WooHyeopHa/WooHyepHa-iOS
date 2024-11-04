@@ -19,4 +19,3 @@ public struct SignInWithAppleRequestDTO: Codable {
         self.id_token = id_token
     }
 }
-
