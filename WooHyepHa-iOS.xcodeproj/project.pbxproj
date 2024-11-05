@@ -86,6 +86,8 @@
 		9EA993CB2CD4C76A0047DC5E /* DetailInfoHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993CA2CD4C76A0047DC5E /* DetailInfoHeaderView.swift */; };
 		9EA993CE2CD8BFAF0047DC5E /* AppleLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993CD2CD8BFAF0047DC5E /* AppleLogin.swift */; };
 		9EA993D02CD8C0F80047DC5E /* AppleLoginDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993CF2CD8C0F80047DC5E /* AppleLoginDataDTO.swift */; };
+		9EA993D32CD9FEEB0047DC5E /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993D22CD9FEEB0047DC5E /* TokenStorage.swift */; };
+		9EA993D72CDA2D4E0047DC5E /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993D62CDA2D4E0047DC5E /* AuthPlugin.swift */; };
 		9ED121562CA2B28100C7696E /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */; };
 		9ED121592CA416ED00C7696E /* RegisterNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */; };
 		9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */; };
@@ -233,6 +235,8 @@
 		9EA993CA2CD4C76A0047DC5E /* DetailInfoHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoHeaderView.swift; sourceTree = "<group>"; };
 		9EA993CD2CD8BFAF0047DC5E /* AppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogin.swift; sourceTree = "<group>"; };
 		9EA993CF2CD8C0F80047DC5E /* AppleLoginDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDataDTO.swift; sourceTree = "<group>"; };
+		9EA993D22CD9FEEB0047DC5E /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
+		9EA993D62CDA2D4E0047DC5E /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
 		9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewController.swift; sourceTree = "<group>"; };
 		9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewModel.swift; sourceTree = "<group>"; };
@@ -418,6 +422,7 @@
 		9E0FF1FF2C5B2E7800544674 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				9EA993D12CD9FEDD0047DC5E /* TokenStorage */,
 				9ED122052C7C60DF0066C679 /* DTOs */,
 				9ED122182C7C66980066C679 /* Repositories */,
 				9ED122042C7C60D90066C679 /* Network */,
@@ -815,6 +820,23 @@
 			children = (
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		9EA993D12CD9FEDD0047DC5E /* TokenStorage */ = {
+			isa = PBXGroup;
+			children = (
+				9EA993D52CDA2D420047DC5E /* Plugin */,
+				9EA993D22CD9FEEB0047DC5E /* TokenStorage.swift */,
+			);
+			path = TokenStorage;
+			sourceTree = "<group>";
+		};
+		9EA993D52CDA2D420047DC5E /* Plugin */ = {
+			isa = PBXGroup;
+			children = (
+				9EA993D62CDA2D4E0047DC5E /* AuthPlugin.swift */,
+			);
+			path = Plugin;
 			sourceTree = "<group>";
 		};
 		9ED121572CA416D000C7696E /* RegisterNickname */ = {
@@ -1376,6 +1398,7 @@
 				9E6326B92CC21B2800F661A9 /* LocationService.swift in Sources */,
 				9ED121752CAB9C6600C7696E /* RegisterNicknameResponsesDTO.swift in Sources */,
 				9E0FF2AA2C6B0AD100544674 /* MatingCoordinator.swift in Sources */,
+				9EA993D72CDA2D4E0047DC5E /* AuthPlugin.swift in Sources */,
 				9E6326D92CC7604500F661A9 /* MapButtonView.swift in Sources */,
 				9E6326CC2CC21CD500F661A9 /* MapCustomView.swift in Sources */,
 				9ED121AF2CB8F03300C7696E /* ArtTodayRandom.swift in Sources */,
@@ -1415,6 +1438,7 @@
 				9ED1219C2CB67F9600C7696E /* CultureCalendarHeaderView.swift in Sources */,
 				9E6326E62CC8F43000F661A9 /* ArtMap.swift in Sources */,
 				9ED121E62CBF826800C7696E /* DateHelper.swift in Sources */,
+				9EA993D32CD9FEEB0047DC5E /* TokenStorage.swift in Sources */,
 				9ED1219F2CB8E6BF00C7696E /* HomeService.swift in Sources */,
 				9E88DDF12C6DA57100815EE0 /* Extension + UIView.swift in Sources */,
 				9ED121C52CBD12D000C7696E /* CultureCalendarButtonView.swift in Sources */,
