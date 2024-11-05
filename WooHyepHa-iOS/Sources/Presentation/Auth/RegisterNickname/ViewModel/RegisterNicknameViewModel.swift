@@ -36,7 +36,7 @@ final class RegisterNicknameViewModel: ViewModelType {
 
         input.nickName
             .subscribe(onNext:  { name in
-                print(">>>\(name)")
+                print("닉네임 입력 >>>\(name)")
             })
             .disposed(by: disposeBag)
         
@@ -46,8 +46,10 @@ final class RegisterNicknameViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
         
-        // 나중에 백에서 중복 여부 받아옴.
         input.nickName
+            .filter { !$0.isEmpty } // 공백이 아닐 때만 통과
+            .distinctUntilChanged() // 같은 값이 연속으로 들어오는 것 방지
+            .debounce(.milliseconds(700), scheduler: MainScheduler.instance) // 타이핑 중 과도한 API 호출 방지
             .flatMapLatest { nickname in
                 self.registerUseCase.fetchIsValidNickname(nickname: nickname)
                     .asObservable()
@@ -66,7 +68,12 @@ final class RegisterNicknameViewModel: ViewModelType {
         
         Observable.combineLatest(isNickNameDuplicate, isNickNameEmpty)
             .subscribe(with: self, onNext: { owner, boolean in
+                // 중복이 아니고 공백이 아니어야함 -> 둘 다 false 여야함.
+                // 중복일 때 true 반환, 중복이 아닐때 false 반환
+                // 공백일 때 true 반환, 공백이 아닐때 false 반환
+                
                 let isValid = !boolean.0 && !boolean.1
+                print("중복:\(boolean.0) / 공백:\(boolean.1) / isValid:\(isValid)")
                 isNickNameValid.onNext(isValid)
             })
             .disposed(by: disposeBag)

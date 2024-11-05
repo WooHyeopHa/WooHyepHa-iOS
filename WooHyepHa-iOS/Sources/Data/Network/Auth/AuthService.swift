@@ -8,10 +8,11 @@
 import Moya
 
 public enum AuthService {
+    case refreshToken
     case signInWithApple(SignInWithAppleRequestDTO)
-    
     case fetchIsValidNickname(nickname: String)
     case registerNickname(RegisterNicknameRequestDTO)
+    private static let tokenStorage = TokenStorage.shared
 }
 
 extension AuthService: TargetType {
@@ -21,6 +22,9 @@ extension AuthService: TargetType {
     
     public var path: String {
         switch self {
+        case .refreshToken:
+            return "/jwt/refresh"
+            
         case .signInWithApple:
             return "/auth/apple/token"
             
@@ -31,6 +35,9 @@ extension AuthService: TargetType {
     
     public var method: Method {
         switch self {
+        case .refreshToken:
+            return .patch
+            
         case .fetchIsValidNickname:
             return .get
             
@@ -41,8 +48,18 @@ extension AuthService: TargetType {
     
     public var task: Task {
         switch self {
+        case .refreshToken:
+            let refreshToken = try? AuthService.tokenStorage.loadToken(type: .refresh)
+            return .requestParameters(
+                parameters: ["refreshToken": refreshToken],
+                encoding: JSONEncoding.default
+            )
+            
         case .fetchIsValidNickname(let nickname):
-            return .requestParameters(parameters: [nickname: nickname], encoding: URLEncoding.queryString)
+            return .requestParameters(
+                parameters: ["nickname": nickname],
+                encoding: URLEncoding.queryString
+            )
 
         case .signInWithApple(let request):
             return .requestJSONEncodable(request)
@@ -54,11 +71,15 @@ extension AuthService: TargetType {
     
     public var headers: [String : String]? {
         switch self {
-        case .signInWithApple:
+        case .signInWithApple, .refreshToken:
             return ["Content-Type" : "application/json"]
         
         case .fetchIsValidNickname, .registerNickname:
-            return ["Content-Type" : "application/json"]
+            let accessToken = try? AuthService.tokenStorage.loadToken(type: .access)
+            return [
+                "Content-Type" : "application/json",
+                "Authorization" : "Bearer \(accessToken ?? "")"
+            ]
         }
     }
 }
