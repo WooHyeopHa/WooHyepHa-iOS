@@ -18,7 +18,7 @@ final class MapViewModel: ViewModelType {
     struct Output {
         let currentLocation: Driver<CLLocationCoordinate2D>
         let currentStatus: Driver<LocationAuthorizationStatus>
-        let mockArtMapListData: Driver<ArtMap>
+        let artMapListData: Driver<ArtMap>
     }
     
     let disposeBag = DisposeBag()
@@ -33,7 +33,7 @@ final class MapViewModel: ViewModelType {
     func bind(input: Input) -> Output {
         let currentLocation = PublishRelay<CLLocationCoordinate2D>()
         let currentStatus = PublishRelay<LocationAuthorizationStatus>()
-        let mockArtMapListData = BehaviorRelay<ArtMap>(value: ArtMap(status: "100", data: ArtMapData(artMapList: [ArtMapList(latitude: "", longitude: "", poster: "", title: "", artId: 0, genre: "", place: "", startDate: "", endDate: "")]),message: "요청이 성공적으로 이루어졌습니다."))
+        let artMapListData = BehaviorRelay<ArtMap>(value: ArtMap(status: "100", data: ArtMapData(artMapList: [ArtMapList(latitude: "", longitude: "", poster: "", title: "", artId: 0, genre: "", place: "", startDate: "", endDate: "")]),message: "요청이 성공적으로 이루어졌습니다."))
         
         input.infoButtonTapped
             .subscribe(with: self, onNext: { owner, artId in
@@ -53,16 +53,22 @@ final class MapViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
         
-        mapUseCase.fetchMockArtMapList()
-            .subscribe(onNext: { data in
-                mockArtMapListData.accept(data)
+        mapUseCase.fetchArtMapList()
+            .subscribe(with: self, onNext: { owner, data in
+                artMapListData.accept(data)
             })
             .disposed(by: disposeBag)
+        
+//        mapUseCase.fetchMockArtMapList()
+//            .subscribe(onNext: { data in
+//                mockArtMapListData.accept(data)
+//            })
+//            .disposed(by: disposeBag)
         
         return Output (currentLocation: currentLocation.asDriver(
             onErrorDriveWith: .empty()),
             currentStatus: currentStatus.asDriver(onErrorDriveWith: .empty()),
-            mockArtMapListData: mockArtMapListData.asDriver()
+            artMapListData: artMapListData.asDriver()
         )
     }
 }

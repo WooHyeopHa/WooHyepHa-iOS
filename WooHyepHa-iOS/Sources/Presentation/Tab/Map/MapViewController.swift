@@ -106,7 +106,7 @@ class MapViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        output.mockArtMapListData
+        output.artMapListData
             .drive(with: self, onNext: { owner, item in
                 owner.addCultureMarkersToMap(items: item.data.artMapList)
             })

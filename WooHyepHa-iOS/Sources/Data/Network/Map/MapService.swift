@@ -13,13 +13,13 @@ public enum MapService {
 
 extension MapService: TargetType {
     public var baseURL: URL {
-        return URL(string: "https://findmuse.store")!
+        return URL(string: "https://findmuse.store/api")!
     }
     
     public var path: String {
         switch self {
         case .fetchArtMapList:
-            return "/map/info"
+            return "/v1/map/info"
         }
     }
     
@@ -38,6 +38,14 @@ extension MapService: TargetType {
     }
     
     public var headers: [String : String]? {
-        return ["Content-Type": "application/json"]
+        switch self {
+        case .fetchArtMapList:
+            let accessToken = try? TokenStorage.shared.loadToken(type: .access)
+            return [
+                "Content-Type" : "application/json",
+                "Authorization" : "Bearer \(accessToken ?? "")"
+            ]
+        }
+        //return ["Content-Type": "application/json"]
     }
 }
