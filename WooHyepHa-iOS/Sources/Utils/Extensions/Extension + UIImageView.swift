@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 extension UIImageView {
     func addBlurEffect(style: UIBlurEffect.Style = .light) {
@@ -14,5 +15,13 @@ extension UIImageView {
         blurredEffectView.frame = bounds
         blurredEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(blurredEffectView)
+    }
+    
+    func setImageKingfisher(with urlString: String) {
+        guard let url = URL.init(string: urlString) else {
+            return
+        }
+        kf.indicatorType = .activity
+        kf.setImage(with: url)
     }
 }

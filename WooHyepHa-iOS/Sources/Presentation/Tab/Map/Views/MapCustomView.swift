@@ -15,12 +15,6 @@ import CoreLocation
 
 class MapCustomView: BaseView {
     
-//    private let thumbnail = UIImageView().then {
-//        $0.image = UIImage(named: "maniac")
-//        $0.clipsToBounds = true
-//        $0.layer.cornerRadius = 5
-//    }    
-    
     private var currentItem: ArtMapList?
     
     private let thumbnail = UIButton().then {
@@ -125,7 +119,7 @@ class MapCustomView: BaseView {
     func configure(item: ArtMapList, currentLocation: CLLocationCoordinate2D) {
         currentItem = item
         
-        thumbnail.setImage(UIImage(named: item.poster), for: .normal)
+        thumbnail.kf.setImage(with: URL(string: item.poster.replacingOccurrences(of: "http://", with: "https://")), for: .normal, placeholder: .posterdefault)
         title.text = item.title
         category.text = item.genre
         date.text = "\(item.startDate) ~ \(item.endDate)"
