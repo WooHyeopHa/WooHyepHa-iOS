@@ -17,6 +17,8 @@ class DetailInfoViewController: BaseViewController {
     private let viewModel: DetailInfoViewModel
     private let headerView = DetailInfoHeaderView()
     
+    private let backgroundThumbnailImageView = UIImageView()
+    
     init(viewModel: DetailInfoViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -33,7 +35,7 @@ class DetailInfoViewController: BaseViewController {
     override func setViewController() {
         view.backgroundColor = .white
         
-        [headerView].forEach {
+        [headerView, backgroundThumbnailImageView].forEach {
             view.addSubview($0)
         }
     }
@@ -43,6 +45,12 @@ class DetailInfoViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(56)
+        }
+        
+        backgroundThumbnailImageView.snp.makeConstraints {
+            $0.top.equalTo(headerView.snp.bottom)
+            $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            $0.height.equalTo(315)
         }
     }
     
@@ -57,7 +65,14 @@ class DetailInfoViewController: BaseViewController {
             .drive(with: self, onNext: { owner, data in
                 print(data)
                 owner.headerView.configuration(item: data)
+                owner.configuration(item: data)
             })
             .disposed(by: disposeBag)
+    }
+}
+
+extension DetailInfoViewController {
+    func configuration(item: DetailArtData) {
+        backgroundThumbnailImageView.setImageKingfisher(with: item.poster.replacingOccurrences(of: "http://", with: "https://"))
     }
 }
