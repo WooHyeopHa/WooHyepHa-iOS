@@ -88,6 +88,13 @@
 		9EA993D02CD8C0F80047DC5E /* AppleLoginDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993CF2CD8C0F80047DC5E /* AppleLoginDataDTO.swift */; };
 		9EA993D32CD9FEEB0047DC5E /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993D22CD9FEEB0047DC5E /* TokenStorage.swift */; };
 		9EA993D72CDA2D4E0047DC5E /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993D62CDA2D4E0047DC5E /* AuthPlugin.swift */; };
+		9EA993DA2CDC48950047DC5E /* DetailArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993D92CDC48950047DC5E /* DetailArt.swift */; };
+		9EA993DD2CDC49EE0047DC5E /* DetailArtResponsesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993DC2CDC49EE0047DC5E /* DetailArtResponsesDTO.swift */; };
+		9EA993DF2CDC4A2A0047DC5E /* DetailArtDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993DE2CDC4A2A0047DC5E /* DetailArtDataDTO.swift */; };
+		9EA993E22CDC4FCF0047DC5E /* ArtUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993E12CDC4FCF0047DC5E /* ArtUseCase.swift */; };
+		9EA993E52CDC50250047DC5E /* ArtRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993E42CDC50250047DC5E /* ArtRepositoryProtocol.swift */; };
+		9EA993EA2CDC509E0047DC5E /* ArtRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993E92CDC509E0047DC5E /* ArtRepository.swift */; };
+		9EA993EC2CDC51AB0047DC5E /* DetailInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993EB2CDC51AB0047DC5E /* DetailInfoViewModel.swift */; };
 		9ED121562CA2B28100C7696E /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */; };
 		9ED121592CA416ED00C7696E /* RegisterNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */; };
 		9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */; };
@@ -237,6 +244,13 @@
 		9EA993CF2CD8C0F80047DC5E /* AppleLoginDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDataDTO.swift; sourceTree = "<group>"; };
 		9EA993D22CD9FEEB0047DC5E /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		9EA993D62CDA2D4E0047DC5E /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
+		9EA993D92CDC48950047DC5E /* DetailArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArt.swift; sourceTree = "<group>"; };
+		9EA993DC2CDC49EE0047DC5E /* DetailArtResponsesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArtResponsesDTO.swift; sourceTree = "<group>"; };
+		9EA993DE2CDC4A2A0047DC5E /* DetailArtDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArtDataDTO.swift; sourceTree = "<group>"; };
+		9EA993E12CDC4FCF0047DC5E /* ArtUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtUseCase.swift; sourceTree = "<group>"; };
+		9EA993E42CDC50250047DC5E /* ArtRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtRepositoryProtocol.swift; sourceTree = "<group>"; };
+		9EA993E92CDC509E0047DC5E /* ArtRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtRepository.swift; sourceTree = "<group>"; };
+		9EA993EB2CDC51AB0047DC5E /* DetailInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewModel.swift; sourceTree = "<group>"; };
 		9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewController.swift; sourceTree = "<group>"; };
 		9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewModel.swift; sourceTree = "<group>"; };
@@ -818,6 +832,7 @@
 		9EA993CC2CD4D9680047DC5E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				9EA993EB2CDC51AB0047DC5E /* DetailInfoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -837,6 +852,47 @@
 				9EA993D62CDA2D4E0047DC5E /* AuthPlugin.swift */,
 			);
 			path = Plugin;
+			sourceTree = "<group>";
+		};
+		9EA993E02CDC4FB40047DC5E /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				9EA993E12CDC4FCF0047DC5E /* ArtUseCase.swift */,
+			);
+			path = Art;
+			sourceTree = "<group>";
+		};
+		9EA993E32CDC50150047DC5E /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				9EA993E42CDC50250047DC5E /* ArtRepositoryProtocol.swift */,
+			);
+			path = Art;
+			sourceTree = "<group>";
+		};
+		9EA993E62CDC50690047DC5E /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				9EA993D92CDC48950047DC5E /* DetailArt.swift */,
+			);
+			path = Art;
+			sourceTree = "<group>";
+		};
+		9EA993E72CDC50780047DC5E /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				9EA993DC2CDC49EE0047DC5E /* DetailArtResponsesDTO.swift */,
+				9EA993DE2CDC4A2A0047DC5E /* DetailArtDataDTO.swift */,
+			);
+			path = Art;
+			sourceTree = "<group>";
+		};
+		9EA993E82CDC508F0047DC5E /* Art */ = {
+			isa = PBXGroup;
+			children = (
+				9EA993E92CDC509E0047DC5E /* ArtRepository.swift */,
+			);
+			path = Art;
 			sourceTree = "<group>";
 		};
 		9ED121572CA416D000C7696E /* RegisterNickname */ = {
@@ -1108,6 +1164,7 @@
 				9ED122032C7C601C0066C679 /* Auth */,
 				9ED121A32CB8EA3400C7696E /* Home */,
 				9E6326BB2CC21BD000F661A9 /* Map */,
+				9EA993E62CDC50690047DC5E /* Art */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1118,6 +1175,7 @@
 				9ED122112C7C642F0066C679 /* Auth */,
 				9ED121A02CB8E9EC00C7696E /* Home */,
 				9E6326BE2CC21C0900F661A9 /* Map */,
+				9EA993E32CDC50150047DC5E /* Art */,
 			);
 			path = RepositoryInterfaces;
 			sourceTree = "<group>";
@@ -1128,6 +1186,7 @@
 				9ED1220D2C7C62020066C679 /* Auth */,
 				9ED121B72CB8FB4C00C7696E /* Home */,
 				9E6326C12CC21C2C00F661A9 /* Map */,
+				9EA993E02CDC4FB40047DC5E /* Art */,
 			);
 			path = UseCases;
 			sourceTree = "<group>";
@@ -1158,6 +1217,7 @@
 				9ED122062C7C60E30066C679 /* Auth */,
 				9ED121A62CB8EE5500C7696E /* Home */,
 				9E6326E92CC8F56200F661A9 /* Map */,
+				9EA993E72CDC50780047DC5E /* Art */,
 			);
 			path = DTOs;
 			sourceTree = "<group>";
@@ -1204,6 +1264,7 @@
 				9ED122192C7C66A30066C679 /* Auth */,
 				9ED121B42CB8F78000C7696E /* Home */,
 				9E6326C42CC21C5E00F661A9 /* Map */,
+				9EA993E82CDC508F0047DC5E /* Art */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -1374,6 +1435,7 @@
 				9E88DE332C7466E100815EE0 /* OnboardingProgressView.swift in Sources */,
 				9ED121E82CBF82DC00C7696E /* CalendarCell.swift in Sources */,
 				9E88DE3B2C75794D00815EE0 /* PreferenceExhibitionView.swift in Sources */,
+				9EA993DF2CDC4A2A0047DC5E /* DetailArtDataDTO.swift in Sources */,
 				9E6326ED2CC8F62D00F661A9 /* ArtMapDataDTO.swift in Sources */,
 				9E6326DD2CC7607700F661A9 /* MapButton.swift in Sources */,
 				9ED121AD2CB8F01C00C7696E /* ArtRandomList.swift in Sources */,
@@ -1383,6 +1445,8 @@
 				9ED1220C2C7C61E00066C679 /* SignInResult.swift in Sources */,
 				9E5906692C4F993C00647DEE /* ViewController.swift in Sources */,
 				9ED121A22CB8EA0400C7696E /* HomeRepositoryProtocol.swift in Sources */,
+				9EA993DD2CDC49EE0047DC5E /* DetailArtResponsesDTO.swift in Sources */,
+				9EA993E22CDC4FCF0047DC5E /* ArtUseCase.swift in Sources */,
 				9E6679402C76D2AA00832440 /* RegisterPreferenceViewController.swift in Sources */,
 				9ED122132C7C64600066C679 /* AuthRepositoryProtocol.swift in Sources */,
 				9ED121CB2CBE32B000C7696E /* ArtListDTO.swift in Sources */,
@@ -1390,6 +1454,8 @@
 				9ED1217B2CAD055D00C7696E /* OnboardingSkipModalViewController.swift in Sources */,
 				9ED121842CAE88D500C7696E /* HomeButton.swift in Sources */,
 				9E0FF2AE2C6B0B4F00544674 /* MapCoordinator.swift in Sources */,
+				9EA993EC2CDC51AB0047DC5E /* DetailInfoViewModel.swift in Sources */,
+				9EA993E52CDC50250047DC5E /* ArtRepositoryProtocol.swift in Sources */,
 				9ED121792CABB1C200C7696E /* RegisterUseCase.swift in Sources */,
 				9E0FF1E82C5A23E500544674 /* Extension + UIColor.swift in Sources */,
 				9E66792B2C760FF000832440 /* PreferenceMusicalView.swift in Sources */,
@@ -1410,6 +1476,7 @@
 				9ED121962CB6795100C7696E /* CultureCalendarViewController.swift in Sources */,
 				9E6326DF2CC765ED00F661A9 /* Extension + UIImage.swift in Sources */,
 				9ED121822CAE876600C7696E /* HomeButtonView.swift in Sources */,
+				9EA993EA2CDC509E0047DC5E /* ArtRepository.swift in Sources */,
 				9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */,
 				9ED1221E2C7C67F00066C679 /* AuthService.swift in Sources */,
 				9E6326B62CC210F000F661A9 /* AlarmButtonView.swift in Sources */,
@@ -1460,6 +1527,7 @@
 				9E6326B22CC20B3900F661A9 /* AlarmHeaderView.swift in Sources */,
 				9E88DE072C6DC85600815EE0 /* BaseView.swift in Sources */,
 				9ED1217E2CAE7F0F00C7696E /* HomeHeaderView.swift in Sources */,
+				9EA993DA2CDC48950047DC5E /* DetailArt.swift in Sources */,
 				9ED121C92CBE329400C7696E /* CultureCalendarResponsesDTO.swift in Sources */,
 				9ED121672CAA48FE00C7696E /* RegisterLocationViewModel.swift in Sources */,
 				9E0FF2B02C6B0B8500544674 /* ChatViewController.swift in Sources */,

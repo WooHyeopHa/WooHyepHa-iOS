@@ -9,6 +9,7 @@ import Moya
 
 public enum MapService {
     case fetchArtMapList
+    case fetchDetailArtInfo(artId: Int)
 }
 
 extension MapService: TargetType {
@@ -20,26 +21,28 @@ extension MapService: TargetType {
         switch self {
         case .fetchArtMapList:
             return "/v1/map/info"
+        case .fetchDetailArtInfo(let artId):
+            return "/v1/art/one/\(artId)"
         }
     }
     
     public var method: Method {
         switch self {
-        case .fetchArtMapList:
+        case .fetchArtMapList, .fetchDetailArtInfo:
             return .get
         }
     }
     
     public var task: Task {
         switch self {
-        case .fetchArtMapList:
+        case .fetchArtMapList, .fetchDetailArtInfo:
             return .requestPlain
         }
     }
     
     public var headers: [String : String]? {
         switch self {
-        case .fetchArtMapList:
+        case .fetchArtMapList, .fetchDetailArtInfo:
             let accessToken = try? TokenStorage.shared.loadToken(type: .access)
             return [
                 "Content-Type" : "application/json",

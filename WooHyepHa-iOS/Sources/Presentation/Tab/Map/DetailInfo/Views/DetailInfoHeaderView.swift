@@ -57,7 +57,7 @@ class DetailInfoHeaderView: BaseHeaderView {
         titleLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(backButton.snp.trailing).offset(10)
-            $0.trailing.equalTo(homeButton.snp.leading).offset(10)
+            $0.trailing.equalTo(homeButton.snp.leading).offset(-10)
         }
         
         homeButton.snp.makeConstraints {
@@ -77,6 +77,12 @@ extension DetailInfoHeaderView {
     var inputHomeButton: Observable<Void> {
         homeButton.rx.tap
             .asObservable()
+    }
+}
+
+extension DetailInfoHeaderView {
+    func configuration(item: DetailArtData) {
+        titleLabel.text = item.title
     }
 }
 

@@ -14,20 +14,19 @@ import SnapKit
 
 class DetailInfoViewController: BaseViewController {
     
-    private let artId: Int
+    private let viewModel: DetailInfoViewModel
     private let headerView = DetailInfoHeaderView()
     
-    init(artId: Int) {
-        self.artId = artId
+    init(viewModel: DetailInfoViewModel) {
+        self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
-        print(artId)
         super.viewDidLoad()
     }
     
@@ -45,5 +44,20 @@ class DetailInfoViewController: BaseViewController {
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(56)
         }
+    }
+    
+    override func bind() {
+        let input = DetailInfoViewModel.Input(
+            backButtonTapped: headerView.inputBackButton.asObservable()
+        )
+        
+        let output = viewModel.bind(input: input)
+        
+        output.detailInfoData
+            .drive(with: self, onNext: { owner, data in
+                print(data)
+                owner.headerView.configuration(item: data)
+            })
+            .disposed(by: disposeBag)
     }
 }

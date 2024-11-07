@@ -52,7 +52,7 @@ class MapViewController: BaseViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
+    
     override func setViewController() {
         view.backgroundColor = .white
         
@@ -66,7 +66,7 @@ class MapViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(60)
-        }        
+        }
         
         mapButtonView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
@@ -86,9 +86,9 @@ class MapViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-                let input = MapViewModel.Input(
-                    infoButtonTapped: infoButtonTapped.asObservable()
-                )
+        let input = MapViewModel.Input(
+            infoButtonTapped: infoButtonTapped.asObservable()
+        )
         
         let output = viewModel.bind(input: input)
         
@@ -183,7 +183,7 @@ private extension MapViewController {
     
     func showCustomView(for item: ArtMapList) {
         customView?.removeFromSuperview()
-
+        
         let newCustomView = MapCustomView()
         
         // 저장된 현재 위치 사용
@@ -196,13 +196,13 @@ private extension MapViewController {
         }
         
         view.addSubview(newCustomView)
-
+        
         newCustomView.snp.makeConstraints { make in
             make.left.right.equalToSuperview().inset(16)
             make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-20)
             make.height.equalTo(158)
         }
-
+        
         newCustomView.inputInfoButton
             .map { newCustomView.inputCurrentItem ?? 0 }
             .bind(to: infoButtonTapped)

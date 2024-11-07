@@ -15,12 +15,17 @@ final class MapCoordinator: Coordinator {
     var navigationController: UINavigationController
     
     private let mapRepository: MapRepository
+    private let artRepository: ArtRepository
+    
     private let mapUseCase: MapUseCase
+    private let artUseCase: ArtUseCase
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
         mapRepository = MapRepository()
+        artRepository = ArtRepository()
         mapUseCase = MapUseCase(repository: mapRepository)
+        artUseCase = ArtUseCase(repository: artRepository)
     }
     
     func start() {
@@ -30,10 +35,9 @@ final class MapCoordinator: Coordinator {
 
 extension MapCoordinator {
     func goToDetailInfoViewController(artId: Int) {
-//        let homeViewModel = HomeViewModel(coordinator: self, homeUseCase: nowHomeUseCase)
-//        let homeViewController = HomeViewController(viewModel: homeViewModel)
-        let vc = DetailInfoViewController(artId: artId)
-        navigationController.pushViewController(vc, animated: true)
+        let detailInfoViewModel = DetailInfoViewModel(coordinator: self, artUseCase: artUseCase, artId: artId)
+        let detailInfoViewController = DetailInfoViewController(viewModel: detailInfoViewModel)
+        navigationController.pushViewController(detailInfoViewController, animated: true)
     }
 }
 
