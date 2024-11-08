@@ -17,6 +17,10 @@ class DetailInfoViewController: BaseViewController {
     private let viewModel: DetailInfoViewModel
     private let headerView = DetailInfoHeaderView()
     
+    private let backgroundThumbnailOverlayView = UIView().then {
+        $0.backgroundColor = .black.withAlphaComponent(0.5)
+    }
+    
     private let backgroundThumbnailImageView = UIImageView()
     
     init(viewModel: DetailInfoViewModel) {
@@ -38,6 +42,8 @@ class DetailInfoViewController: BaseViewController {
         [headerView, backgroundThumbnailImageView].forEach {
             view.addSubview($0)
         }
+        
+        backgroundThumbnailImageView.addSubview(backgroundThumbnailOverlayView)
     }
     
     override func setConstraints() {
@@ -51,6 +57,11 @@ class DetailInfoViewController: BaseViewController {
             $0.top.equalTo(headerView.snp.bottom)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(315)
+        }
+        
+        backgroundThumbnailOverlayView.snp.makeConstraints {
+            $0.horizontalEdges.equalTo(backgroundThumbnailImageView)
+            $0.verticalEdges.equalTo(backgroundThumbnailImageView)
         }
     }
     
