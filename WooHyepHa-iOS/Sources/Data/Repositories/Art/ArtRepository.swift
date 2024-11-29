@@ -22,6 +22,7 @@ final class ArtRepository: ArtRepositoryProtocol {
             .map { response -> DetailArt in
                 print("상태 코드 : \(response.statusCode)")
                 let res = try JSONDecoder().decode(DetailArtResponsesDTO.self, from: response.data)
+                print(res)
                 return res.toEntity()
             }.asObservable()
             .catch { error in

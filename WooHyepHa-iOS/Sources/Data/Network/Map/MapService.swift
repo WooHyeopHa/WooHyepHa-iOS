@@ -12,6 +12,15 @@ public enum MapService {
     case fetchDetailArtInfo(artId: Int)
 }
 
+extension MapService: AuthorizedTargetType {
+    var requiresAuthentication: Bool {
+        switch self {
+        case .fetchArtMapList, .fetchDetailArtInfo:
+            return true
+        }
+    }
+}
+
 extension MapService: TargetType {
     public var baseURL: URL {
         return URL(string: "https://findmuse.store/api")!
@@ -41,14 +50,6 @@ extension MapService: TargetType {
     }
     
     public var headers: [String : String]? {
-        switch self {
-        case .fetchArtMapList, .fetchDetailArtInfo:
-            let accessToken = try? TokenStorage.shared.loadToken(type: .access)
-            return [
-                "Content-Type" : "application/json",
-                "Authorization" : "Bearer \(accessToken ?? "")"
-            ]
-        }
-        //return ["Content-Type": "application/json"]
+        return ["Content-Type" : "application/json"]
     }
 }

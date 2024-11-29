@@ -12,8 +12,20 @@ public enum AuthService {
     case signInWithApple(SignInWithAppleRequestDTO)
     case fetchIsValidNickname(nickname: String)
     case registerNickname(RegisterNicknameRequestDTO)
-    private static let tokenStorage = TokenStorage.shared
 }
+
+extension AuthService: AuthorizedTargetType {
+    var requiresAuthentication: Bool {
+        switch self {
+        case .signInWithApple, .refreshToken:
+            return false
+            
+        case .fetchIsValidNickname, .registerNickname:
+            return true
+        }
+    }
+}
+
 
 extension AuthService: TargetType {
     public var baseURL: URL {
@@ -49,11 +61,7 @@ extension AuthService: TargetType {
     public var task: Task {
         switch self {
         case .refreshToken:
-            let refreshToken = try? AuthService.tokenStorage.loadToken(type: .refresh)
-            return .requestParameters(
-                parameters: ["refreshToken": refreshToken],
-                encoding: JSONEncoding.default
-            )
+            return .requestPlain
             
         case .fetchIsValidNickname(let nickname):
             return .requestParameters(
@@ -64,22 +72,39 @@ extension AuthService: TargetType {
         case .signInWithApple(let request):
             return .requestJSONEncodable(request)
             
-        case .registerNickname(let request):
-            return .requestJSONEncodable(request)
+        case .registerNickname(let nickname):
+            return .requestParameters(
+                parameters: ["nickname" : nickname], 
+                encoding: URLEncoding.queryString
+            )
         }
     }
     
+//    public var headers: [String : String]? {
+//        switch self {
+//        case .signInWithApple, .refreshToken:
+//            return ["Content-Type" : "application/json"]
+//        
+//        case .fetchIsValidNickname, .registerNickname:
+//            let accessToken = try? TokenStorage.shared.loadToken(type: .access)
+//            return [
+//                "Content-Type" : "application/json",
+//                "Authorization" : "Bearer \(accessToken ?? "")"
+//            ]
+//        }
+//    }
     public var headers: [String : String]? {
         switch self {
-        case .signInWithApple, .refreshToken:
-            return ["Content-Type" : "application/json"]
-        
-        case .fetchIsValidNickname, .registerNickname:
-            let accessToken = try? AuthService.tokenStorage.loadToken(type: .access)
+        case .refreshToken:
+            let refreshToken = try? TokenStorage.shared.loadToken(type: .refresh)
             return [
-                "Content-Type" : "application/json",
-                "Authorization" : "Bearer \(accessToken ?? "")"
+                "Content-Type": "application/json",
+                "Authorization-refresh": "\(refreshToken ?? "")"
             ]
+            
+        default:
+            return ["Content-Type": "application/json"]
         }
     }
 }
+

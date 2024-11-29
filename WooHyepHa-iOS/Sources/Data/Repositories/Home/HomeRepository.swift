@@ -10,7 +10,7 @@ import Moya
 
 final class HomeRepository: NSObject, HomeRepositoryProtocol {
     
-    private let service = MoyaProvider<HomeService>()
+    private let service = MoyaProvider<HomeService>(plugins: [TokenPlugin()])
     
     func fetchNowHome(userId: Int) -> Observable<NowHome> {
         return service.rx.request(.fetchNowHome(userId: userId))

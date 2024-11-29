@@ -14,7 +14,7 @@ final class MapRepository: MapRepositoryProtocol {
     private let disposeBag = DisposeBag()
     
     private let locationService = LocationService()
-    private let service = MoyaProvider<MapService>()
+    private let service = MoyaProvider<MapService>(plugins: [TokenPlugin()])
     
     var currentUserLocation = PublishSubject<CLLocationCoordinate2D>()
     var authorizationStatus = PublishSubject<LocationAuthorizationStatus>()

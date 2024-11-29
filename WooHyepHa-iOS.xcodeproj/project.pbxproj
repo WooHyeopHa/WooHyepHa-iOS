@@ -87,7 +87,6 @@
 		9EA993CE2CD8BFAF0047DC5E /* AppleLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993CD2CD8BFAF0047DC5E /* AppleLogin.swift */; };
 		9EA993D02CD8C0F80047DC5E /* AppleLoginDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993CF2CD8C0F80047DC5E /* AppleLoginDataDTO.swift */; };
 		9EA993D32CD9FEEB0047DC5E /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993D22CD9FEEB0047DC5E /* TokenStorage.swift */; };
-		9EA993D72CDA2D4E0047DC5E /* AuthPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993D62CDA2D4E0047DC5E /* AuthPlugin.swift */; };
 		9EA993DA2CDC48950047DC5E /* DetailArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993D92CDC48950047DC5E /* DetailArt.swift */; };
 		9EA993DD2CDC49EE0047DC5E /* DetailArtResponsesDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993DC2CDC49EE0047DC5E /* DetailArtResponsesDTO.swift */; };
 		9EA993DF2CDC4A2A0047DC5E /* DetailArtDataDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993DE2CDC4A2A0047DC5E /* DetailArtDataDTO.swift */; };
@@ -95,6 +94,7 @@
 		9EA993E52CDC50250047DC5E /* ArtRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993E42CDC50250047DC5E /* ArtRepositoryProtocol.swift */; };
 		9EA993EA2CDC509E0047DC5E /* ArtRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993E92CDC509E0047DC5E /* ArtRepository.swift */; };
 		9EA993EC2CDC51AB0047DC5E /* DetailInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993EB2CDC51AB0047DC5E /* DetailInfoViewModel.swift */; };
+		9EA993EE2CF9CB2C0047DC5E /* TokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993ED2CF9CB2C0047DC5E /* TokenPlugin.swift */; };
 		9ED121562CA2B28100C7696E /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */; };
 		9ED121592CA416ED00C7696E /* RegisterNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */; };
 		9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */; };
@@ -243,7 +243,6 @@
 		9EA993CD2CD8BFAF0047DC5E /* AppleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLogin.swift; sourceTree = "<group>"; };
 		9EA993CF2CD8C0F80047DC5E /* AppleLoginDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppleLoginDataDTO.swift; sourceTree = "<group>"; };
 		9EA993D22CD9FEEB0047DC5E /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
-		9EA993D62CDA2D4E0047DC5E /* AuthPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthPlugin.swift; sourceTree = "<group>"; };
 		9EA993D92CDC48950047DC5E /* DetailArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArt.swift; sourceTree = "<group>"; };
 		9EA993DC2CDC49EE0047DC5E /* DetailArtResponsesDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArtResponsesDTO.swift; sourceTree = "<group>"; };
 		9EA993DE2CDC4A2A0047DC5E /* DetailArtDataDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArtDataDTO.swift; sourceTree = "<group>"; };
@@ -251,6 +250,7 @@
 		9EA993E42CDC50250047DC5E /* ArtRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtRepositoryProtocol.swift; sourceTree = "<group>"; };
 		9EA993E92CDC509E0047DC5E /* ArtRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtRepository.swift; sourceTree = "<group>"; };
 		9EA993EB2CDC51AB0047DC5E /* DetailInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewModel.swift; sourceTree = "<group>"; };
+		9EA993ED2CF9CB2C0047DC5E /* TokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenPlugin.swift; sourceTree = "<group>"; };
 		9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewController.swift; sourceTree = "<group>"; };
 		9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewModel.swift; sourceTree = "<group>"; };
@@ -849,7 +849,7 @@
 		9EA993D52CDA2D420047DC5E /* Plugin */ = {
 			isa = PBXGroup;
 			children = (
-				9EA993D62CDA2D4E0047DC5E /* AuthPlugin.swift */,
+				9EA993ED2CF9CB2C0047DC5E /* TokenPlugin.swift */,
 			);
 			path = Plugin;
 			sourceTree = "<group>";
@@ -1464,7 +1464,6 @@
 				9E6326B92CC21B2800F661A9 /* LocationService.swift in Sources */,
 				9ED121752CAB9C6600C7696E /* RegisterNicknameResponsesDTO.swift in Sources */,
 				9E0FF2AA2C6B0AD100544674 /* MatingCoordinator.swift in Sources */,
-				9EA993D72CDA2D4E0047DC5E /* AuthPlugin.swift in Sources */,
 				9E6326D92CC7604500F661A9 /* MapButtonView.swift in Sources */,
 				9E6326CC2CC21CD500F661A9 /* MapCustomView.swift in Sources */,
 				9ED121AF2CB8F03300C7696E /* ArtTodayRandom.swift in Sources */,
@@ -1540,6 +1539,7 @@
 				9E6326AF2CC20AEE00F661A9 /* AlarmViewController.swift in Sources */,
 				9ED121E12CBF7A3000C7696E /* CultureCalendarModalButtonView.swift in Sources */,
 				9ED121692CAA538F00C7696E /* BottomBorderButton.swift in Sources */,
+				9EA993EE2CF9CB2C0047DC5E /* TokenPlugin.swift in Sources */,
 				9E6326EB2CC8F58600F661A9 /* ArtMapListDTO.swift in Sources */,
 				9ED1218F2CAFA62300C7696E /* GradientView.swift in Sources */,
 				9E0FF29B2C6B095600544674 /* Coordinator.swift in Sources */,
