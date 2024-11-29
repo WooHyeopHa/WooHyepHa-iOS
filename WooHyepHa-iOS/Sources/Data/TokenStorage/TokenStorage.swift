@@ -17,6 +17,7 @@ enum TokenStorageError: Error {
 enum TokenType {
     case access
     case refresh
+    case uid
     
     var key: String {
         switch self {
@@ -24,6 +25,8 @@ enum TokenType {
             return "accessToken"
         case .refresh:
             return "refreshToken"
+        case .uid:
+            return "userId"
         }
     }
 }
