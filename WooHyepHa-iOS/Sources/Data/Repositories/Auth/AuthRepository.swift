@@ -68,8 +68,14 @@ final class AuthRepository: NSObject, AuthRepositoryProtocol {
             .asObservable()
     }
     
-    func registerNickname(nickname: RegisterNicknameRequestDTO) {
-        
+    func registerNickname(nickname: RegisterNicknameRequestDTO) -> Completable {
+        return service.rx.request(.registerNickname(nickname))
+            .filterSuccessfulStatusCodes()
+            .catch { error in
+                print("닉네임 등록 에러")
+                return .error(error)
+            }
+            .asCompletable()
     }
     
 }

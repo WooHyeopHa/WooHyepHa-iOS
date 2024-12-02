@@ -74,8 +74,8 @@ extension AuthService: TargetType {
             
         case .registerNickname(let nickname):
             return .requestParameters(
-                parameters: ["nickname" : nickname], 
-                encoding: URLEncoding.queryString
+                parameters: ["nickname" : nickname.nickName ?? ""], 
+                encoding: JSONEncoding.default
             )
         }
     }

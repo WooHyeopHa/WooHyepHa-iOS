@@ -78,9 +78,27 @@ final class RegisterNicknameViewModel: ViewModelType {
             })
             .disposed(by: disposeBag)
         
+//        input.disableButtonTapped
+//            .subscribe(with: self, onNext: { owner, _ in
+//                registerUseCase.registerNickname(nickname: .init(nickName: ))
+//                owner.coordinator?.goToSignUpViewController()
+//            })
+//            .disposed(by: disposeBag)
+        
         input.disableButtonTapped
-            .subscribe(with: self, onNext: { owner, _ in
-                owner.coordinator?.goToSignUpViewController()
+            .withLatestFrom(input.nickName)
+            .subscribe(with: self, onNext: { owner, nickname in
+                print("등록:\(nickname)")
+                owner.registerUseCase.registerNickname(nickname: RegisterNicknameRequestDTO(nickName: nickname))
+                    .subscribe(
+                        onCompleted: {
+                            owner.coordinator?.goToSignUpViewController()
+                        },
+                        onError: { error in
+                            print("닉네임 등록 실패:", error)
+                        }
+                    )
+                    .disposed(by: owner.disposeBag)
             })
             .disposed(by: disposeBag)
         
