@@ -35,7 +35,7 @@ extension AuthService: TargetType {
     public var path: String {
         switch self {
         case .refreshToken:
-            return "/jwt/refresh"
+            return "/jwt/refresh-token"
             
         case .signInWithApple:
             return "/auth/apple/token"
@@ -79,20 +79,7 @@ extension AuthService: TargetType {
             )
         }
     }
-    
-//    public var headers: [String : String]? {
-//        switch self {
-//        case .signInWithApple, .refreshToken:
-//            return ["Content-Type" : "application/json"]
-//        
-//        case .fetchIsValidNickname, .registerNickname:
-//            let accessToken = try? TokenStorage.shared.loadToken(type: .access)
-//            return [
-//                "Content-Type" : "application/json",
-//                "Authorization" : "Bearer \(accessToken ?? "")"
-//            ]
-//        }
-//    }
+
     public var headers: [String : String]? {
         switch self {
         case .refreshToken:
