@@ -41,17 +41,27 @@ class TokenPlugin: PluginType {
     
     // 응답 처리 (401)
     func didReceive(_ result: Result<Response, MoyaError>, target: TargetType) {
-        guard case let .failure(error) = result,
-              error.response?.statusCode == 401,
+        print("didReceive called with result:", result)
+        
+        // success case에서도 401 체크
+        let statusCode = switch result {
+            case .success(let response): response.statusCode
+            case .failure(let error): error.response?.statusCode
+        }
+        
+        guard statusCode == 401,
               let authorizedTarget = target as? AuthorizedTargetType,
               authorizedTarget.requiresAuthentication else {
+            print("didReceive guard failed")
             return
         }
+        
         print("토큰 만료")
         handleTokenRefresh()
     }
     
     private func handleTokenRefresh() {
+        print("토큰 재발급 시도")
         guard !isRefreshing else { return }
         isRefreshing = true
         
