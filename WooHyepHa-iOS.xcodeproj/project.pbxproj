@@ -95,6 +95,7 @@
 		9EA993EA2CDC509E0047DC5E /* ArtRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993E92CDC509E0047DC5E /* ArtRepository.swift */; };
 		9EA993EC2CDC51AB0047DC5E /* DetailInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993EB2CDC51AB0047DC5E /* DetailInfoViewModel.swift */; };
 		9EA993EE2CF9CB2C0047DC5E /* TokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993ED2CF9CB2C0047DC5E /* TokenPlugin.swift */; };
+		9EA993F02CFD9FCD0047DC5E /* DetailInfoThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993EF2CFD9FCD0047DC5E /* DetailInfoThumbnailView.swift */; };
 		9ED121562CA2B28100C7696E /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */; };
 		9ED121592CA416ED00C7696E /* RegisterNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */; };
 		9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */; };
@@ -251,6 +252,7 @@
 		9EA993E92CDC509E0047DC5E /* ArtRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArtRepository.swift; sourceTree = "<group>"; };
 		9EA993EB2CDC51AB0047DC5E /* DetailInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewModel.swift; sourceTree = "<group>"; };
 		9EA993ED2CF9CB2C0047DC5E /* TokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenPlugin.swift; sourceTree = "<group>"; };
+		9EA993EF2CFD9FCD0047DC5E /* DetailInfoThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoThumbnailView.swift; sourceTree = "<group>"; };
 		9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewController.swift; sourceTree = "<group>"; };
 		9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewModel.swift; sourceTree = "<group>"; };
@@ -825,6 +827,7 @@
 			isa = PBXGroup;
 			children = (
 				9EA993CA2CD4C76A0047DC5E /* DetailInfoHeaderView.swift */,
+				9EA993EF2CFD9FCD0047DC5E /* DetailInfoThumbnailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1520,6 +1523,7 @@
 				9ED121B12CB8F34300C7696E /* ArtTodayRandomDTO.swift in Sources */,
 				9E88DE0A2C6DD58B00815EE0 /* BirthInputView.swift in Sources */,
 				9E6326E82CC8F45700F661A9 /* ArtMapList.swift in Sources */,
+				9EA993F02CFD9FCD0047DC5E /* DetailInfoThumbnailView.swift in Sources */,
 				9ED122102C7C62140066C679 /* SignInUseCase.swift in Sources */,
 				9E6326B42CC20D2800F661A9 /* AlarmViewModel.swift in Sources */,
 				9E0FF2962C6B066200544674 /* TabBarItemType.swift in Sources */,

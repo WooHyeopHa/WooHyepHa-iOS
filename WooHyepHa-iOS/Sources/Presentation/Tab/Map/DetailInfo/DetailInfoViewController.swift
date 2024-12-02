@@ -16,12 +16,7 @@ class DetailInfoViewController: BaseViewController {
     
     private let viewModel: DetailInfoViewModel
     private let headerView = DetailInfoHeaderView()
-    
-    private let backgroundThumbnailOverlayView = UIView().then {
-        $0.backgroundColor = .black.withAlphaComponent(0.5)
-    }
-    
-    private let backgroundThumbnailImageView = UIImageView()
+    private let thumbnailView = DetailInfoThumbnailView()
     
     init(viewModel: DetailInfoViewModel) {
         self.viewModel = viewModel
@@ -39,11 +34,9 @@ class DetailInfoViewController: BaseViewController {
     override func setViewController() {
         view.backgroundColor = .white
         
-        [headerView, backgroundThumbnailImageView].forEach {
+        [headerView, thumbnailView].forEach {
             view.addSubview($0)
         }
-        
-        backgroundThumbnailImageView.addSubview(backgroundThumbnailOverlayView)
     }
     
     override func setConstraints() {
@@ -51,17 +44,12 @@ class DetailInfoViewController: BaseViewController {
             $0.top.equalTo(view.safeAreaLayoutGuide)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             $0.height.equalTo(56)
-        }
+        }        
         
-        backgroundThumbnailImageView.snp.makeConstraints {
+        thumbnailView.snp.makeConstraints {
             $0.top.equalTo(headerView.snp.bottom)
             $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            $0.height.equalTo(315)
-        }
-        
-        backgroundThumbnailOverlayView.snp.makeConstraints {
-            $0.horizontalEdges.equalTo(backgroundThumbnailImageView)
-            $0.verticalEdges.equalTo(backgroundThumbnailImageView)
+            $0.height.equalTo(view.safeAreaLayoutGuide).multipliedBy(0.45)
         }
     }
     
@@ -76,14 +64,8 @@ class DetailInfoViewController: BaseViewController {
             .drive(with: self, onNext: { owner, data in
                 print(data)
                 owner.headerView.configuration(item: data)
-                owner.configuration(item: data)
+                owner.thumbnailView.configuration(item: data)
             })
             .disposed(by: disposeBag)
-    }
-}
-
-extension DetailInfoViewController {
-    func configuration(item: DetailArtData) {
-        backgroundThumbnailImageView.setImageKingfisher(with: item.poster.replacingOccurrences(of: "http://", with: "https://"))
     }
 }
