@@ -11,9 +11,7 @@ import CoreLocation
 protocol MapRepositoryProtocol {
     var authorizationStatus: PublishSubject<LocationAuthorizationStatus> { get }
     var currentUserLocation: PublishSubject<CLLocationCoordinate2D> { get }
-    
     func checkUserCurrentLocationAuthorization()
-    
     func fetchArtMapList() -> Observable<ArtMap>
     
     // Mock
