@@ -9,7 +9,7 @@ import RxSwift
 import CoreLocation
 
 protocol ArtUseCaseProtocol {
-    func fetchDetailArtInfo(artId: Int) -> Observable<DetailArt>
+    func fetchDetailArtInfo(artId: Int, uid: Int) -> Observable<DetailArt>
 }
 
 final class ArtUseCase: ArtUseCaseProtocol {
@@ -19,7 +19,7 @@ final class ArtUseCase: ArtUseCaseProtocol {
         self.repository = repository
     }
     
-    func fetchDetailArtInfo(artId: Int) -> Observable<DetailArt> {
-        return repository.fetchDetailArtInfo(artId: artId).asObservable()
+    func fetchDetailArtInfo(artId: Int, uid: Int) -> Observable<DetailArt> {
+        return repository.fetchDetailArtInfo(artId: artId, uid: uid).asObservable()
     }
 }

@@ -9,6 +9,6 @@ import RxSwift
 import CoreLocation
 
 protocol ArtRepositoryProtocol {
-    func fetchDetailArtInfo(artId: Int) -> Observable<DetailArt>
+    func fetchDetailArtInfo(artId: Int, uid: Int) -> Observable<DetailArt>
 }
 

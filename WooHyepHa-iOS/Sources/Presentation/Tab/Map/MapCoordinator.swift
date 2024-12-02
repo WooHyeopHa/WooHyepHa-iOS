@@ -14,6 +14,7 @@ final class MapCoordinator: Coordinator {
     
     var navigationController: UINavigationController
     
+    private let tokenStorage = TokenStorage.shared
     private let mapRepository: MapRepository
     private let artRepository: ArtRepository
     
@@ -35,7 +36,13 @@ final class MapCoordinator: Coordinator {
 
 extension MapCoordinator {
     func goToDetailInfoViewController(artId: Int) {
-        let detailInfoViewModel = DetailInfoViewModel(coordinator: self, artUseCase: artUseCase, artId: artId)
+        guard let uidString = try? tokenStorage.loadToken(type: .uid),
+              let uid = Int(uidString) else {
+            print("토큰 로드 실패")
+            return
+        }
+        
+        let detailInfoViewModel = DetailInfoViewModel(coordinator: self, artUseCase: artUseCase, artId: artId, uid: Int(uid))
         let detailInfoViewController = DetailInfoViewController(viewModel: detailInfoViewModel)
         navigationController.pushViewController(detailInfoViewController, animated: true)
     }

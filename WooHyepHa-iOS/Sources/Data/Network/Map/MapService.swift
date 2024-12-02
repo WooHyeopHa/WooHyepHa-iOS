@@ -9,7 +9,7 @@ import Moya
 
 public enum MapService {
     case fetchArtMapList
-    case fetchDetailArtInfo(artId: Int)
+    case fetchDetailArtInfo(artId: Int, uid: Int)
 }
 
 extension MapService: AuthorizedTargetType {
@@ -30,8 +30,8 @@ extension MapService: TargetType {
         switch self {
         case .fetchArtMapList:
             return "/v1/map/info"
-        case .fetchDetailArtInfo(let artId):
-            return "/v1/art/one/\(artId)"
+        case .fetchDetailArtInfo(let artId, let uid):
+            return "/v1/art/one/\(artId)/\(uid)"
         }
     }
     

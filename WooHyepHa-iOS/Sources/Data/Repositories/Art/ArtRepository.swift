@@ -12,17 +12,16 @@ final class ArtRepository: ArtRepositoryProtocol {
     
     private let disposeBag = DisposeBag()
 
-    private let service = MoyaProvider<MapService>()
+    private let service = MoyaProvider<MapService>(plugins: [TokenPlugin()])
     
     init() { }
 
-    func fetchDetailArtInfo(artId: Int) -> Observable<DetailArt> {
-        return service.rx.request(.fetchDetailArtInfo(artId: artId))
+    func fetchDetailArtInfo(artId: Int, uid: Int) -> Observable<DetailArt> {
+        return service.rx.request(.fetchDetailArtInfo(artId: artId, uid: uid))
             .filterSuccessfulStatusCodes()
             .map { response -> DetailArt in
                 print("상태 코드 : \(response.statusCode)")
                 let res = try JSONDecoder().decode(DetailArtResponsesDTO.self, from: response.data)
-                print(res)
                 return res.toEntity()
             }.asObservable()
             .catch { error in
