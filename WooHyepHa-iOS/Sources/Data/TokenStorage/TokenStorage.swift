@@ -106,6 +106,12 @@ final class TokenStorage {
         do {
             let hasAccessToken = try loadToken(type: .access) != nil
             let hasRefreshToken = try loadToken(type: .refresh) != nil
+            let at = try loadToken(type: .access)
+            let rt = try loadToken(type: .refresh)
+            let uid = try loadToken(type: .uid)
+            print("at:\(at)")
+            print("rt:\(rt)")
+            print("uid:\(uid)")
             return hasAccessToken && hasRefreshToken
         } catch {
             return false

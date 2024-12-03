@@ -96,6 +96,7 @@
 		9EA993EC2CDC51AB0047DC5E /* DetailInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993EB2CDC51AB0047DC5E /* DetailInfoViewModel.swift */; };
 		9EA993EE2CF9CB2C0047DC5E /* TokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993ED2CF9CB2C0047DC5E /* TokenPlugin.swift */; };
 		9EA993F02CFD9FCD0047DC5E /* DetailInfoThumbnailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993EF2CFD9FCD0047DC5E /* DetailInfoThumbnailView.swift */; };
+		9EA993F42CFF3E2B0047DC5E /* RefreshAccessTokenResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EA993F32CFF3E2B0047DC5E /* RefreshAccessTokenResponseDTO.swift */; };
 		9ED121562CA2B28100C7696E /* Poppins-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */; };
 		9ED121592CA416ED00C7696E /* RegisterNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */; };
 		9ED1215D2CA4234500C7696E /* RegisterNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */; };
@@ -253,6 +254,7 @@
 		9EA993EB2CDC51AB0047DC5E /* DetailInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoViewModel.swift; sourceTree = "<group>"; };
 		9EA993ED2CF9CB2C0047DC5E /* TokenPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenPlugin.swift; sourceTree = "<group>"; };
 		9EA993EF2CFD9FCD0047DC5E /* DetailInfoThumbnailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoThumbnailView.swift; sourceTree = "<group>"; };
+		9EA993F32CFF3E2B0047DC5E /* RefreshAccessTokenResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshAccessTokenResponseDTO.swift; sourceTree = "<group>"; };
 		9ED121552CA2B28100C7696E /* Poppins-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Medium.ttf"; sourceTree = "<group>"; };
 		9ED121582CA416ED00C7696E /* RegisterNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewController.swift; sourceTree = "<group>"; };
 		9ED1215C2CA4234500C7696E /* RegisterNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNicknameViewModel.swift; sourceTree = "<group>"; };
@@ -898,6 +900,14 @@
 			path = Art;
 			sourceTree = "<group>";
 		};
+		9EA993F22CFF3DE00047DC5E /* Token */ = {
+			isa = PBXGroup;
+			children = (
+				9EA993F32CFF3E2B0047DC5E /* RefreshAccessTokenResponseDTO.swift */,
+			);
+			path = Token;
+			sourceTree = "<group>";
+		};
 		9ED121572CA416D000C7696E /* RegisterNickname */ = {
 			isa = PBXGroup;
 			children = (
@@ -1217,6 +1227,7 @@
 		9ED122052C7C60DF0066C679 /* DTOs */ = {
 			isa = PBXGroup;
 			children = (
+				9EA993F22CFF3DE00047DC5E /* Token */,
 				9ED122062C7C60E30066C679 /* Auth */,
 				9ED121A62CB8EE5500C7696E /* Home */,
 				9E6326E92CC8F56200F661A9 /* Map */,
@@ -1448,6 +1459,7 @@
 				9ED1220C2C7C61E00066C679 /* SignInResult.swift in Sources */,
 				9E5906692C4F993C00647DEE /* ViewController.swift in Sources */,
 				9ED121A22CB8EA0400C7696E /* HomeRepositoryProtocol.swift in Sources */,
+				9EA993F42CFF3E2B0047DC5E /* RefreshAccessTokenResponseDTO.swift in Sources */,
 				9EA993DD2CDC49EE0047DC5E /* DetailArtResponsesDTO.swift in Sources */,
 				9EA993E22CDC4FCF0047DC5E /* ArtUseCase.swift in Sources */,
 				9E6679402C76D2AA00832440 /* RegisterPreferenceViewController.swift in Sources */,
